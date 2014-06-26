@@ -66,7 +66,6 @@ namespace MultiScript.Forms
         {
             chkRemoveSuccessfulLog.Checked = preferences.RemoveSuccessfulLogs;
             txtDefaultFolderLocation.Text = preferences.DefaultFolderLocation;
-            chkRegisterContextMenu.Checked = preferences.RegisterContextMenu;
         }
 
         private Preferences GatherPreferencesFromForm()
@@ -75,7 +74,6 @@ namespace MultiScript.Forms
                        {
                            RemoveSuccessfulLogs = chkRemoveSuccessfulLog.Checked,
                            DefaultFolderLocation = txtDefaultFolderLocation.Text.TrimSafely(),
-                           RegisterContextMenu = chkRegisterContextMenu.Checked,
                        };
         }
         #endregion
