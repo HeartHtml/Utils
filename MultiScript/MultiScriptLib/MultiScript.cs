@@ -1,11 +1,68 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
-using JS.Entities.ExtensionMethods;
 
 namespace MultiScriptLib
 {
     public class MultiScript
     {
+        /// <summary>
+        /// Returns true if value contains any value in valueToCheck
+        /// </summary>
+        /// <param name="value" />
+        /// <param name="valuesToCheck" />
+        /// <param name="comparison" />
+        /// <returns />
+        public static bool ContainsAny(string value,
+                                       IEnumerable<string> valuesToCheck,
+                                       StringComparison comparison = StringComparison.InvariantCultureIgnoreCase)
+        {
+            bool contains = false;
+
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                foreach (string valueToCheck in valuesToCheck)
+                {
+                    switch (comparison)
+                    {
+                        case StringComparison.CurrentCultureIgnoreCase:
+                        case StringComparison.InvariantCultureIgnoreCase:
+                        case StringComparison.OrdinalIgnoreCase:
+                            contains = value.ToUpper().Trim().Contains(valueToCheck.ToUpper().Trim());
+                            break;
+
+                        default:
+                            contains = value.Trim().Contains(valueToCheck.Trim());
+                            break;
+                    }
+
+                    if (contains)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return contains;
+        }
+
+        /// <summary>
+        /// Removes all strings from string
+        /// </summary>
+        /// <param name="value" />
+        /// <param name="delims" />
+        /// <returns />
+        public static string RemoveStrings(string value, params string[] delims)
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                value = delims.Aggregate(value, (current, delim) => current.Replace(delim, string.Empty));
+            }
+
+            return value;
+        }
+
         public static void RunMultiScriptCommandLine(CommandLineArguments commandLineArguments)
         {
             commandLineArguments.RunScriptsAsync();
@@ -86,22 +143,22 @@ namespace MultiScriptLib
 
         public static EnumDataBase ParseDatabaseFromString(string databaseName)
         {
-            if (databaseName.SafeEquals(Resources.AccountsDb))
+            if (databaseName.Equals(Resources.AccountsDb))
             {
                 return EnumDataBase.Accounts;
             }
 
-            if (databaseName.SafeEquals(Resources.SyncDb))
+            if (databaseName.Equals(Resources.SyncDb))
             {
                 return EnumDataBase.Sync;
             }
 
-            if (databaseName.SafeEquals(Resources.SmsDb))
+            if (databaseName.Equals(Resources.SmsDb))
             {
                 return EnumDataBase.Sms;
             }
 
-            if (databaseName.SafeEquals(Resources.MdmDb))
+            if (databaseName.Equals(Resources.MdmDb))
             {
                 return EnumDataBase.MDM;
             }
@@ -111,27 +168,27 @@ namespace MultiScriptLib
 
         public static EnumEnvironments ParseServerEnvironmentFromString(string serverName)
         {
-            if (serverName.SafeEquals(Resources.DevServer))
+            if (serverName.Equals(Resources.DevServer))
             {
                 return EnumEnvironments.Development;
             }
 
-            if (serverName.SafeEquals(Resources.StageServer))
+            if (serverName.Equals(Resources.StageServer))
             {
                 return EnumEnvironments.Stage;
             }
 
-            if (serverName.SafeEquals(Resources.PreprodServer))
+            if (serverName.Equals(Resources.PreprodServer))
             {
                 return EnumEnvironments.PreProduction;
             }
 
-            if (serverName.SafeEquals(Resources.UatServer))
+            if (serverName.Equals(Resources.UatServer))
             {
                 return EnumEnvironments.Uat;
             }
 
-            if (serverName.SafeEquals(Resources.ProductionServer))
+            if (serverName.Equals(Resources.ProductionServer))
             {
                 return EnumEnvironments.Production;
             }

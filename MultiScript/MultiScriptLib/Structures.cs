@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using JS.Entities.ExtensionMethods;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
+using UtilsLib.ExtensionMethods;
 
 namespace MultiScriptLib
 {
@@ -31,6 +31,36 @@ namespace MultiScriptLib
         Sms = 2,
         Sync = 3,
         MDM = 4
+    }
+
+    [Serializable]
+    public class RegisteredConnectionString {
+        
+        public Guid? ConnectionStringId { get; set; }
+
+        public string ConnectionString { get; set; }
+
+        public string DisplayName { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Display Name - {0}, Connection String: {1}", DisplayName, ConnectionString);
+        }
+    }
+
+    [Serializable]
+    public class RegisteredServer
+    {
+        public Guid? ServerId { get; set; }
+
+        public string ServerName { get; set; }
+
+        public List<RegisteredConnectionString> ConnectionStrings { get; set; }
+
+        public RegisteredServer()
+        {
+            ConnectionStrings = new List<RegisteredConnectionString>();
+        }
     }
 
     /// <summary>
@@ -109,13 +139,11 @@ namespace MultiScriptLib
 
         public List<StoredProcedure> ErrorProcedures { get; set; }
         public List<StoredProcedure> DupedProcedures { get; set; }
-        public List<NewArticle> NewArticleNames { get; set; }
 
         public FolderToRun()
         {
             ErrorProcedures = new List<StoredProcedure>();
             DupedProcedures = new List<StoredProcedure>();
-            NewArticleNames = new List<NewArticle>();
         }
 
         public string ServerName
@@ -124,15 +152,14 @@ namespace MultiScriptLib
             {
                 string server = string.Empty;
 
-                if (!ConnectionString.IsNullOrWhiteSpace())
+                if (!string.IsNullOrWhiteSpace(ConnectionString))
                 {
                     string[] connectionParts = ConnectionString.Split(';');
                     if (connectionParts.Length > 1)
                     {
                         foreach (string[] keyValue in connectionParts.Select(connectionPart => connectionPart.Split('='))
                                                                      .Where(keyValue => connectionParts.Length > 1)
-                                                                     .Where(keyValue => keyValue[0].Contains("data source",
-                                                                                                             StringComparison.InvariantCultureIgnoreCase)))
+                                                                     .Where(keyValue => keyValue[0].ToLower().Contains("data source")))
                         {
                             server = keyValue[1];
                         }
@@ -228,40 +255,6 @@ namespace MultiScriptLib
         private static bool AnyErrorsOrWarnings { get; set; }
 
         private static List<FolderToRun> SelectedFoldersToRun { get; set; }
-
-        public static string GetNewArticlesString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            if (NewArticlesForBatch.SafeAny())
-            {
-                builder.AppendLine("The following articles are potentially being introduced with this batch run and are possible candidates for replication:");
-                builder.AppendLine();
-
-                foreach (NewArticle article in NewArticlesForBatch.OrderBy(dd => dd.ArticleType))
-                {
-                    builder.AppendLine(string.Format("-> Article Type: {0} - Article Name: {1}", article.ArticleType.IsNullOrWhiteSpace() ? "Unknown Type" : article.ArticleType, article.ArticleName));
-                }
-            }
-
-            return builder.ToString();
-        }
-
-        public static List<NewArticle> NewArticlesForBatch
-        {
-            get
-            {
-                List<NewArticle> newArticles = new List<NewArticle>();
-
-                foreach (FolderToRun folderToRun in SelectedFoldersToRun)
-                {
-                    newArticles.AddRange(folderToRun.NewArticleNames);
-                }
-
-                return newArticles;
-            }
-        }
- 
 
         public static int NextSequenceNumber { get { return SelectedFoldersToRun.SafeAny() ? SelectedFoldersToRun.Max(f => f.SequenceNumber) + 1 : 1; } }
 
@@ -537,31 +530,9 @@ namespace MultiScriptLib
                             "ALTER PROC",
                         };
 
-                            bool isNewItem = newLine.Contains("CREATE");
-
                             string articleType = string.Empty;
 
                             string itemName = string.Empty;
-
-                            if (isNewItem)
-                            {
-                                StringBuilder articleTypeBuilder = new StringBuilder();
-
-                                foreach (string type in articleTypes)
-                                {
-                                    if (newLine.Contains(type))
-                                    {
-                                        articleTypeBuilder.Append(type + "/");
-                                    }
-                                }
-
-                                articleType = articleTypeBuilder.ToString();
-
-                                if (!articleType.IsNullOrWhiteSpace())
-                                {
-                                    articleType = articleType.RemoveLastInstanceOfWord("/");
-                                }
-                            }
 
                             string[] words = newLine.Split(' ');
 
@@ -602,13 +573,6 @@ namespace MultiScriptLib
                                                                                         itemName));
                                 }
                             }
-
-                            if (isNewItem)
-                            {
-                                NewArticle article = new NewArticle { ArticleName = itemName, ArticleType = articleType };
-
-                                folderToRun.NewArticleNames.Add(article);
-                            }
                         }
 
                         procedureNames.Sort(string.CompareOrdinal);
@@ -646,20 +610,6 @@ namespace MultiScriptLib
                 }
 
                 SaveFile(folderToRun);
-            }
-
-            if (FoldersToRun.NewArticlesForBatch.SafeAny())
-            {
-                FileInfo info = new FileInfo(MainFolderToRun);
-
-                CurrentSaveAsFileName = Path.Combine(MainFolderToRun,
-                    string.Format(Resources.NewArticlesLogFileName,
-                        info.Name,
-                        DateTime.Now.ToString(Resources.DateTimeDefaultFormat)));
-
-                SaveFile(FoldersToRun.GetNewArticlesString());
-
-                CurrentSaveAsFileName = string.Empty;
             }
 
             if (FoldersToRun.NoErrorsOrWarningsEncountered)

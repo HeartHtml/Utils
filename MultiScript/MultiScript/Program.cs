@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
-using JS.Entities.ExtensionMethods;
 using MultiScript.Forms;
+using UtilsLib.ExtensionMethods;
 
 namespace MultiScript
 {
@@ -17,7 +18,7 @@ namespace MultiScript
             string folderToUse = string.Empty;
 
             string[] args = Environment.GetCommandLineArgs() ;
-            if (args.SafeAny())
+            if (args.Any())
             {
                 try
                 {
@@ -38,7 +39,7 @@ namespace MultiScript
 
             MainForm mainForm = new MainForm();
 
-            if (!folderToUse.IsNullOrWhiteSpace())
+            if (!string.IsNullOrWhiteSpace(folderToUse))
             {
                 mainForm.SetFolder(folderToUse);
             }

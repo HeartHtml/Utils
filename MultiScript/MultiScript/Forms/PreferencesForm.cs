@@ -2,9 +2,8 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
-using JS.Entities;
-using JS.Entities.ExtensionMethods;
 using MultiScriptLib;
+using UtilsLib.ExtensionMethods;
 
 namespace MultiScript.Forms
 {

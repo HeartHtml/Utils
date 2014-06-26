@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Windows.Forms;
 using ADODB;
-using JS.Entities.ExtensionMethods;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
 using MSDASC;
 using MultiScriptLib;
+using UtilsLib.ExtensionMethods;
 using Resources = MultiScript.Properties.Resources;
 using StoredProcedure = MultiScriptLib.StoredProcedure;
 
@@ -29,9 +31,7 @@ namespace MultiScript.Forms
                     {
                         RemoveSuccessfulLogs = RemoveSuccessfulLogs,
                         DefaultFolderLocation = DefaultFolderLocation,
-                        DefaultEnvironment = DefaultEnvironment,
-                        RegisterContextMenu = RegisterContextMenu,
-                        AutoAddFolders = AutoAddFolders
+                        RegisterContextMenu = RegisterContextMenu
                     };
             }
         }
@@ -56,16 +56,6 @@ namespace MultiScript.Forms
             }
         }
 
-        private static EnumEnvironments DefaultEnvironment
-        {
-            get { return Properties.Settings.Default.DefaultEnvironment; }
-            set
-            {
-                Properties.Settings.Default.DefaultEnvironment = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-
         private static bool RegisterContextMenu
         {
             get { return Properties.Settings.Default.RegisterContextMenu; }
@@ -76,15 +66,11 @@ namespace MultiScript.Forms
             }
         }
 
-        private static bool AutoAddFolders
+        private List<RegisteredServer> RegisteredServers
         {
-            get { return Properties.Settings.Default.AutoAddFolders; }
-            set
-            {
-                Properties.Settings.Default.AutoAddFolders = value;
-                Properties.Settings.Default.Save();
-            }
+            get; set;
         }
+ 
 
         #endregion
 
@@ -93,21 +79,20 @@ namespace MultiScript.Forms
         public MainForm()
         {
             InitializeComponent();
+
+            RegisteredServers = new List<RegisteredServer>();
+
             SetFolder(DefaultFolderLocation);
             CheckFoldersReadyToRun();
             StartPosition = FormStartPosition.CenterScreen;
             SetContextMenu();
+            LoadRegisteredServers();
         }
 
         #region Helper Methods
         public void SetFolder(string folderLocation)
         {
             txtScriptFolder.Text = folderLocation.TrimSafely();
-
-            if (AutoAddFolders)
-            {
-                AddSubFolders();
-            }
         }
 
         private void ShowConnectionDialog()
@@ -154,20 +139,6 @@ namespace MultiScript.Forms
                 RunMultiScript(folderToRun, progressReporter);
 
                 SaveFile(folderToRun);
-            }
-
-            if (FoldersToRun.NewArticlesForBatch.SafeAny())
-            {
-                FileInfo info = new FileInfo(txtScriptFolder.Text);
-
-                CurrentSaveAsFileName = Path.Combine(txtScriptFolder.Text.TrimSafely(),
-                    string.Format(Resources.NewArticlesLogFileName,
-                        info.Name,
-                        DateTime.Now.ToString(Resources.DateTimeDefaultFormat)));
-
-                SaveFile(FoldersToRun.GetNewArticlesString());
-
-                CurrentSaveAsFileName = string.Empty;
             }
         }
 
@@ -251,31 +222,7 @@ namespace MultiScript.Forms
                             "ALTER PROC",
                         };
 
-                        bool isNewItem = newLine.Contains("CREATE");
-
-                        string articleType = string.Empty;
-
                         string itemName = string.Empty;
-
-                        if (isNewItem)
-                        {
-                            StringBuilder articleTypeBuilder = new StringBuilder();
-
-                            foreach (string type in articleTypes)
-                            {
-                                if (newLine.Contains(type))
-                                {
-                                    articleTypeBuilder.Append(type + "/");
-                                }
-                            }
-
-                            articleType = articleTypeBuilder.ToString();
-
-                            if (!articleType.IsNullOrWhiteSpace())
-                            {
-                                articleType = articleType.RemoveLastInstanceOfWord("/");
-                            }
-                        }
 
                         string[] words = newLine.Split(' ');
 
@@ -316,13 +263,6 @@ namespace MultiScript.Forms
                                                                                     itemName));
                             }
                         }
-
-                        if (isNewItem)
-                        {
-                            NewArticle article = new NewArticle { ArticleName = itemName, ArticleType = articleType };
-
-                            folderToRun.NewArticleNames.Add(article);
-                        }
                     }
 
                     procedureNames.Sort(string.CompareOrdinal);
@@ -349,6 +289,114 @@ namespace MultiScript.Forms
                 }
             }
         }
+
+        private void LoadRegisteredServers()
+        {
+            string registeredServersEncoded = Properties.Settings.Default.RegisteredServers;
+
+            if (!registeredServersEncoded.IsNullOrWhiteSpace())
+            {
+                byte[] registredServerBytes = Convert.FromBase64String(registeredServersEncoded);
+
+                object servers = registredServerBytes.ToObjectFromBinary();
+
+                if (servers is IEnumerable<RegisteredServer>)
+                {
+                    List<RegisteredServer> serverList = servers as List<RegisteredServer>;
+
+                    if (serverList != null)
+                    {
+                        RegisteredServers = serverList;
+
+                        LoadMenuFromRegisteredServers(RegisteredServers);
+                    }
+                }
+            }
+        }
+
+        private void SaveRegisteredServers()
+        {
+            string encodedString = Convert.ToBase64String(RegisteredServers.ToBinary());
+
+            Properties.Settings.Default.RegisteredServers = encodedString;
+        }
+
+        private void LoadMenuFromRegisteredServers(IEnumerable<RegisteredServer> servers)
+        {
+            serversToolStripMenuItem.DropDownItems.Clear();
+
+            ToolStripMenuItem addServer = new ToolStripMenuItem("Add New");
+
+            addServer.Click += addNewToolStripMenuItem_Click;
+
+            ToolStripSeparator separator = new ToolStripSeparator();
+
+            serversToolStripMenuItem.DropDownItems.Add(addServer);
+
+            serversToolStripMenuItem.DropDownItems.Add(separator);
+
+            foreach (RegisteredServer server in servers.OrderBy(dd => dd.ServerName))
+            {
+                ToolStripDropDownItem serverItem = new ToolStripMenuItem(server.ServerName);
+
+                serverItem.Tag = server;
+
+                serverItem.MouseDown += ShowServerEditDetails;
+
+                foreach (RegisteredConnectionString connectionString in server.ConnectionStrings.OrderBy(dd => dd.DisplayName))
+                {
+                    ToolStripDropDownItem connItem = new ToolStripDropDownButton(connectionString.DisplayName);
+
+                    connItem.Tag = connectionString;
+
+                    connItem.Click += SetConnectionString;
+
+                    connItem.Width = 100;
+
+                    serverItem.DropDownItems.Add(connItem);
+                }
+
+                serversToolStripMenuItem.DropDownItems.Add(serverItem);
+            }
+        }
+
+        private void ShowServerEditDetails(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ToolStripDropDownItem item = sender as ToolStripDropDownItem;
+
+                if (item != null)
+                {
+                    RegisteredServer server = item.Tag as RegisteredServer;
+
+                    if (server != null)
+                    {
+                        serverMenuStrip.Tag = server;
+
+                        Point screenPoint = PointToScreen(e.Location);
+
+                        serverMenuStrip.Show(screenPoint.X + 100, screenPoint.Y);
+                    }
+                }
+            }
+        }
+
+        private void SetConnectionString(object sender, EventArgs e)
+        {
+            ToolStripDropDownItem item = sender as ToolStripDropDownItem;
+
+            if (item != null)
+            {
+                RegisteredConnectionString connectionString = item.Tag as RegisteredConnectionString;
+
+                if (connectionString != null)
+                {
+                    txtConnectionString.Text = connectionString.ConnectionString;
+                }
+            }
+        }
+
 
         private void SaveFile(string fileContents)
         {
@@ -805,9 +853,7 @@ namespace MultiScript.Forms
                     Preferences prefs = form.MultiScriptPreferences;
                     RemoveSuccessfulLogs = prefs.RemoveSuccessfulLogs;
                     DefaultFolderLocation = prefs.DefaultFolderLocation;
-                    DefaultEnvironment = prefs.DefaultEnvironment;
                     RegisterContextMenu = prefs.RegisterContextMenu;
-                    AutoAddFolders = prefs.AutoAddFolders;
                     SetFolder(DefaultFolderLocation);
                     SetContextMenu();
                 }
@@ -859,10 +905,6 @@ namespace MultiScript.Forms
         }
         #endregion
 
-        private void dEVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
         #endregion
 
         private void clearConnectionStringToolStripMenuItem_Click(object sender, EventArgs e)
@@ -870,124 +912,76 @@ namespace MultiScript.Forms
             txtConnectionString.Text = string.Empty;
         }
 
-        private void devAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Development,
-                                                                                      EnumDataBase.Accounts);
+            RegisterServer serverForm = new RegisterServer();
+
+            serverForm.Saved += ServerForm_Saved;
+
+            serverForm.Show();
+
+            serverForm.FocusOnServerName();
         }
 
-        private void syncToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ServerForm_Saved(object sender, EventArgs e)
         {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Development,
-                EnumDataBase.Sync);
+            RegisterServer serverForm = sender as RegisterServer;
+
+            if (serverForm != null)
+            {
+                RegisteredServer server = serverForm.Server;
+
+                if (server != null)
+                {
+                    RegisteredServers.RemoveAll(dd => dd.ServerId.Equals(server.ServerId));
+
+                    RegisteredServers.Add(server);
+
+                    SaveRegisteredServers();
+
+                    LoadMenuFromRegisteredServers(RegisteredServers);
+                }
+            }
         }
 
-        private void smsToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Development,
-                EnumDataBase.Sms);
+            ToolStripDropDownItem strip = sender as ToolStripDropDownItem;
+
+            if (strip != null)
+            {
+                RegisteredServer server = serverMenuStrip.Tag as RegisteredServer;
+
+                if (server != null)
+                {
+                    RegisterServer serverForm = new RegisterServer {Server = server};
+
+                    serverForm.Saved += ServerForm_Saved;
+
+                    serverForm.Show();
+
+                    serverForm.FocusOnServerName();
+                }
+            }
         }
 
-        private void stageAccountsToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Stage,
-                                                                                      EnumDataBase.Accounts);
-        }
+            ToolStripDropDownItem strip = sender as ToolStripDropDownItem;
 
-        private void syncToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Stage,
-               EnumDataBase.Sync);
-        }
+            if (strip != null)
+            {
+                RegisteredServer server = serverMenuStrip.Tag as RegisteredServer;
 
-        private void smsToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Stage,
-               EnumDataBase.Sms);
-        }
+                if (server != null)
+                {
+                    RegisteredServers.RemoveAll(dd => dd.ServerId.Equals(server.ServerId));
 
-        private void preProdAccountsToolStripMenuItem2Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.PreProduction,
-                                                                                      EnumDataBase.Accounts);
-        }
+                    SaveRegisteredServers();
 
-        private void syncToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.PreProduction,
-                                                                                      EnumDataBase.Sync);
-        }
-
-        private void smsToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.PreProduction,
-                                                                                      EnumDataBase.Sms);
-        }
-
-        private void accountsToolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Production,
-                EnumDataBase.Accounts, true);
-        }
-
-        private void smsToolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Production,
-                EnumDataBase.Sms, true);
-        }
-
-        private void syncToolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Production,
-               EnumDataBase.Sync, true);
-        }
-
-        private void mDMToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Development,
-                EnumDataBase.MDM);
-        }
-
-        private void mDMToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Stage,
-                EnumDataBase.MDM);
-        }
-
-        private void mDMToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.PreProduction,
-                EnumDataBase.MDM);
-        }
-
-        private void mDMToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Production,
-               EnumDataBase.MDM, true);
-        }
-
-        private void accountsToolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Uat,
-               EnumDataBase.Accounts);
-        }
-
-        private void syncToolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Uat,
-               EnumDataBase.Sync);
-        }
-
-        private void smsToolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Uat,
-              EnumDataBase.Sms);
-        }
-
-        private void mDMToolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            txtConnectionString.Text = MultiScriptLib.MultiScript.GetConnectionString(EnumEnvironments.Uat,
-             EnumDataBase.MDM);
+                    LoadMenuFromRegisteredServers(RegisteredServers);
+                }
+            }
         }
     }
 }

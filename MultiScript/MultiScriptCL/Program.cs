@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
-using JS.Entities.ExtensionMethods;
 using MultiScriptLib;
+using UtilsLib.ExtensionMethods;
 
 namespace MultiScriptCL
 {

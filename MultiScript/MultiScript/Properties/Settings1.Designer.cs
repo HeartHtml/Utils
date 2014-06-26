@@ -37,18 +37,6 @@ namespace MultiScript.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Development")]
-        public global::MultiScriptLib.EnumEnvironments DefaultEnvironment {
-            get {
-                return ((global::MultiScriptLib.EnumEnvironments)(this["DefaultEnvironment"]));
-            }
-            set {
-                this["DefaultEnvironment"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool RegisterContextMenu {
             get {
@@ -56,18 +44,6 @@ namespace MultiScript.Properties {
             }
             set {
                 this["RegisterContextMenu"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoAddFolders {
-            get {
-                return ((bool)(this["AutoAddFolders"]));
-            }
-            set {
-                this["AutoAddFolders"] = value;
             }
         }
         
@@ -89,6 +65,18 @@ namespace MultiScript.Properties {
             }
             set {
                 this["DefaultFolderLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RegisteredServers {
+            get {
+                return ((string)(this["RegisteredServers"]));
+            }
+            set {
+                this["RegisteredServers"] = value;
             }
         }
     }

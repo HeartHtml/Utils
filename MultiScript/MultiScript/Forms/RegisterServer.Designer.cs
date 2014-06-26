@@ -28,19 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblServerName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtServerName = new System.Windows.Forms.TextBox();
-            this.ltDatabases = new System.Windows.Forms.ListBox();
-            this.lblDatabase = new System.Windows.Forms.Label();
             this.lblConnectionStringName = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDisplayName = new System.Windows.Forms.TextBox();
+            this.lblDatabase = new System.Windows.Forms.Label();
+            this.ltConnectionStrings = new System.Windows.Forms.ListBox();
+            this.connectionStringsMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblConnectionString = new System.Windows.Forms.Label();
             this.txtConnectionString = new System.Windows.Forms.TextBox();
             this.btnSaveConnectionString = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.ConnectionStringErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ServerErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            this.connectionStringsMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConnectionStringErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ServerErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblServerName
@@ -57,13 +65,13 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.56757F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.43243F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.tableLayoutPanel1.Controls.Add(this.txtServerName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblServerName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblConnectionStringName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtDisplayName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblDatabase, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.ltDatabases, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.ltConnectionStrings, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblConnectionString, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtConnectionString, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnSaveConnectionString, 2, 1);
@@ -81,25 +89,8 @@
             // 
             this.txtServerName.Location = new System.Drawing.Point(79, 3);
             this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(355, 20);
+            this.txtServerName.Size = new System.Drawing.Size(351, 20);
             this.txtServerName.TabIndex = 1;
-            // 
-            // ltDatabases
-            // 
-            this.ltDatabases.FormattingEnabled = true;
-            this.ltDatabases.Location = new System.Drawing.Point(79, 95);
-            this.ltDatabases.Name = "ltDatabases";
-            this.ltDatabases.Size = new System.Drawing.Size(355, 69);
-            this.ltDatabases.TabIndex = 2;
-            // 
-            // lblDatabase
-            // 
-            this.lblDatabase.AutoSize = true;
-            this.lblDatabase.Location = new System.Drawing.Point(3, 92);
-            this.lblDatabase.Name = "lblDatabase";
-            this.lblDatabase.Size = new System.Drawing.Size(61, 26);
-            this.lblDatabase.TabIndex = 3;
-            this.lblDatabase.Text = "Saved Databases:";
             // 
             // lblConnectionStringName
             // 
@@ -110,30 +101,46 @@
             this.lblConnectionStringName.TabIndex = 5;
             this.lblConnectionStringName.Text = "Connection String Name:";
             // 
-            // btnSave
+            // txtDisplayName
             // 
-            this.btnSave.Location = new System.Drawing.Point(369, 196);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.txtDisplayName.Location = new System.Drawing.Point(79, 28);
+            this.txtDisplayName.Name = "txtDisplayName";
+            this.txtDisplayName.Size = new System.Drawing.Size(351, 20);
+            this.txtDisplayName.TabIndex = 2;
             // 
-            // btnCancel
+            // lblDatabase
             // 
-            this.btnCancel.Location = new System.Drawing.Point(455, 196);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.lblDatabase.AutoSize = true;
+            this.lblDatabase.Location = new System.Drawing.Point(3, 92);
+            this.lblDatabase.Name = "lblDatabase";
+            this.lblDatabase.Size = new System.Drawing.Size(64, 39);
+            this.lblDatabase.TabIndex = 3;
+            this.lblDatabase.Text = "Saved Connection Strings:";
             // 
-            // textBox1
+            // ltConnectionStrings
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(355, 20);
-            this.textBox1.TabIndex = 6;
+            this.ltConnectionStrings.ContextMenuStrip = this.connectionStringsMenuStrip;
+            this.ltConnectionStrings.FormattingEnabled = true;
+            this.ltConnectionStrings.Location = new System.Drawing.Point(79, 95);
+            this.ltConnectionStrings.Name = "ltConnectionStrings";
+            this.ltConnectionStrings.Size = new System.Drawing.Size(351, 69);
+            this.ltConnectionStrings.TabIndex = 0;
+            this.ltConnectionStrings.SelectedIndexChanged += new System.EventHandler(this.ltConnectionStrings_SelectedIndexChanged);
+            // 
+            // connectionStringsMenuStrip
+            // 
+            this.connectionStringsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.connectionStringsMenuStrip.Name = "connectionStringsMenuStrip";
+            this.connectionStringsMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.connectionStringsMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.connectionStringsMenuStrip_Opening);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // lblConnectionString
             // 
@@ -148,17 +155,46 @@
             // 
             this.txtConnectionString.Location = new System.Drawing.Point(79, 60);
             this.txtConnectionString.Name = "txtConnectionString";
-            this.txtConnectionString.Size = new System.Drawing.Size(355, 20);
-            this.txtConnectionString.TabIndex = 8;
+            this.txtConnectionString.Size = new System.Drawing.Size(351, 20);
+            this.txtConnectionString.TabIndex = 3;
             // 
             // btnSaveConnectionString
             // 
-            this.btnSaveConnectionString.Location = new System.Drawing.Point(440, 28);
+            this.btnSaveConnectionString.Location = new System.Drawing.Point(436, 28);
             this.btnSaveConnectionString.Name = "btnSaveConnectionString";
-            this.btnSaveConnectionString.Size = new System.Drawing.Size(111, 23);
-            this.btnSaveConnectionString.TabIndex = 9;
+            this.btnSaveConnectionString.Size = new System.Drawing.Size(143, 23);
+            this.btnSaveConnectionString.TabIndex = 4;
             this.btnSaveConnectionString.Text = "Save Conn String";
             this.btnSaveConnectionString.UseVisualStyleBackColor = true;
+            this.btnSaveConnectionString.Click += new System.EventHandler(this.btnSaveConnectionString_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(369, 196);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(455, 196);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // ConnectionStringErrorProvider
+            // 
+            this.ConnectionStringErrorProvider.ContainerControl = this;
+            // 
+            // ServerErrorProvider
+            // 
+            this.ServerErrorProvider.ContainerControl = this;
             // 
             // RegisterServer
             // 
@@ -174,6 +210,9 @@
             this.Text = "Register Server";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.connectionStringsMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ConnectionStringErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ServerErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,15 +222,19 @@
         private System.Windows.Forms.Label lblServerName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtServerName;
-        private System.Windows.Forms.ListBox ltDatabases;
+        private System.Windows.Forms.ListBox ltConnectionStrings;
         private System.Windows.Forms.Label lblDatabase;
         private System.Windows.Forms.Label lblConnectionStringName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblConnectionString;
         private System.Windows.Forms.TextBox txtConnectionString;
         private System.Windows.Forms.Button btnSaveConnectionString;
+        private System.Windows.Forms.ErrorProvider ConnectionStringErrorProvider;
+        private System.Windows.Forms.ErrorProvider ServerErrorProvider;
+        private System.Windows.Forms.ContextMenuStrip connectionStringsMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 
     }
 }

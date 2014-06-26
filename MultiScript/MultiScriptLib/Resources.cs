@@ -1,5 +1,4 @@
 ﻿using System.Configuration;
-using JS.Entities.ExtensionMethods;
 
 namespace MultiScriptLib
 {
