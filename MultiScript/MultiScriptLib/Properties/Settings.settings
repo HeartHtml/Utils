@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MultiScriptLib.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SqlUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">gpsuser</Value>
+    </Setting>
+    <Setting Name="SqlPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">uijkui78!</Value>
+    </Setting>
+    <Setting Name="ProductionServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">db.mobilehelp.com</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

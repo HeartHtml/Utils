@@ -1,0 +1,27 @@
+﻿<Window x:Class="LibraryTester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Class Library Tester" Height="600" Width="800" ResizeMode="NoResize" >
+    <Grid HorizontalAlignment="Left" Height="569" VerticalAlignment="Top" Width="792" Background="Gray">
+        <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="792">
+            <MenuItem Header="File">
+                <MenuItem Header="New" HorizontalAlignment="Left" Width="165" Margin="0,0,-28,0" Name="MenuItemNew" Click="MenuItemNew_OnClick"/>
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="165" Name="MenuItemExit" Click="MenuItemExit_OnClick"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="DLL To Analyze: " HorizontalAlignment="Left" Margin="1,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Config File: " HorizontalAlignment="Left" Margin="26,102,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="95,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="500" Name="TxtSelectedDll"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="95,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="500" Name="TxtSelectedConfigFile"/>
+        <Button Content="Browse" HorizontalAlignment="Left" Margin="600,77,0,0" VerticalAlignment="Top" Width="75" Name="BtnBrowseDll" Click="BtnBrowseDll_OnClick"/>
+        <Button Content="Browse" HorizontalAlignment="Left" Margin="600,105,0,0" VerticalAlignment="Top" Width="75" Name="BtnBrowseConfigFile" Click="BtnBrowseConfigFile_OnClick"/>
+        <Button Content="Analyze" HorizontalAlignment="Left" Margin="680,77,0,0" VerticalAlignment="Top" Width="75" Name="BtnAnalyze" Click="BtnAnalyze_OnClick"/>
+        <Label Content="Class Library Tester" HorizontalAlignment="Left" Margin="17,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="24"/>
+        <StackPanel HorizontalAlignment="Left" Height="385" Margin="17,145,0,0" VerticalAlignment="Top" Width="738">
+            <GroupBox Header="GroupBox" Height="383" Name="GroupBoxAssembly">
+                <TreeView HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="726" Name="TreeViewClassLibraryMethods">
+                </TreeView>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>

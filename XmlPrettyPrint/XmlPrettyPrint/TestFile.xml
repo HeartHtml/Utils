@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AlxRequest><Action>CreateRecurringEntry</Action><params><RecurringEntry><customer>516881</customer><otherRef>516881</otherRef>
+            <status>A</status>
+            <begDate>4/18/2014</begDate>
+            <nextBillDate>7/18/2014</nextBillDate>
+            <endDate/>
+            <lastBillDate/>
+            <recurringId/><frequency>Q</frequency>
+            <otherRef2>456903</otherRef2>
+            <description>SystemPlan</description><RecurringEntryDetails>
+                <RecurringEntryDetail>
+                    <product>IT3DT</product>
+                    <units>1</units>
+                    <price>0.50</price>
+                    <amount>0.50</amount>
+                    <lastBillingReferenceType>S</lastBillingReferenceType><lastBillingReferenceNumber>100000</lastBillingReferenceNumber>
+                </RecurringEntryDetail>
+            </RecurringEntryDetails>
+        </RecurringEntry></params>
+</AlxRequest>

@@ -1,0 +1,75 @@
+﻿Version:	5.0.0.8
+Author:	jortega
+Date:	02/08/2013
+Features:
+	• None
+Fixes:
+	• Validate Table Before Generating
+	• Fixed Validation Method In Manager
+	• Removed OrderSystem Connection String
+	• Removed QA and PreProd Level Connection Strings
+	• Fixed Custom Properties at Data and Manager Levels
+
+Version:	5.0.0.7
+Author:	jortega
+Date:	01/21/2013
+Features:
+	• Changed Enum Prompt to be Custom Property Prompt
+Fixes:
+	• Various Validation Method Fixes
+
+Version:	5.0.0.6
+Author:	jortega
+Date:	01/09/2013
+Features:
+	• Removed Unused Generate Buttons
+	• Moved Changelog to Main Menu
+	• Added Enum Prompt to automatically set known enums
+		• Must have Library Location set for Enumerations to be found
+Fixes:
+	• None
+
+Version:	5.0.0.5
+Author:	jortega
+Date:	01/02/2013
+Features:
+	• None
+Fixes:
+	• Fixed Stored Procedures Needing Namespace Validation
+	• Fixed ezGenerate Crashing
+
+Version:	5.0.0.4
+Author:	jortega
+Date:	12/31/2012
+Features:
+	• Allow Custom Names
+	• Refresh Table List
+	• Automate Validate Method
+Fixes:
+	• Fixed LKP Stored Procedure Names in DAO
+	• Fixed Floats in Stored Procedures
+
+Version:	5.0.0.3
+Author:	jortega
+Date:	11/13/2012
+Features:
+	• None
+Fixes:
+	• Fixed Bad Insert Stored Procedure Generation
+
+Version:	5.0.0.2
+Author:	jortega
+Date:	11/09/2012
+Features:
+	• View Schema Check is now multi-threaded.
+	• Any errors found in view schema check are saved to file.
+Fixes:
+	• None
+
+Version:	5.0.0.0
+Author:	jortega
+Date:	11/07/2012
+Features:
+	• Add Changelog Feature
+Fixes:
+	• None

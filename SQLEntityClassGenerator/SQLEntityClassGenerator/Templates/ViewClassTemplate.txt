@@ -1,0 +1,33 @@
+﻿// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+//  [TABLENAME] Entity Layer Object.   
+// </summary>
+// ---------------------------------
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using M3.Entities;
+
+namespace [NAMESPACE]
+{
+	/// <summary>
+	/// [TABLENAME] entity object. 
+	/// </summary>
+	[Serializable]
+	public class [TABLENAME]
+	{
+        [PROPERTIES]
+
+        [CONSTRUCTOR]
+
+		//Returns a proper string denoting this entity
+		public override string ToString()
+		{
+			[TOSTRING]
+		}
+	}
+}

@@ -1,0 +1,27 @@
+﻿// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help 
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+//  [TABLENAME] Search Entity Object.   
+// </summary>
+// ---------------------------------
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using M3.Entities;
+
+namespace [NAMESPACE]
+{
+	/// <summary>
+	/// [TABLENAME] search entity object. 
+	/// </summary>
+	[Serializable]
+	public class [TABLENAME]
+	{
+        [PROPERTIES]
+
+        [CONSTRUCTOR]
+	}
+}

@@ -1,0 +1,35 @@
+// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+// Encapusulate business logic of [TABLENAME].   
+// </summary>
+// ---------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using M3.Data;
+using [DATANAMESPACE];
+using M3.Entities;
+using [ENTITYNAMESPACE];
+
+namespace [NAMESPACE]
+{
+    /// <summary>
+    /// This class encapsulates the business logic of [TABLENAME] entity
+    /// </summary>
+    public static class [TABLENAME]Manager
+    {   
+		/// <summary>
+        /// Searches for [TABLENAME]
+        /// </summary>
+        /// <param name="search" />
+        /// <returns>An IEnumerable set of [TABLENAME]</returns>
+        public static IEnumerable<[TABLENAME]> Search(Search[TABLENAME] search)
+        {            
+			return [TABLENAME]Dao.Search(search);
+        }	
+    }
+}

@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ErrorSavingFile" xml:space="preserve">
+    <value>Error encountered saving file.</value>
+  </data>
+  <data name="GlitchInTheMatrix" xml:space="preserve">
+    <value>Glitch in the Matrix</value>
+  </data>
+  <data name="ErrorCopyingContent" xml:space="preserve">
+    <value>Clipboard encountered an error copying content.</value>
+  </data>
+  <data name="DefaultAuthor" xml:space="preserve">
+    <value>SQLEntityClassGenerator</value>
+  </data>
+  <data name="StoredProceduresCreated" xml:space="preserve">
+    <value>Stored Procedures Created</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="ClassCreated" xml:space="preserve">
+    <value>Class Created</value>
+  </data>
+  <data name="DAOCreated" xml:space="preserve">
+    <value>DAO Created</value>
+  </data>
+  <data name="ManagerCreated" xml:space="preserve">
+    <value>Manager Created</value>
+  </data>
+  <data name="TestsCreated" xml:space="preserve">
+    <value>Tests Created</value>
+  </data>
+  <data name="NonPersistent" xml:space="preserve">
+    <value>.NonPersistent</value>
+  </data>
+  <data name="HasNotBeenImplementedYet" xml:space="preserve">
+    <value>Has not been implemented yet!</value>
+  </data>
+  <data name="CalmItDownPlease" xml:space="preserve">
+    <value>Calm it down, please.</value>
+  </data>
+  <data name="AllLayersHaveBeenGenerated" xml:space="preserve">
+    <value>All layers for this table have been generated</value>
+  </data>
+  <data name="HugeSuccess" xml:space="preserve">
+    <value>HUGE SUCCESS!! EAT CAKE!</value>
+  </data>
+  <data name="ConnectionRequiredForViewSchemaCheck" xml:space="preserve">
+    <value>Connection is required for view schema check!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="NoErrorsOnViewSchemaCheck" xml:space="preserve">
+    <value>No Errors on the view schema</value>
+  </data>
+  <data name="ErrorFound" xml:space="preserve">
+    <value>ErrorsFound</value>
+  </data>
+  <data name="GetPropertiesQuery" xml:space="preserve">
+    <value>SELECT 
+	C.*,
+	( 
+		CASE WHEN EXISTS 
+		( 
+			SELECT 'X'  
+			FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC WITH (NoLock)
+				JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU WITH (NoLock)
+					ON TC.CONSTRAINT_NAME = KCU.CONSTRAINT_NAME AND
+					   TC.CONSTRAINT_TYPE = 'PRIMARY KEY' AND
+					   KCU.COLUMN_NAME = C.COLUMN_NAME AND 
+					   TC.TABLE_NAME = C.TABLE_NAME 
+		) 
+		THEN 1 
+		ELSE 0 
+		END 
+	) as IsPrimaryKey,
+	SC.is_identity AS IsIdentity,
+	SC.is_computed AS IsComputed
+FROM INFORMATION_SCHEMA.COLUMNS C WITH (NoLock)
+	JOIN sys.COLUMNS SC WITH (NoLock)
+		ON C.COLUMN_NAME = SC.name  
+WHERE C.TABLE_NAME = '{0}' AND object_id = object_id('{0}')
+ORDER BY C.ORDINAL_POSITION</value>
+  </data>
+  <data name="GetTablesQuery" xml:space="preserve">
+    <value>SELECT * FROM INFORMATION_SCHEMA.TABLES ORDER BY TABLE_NAME</value>
+  </data>
+  <data name="IsTableAViewQuery" xml:space="preserve">
+    <value>SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE LIKE 'View' AND TABLE_NAME LIKE '{0}'</value>
+  </data>
+  <data name="ViewSchemaQuery" xml:space="preserve">
+    <value>SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE LIKE 'View'</value>
+  </data>
+  <data name="ErrorDeterminingConnectionString" xml:space="preserve">
+    <value>Error while selection connection string. Using default.</value>
+  </data>
+  <data name="ErrorReadingEmbeddedResource" xml:space="preserve">
+    <value>Error while reading embedded resource.</value>
+  </data>
+  <data name="BusinessNamespace" xml:space="preserve">
+    <value>M3.Business</value>
+  </data>
+  <data name="ClassTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ClassTemplate.txt</value>
+  </data>
+  <data name="DAOTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.DaoTemplate.txt</value>
+  </data>
+  <data name="DataNamespace" xml:space="preserve">
+    <value>M3.Data</value>
+  </data>
+  <data name="EntitiesNamespace" xml:space="preserve">
+    <value>M3.Entities</value>
+  </data>
+  <data name="ManagerTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ManagerTemplate.txt</value>
+  </data>
+  <data name="SearchTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.SearchTemplate.txt</value>
+  </data>
+  <data name="SPTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.SPTemplate.txt</value>
+  </data>
+  <data name="TestsNamespace" xml:space="preserve">
+    <value>M3.Tests</value>
+  </data>
+  <data name="TestsTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.TestsTemplate.txt</value>
+  </data>
+  <data name="ViewClassTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ViewClassTemplate.txt</value>
+  </data>
+  <data name="ViewDAOTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ViewDaoTemplate.txt</value>
+  </data>
+  <data name="ViewManagerTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ViewManagerTemplate.txt</value>
+  </data>
+  <data name="ViewSearchTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ViewSearchTemplate.txt</value>
+  </data>
+  <data name="ViewSPTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ViewSPTemplate.txt</value>
+  </data>
+  <data name="ViewTestsTemplate" xml:space="preserve">
+    <value>SQLEntityClassGenerator.Templates.ViewTestsTemplate.txt</value>
+  </data>
+  <data name="AccountsDatabase" xml:space="preserve">
+    <value>accounts</value>
+  </data>
+  <data name="AccountsServerDev" xml:space="preserve">
+    <value>DEVDB01</value>
+  </data>
+  <data name="AccountsServerPreProd" xml:space="preserve">
+    <value>m3db01\m3val</value>
+  </data>
+  <data name="AccountsServerQa" xml:space="preserve">
+    <value>m3db01\m3stage</value>
+  </data>
+  <data name="ConnectionString" xml:space="preserve">
+    <value>integrated security=SSPI;persist security info=False;initial catalog={1};data source={0}</value>
+  </data>
+  <data name="CSharpExt" xml:space="preserve">
+    <value>.cs</value>
+  </data>
+  <data name="CSharpFiles" xml:space="preserve">
+    <value>C# Files (*.cs)|*.cs|All files (*.*)|*.*</value>
+  </data>
+  <data name="DateComparisonStringFormat" xml:space="preserve">
+    <value>dbo.UFN_GetBeginningOfDTTM(@{0}, ''D'') AND DATEADD(MINUTE, -1, DATEADD(DAY, 1, dbo.UFN_GetBeginningOfDTTM(@{0}, ''D'')))</value>
+  </data>
+  <data name="GPSApplication" xml:space="preserve">
+    <value>GPSApplication</value>
+  </data>
+  <data name="NamespaceString" xml:space="preserve">
+    <value>{0}.{1}</value>
+  </data>
+  <data name="RequiredFieldError" xml:space="preserve">
+    <value>Required Field</value>
+  </data>
+  <data name="SQLExt" xml:space="preserve">
+    <value>.sql</value>
+  </data>
+  <data name="SQLFiles" xml:space="preserve">
+    <value>SQL Files (*.sql)|*.sql|All files (*.*)|*.*</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>go-m3</value>
+  </data>
+  <data name="NoColumnsSelected" xml:space="preserve">
+    <value>No Columns Selected!</value>
+  </data>
+  <data name="PleaseSelectAtLeastOneColumn" xml:space="preserve">
+    <value>Please select at least one column.</value>
+  </data>
+  <data name="ParamDocString" xml:space="preserve">
+    <value>        /// &lt;param name="{0}" /&gt;</value>
+  </data>
+  <data name="LinqString" xml:space="preserve">
+    <value>                    {0} = row.GetValue&lt;{2}&gt;("{1}"){3},</value>
+  </data>
+  <data name="PrimaryKeyParamString" xml:space="preserve">
+    <value>                        new SqlParameter("@{0}", {2}{1}),</value>
+  </data>
+  <data name="ParamString" xml:space="preserve">
+    <value>                        new SqlParameter("@{0}", {2}item.{1}),</value>
+  </data>
+  <data name="PrimaryKeysDocumentation" xml:space="preserve">
+    <value>{0}/// &lt;param name="{1}"&gt;Primary Key of {2} table&lt;/param&gt;</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Changelog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Changelog.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ViewSchemaCheckQuery" xml:space="preserve">
+    <value>SELECT TOP 1 * FROM {0}</value>
+  </data>
+  <data name="CheckViewSchemas" xml:space="preserve">
+    <value>Check View Schemas.</value>
+  </data>
+  <data name="CheckingViewSchemas" xml:space="preserve">
+    <value>Currently checking view schemas...</value>
+  </data>
+  <data name="SQLEntityClassGeneratorTitle" xml:space="preserve">
+    <value>SQL Entity Class Generator</value>
+  </data>
+  <data name="ViewSchemaCheckErrorsFound" xml:space="preserve">
+    <value>Errors were found in view schema check. File will be saved.</value>
+  </data>
+  <data name="TXTFiles" xml:space="preserve">
+    <value>Txt Files (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
+  <data name="EnumerationsFileLocation" xml:space="preserve">
+    <value>M3.Entities\Enumerations.cs</value>
+  </data>
+  <data name="IsTableValid" xml:space="preserve">
+    <value>SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME LIKE '{0}'</value>
+  </data>
+  <data name="TableMustBeValid" xml:space="preserve">
+    <value>Table must be valid.</value>
+  </data>
+  <data name="MyResource" xml:space="preserve">
+    <value>Blahhhh</value>
+  </data>
+</root>

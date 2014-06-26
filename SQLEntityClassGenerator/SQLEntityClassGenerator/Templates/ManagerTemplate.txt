@@ -1,0 +1,97 @@
+// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help 
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+// Encapusulate business logic of [TABLENAME].   
+// </summary>
+// ---------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using M3.Data;
+using [DATANAMESPACE];
+using M3.Entities.ExtensionMethods;
+using M3.Entities;
+using [ENTITYNAMESPACE];
+
+namespace [NAMESPACE]
+{
+    /// <summary>
+    /// This class encapsulates the business logic of [TABLENAME] entity
+    /// </summary>
+    public static class [TABLENAME]Manager
+    {        
+        /// <summary>
+        /// Searches for [TABLENAME]
+        /// </summary>
+        /// <param name="search" />
+        /// <returns>An IEnumerable set of [TABLENAME]</returns>
+        public static IEnumerable<[TABLENAME]> Search(Search[TABLENAME] search)
+        {            
+			return [TABLENAME]Dao.Search(search);
+        }	
+	     
+        /// <summary>
+        /// Loads [TABLENAME] by the id parameter
+        /// </summary>
+        [PRIMARYKEYPARAMCOMMENTS]
+        /// <returns>[TABLENAME] entity</returns>
+        public static [TABLENAME] Load([PRIMARYKEYPARAMS])
+        {
+			Search[TABLENAME] search
+				= new Search[TABLENAME]
+					{
+						[PRIMARYKEYSEARCH]
+					};    
+			return Search(search).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Save [TABLENAME] Entity
+        /// </summary>
+        /// <param name="item">Entity to save</param>
+        /// <param name="errorMessage">Error Message</param>
+		/// <returns>return true if save successfully, else return false</returns>
+        public static bool Save([TABLENAME] item, out string errorMessage)
+        {
+            bool isValid = Validate(item, out errorMessage);                     
+            
+			if (isValid)
+			{
+                [TABLENAME]Dao.Save(item);				
+            }	        
+
+            return isValid;
+        }
+
+        /// <summary>
+        /// Validate [TABLENAME] Entity
+        /// </summary>
+        /// <param name="item">Entity to validate</param>
+        /// <param name="errorMessage">error message if vlidation failed</param>
+        /// <returns>return true if entity passes validation logic, else return false</returns>
+        public static bool Validate([TABLENAME] item, out string errorMessage)
+        {
+            // TODO: Provide any further needed validation logic 
+			
+			errorMessage = string.Empty;
+
+			[VALIDATION]
+
+			errorMessage = errorMessage.TrimSafely();
+            
+            return errorMessage.Length == 0;
+        }
+
+        /// <summary>
+        /// Delete a [TABLENAME] entity
+        /// </summary>
+        [PRIMARYKEYPARAMCOMMENTS]
+        public static void Delete([PRIMARYKEYPARAMS])
+        {            
+            [TABLENAME]Dao.Delete([PRIMARYKEYS]);            
+        }
+    }
+}

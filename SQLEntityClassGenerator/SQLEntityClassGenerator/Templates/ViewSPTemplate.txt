@@ -1,0 +1,52 @@
+﻿USE [DATABASE]
+GO
+
+IF EXISTS 
+(
+	SELECT * 
+	FROM sys.objects 
+	WHERE object_id = OBJECT_ID(N'[dbo].[[PREFIX][TABLENAME]_Get]') AND type in (N'P', N'PC')
+)
+BEGIN
+	DROP PROCEDURE [dbo].[[PREFIX][TABLENAME]_Get]
+END
+GO
+
+-- =============================================
+-- Author:		[AUTHOR]
+-- Create Date:	[CREATEDATE]
+-- Description:	Select from [TABLENAME]
+-- =============================================
+CREATE PROCEDURE [dbo].[[PREFIX][TABLENAME]_Get]
+(
+    [SQLSelectNullParamList],
+    @Debug bit = 0
+)
+AS
+BEGIN
+	BEGIN TRY
+		DECLARE @SQL NVARCHAR(MAX)
+		
+		SET @SQL = 
+		'SELECT
+            [COLUMNNAMES]
+		FROM [TABLENAME] WITH (NoLock)
+		WHERE 1 = 1 '
+		
+[DYNAMICPARAMETERS]
+		
+		IF @Debug = 1
+		BEGIN
+			PRINT @SQL
+		END
+		
+		EXEC sp_executesql 
+			@SQL,
+			N'[SQLSelectParamList]',
+			[SQLSelectList]	
+	END TRY
+	BEGIN CATCH
+		EXEC sp__RaiseError
+	END CATCH	
+END
+GO

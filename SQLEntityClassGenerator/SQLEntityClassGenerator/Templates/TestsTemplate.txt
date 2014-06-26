@@ -1,0 +1,72 @@
+﻿// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help 
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+//  [TABLENAME] Test Layer Object.   
+// </summary>
+// ---------------------------------
+
+using System;
+using System.Linq;
+using [MANAGERNAMESPACE];
+using [ENTITYNAMESPACE];
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace [NAMESPACE]
+{
+    /// <summary>
+    ///This is a test class for [TABLENAME]ManagerTest and is intended
+    ///to contain all [TABLENAME]ManagerTest Unit Tests
+    ///</summary>
+    [TestClass]
+    public class [TABLENAME]ManagerTest
+    {
+        /// <summary>
+        ///A test for Load
+        ///</summary>
+        [TestMethod]
+        public void [TABLENAME]LoadTest()
+        {
+			// TODO - Initiate keys
+            [PRIMARYKEYSINIT]
+            [TABLENAME] entity = [TABLENAME]Manager.Load([PRIMARYKEYS]);
+            Assert.IsNotNull(entity, "[TABLENAME] object was null");
+        }
+
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod]
+        public void [TABLENAME]SaveTest()
+        {
+			// TODO - Initiate keys
+			[PRIMARYKEYSINIT]
+            [TABLENAME] entity = [TABLENAME]Manager.Load([PRIMARYKEYS]);
+            string errorMessage;
+            string errorMessageExpected = string.Empty;
+            const bool expected = true;
+            bool actual = [TABLENAME]Manager.Save(entity, out errorMessage);
+            Assert.AreEqual(errorMessageExpected, errorMessage, "Some errors were found with [TABLENAME] object");
+            Assert.AreEqual(expected, actual, "Save wasn't successful");
+        }
+
+        /// <summary>
+        ///A test for Validate
+        ///</summary>
+        [TestMethod]
+        public void [TABLENAME]ValidateTest()
+        {
+			// TODO - Initiate keys
+			[PRIMARYKEYSINIT]
+            [TABLENAME] entity = [TABLENAME]Manager.Load([PRIMARYKEYS]);
+            string errorMessage;
+            string errorMessageExpected = string.Empty;
+            const bool expected = true;
+            bool actual = [TABLENAME]Manager.Validate(entity, out errorMessage);
+            Assert.AreEqual(errorMessageExpected, errorMessage, "Some errors were found with [TABLENAME] object");
+            Assert.AreEqual(expected, actual, "[TABLENAME] object was invalid");
+        }
+    }
+}

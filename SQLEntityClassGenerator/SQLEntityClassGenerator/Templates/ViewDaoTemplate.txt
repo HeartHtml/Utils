@@ -1,0 +1,57 @@
+﻿// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+//  [TABLENAME] Data Layer Object.   
+// </summary>
+// ---------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using M3.Entities.ExtensionMethods;
+using [ENTITYNAMESPACE];
+
+namespace [NAMESPACE]
+{
+    /// <summary>
+    /// This class connects to the [TABLENAME] Table
+    /// </summary>
+    public sealed class [TABLENAME]Dao : BaseDao
+    {
+		/// <summary>
+        /// Searches for [TABLENAME]
+        /// </summary>
+		/// <param name="item" />
+        /// <returns>An IEnumerable set of [TABLENAME]</returns>
+        public static IEnumerable<[TABLENAME]> Search(Search[TABLENAME] item)
+        {
+            List<SqlParameter> parameters
+                = new List<SqlParameter>
+					{
+                        [SqlParamListSearch]
+					};
+
+            DataSet set = DataManager.ExecuteProcedure([CONNECTIONVAR], "[PREFIX][REALTABLENAME]_Get", parameters);
+            IEnumerable<DataRow> dataRows = set.GetRowsFromDataSet();
+            return ConvertToEntityObject(dataRows);
+        }
+
+        /// <summary>
+        /// Converts an IEnumerable set of DataRows to an IEnumerable of [TABLENAME]
+        /// </summary>
+        /// <param name="dataRows" />
+        /// <returns />
+        private static IEnumerable<[TABLENAME]> ConvertToEntityObject(IEnumerable<DataRow> dataRows)
+        {
+            return dataRows.Select(row => new [TABLENAME]
+				{
+					[LinqParameters]  
+				});
+        }
+    }
+}

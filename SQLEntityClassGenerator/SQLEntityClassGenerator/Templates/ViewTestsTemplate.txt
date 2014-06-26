@@ -1,0 +1,37 @@
+﻿// --------------------------------
+// <copyright file="[FILENAME]" company="Mobile Help">
+//     © [YEAR] M3. Mobile Help
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+//  [TABLENAME] Test Layer Object.   
+// </summary>
+// ---------------------------------
+
+using System;
+using System.Linq;
+using [MANAGERNAMESPACE];
+using [ENTITYNAMESPACE];
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace [NAMESPACE]
+{
+    /// <summary>
+    ///This is a test class for [TABLENAME]ManagerTest and is intended
+    ///to contain all [TABLENAME]ManagerTest Unit Tests
+    ///</summary>
+    [TestClass]
+    public class [TABLENAME]ManagerTest
+    {
+        /// <summary>
+        ///A test for Load
+        ///</summary>
+        [TestMethod]
+        public void [TABLENAME]LoadTest()
+        {
+			//TODO - Complete Unit Tests
+            [TABLENAME] entity = [TABLENAME]Manager.Load(1);
+            Assert.IsNotNull(entity, "[TABLENAME] object was null");
+        }
+    }
+}

@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiScript", "MultiScript\MultiScript.csproj", "{29D3625D-4833-497E-811A-3F69E93A4593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiScriptCL", "MultiScriptCL\MultiScriptCL.csproj", "{B7D266C2-7678-471E-AA8B-30E77497E3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiScriptLib", "MultiScriptLib\MultiScriptLib.csproj", "{B37476BF-2081-4318-B716-797BF7C52F6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		locations|Any CPU = locations|Any CPU
+		Release|Any CPU = Release|Any CPU
+		uat|Any CPU = uat|Any CPU
+		ws|Any CPU = ws|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29D3625D-4833-497E-811A-3F69E93A4593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.locations|Any CPU.ActiveCfg = locations|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.locations|Any CPU.Build.0 = locations|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.uat|Any CPU.ActiveCfg = uat|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.uat|Any CPU.Build.0 = uat|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.ws|Any CPU.ActiveCfg = ws|Any CPU
+		{29D3625D-4833-497E-811A-3F69E93A4593}.ws|Any CPU.Build.0 = ws|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.locations|Any CPU.ActiveCfg = locations|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.locations|Any CPU.Build.0 = locations|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.uat|Any CPU.ActiveCfg = uat|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.uat|Any CPU.Build.0 = uat|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.ws|Any CPU.ActiveCfg = ws|Any CPU
+		{B7D266C2-7678-471E-AA8B-30E77497E3D2}.ws|Any CPU.Build.0 = ws|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.locations|Any CPU.ActiveCfg = locations|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.locations|Any CPU.Build.0 = locations|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.uat|Any CPU.ActiveCfg = uat|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.uat|Any CPU.Build.0 = uat|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.ws|Any CPU.ActiveCfg = ws|Any CPU
+		{B37476BF-2081-4318-B716-797BF7C52F6A}.ws|Any CPU.Build.0 = ws|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

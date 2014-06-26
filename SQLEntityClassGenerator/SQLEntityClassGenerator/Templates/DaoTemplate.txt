@@ -1,0 +1,119 @@
+﻿// --------------------------------
+// <copyright file="[FILENAME]" company="MobileHelp">
+//     © [YEAR] M3. MobileHelp
+// </copyright>
+// <author>SQLEntityClassGenerator</author>
+// <summary>
+//  [TABLENAME] Data Layer Object.   
+// </summary>
+// ---------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using M3.Entities.ExtensionMethods;
+using [ENTITYNAMESPACE];
+
+namespace [NAMESPACE]
+{
+    /// <summary>
+    /// This class connects to the [TABLENAME] Table
+    /// </summary>
+    public sealed class [TABLENAME]Dao : BaseDao
+    {
+		/// <summary>
+        /// Searches for [TABLENAME]
+        /// </summary>
+		/// <param name="item" />
+        /// <returns>An IEnumerable set of [TABLENAME]</returns>
+        public static IEnumerable<[TABLENAME]> Search(Search[TABLENAME] item)
+        {
+            List<SqlParameter> parameters
+                = new List<SqlParameter>
+					{
+						[SqlParamListSearch]
+					};
+
+            DataSet set = DataManager.ExecuteProcedure([CONNECTIONVAR], "[PREFIX][REALTABLENAME]_Get", parameters);
+            IEnumerable<DataRow> dataRows = set.GetRowsFromDataSet();
+            return ConvertToEntityObject(dataRows);
+        }
+
+        /// <summary>
+        /// Saves a [TABLENAME] to the data store.
+        /// </summary>
+        /// <param name="item">The item to save</param>
+        public static void Save([TABLENAME] item)
+        {
+			if (item.IsItemModified)
+            {
+                if (item.[PRIMARYKEY] == null)
+                {
+                    item.[PRIMARYKEY] = Insert(item);
+                }
+                else
+                {
+                    Update(item);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Inserts a new [TABLENAME]
+        /// </summary>
+        /// <param name="item">The [TABLENAME] item to insert</param>
+        /// <returns>The id of the [TABLENAME] item just inserted</returns>
+        private static int Insert([TABLENAME] item)
+        {
+            List<SqlParameter> parameters 
+				= new List<SqlParameter>
+					{
+						[SqlParamListInsert]
+					};
+            return Convert.ToInt32(DataManager.ExecuteScalarProcedure([CONNECTIONVAR], "[PREFIX][REALTABLENAME]_Insert", parameters));
+        }
+
+        /// <summary>
+        /// Updates a [TABLENAME]
+        /// </summary>
+        /// <param name="item">The [TABLENAME] item to save</param>
+        private static void Update([TABLENAME] item)
+        {
+            List<SqlParameter> parameters 
+				= new List<SqlParameter>
+					{
+						[SqlParamListUpdate]
+					};
+            DataManager.ExecuteProcedure([CONNECTIONVAR], "[PREFIX][REALTABLENAME]_Update", parameters);
+        }
+
+        /// <summary>
+        /// Does a physical delete of a(n) [TABLENAME]
+        /// </summary>
+        [PRIMARYKEYSDOC]
+        public static void Delete([PRIMARYKEYS])
+        {
+            List<SqlParameter> parameters 
+				= new List<SqlParameter>
+					{
+						[SQLParamListDelete]
+					};
+            DataManager.ExecuteProcedure([CONNECTIONVAR], "[PREFIX][REALTABLENAME]_Delete", parameters);
+        }
+
+        /// <summary>
+        /// Converts an IEnumerable set of DataRows to an IEnumerable of [TABLENAME]
+        /// </summary>
+        /// <param name="dataRows" />
+        /// <returns />
+        private static IEnumerable<[TABLENAME]> ConvertToEntityObject(IEnumerable<DataRow> dataRows)
+        {
+            return dataRows.Select(row => new [TABLENAME]
+				{
+                    [LinqParameters]  
+				});
+        }
+    }
+}

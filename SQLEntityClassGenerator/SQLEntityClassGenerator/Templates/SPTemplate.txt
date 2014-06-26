@@ -1,0 +1,142 @@
+﻿USE [DATABASE]
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[[PREFIX][TABLENAME]_Insert]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[[PREFIX][TABLENAME]_Insert]
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[[PREFIX][TABLENAME]_Delete]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[[PREFIX][TABLENAME]_Delete]
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[[PREFIX][TABLENAME]_Update]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[[PREFIX][TABLENAME]_Update]
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[[PREFIX][TABLENAME]_Get]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[[PREFIX][TABLENAME]_Get]
+GO
+
+-- ======================================
+-- Author:		[AUTHOR]
+-- Create date:	[CREATEDATE]
+-- Description: Inserts a [TABLENAME]
+-- ======================================
+CREATE PROCEDURE [dbo].[[PREFIX][TABLENAME]_Insert]
+(
+    [SQLInsertParamList]
+)
+AS
+BEGIN 	
+	BEGIN TRAN [TABLENAMETRANS]Insert	
+	BEGIN TRY
+		INSERT INTO [TABLENAME]
+		(
+            [COLUMNNAMESWOIDENT]
+		)
+		VALUES
+		(
+            [PARAMETERS]
+		)			
+			
+		SELECT SCOPE_IDENTITY()
+
+		COMMIT TRAN [TABLENAMETRANS]Insert
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN  [TABLENAMETRANS]Insert
+		EXEC sp__RaiseError
+	END CATCH
+END
+GO
+
+-- ======================================
+-- Author:		[AUTHOR]
+-- Create date:	[CREATEDATE]
+-- Description: Deletes a [TABLENAME]
+-- ======================================
+CREATE PROCEDURE [dbo].[[PREFIX][TABLENAME]_Delete]
+(
+	[SQLDeleteParamList]
+)
+AS
+BEGIN 
+	BEGIN TRAN [TABLENAMETRANS]Delete
+	BEGIN TRY
+		DELETE FROM [TABLENAME]
+		WHERE [DELETECONDITION]
+		
+		COMMIT TRAN [TABLENAMETRANS]Delete
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN [TABLENAMETRANS]Delete
+		EXEC sp__RaiseError
+	END CATCH
+END
+GO
+
+-- =============================================
+-- Author:		[AUTHOR]
+-- Create date: [CREATEDATE]
+-- Description:	Update a [TABLENAME]
+-- =============================================
+CREATE PROCEDURE [dbo].[[PREFIX][TABLENAME]_Update]
+(
+	[SQLUpdateParamList]
+)
+AS
+BEGIN
+	BEGIN TRAN [TABLENAMETRANS]Update
+	BEGIN TRY
+		UPDATE [TABLENAME]
+		SET 
+            [SQLUpdateStatement]
+		WHERE [SQLUpdateWHERE]		   
+
+		COMMIT TRAN [TABLENAMETRANS]Update
+    END TRY
+    BEGIN CATCH
+		ROLLBACK TRAN [TABLENAMETRANS]Update		
+		EXEC sp__RaiseError
+    END CATCH   
+END
+GO
+
+-- =============================================
+-- Author:		[AUTHOR]
+-- Create Date:	[CREATEDATE]
+-- Description:	Select from [TABLENAME]
+-- =============================================
+CREATE PROCEDURE [dbo].[[PREFIX][TABLENAME]_Get]
+(
+	[SQLSelectNullParamList],
+    @Debug bit = 0
+)
+AS
+BEGIN
+	BEGIN TRY
+		DECLARE @SQL NVARCHAR(MAX)
+		
+		SET @SQL = 
+		'SELECT
+			[COLUMNNAMES]
+		FROM [TABLENAME] WITH (NoLock)
+		WHERE 1 = 1 '
+		
+[DYNAMICPARAMETERS]
+		
+		IF @Debug = 1
+		BEGIN
+			PRINT @SQL
+		END
+		
+		EXEC sp_executesql 
+			@SQL,
+			N'[SQLSelectParamList]',
+			[SQLSelectList]	
+	END TRY
+	BEGIN CATCH
+		EXEC sp__RaiseError
+	END CATCH	
+END
+GO
