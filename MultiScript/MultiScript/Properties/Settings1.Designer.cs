@@ -58,7 +58,7 @@ namespace MultiScript.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\gom3fs01\\Engineering and Development\\SQL Migration")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Scripts")]
         public string DefaultFolderLocation {
             get {
                 return ((string)(this["DefaultFolderLocation"]));
