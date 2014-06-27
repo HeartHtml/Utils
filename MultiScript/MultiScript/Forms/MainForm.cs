@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using ADODB;
 using Microsoft.SqlServer.Management.Common;
@@ -79,6 +80,8 @@ namespace MultiScript.Forms
         public MainForm()
         {
             InitializeComponent();
+
+            Thread.Sleep(30000);
 
             RegisteredServers = new List<RegisteredServer>();
 
