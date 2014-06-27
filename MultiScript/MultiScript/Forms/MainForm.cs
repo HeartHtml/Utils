@@ -81,8 +81,6 @@ namespace MultiScript.Forms
         {
             InitializeComponent();
 
-            Thread.Sleep(30000);
-
             RegisteredServers = new List<RegisteredServer>();
 
             SetFolder(DefaultFolderLocation);
@@ -322,6 +320,8 @@ namespace MultiScript.Forms
             string encodedString = Convert.ToBase64String(RegisteredServers.ToBinary());
 
             Properties.Settings.Default.RegisteredServers = encodedString;
+
+            Properties.Settings.Default.Save();
         }
 
         private void LoadMenuFromRegisteredServers(IEnumerable<RegisteredServer> servers)
