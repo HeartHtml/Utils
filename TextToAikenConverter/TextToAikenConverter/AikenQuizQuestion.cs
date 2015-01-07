@@ -38,7 +38,7 @@ namespace TextToAikenConverter
 
             if (Answer != null)
             {
-                builder.Append(string.Format("ANSWER: {0}", Answer.ChoiceIdentifier));
+                builder.AppendLine(string.Format("ANSWER: {0}", Answer.ChoiceIdentifier.ToUpper()));
             }
 
             return builder.ToString();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using NDesk.Options;
 using UtilsLib.ExtensionMethods;
 
@@ -10,6 +11,11 @@ namespace TextToAikenConverter
     {
         public static void Main(string[] args)
         {
+            if (Properties.Settings.Default.IsDebug)
+            {
+                Thread.Sleep(20000);
+            }
+
             bool showHelp = false;
 
             string sourceQuizFilePath = string.Empty;
@@ -46,7 +52,7 @@ namespace TextToAikenConverter
 
                 FileInfo info = new FileInfo(sourceQuizFilePath);
 
-                string originalFileName = info.Name;
+                string originalFileName = info.Name.Replace(".txt", string.Empty);
 
                 string newName = string.Format("{0}_Aiken.txt", originalFileName);
 
@@ -61,6 +67,8 @@ namespace TextToAikenConverter
                 }
 
                 File.WriteAllText(newPath, helper.GetQuizInRawAikenFormat());
+
+                Console.WriteLine("File processed!");
             }
             catch (Exception ex)
             {

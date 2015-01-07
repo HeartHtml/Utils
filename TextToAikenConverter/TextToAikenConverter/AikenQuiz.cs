@@ -108,23 +108,13 @@ namespace TextToAikenConverter
                         {
                             choiceIdentifier = identifier;
 
-                            currentChoiceIdentifier = choiceIdentifier;
+                            currentChoiceIdentifier = choiceIdentifier.Replace(".", string.Empty);
+
+                            break;
                         }
                     }
 
-                    if (choiceIdentifier.IsNullOrWhiteSpace())
-                    {
-                        AikenQuizQuestionChoice choice =
-                            question.QuestionChoices.FirstOrDefault(
-                                dd => dd.ChoiceIdentifier.SafeEquals(currentChoiceIdentifier));
-
-                        if (choice != null)
-                        {
-                            choice.ChoiceText = choiceText.Append(choiceText);
-                        }
-                    }
-
-                    else if (ChoiceAnswers.SafeAny(dd => dd.SafeEquals(choiceText)))
+                    if (ChoiceAnswers.SafeAny(dd => dd.SafeEquals(choiceText)))
                     {
                         AikenQuizQuestionChoice choice =
                             question.QuestionChoices.FirstOrDefault(
@@ -135,12 +125,24 @@ namespace TextToAikenConverter
                             choice.IsAnswer = true;
                         }
                     }
+
+                    else if (choiceIdentifier.IsNullOrWhiteSpace())
+                    {
+                        AikenQuizQuestionChoice choice =
+                            question.QuestionChoices.FirstOrDefault(
+                                dd => dd.ChoiceIdentifier.SafeEquals(currentChoiceIdentifier));
+
+                        if (choice != null)
+                        {
+                            choice.ChoiceText += choiceText;
+                        }
+                    }
                     else
                     {
                         AikenQuizQuestionChoice questionChoice = new AikenQuizQuestionChoice
                         {
                             ChoiceIdentifier = choiceIdentifier.Replace(".", string.Empty),
-                            ChoiceText = choiceText
+                            ChoiceText = choiceText.Replace(choiceIdentifier, string.Empty).TrimSafely()
                         };
 
                         question.QuestionChoices.Add(questionChoice);
@@ -199,12 +201,14 @@ namespace TextToAikenConverter
                 builder.AppendLine("True/False");
             }
 
+            builder.AppendLine();
+
             foreach (AikenQuizQuestion question in AikenQuizQuestions)
             {
                 builder.AppendLine(question.ToString());
             }
 
-            return builder.ToString();
+            return builder.ToString().TrimSafely();
         }
     }
 }

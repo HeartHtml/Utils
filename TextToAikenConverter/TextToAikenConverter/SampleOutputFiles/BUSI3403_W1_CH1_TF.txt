@@ -166,9 +166,3 @@ A. True
 B. False
 ANSWER: A
 
-
-
-
-4
-                          © 2012 Flat World Knowledge 	
-
