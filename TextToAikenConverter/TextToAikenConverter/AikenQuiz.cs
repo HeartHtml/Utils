@@ -21,7 +21,7 @@ namespace TextToAikenConverter
         {
             get
             {
-                return new[] {"a.", "b.", "c.", "d.", "e.", "f.", "g.", "h.", "i.", "j.", "k.", "l."};
+                return new[] { "a.", "b.", "c.", "d.", "e.", "f.", "g.", "h.", "i.", "j.", "k.", "l." };
             }
         }
 
@@ -63,21 +63,17 @@ namespace TextToAikenConverter
 
             bool questionCreated = false;
 
-            bool choicesAddedForTrueFalse = false;
-
             AikenQuizQuestion question = null;
 
             string currentChoiceIdentifier = string.Empty;
 
-            for (int i = 3; i < sourceText.Length; i ++)
+            for (int i = 3; i < sourceText.Length; i++)
             {
-                if(sourceText[i].SafeEquals(Environment.NewLine) || sourceText[i].IsNullOrWhiteSpace() || sourceText[i].SafeEquals("\n\r"))
+                if (sourceText[i].SafeEquals(Environment.NewLine) || sourceText[i].IsNullOrWhiteSpace() || sourceText[i].SafeEquals("\n\r"))
                 {
                     AikenQuizQuestions.Add(question);
 
                     questionCreated = false;
-
-                    choicesAddedForTrueFalse = false;
 
                     currentChoiceIdentifier = string.Empty;
 
@@ -150,38 +146,24 @@ namespace TextToAikenConverter
                 }
                 else if (QuizType == EnumQuizType.TrueFalse)
                 {
-                    if (choicesAddedForTrueFalse)
+
+                    AikenQuizQuestionChoice choice1 = new AikenQuizQuestionChoice
                     {
-                        string answerForTrueFalse = sourceText[i];
+                        ChoiceIdentifier = "A",
+                        ChoiceText = "True",
+                        IsAnswer = sourceText[i].SafeEquals("True")
+                    };
 
-                        AikenQuizQuestionChoice choice =
-                            question.QuestionChoices.FirstOrDefault(dd => dd.ChoiceText.SafeEquals(answerForTrueFalse));
-
-                        if (choice != null)
-                        {
-                            choice.IsAnswer = true;
-                        }
-                    }
-                    else
+                    AikenQuizQuestionChoice choice2 = new AikenQuizQuestionChoice
                     {
-                        AikenQuizQuestionChoice choice1 = new AikenQuizQuestionChoice
-                        {
-                            ChoiceIdentifier = "A",
-                            ChoiceText = "True"
-                        };
+                        ChoiceIdentifier = "B",
+                        ChoiceText = "False",
+                        IsAnswer = sourceText[i].SafeEquals("False")
+                    };
 
-                        AikenQuizQuestionChoice choice2 = new AikenQuizQuestionChoice
-                        {
-                            ChoiceIdentifier = "B",
-                            ChoiceText = "False"
-                        };
+                    question.QuestionChoices.Add(choice1);
 
-                        question.QuestionChoices.Add(choice1);
-
-                        question.QuestionChoices.Add(choice2);
-
-                        choicesAddedForTrueFalse = true;
-                    }
+                    question.QuestionChoices.Add(choice2);
                 }
             }
         }
