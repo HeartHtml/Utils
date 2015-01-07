@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using UtilsLib.ExtensionMethods;
 
 namespace TextToAikenConverter
@@ -18,6 +17,22 @@ namespace TextToAikenConverter
 
     public class AikenQuiz
     {
+        private IEnumerable<string> ChoiceIdentifiers
+        {
+            get
+            {
+                return new[] {"a.", "b.", "c.", "d.", "e.", "f.", "g.", "h.", "i.", "j.", "k.", "l."};
+            }
+        }
+
+        private string[] ChoiceAnswers
+        {
+            get
+            {
+                return new[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l" };
+            }
+        }
+
         public EnumQuizType QuizType { get; set; }
 
         public string Title { get; set; }
@@ -35,20 +50,137 @@ namespace TextToAikenConverter
         {
             Title = sourceText[0];
 
-            string quizType = sourceText[1];
+            string rawQuizType = sourceText[1];
 
-            if (quizType.SafeEquals("Multiple Choice"))
+            if (rawQuizType.SafeEquals("Multiple Choice"))
             {
                 QuizType = EnumQuizType.MultipleChoice;
             }
-            else if (quizType.SafeEquals("True/False"))
+            else if (rawQuizType.SafeEquals("True/False"))
             {
                 QuizType = EnumQuizType.TrueFalse;
             }
 
+            bool questionCreated = false;
+
+            bool choicesAddedForTrueFalse = false;
+
+            AikenQuizQuestion question = null;
+
+            string currentChoiceIdentifier = string.Empty;
+
             for (int i = 3; i < sourceText.Length; i ++)
             {
-                
+                if(sourceText[i].SafeEquals(Environment.NewLine) || sourceText[i].IsNullOrWhiteSpace() || sourceText[i].SafeEquals("\n\r"))
+                {
+                    AikenQuizQuestions.Add(question);
+
+                    questionCreated = false;
+
+                    choicesAddedForTrueFalse = false;
+
+                    currentChoiceIdentifier = string.Empty;
+
+                    continue;
+                }
+
+                if (!questionCreated)
+                {
+                    question = new AikenQuizQuestion
+                    {
+                        QuestionText = sourceText[i]
+                    };
+
+                    questionCreated = true;
+
+                    continue;
+                }
+
+                if (QuizType == EnumQuizType.MultipleChoice)
+                {
+                    string choiceText = sourceText[i];
+
+                    string choiceIdentifier = string.Empty;
+
+                    foreach (string identifier in ChoiceIdentifiers)
+                    {
+                        if (choiceText.StartsWith(identifier))
+                        {
+                            choiceIdentifier = identifier;
+
+                            currentChoiceIdentifier = choiceIdentifier;
+                        }
+                    }
+
+                    if (choiceIdentifier.IsNullOrWhiteSpace())
+                    {
+                        AikenQuizQuestionChoice choice =
+                            question.QuestionChoices.FirstOrDefault(
+                                dd => dd.ChoiceIdentifier.SafeEquals(currentChoiceIdentifier));
+
+                        if (choice != null)
+                        {
+                            choice.ChoiceText = choiceText.Append(choiceText);
+                        }
+                    }
+
+                    else if (ChoiceAnswers.SafeAny(dd => dd.SafeEquals(choiceText)))
+                    {
+                        AikenQuizQuestionChoice choice =
+                            question.QuestionChoices.FirstOrDefault(
+                                dd => dd.ChoiceIdentifier.SafeEquals(choiceText));
+
+                        if (choice != null)
+                        {
+                            choice.IsAnswer = true;
+                        }
+                    }
+                    else
+                    {
+                        AikenQuizQuestionChoice questionChoice = new AikenQuizQuestionChoice
+                        {
+                            ChoiceIdentifier = choiceIdentifier.Replace(".", string.Empty),
+                            ChoiceText = choiceText
+                        };
+
+                        question.QuestionChoices.Add(questionChoice);
+                    }
+                }
+                else if (QuizType == EnumQuizType.TrueFalse)
+                {
+                    if (choicesAddedForTrueFalse)
+                    {
+                        string answerForTrueFalse = sourceText[i];
+
+                        AikenQuizQuestionChoice choice =
+                            question.QuestionChoices.FirstOrDefault(dd => dd.ChoiceText.SafeEquals(answerForTrueFalse));
+
+                        if (choice != null)
+                        {
+                            choice.IsAnswer = true;
+                        }
+                    }
+                    else
+                    {
+                        AikenQuizQuestionChoice choice1 = new AikenQuizQuestionChoice
+                        {
+                            ChoiceIdentifier = "A",
+                            ChoiceText = "True"
+                        };
+
+                        AikenQuizQuestionChoice choice2 = new AikenQuizQuestionChoice
+                        {
+                            ChoiceIdentifier = "B",
+                            ChoiceText = "False"
+                        };
+
+                        question.QuestionChoices.Add(choice1);
+
+                        question.QuestionChoices.Add(choice2);
+
+                        choicesAddedForTrueFalse = true;
+                    }
+                }
             }
         }
 

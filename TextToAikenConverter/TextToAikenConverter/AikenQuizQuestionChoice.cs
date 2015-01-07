@@ -8,15 +8,15 @@ namespace TextToAikenConverter
 {
     public class AikenQuizQuestionChoice
     {
-        public string QuestionIdentifier { get; set; }
+        public string ChoiceIdentifier { get; set; }
 
-        public string QuestionText { get; set; }
+        public string ChoiceText { get; set; }
 
         public bool IsAnswer { get; set; }
 
         public override string ToString()
         {
-            return string.Format("{0}. {1}", QuestionIdentifier, QuestionText);
+            return string.Format("{0}. {1}", ChoiceIdentifier, ChoiceText);
         }
     }
 }
