@@ -101,12 +101,6 @@ namespace PlaylistGenerator
                     ExitCode = 1;
                 }
 
-                List<string> songs = new List<string>();
-
-                LoadAllFiles(rootDirectory, songs);
-
-                List<Mp3File> mp3Files = songs.Select(dd => new Mp3File(dd)).ToList();
-
                 string playlistDirectory = Path.GetPathRoot(rootDirectory);
 
                 if (string.IsNullOrWhiteSpace(playlistDirectory))
@@ -122,7 +116,7 @@ namespace PlaylistGenerator
                 {
                     if (cleanDirectoryFirst)
                     {
-                        CleanDirectoryAndSubfolders(playlistDirectory, listFilesDeleted: true, isTopmostRoot: true);
+                        CleanDirectoryAndSubfolders(playlistDirectory, verbose: true, isTopmostRoot: true);
                     }
                 }
 
@@ -130,6 +124,12 @@ namespace PlaylistGenerator
                 {
                     Directory.CreateDirectory(playlistDirectory);
                 }
+
+                List<string> songs = new List<string>();
+
+                LoadAllFiles(rootDirectory, songs);
+
+                List<Mp3File> mp3Files = songs.Select(dd => new Mp3File(dd)).ToList();
 
                 if (artists)
                 {
@@ -275,7 +275,7 @@ namespace PlaylistGenerator
             }
         }
 
-        public static void CleanDirectoryAndSubfolders(string root, bool listFilesDeleted = true, bool isTopmostRoot = false)
+        public static void CleanDirectoryAndSubfolders(string root, bool verbose = true, bool isTopmostRoot = false)
         {
             string[] files = Directory.GetFiles(root);
 
@@ -283,7 +283,7 @@ namespace PlaylistGenerator
             {
                 try
                 {
-                    if (listFilesDeleted)
+                    if (verbose)
                     {
                         Console.WriteLine("Deleting file: {0}", file);
                     }
@@ -310,7 +310,7 @@ namespace PlaylistGenerator
             {
                 try
                 {
-                    if (listFilesDeleted)
+                    if (verbose)
                     {
                         Console.WriteLine("Deleting directory: {0}", root);
                     }
