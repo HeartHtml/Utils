@@ -94,7 +94,7 @@ namespace PlaylistGenerator
 
             try
             {
-                if (!File.Exists(rootDirectory))
+                if (!Directory.Exists(rootDirectory))
                 {
                     Console.WriteLine("Root directory does not exist");
 
