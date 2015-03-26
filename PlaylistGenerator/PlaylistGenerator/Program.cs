@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mp3Lib;
 using NDesk.Options;
 using UtilsLib.ExtensionMethods;
@@ -45,12 +43,15 @@ namespace PlaylistGenerator
 
             bool cleanDirectoryFirst = false;
 
+            string albumSize = string.Empty;
+
             OptionSet p = new OptionSet
             {
                 {"root=", "The root directory to start the playlist creation.", v => rootDirectory = v},
                 {"albums", "Flag indicating to create playlists for each album.", v => albums = v != null},
                 {"artists", "Flag indicating to create playlists for each artist.", v => artists = v != null},
-                {"forcerelative", "Optional flag indicating to force relative paths for each file in the playlist.", v => ForceRelativePaths = v != null},
+                {"albumsize=", "Optional number value indicating to create album playlists for albums containing at least the specified number of tracks.", v => albumSize = v},
+                //{"forcerelative", "Optional flag indicating to force relative paths for each file in the playlist.", v => ForceRelativePaths = v != null}, --Not ready yet
                 {"clean", "Optional flag indicating to clean the playlist directory first.", v => cleanDirectoryFirst = v != null},
                 {"h|help", "Show this message and exit", v => showHelp = v != null },
             };
@@ -76,6 +77,14 @@ namespace PlaylistGenerator
             }
 
             if (!artists && !albums)
+            {
+                ShowHelp(p);
+                return;
+            }
+
+            int minimumAlbumSize = 0;
+
+            if (!albumSize.IsNullOrWhiteSpace() && !int.TryParse(albumSize, out minimumAlbumSize))
             {
                 ShowHelp(p);
                 return;
@@ -143,19 +152,7 @@ namespace PlaylistGenerator
 
                         if (ForceRelativePaths)
                         {
-                            foreach (string fileName in fileNames)
-                            {
-                                string drive = Path.GetPathRoot(fileName);
-
-                                if(!string.IsNullOrWhiteSpace(drive))
-                                {
-                                    filesOnThePlaylist.Add(fileName.Replace(drive, string.Empty));
-                                }
-                                else
-                                {
-                                    filesOnThePlaylist.Add(fileName);
-                                }
-                            }
+                            //TODO
                         }
                         else
                         {
@@ -187,6 +184,15 @@ namespace PlaylistGenerator
                         List<Mp3File> songsForAlbum =
                             mp3Files.Where(dd => dd.TagHandler.Album.SafeEquals(album)).ToList();
 
+                        if (!albumSize.IsNullOrWhiteSpace())
+                        {
+                            if (songsForAlbum.Count < minimumAlbumSize)
+                            {
+                                Console.WriteLine("Skipping album {0}, number of songs less than minimum album size", album);
+                                continue;
+                            }
+                        }
+
                         string artist = songsForAlbum.Select(dd => dd.TagHandler.Artist).FirstOrDefault();
 
                         List<string> fileNames = songsForAlbum.OrderBy(dd => dd.TagHandler.Track).Select(dd => dd.FileName).ToList();
@@ -195,19 +201,7 @@ namespace PlaylistGenerator
 
                         if (ForceRelativePaths)
                         {
-                            foreach (string fileName in fileNames)
-                            {
-                                string drive = Path.GetPathRoot(fileName);
-
-                                if (!string.IsNullOrWhiteSpace(drive))
-                                {
-                                    filesOnThePlaylist.Add(fileName.Replace(drive, string.Empty));
-                                }
-                                else
-                                {
-                                    filesOnThePlaylist.Add(fileName);
-                                }
-                            }
+                            //TODO
                         }
                         else
                         {

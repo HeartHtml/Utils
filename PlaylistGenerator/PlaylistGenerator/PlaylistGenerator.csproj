@@ -32,15 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\..\..\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Id3Lib, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Libraries\Id3Lib.dll</HintPath>
+      <HintPath>Dependencies\Id3Lib.dll</HintPath>
     </Reference>
-    <Reference Include="Mp3Lib">
-      <HintPath>..\..\..\..\Libraries\Mp3Lib.dll</HintPath>
+    <Reference Include="Mp3Lib, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\Mp3Lib.dll</HintPath>
     </Reference>
     <Reference Include="NDesk.Options">
       <HintPath>..\packages\NDesk.Options.0.2.1\lib\NDesk.Options.dll</HintPath>
@@ -53,8 +55,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UtilsLib">
-      <HintPath>..\..\..\..\Libraries\UtilsLib.dll</HintPath>
+    <Reference Include="UtilsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a4fded5a7965fa7e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\UtilsLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +67,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dependencies\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Dependencies\Id3Lib.dll" />
+    <Content Include="Dependencies\Mp3Lib.dll" />
+    <Content Include="Dependencies\UtilsLib.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
