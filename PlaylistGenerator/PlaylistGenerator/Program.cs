@@ -50,7 +50,7 @@ namespace PlaylistGenerator
                 {"root=", "The root directory to start the playlist creation.", v => rootDirectory = v},
                 {"albums", "Flag indicating to create playlists for each album.", v => albums = v != null},
                 {"artists", "Flag indicating to create playlists for each artist.", v => artists = v != null},
-                {"albumsize=", "Optional number value indicating to create album playlists for albums containing at least the specified number of tracks.", v => albumSize = v},
+                {"albumsize=", "Optional number value indicating to only create album playlists for albums containing at least the specified number of tracks.", v => albumSize = v},
                 //{"forcerelative", "Optional flag indicating to force relative paths for each file in the playlist.", v => ForceRelativePaths = v != null}, --Not ready yet
                 {"clean", "Optional flag indicating to clean the playlist directory first.", v => cleanDirectoryFirst = v != null},
                 {"h|help", "Show this message and exit", v => showHelp = v != null },
