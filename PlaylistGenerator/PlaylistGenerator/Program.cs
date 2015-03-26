@@ -99,6 +99,8 @@ namespace PlaylistGenerator
                     Console.WriteLine("Root directory does not exist");
 
                     ExitCode = 1;
+
+                    return;
                 }
 
                 string playlistDirectory = Path.GetPathRoot(rootDirectory);
