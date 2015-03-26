@@ -1,0 +1,310 @@
+﻿BUSI3403 – Week 1 Chapter 1 Quiz
+Multiple Choice
+
+All of the following are steps outlined by the Institute of Management Accountants (IMA) for resolving ethical conflicts except:
+A. consulting an objective advisor such as an attorney.
+B. following the policies of the organization for resolving ethical conflicts.
+C. presenting the matter to the audit committee, if a satisfactory resolution is not reached by all higher levels of management.
+D. bringing the matter to the attention of local news agencies.
+E. None of the above.
+ANSWER: D
+
+Which of the following would be most likely to use managerial accounting information?
+A. Bondholder.
+B. Production manager.
+C. Vendor.
+D. Stockholder.
+E. None of the above.
+ANSWER: B
+
+All of the following are examples of nonfinancial measures that could be used by a restaurant, except:
+A. average time to serve customers (from order taking to food on the table).
+B. percentage of favorable customer surveys.
+C. number of food orders returned to the kitchen each day.
+D. percent change in sales from the previous month.
+E. None of the above.
+ANSWER: D
+
+All of the following are examples of managerial accounting information except:
+A. budget versus actual reports.
+B. monthly income statement for each store.
+C. monthly analysis of product profitability.
+D. annual balance sheet prepared in accordance with U.S. GAAP.
+E. None of the above.
+ANSWER: D
+
+A managerial accountant is most likely to prepare all of the following reports except:
+A. a weekly report on the percent of products returned by customers.
+B. a budgeted income statement for next quarter.
+C. a balance sheet in accordance with U.S. GAAP.
+D. a report showing the percentage of on-time deliveries.
+E. None of the above.
+ANSWER: C
+
+When comparing the characteristics of financial and managerial accounting, which of the following is a focus of managerial accounting?
+A. Making future projections for geographic segments of a company.
+B. Focusing on users outside the organization including stockholders and creditors.
+C. Using performance measures that are exclusively financial in nature.
+D. Presenting overall company information in accordance with U.S. GAAP.
+E. None of the above.
+ANSWER: A
+
+Which of the following would be a financial measure of performance?
+A. Quarterly cash flows.
+B. Product defect rate.
+C. Customer satisfaction survey results.
+D. Percent of on-time deliveries.
+E. None of the above.
+ANSWER: A
+
+If you compare financial statements prepared in accordance with U.S. GAAP to a managerial accounting report, the managerial accounting report is more likely to:
+A. provide financial information for the company as a whole.
+B. focus on users of financial information outside the company.
+C. provide financial information related to the last accounting period.
+D. provide financial information at the product level.
+E. None of the above.
+ANSWER: D
+
+Which of the following is typically performed by a financial accountant?
+A. Preparing an income statement for one segment of a company.
+B. Preparing a balance sheet for the annual report in accordance with U.S. GAAP.
+C. Preparing the budgeted income statement for the upcoming quarter.
+D. Preparing a report on the percentage of defective product returned by customers.
+E. None of the above.
+ANSWER: B
+	
+All of the following are typically performed by a treasurer except:
+A. preparing cost estimates for potential product lines.
+B. obtaining sources of financing for an organization.
+C. projecting cash flow needs.
+D. managing cash and short-term investments.
+E. None of the above.
+ANSWER: A
+
+Which of the following positions typically reports directly to the chief financial officer (CFO)?
+A. The chief executive officer.
+B. The tax accountant.
+C. The treasurer.
+D. The financial accountant.
+E. None of the above.
+ANSWER: C
+
+The term "public company" refers to:
+A. a company whose shares of stock are publicly traded.
+B. a company with a treasurer and tax accountant.
+C. a company whose shares of stock are privately traded.
+D. a company with a small number of shareholders.
+E. None of the above.
+ANSWER: A
+
+All organizations must have:
+A. a tax accountant.
+B. a treasurer.
+C. vice president of marketing.
+D. an internal auditor.
+E. None of the above.
+ANSWER: E
+
+The managerial accountant typically reports to the:
+A. controller.
+B. chief executive officer.
+C. financial accountant.
+D. tax accountant.
+E. None of the above.
+ANSWER: A
+
+An analysis comparing actual labor hours used for a project to budgeted labor hours would most likely be performed by the:
+A. financial accountant.
+B. managerial accountant.
+C. tax accountant.
+D. chief executive officer.
+E. None of the above.
+ANSWER: B
+
+According to the IMA Statement of Ethical Professional Practice, credibility means that each member has a responsibility for all the following except:
+A. communicating information fairly and subjectively.
+B. keeping information confidential except when disclosure is legally required.
+C. disclosing delays or deficiencies in information in conformance with policy or laws.
+D. disclosing all relevant information that might influence user understanding.
+E. None of the above.
+ANSWER: B
+
+According to the IMA Statement of Ethical Professional Practice, competence means that each member has a responsibility for all the following except:
+A. refrain from using confidential information for unethical or illegal advantage.
+B. maintaining an appropriate level of professional expertise.
+C. recognizing and communicating professional limitations.
+D. performing professional duties in accordance with relevant laws, regulations and technical standards.
+E. None of the above.
+ANSWER: A
+
+All of the following are things you can do when faced with any ethical dilemma as a managerial accountant except:
+A. discuss the issue with your immediate supervisor except when you think the supervisor may be involved.
+B. initiate a confidential discussion with an IMA Ethics Counselor to clarify relevant ethical issues.
+C. always contact the board of directors first.
+D. contact your attorney about your legal obligations and rights.
+E. None of the above.
+ANSWER: C
+
+All of the following are included in the overarching principles of the IMA's Ethical Professional Practice except:
+A. Objectivity.
+B. Fairness.
+C. Honesty.
+D. Professionalism.
+E. None of the above.
+ANSWER: D
+
+Which of the following is not one of the four key standards of ethical conduct for Institute of Management Accountants (IMA) members?
+A. Subjectivity.
+B. Competence.
+C. Confidentiality.
+D. Integrity.
+E. None of the above.
+ANSWER: A
+
+
+Which of the following statements about computerized accounting systems is false?
+A. Even small accounting packages like QuickBooks have features used for managerial accounting purposes.
+B. The size of an organization and the information needs of an organization are important in determining which accounting software is appropriate.
+C. Enterprise Resource Planning (ERP) systems are appropriate for all companies.
+D. Accounting systems are typically used for internal and external reporting purposes.
+E. None of the above.
+ANSWER: C
+
+All of the following statements about Enterprise Resource Planning systems (ERP) are true except:
+A. ERP systems are designed to record and share information across functional areas such as accounting and marketing.
+B. ERP systems are designed to record and share information across geographical areas such as a sales office in China and headquarters in New York.
+C. ERP system information is updated in weekly in batches.
+D. ERP system information can be organized in different formats to meet the needs of internal and external users.
+E. None of the above.
+ANSWER: C
+
+All of the following statements regarding ERP systems are true except:
+A. They are relatively inexpensive.
+B. They provide real-time information.
+C. They can be used by both manufacturing and service companies.
+D. They do not guarantee increased profits.
+E. None of the above.
+ANSWER: A
+
+All of the following would be best classified as manufacturing overhead except:
+A. depreciation for production building.
+B. salaries for production supervisors.
+C. cost of direct labor related to production.
+D. cost of indirect materials.
+E. None of the above.
+ANSWER: C
+
+
+Direct labor costs related to production are:
+A. period costs.
+B. expensed in the period in which they are incurred.
+C. included in manufacturing overhead.
+D. expensed when the products are sold.
+E. None of the above.
+ANSWER: D
+
+Which of the following is classified as a general and administrative expense?
+A. Salaries of sales personnel.
+B. Utility costs for the production facility.
+C. Salaries of production supervisors.
+D. Salaries of Human Resource Department personnel.
+E. None of the above.
+ANSWER: D
+
+Which of the following is classified as a selling expense?
+A. Depreciation of computers used by the accounting staff.
+B. Shipping charges for products delivered to customers.
+C. Salary of the chief executive officer.
+D. Factory equipment depreciation
+E. None of the above.
+ANSWER: B
+
+Which of the following is a period cost?
+A. Indirect materials used in production.
+B. Raw materials purchased from a supplier.
+C. Supplies used by accounting personnel. 
+D. Maintenance costs for manufacturing equipment.
+E. None of the above.
+ANSWER: C
+
+Which of the following is a product cost?
+A. Supplies used in the Marketing Department.
+B. Commissions paid to sales personnel.
+C. Maintenance of manufacturing equipment.
+D. Clerical support salaries in the Human Resource Department.
+E. None of the above.
+ANSWER: C
+
+
+The three categories of product costs include all of the following except:
+A. Manufacturing overhead.
+B. Direct materials.
+C. Indirect labor.
+D. Direct labor.
+E. None of the above.
+ANSWER: C
+
+Which of the following costs would not be included in manufacturing overhead?
+A. Depreciation of factory building.
+B. Direct labor.
+C. Indirect labor.
+D. Indirect materials.
+E. None of the above.
+ANSWER: B
+
+In an airplane factory, which of the following would most likely be classified as a direct material?
+A. Sandpaper.
+B. Jet engines.
+C. Inexpensive fasteners.
+D. Cleaning supplies.
+E. None of the above.
+ANSWER: B
+
+In a wooden boat factory, which of the following would most likely be classified as indirect labor?
+A. Salaries for the factory supervisors.
+B. Salaries for sanding operators.
+C. Salaries for production machine operators.
+D. Salaries for staining and painting personnel.
+E. None of the above.
+ANSWER: A
+
+Costs of completed but unsold products would be found in which account?
+A. Raw Materials Inventory. 
+B. Work in Process Inventory
+C. Finished Goods Inventory. 
+D. Cost of Goods Sold.
+E. None of the above.
+ANSWER: C
+
+When direct materials are placed into production, their costs are transferred to:
+A. Cost of Goods Sold.
+B. Cost of Goods Manufactured.
+C. Finished Goods Inventory.
+D. Work in Process Inventory.
+E. None of the above.
+ANSWER: D
+
+All of the following are included in Balance Sheet accounts containing product costs except:
+A. Work in Process Inventory.
+B. Cost of Goods Sold.
+C. Raw Materials.
+D. Cost of Goods Manufactured.
+E. None of the above.
+ANSWER: B
+
+Sampson Company had a Cost of Goods Sold of $730,000 and Cost of Goods Manufactured of $940,000 for the year ended December 31, 2012. If the January 1, 2012 balance in the Finished Goods Inventory account was $180,000, what was the December 31, 2012, balance in Finished Goods Inventory?
+A. $1,850,000
+B. $1,120,000
+C. $520,000
+D. $390,000
+E. None of the above.
+ANSWER: D
+
+The inventory cost flow equation is:
+A. Beginning balance + Transfers in B Ending balance = Transfers out 
+B. Beginning balance + Transfers in + Ending balance = Transfers out
+C. Beginning balance B Transfers in   Ending balance = Transfers out
+D. Beginning balance n Transfers in + Ending balance = Transfers out 
+E. None of the above.
+ANSWER: A
+

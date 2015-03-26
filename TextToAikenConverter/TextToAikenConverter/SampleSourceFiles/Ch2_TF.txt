@@ -1,0 +1,45 @@
+BUSI3403 - Week 1 Chapter 2 Quiz
+True/False
+
+A movie production company would likely use a job costing system to track revenues and costs.
+True
+
+A process costing system is used by companies that make identical units of product in batches.
+True
+
+Job cost sheets are used as a subsidiary ledger to the Raw Materials Inventory account.
+False
+
+The journal entry for recording timesheet submissions by employees working on various jobs will include a debit to the Direct Labor account.
+False
+
+When a manufacturing company purchases raw materials, the Raw Materials Inventory account is debited.
+True
+
+When direct materials are transferred into production, the journal entry includes a debit to the Work in Process Inventory account.
+True
+
+Underapplied overhead occurs when actual overhead costs are lower than overhead costs applied to jobs.
+False
+
+Normal costing is preferred by most companies because it assigns actual overhead costs to jobs.
+False
+
+The three most common allocation bases for establishing a predetermined overhead rate include direct labor hours, machine hours, and direct labor costs.
+True
+
+The overhead costs applied to jobs using a predetermined overhead rate are recorded by debiting  Work in Process Inventory and crediting Manufacturing Overhead.
+True
+
+The predetermined overhead rate is calculated as the estimated activity in the allocation base divided by the estimated overhead costs.
+False
+
+Underapplied manufacturing overhead results in a debit balance in the Manufacturing Overhead account.
+True
+
+Service organizations often use a predetermined overhead rate similar to manufacturing companies.
+True
+
+All account names for job costing systems in service organizations are the same as those used by manufacturing companies.
+False
+

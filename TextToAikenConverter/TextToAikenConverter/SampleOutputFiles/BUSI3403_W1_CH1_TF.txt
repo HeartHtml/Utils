@@ -1,0 +1,168 @@
+﻿BUSI3403 – Week 1 Chapter 1 Quiz
+True/False 
+
+Managerial accounting focuses on providing historical financial information to outside users including shareholders and creditors.
+A. True
+B. False
+ANSWER: B
+
+Managerial accounting information must follow U.S. Generally Accepted Accounting Principles (GAAP).
+A. True
+B. False
+ANSWER: B
+
+Managerial accounting can only use financial performance measures.
+A. True
+B. False
+ANSWER: B
+
+Financial accounting focuses on external users, while managerial accounting focuses on internal users.
+A. True
+B. False
+ANSWER: A
+
+The control function is implemented to assess an organization's plan and may lead to recommendations for the future.
+A. True
+B. False
+ANSWER: A
+
+There is one standard form of budget used by all companies.
+A. True
+B. False
+ANSWER: B
+
+The treasurer is typically in charge of all finance and accounting functions within an organization.
+A. True
+B. False
+ANSWER: B
+
+An internal auditor typically reports to the CFO and is responsible for confirming that the company has controls to ensure accurate financial data.
+A. True
+B. False
+ANSWER: A
+
+Regardless of size, all companies have a chief financial officer (CFO) and a treasurer.
+A. True
+B. False
+ANSWER: B
+
+The Institute of Management Accountants (IMA) provides formal guidance to help in choosing ethically acceptable courses of action.
+A. True
+B. False
+ANSWER: True
+
+The Securities and Exchange Commission (SEC) does not require a company to disclose whether it has adopted a code of ethics.
+A. True
+B. False
+ANSWER: B
+
+Enterprise Resource Planning (ERP) systems are only used by large publicly held organizations.
+A. True
+B. False
+ANSWER: B
+
+Before purchasing an Enterprise Resource Planning (ERP) system, companies must confirm that the benefits of an ERP system will outweigh the costs of implementation.
+A. True
+B. False
+ANSWER: A
+
+Enterprise Resource Planning (ERP) systems should be implemented by all organizations since ERP systems are inexpensive and lead to better decisions.
+A. True
+B. False
+ANSWER: B
+
+Product costs are always expensed in the period when they are incurred.
+A. True
+B. False
+ANSWER: B
+
+An example of selling costs would be salaries for marketing personnel.
+A. True
+B. False
+ANSWER: A
+
+It is important to include small inexpensive items (such as glue or nails) related to production as direct materials, in order to calculate accurate product cost data.
+A. True
+B. False
+ANSWER: B
+
+For a custom home builder, lumber should be categorized as direct materials.
+A. True
+B. False
+ANSWER: A
+
+The three categories of manufacturing costs include direct materials, manufacturing overhead, and selling costs.
+A. True
+B. False
+ANSWER: B
+
+The term "product costs" refers exclusively to the direct labor used in the production process.
+A. True
+B. False
+ANSWER: B
+
+Distinguishing between period and product costs can be done quickly and easily.
+A. True
+B. False
+ANSWER: B
+
+Manufacturing overhead consists of all costs related to the production process other than direct materials and direct labor.
+A. True
+B. False
+ANSWER: A
+
+Period costs are also called manufacturing costs.
+A. True
+B. False
+ANSWER: B
+
+Insurance costs for a production facility are best classified as selling costs.
+A. True
+B. False
+ANSWER: B
+
+Nonmanufacturing costs include direct labor and indirect labor.
+A. True
+B. False
+ANSWER: B
+
+The term "factory burden" is synonymous with manufacturing overhead.
+A. True
+B. False
+ANSWER: A
+
+Direct labor and direct materials are typically easily traceable to a product.
+A. True
+B. False
+ANSWER: A
+
+Nonmanufacturing costs consist of selling costs and indirect materials costs.
+A. True
+B. False
+ANSWER: B
+
+General and administrative costs would include factory utilities.
+A. True
+B. False
+ANSWER: B
+
+Period costs are not related to the production of goods.
+A. True
+B. False
+ANSWER: A
+
+When a manufacturing company sells its products, Finished Goods is debited and Cost of Goods Sold is credited.
+A. True
+B. False
+ANSWER: B
+
+The cost of completed goods transferred out of Work in Process Inventory to Finished Goods is called Cost of Goods Manufactured.
+A. True
+B. False
+ANSWER: A
+
+Most income statements for both merchandising companies and manufacturing companies include the account called Cost of Goods Sold.
+A. True
+B. False
+ANSWER: A
+

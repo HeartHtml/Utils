@@ -1,0 +1,249 @@
+BUSI3403 - Week 1 Chapter 2 Quiz
+Multiple Choice
+
+All of the following are examples of firms who would use job costing except:
+a.	An automobile repair business.
+b.	A custom sailboat builder.
+c.	An interior designing firm.
+d.	A sport drink manufacturing company.
+e.	None of the answer choices is correct.
+d
+
+All of the following are reasons that managers track revenues and costs using a job costing system except:
+a.	Managers use the information to record product costs as period costs.
+b.	Managers want to know if individual jobs are profitable.
+c.	Managers compare actual costs with estimated costs throughout the project to identify unexpected changes as early as possible.
+d.	Managers assess the accuracy of original cost estimates.
+e.	None of the answer choices is correct.
+a
+
+Process costing is best described by which statement?
+a.	Only direct materials and manufacturing overhead are assigned to products under process costing.
+b.	Units produced in a process costing system are unique and are produced individually.
+c.	Product costs are tracked by department and assigned to products passing through each department.
+d.	There cannot be any beginning or ending Work in Process Inventory with process costing.
+e.	None of the answer choices is correct.
+c
+
+Which of the following companies would probably not use job order costing?
+a.	A window washing service.
+b.	A milk manufacturer.
+c.	A car repair business.
+d.	An electrician.
+e.	None of the answer choices is correct.
+b
+
+All of the following are examples of firms who would use process costing except:
+a.	A chewing gum manufacturer.
+b.	An ice cream manufacturer.
+c.	An oil refinery.
+d.	A plumbing contractor.
+e.	None of the answer choices is correct.
+d
+
+Which of the following is typically used as a subsidiary ledger for Work in Process in a job cost system?
+a.	Job cost sheet.
+b.	Balance sheet.
+c.	Materials requisition.
+d.	Timesheet.
+e.	None of the answer choices is correct.
+a
+
+Adams Company placed $2,000 of direct materials into production. Which one of the following journal entries should Jones record for this transaction?
+a. Raw Materials Inventory        2,000
+         Accounts Payable                              2,000
+b. Work in Process Inventory      2,000
+           Manufacturing Overhead               2,000
+c. Manufacturing Overhead         2,000
+          Raw Materials Inventory                2,000
+d. Work in Process Inventory      2,000
+          Raw Materials Inventory               2,000
+e.	None of the answer choices is correct.
+d
+
+Burton Company purchased $45,000 of raw materials on account. Which one of the following journal entries should Burton record for this transaction?
+a. Work in Process Inventory      45,000
+          Raw Materials Inventory                 45,000
+b. Raw Materials Inventory        45,000
+         Accounts Payable                             45,000
+c. Work in Process Inventory      45,000
+          Accounts Payable                            45,000
+d. Accounts Payable               45,000
+          Raw Materials Inventory                 45,000
+e.	None of the answer choices is correct.
+b
+
+Records at Sandy Inc. indicate that indirect materials totaling $800 were requisitioned and placed in production. Which one of the following journal entries should Sandy record for this transaction?
+a. Raw Materials Inventory          800
+          Work in Process Inventory            800
+b. Manufacturing Overhead           800
+          Raw Materials Inventory               800
+c. Raw Materials Inventory          800
+         Accounts Payable                           800
+d. Work in Process Inventory        800
+          Raw Materials Inventory              800
+e.	None of the answer choices is correct.
+b
+
+Silo Manufacturing received timesheets submitted by employees reflecting $5,000 of direct labor costs to be paid next week. Which one of the following journal entries should Silo record for this transaction?
+a. Work in Process Inventory        5,000
+          Wages Payable                                5,000
+b. Direct Labor                     5,000
+          Work in Process Inventory           5,000
+
+c. Wages Payable                    5,000
+          Work in Process Inventory           5,000
+d. Work in Process Inventory        5,000
+          Manufacturing Overhead                    5,000
+e.	None of the answer choices is correct.
+a
+
+The entry to record depreciation on the factory building should include a:
+a.	debit to Work in Process Inventory.
+b.	debit to Manufacturing Overhead.
+c.	debit to Cost of Goods Sold.
+d.	credit to Work in Process Inventory.
+e.	None of the answer choices is correct.
+b
+
+Assume Clayton Company has an immaterial credit balance in the Manufacturing Overhead account.  The entry to close the Manufacturing Overhead account should include a: 
+a.	credit to Finished Goods Inventory.
+b.	credit to Work in Process Inventory.
+c.	credit to Cost of Goods Sold. 
+d.	debit to Cost of Goods Sold.
+e.	None of the answer choices is correct.
+c
+
+Specialty Chocolates recently expanded its operations beyond its existing kitchen to serve its retail operations by establishing a new kitchen to serve a wholesale market for local specialty shops. With this new arrangement, Specialty Chocolates will continue to have a retail shop attached to its original kitchen (Department 1) and the new wholesale operations shipping out of the new kitchen (Department 2). Using normal costing, the company applies monthly overhead using predetermined overhead rates based on direct labor hours for the older operation in Department 1 and machine hours for overhead rates in the more automated Department 2.
+a.	Department 1: $1.50 per pound; Department 2: $0.20 per pound. 
+b.	Department 1: $0.25 per pound; Department 2: $0.20 per pound. 
+c.	Department 1: $2.50 per pound; Department 2: $0.80 per pound. 
+d.	Department 1: $0.25 per pound; Department 2: $2.00 per pound. 
+e.	None of the answer choices is correct.
+c
+
+The entry to record wages owed to the production supervisor should include a debit to:  
+a.	Wages Payable.
+b.	Wages Expense.
+c.	Work in Process Inventory.
+d.	Manufacturing Overhead.
+e.	None of the answer choices is correct.
+d
+
+Nguyen Inc. applies overhead to products based on direct labor hours using normal costing. During 2012, total overhead costs were estimated to be $500,000. Actual overhead totaled $540,000 based on 32,000 actual direct labor hours. At the end of the year, overhead was overapplied by $20,000. Based on this information, what was the predetermined overhead rate used during 2012?
+a.	$16.88 per direct labor hour.
+b.	$16.25 per direct labor hour.
+c.	$15.63 per direct labor hour.
+d.	$17.50 per direct labor hour. 
+e.	None of the answer choices is correct.
+d
+
+The law firm, Keen and Sholer, assigns overhead to clients based on direct labor hours using normal costing. During June, they compiled the following information regarding hours worked and costs:
+a.	$8,100
+b.	$7,200
+c.	$6,480
+d.	$9,000
+e.	None of the answer choices is correct.
+a
+
+The law firm, Keen and Sholer, assigns overhead to clients based on direct labor hours using normal costing. During June, they compiled the following information regarding hours worked and costs:
+a.	$720 overapplied.
+b.	$720 underapplied.
+c.	$900 underapplied.
+d.	$900 overapplied.
+e.	None of the answer choices is correct.
+d
+
+If the under- or overapplied overhead amount is considered to be material, which of the following accounts would be the least likely to be used when closing the Manufacturing Overhead account at the end of the period?
+a.	Raw Materials Inventory.
+b.	Work in Process Inventory.
+c.	Finished Goods Inventory.
+d.	Cost of Goods Sold.
+e.	None of the answer choices is correct.
+a
+
+The entry to record the requisition of indirect materials in a job cost system includes a:
+a.	debit to Work in Process Inventory.
+b.	debit to Manufacturing Overhead.
+c.	credit to Accounts Payable. 
+d.	credit to Work in Process Inventory.
+e.	None of the answer choices is correct.
+b
+
+When using a job cost system, which of the following will not appear on a job cost sheet?
+a.	Direct labor.
+b.	Direct materials.
+c.	Actual manufacturing overhead incurred.
+d.	Manufacturing overhead applied.
+e.	None of the answer choices is correct.
+c
+
+If the Manufacturing Overhead account has a credit balance after overhead has been applied to products, manufacturing overhead:
+a.	has been closed.
+b.	has been applied incorrectly.
+c.	is underapplied. 
+d.	is overapplied. 
+e.	None of the answer choices is correct.
+d
+
+The Work in Process Inventory account for Baja Manufacturing Company shows a balance of $7,200 at the end of the accounting period. The job cost sheets of the only two uncompleted jobs, Jobs 4 and 7, show respective charges of $2,400 and $1,200 for direct materials used. Jobs 4 and 7 also show respective charges of $1,600 and $800 for direct labor used. Based on this information, what is the predetermined overhead rate as a percentage of direct labor costs that Morris is using?
+a.	200%
+b.	50%
+c.	33.3%
+d.	16.7%
+e.	None of the answer choices is correct.
+b
+
+Kaplan Inc. applies overhead on the basis of direct labor hours. During 2012, the predetermined overhead rate used was $9.00. If overhead was underapplied by $16,500 during 2012, which of the following would not be a reason for the underapplied overhead?
+a.	Estimated direct labor hours differed from actual direct labor hours.
+b.	Applied overhead was lower than actual overhead.
+c.	Estimated overhead costs differed from actual overhead costs.
+d.	Applied overhead was higher than actual overhead.
+e.	None of the answer choices is correct.
+d
+
+All of the following are reasons that companies prefer normal costing except:
+a.	Normal costing averages overhead costs and levels out overhead fluctuations that might occur from month to month.
+b.	Normal costing tracks actual direct materials, actual direct labor costs, and actual manufacturing overhead costs. 
+c.	Normal costing simplifies recordkeeping.
+d.	Normal costing provides information for managers to quote customers the price of products based on estimated costs.
+e.	None of the answer choices is correct.
+b
+
+Goodman Company has $30,000 in underapplied overhead, which is considered by the company to be a material amount. Other account balances include:
+a. Work in Process Inventory       21,000
+    Finished Goods Inventory          6,000
+    Cost of Goods Sold                    3,000
+       Manufacturing Overhead                   30,000 
+b. Manufacturing Overhead          30,000
+          Work in Process Inventory                21,000
+           Finished Goods Inventory                  6,000
+           Cost of Goods Sold                            3,000
+c. Manufacturing Overhead          30,000
+           Work in Process Inventory               10,000
+            Finished Goods Inventory               10,000
+            Cost of Goods Sold                         10,000
+d. Work in Process Inventory        10,000
+     Finished Goods Inventory        10,000
+     Cost of Goods Sold                  10,000
+           Manufacturing Overhead                       30,000
+e.	None of the answer choices is correct.
+a
+
+All of the following are ways that a job costing system used by a service organization may differ from one used by a manufacturing company except:
+a.	Costs in service organizations are typically tracked by customer rather than product.
+b.	Account names for service organizations are slightly different from those used by manufacturers.
+c.	Service organizations tend to use fewer materials.
+d.	The process of tracking labor for service organizations is completely different from the process used by manufacturers.
+e.	None of the answer choices is correct.
+d
+
+Which of the following accounts would probably not be found in the Job Costing accounts of a service organization?
+a.	Finished Goods. 
+b.	Overhead.
+c.	Cost of Services.
+d.	Supplies Inventory.
+e.	None of the answer choices is correct.
+a
+
+
