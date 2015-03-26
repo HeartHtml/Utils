@@ -728,7 +728,7 @@ namespace UtilsLib.ExtensionMethods
 		/// <returns>The supplied string, minus invalid characters</returns>
 		public static string RemoveInvalidCharacters(this string value)
 		{
-			return value.IsNullOrWhiteSpace() ? value : value.RemoveChars(Path.GetInvalidFileNameChars()).RemoveChars(new[] {'%', '&', ',', ' ', '.', '(', ')', '-'});
+			return value.IsNullOrWhiteSpace() ? value : value.RemoveChars(Path.GetInvalidFileNameChars()).RemoveChars(new[] {'%', '&', ',', '.', '(', ')'});
 		}
 
 		/// <summary>
