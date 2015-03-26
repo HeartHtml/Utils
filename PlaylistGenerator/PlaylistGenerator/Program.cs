@@ -4,13 +4,275 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Mp3Lib;
 using NDesk.Options;
 using UtilsLib.ExtensionMethods;
 
 namespace PlaylistGenerator
 {
-    class Program
+    public class LogMessage
+    {
+        public DateTime TimeStamp { get; set; }
+
+        public string Message { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}: {1}", TimeStamp, Message);
+        }
+    }
+
+    public class PlaylistThread
+    {
+        public List<string> FilesToProcess { get; set; }
+
+        public string PlaylistDirectory { get; set; }
+
+        public WaitHandle DoneEvent { get; set; }
+
+        public bool ForceRelativePaths { get; set; }
+
+        public bool Artists { get; set; }
+
+        public bool Albums { get; set; }
+
+        public int ExitCode { get; set; }
+
+        public bool Verbose { get; set; }
+
+        public bool CreateLogFile { get; set; }
+
+        public string AlbumSize { get; set; }
+
+        public int MinimumAlbumSize { get; set; }
+
+        public List<LogMessage> LogFileContents { get; set; }
+
+        public PlaylistThread()
+        {
+            LogFileContents = new List<LogMessage>();
+
+            FilesToProcess = new List<string>();
+        }
+
+        public void LogMessage(string format, params object[] args)
+        {
+            if (Verbose)
+            {
+                Console.WriteLine(format, args);
+            }
+
+            if (CreateLogFile)
+            {
+                string message = string.Format(format, args);
+
+                LogFileContents.Add(new LogMessage { Message = message, TimeStamp = DateTime.Now });
+            }
+        }
+
+        public void ThreadPoolCallback(Object threadContext)
+        {
+            try
+            {
+                List<Mp3File> mp3Files = new List<Mp3File>();
+
+                foreach (string song in FilesToProcess)
+                {
+                    try
+                    {
+                        Mp3File mp3File = new Mp3File(song);
+
+                        mp3Files.Add(mp3File);
+                    }
+                    catch (Exception ex)
+                    {
+                        LogMessage("Could not load tag information for file: {0}", song);
+                        LogMessage(ex.Message);
+                        ExitCode = 1;
+                    }
+                }
+
+                if (Artists)
+                {
+                    List<string> distinctArtists = new List<string>();
+
+                    foreach (Mp3File mp3File in mp3Files)
+                    {
+                        try
+                        {
+                            if (!distinctArtists.Contains(mp3File.TagHandler.Artist))
+                            {
+                                distinctArtists.Add(mp3File.TagHandler.Artist);
+
+                                LogMessage("Loaded artist tag information for file: {0}", mp3File.FileName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogMessage("Could not load artist tag information for file: {0}", mp3File.FileName);
+                            LogMessage(ex.Message);
+                            ExitCode = 1;
+                        }
+                    }
+
+                    string artistSubDirectory = Path.Combine(PlaylistDirectory, "Artists");
+
+                    Directory.CreateDirectory(artistSubDirectory);
+
+                    LogMessage("{0} distinct artists found", distinctArtists.Count);
+
+                    foreach (string artist in distinctArtists)
+                    {
+                        LogMessage("Processing artist: {0}", artist);
+
+                        List<Mp3File> songsForArtist = new List<Mp3File>();
+
+                        foreach (Mp3File file in mp3Files)
+                        {
+                            try
+                            {
+                                if (file.TagHandler.Artist.SafeEquals(artist))
+                                {
+                                    songsForArtist.Add(file);
+                                    LogMessage("Loading song {0} for artist {1}", file.FileName, artist);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                ExitCode = 1;
+                            }
+                        }
+
+                        List<string> fileNames =
+                            songsForArtist.OrderBy(dd => dd.TagHandler.Song).Select(dd => dd.FileName).ToList();
+
+                        List<string> filesOnThePlaylist = new List<string>();
+
+                        if (ForceRelativePaths)
+                        {
+                            //TODO
+                        }
+                        else
+                        {
+                            filesOnThePlaylist.AddRange(fileNames);
+                        }
+
+                        string playlistFileName = Path.Combine(artistSubDirectory,
+                            string.Format("{0}.m3u", artist.RemoveInvalidCharacters()));
+
+                        LogMessage("Creating playlist: {0}", playlistFileName);
+
+                        File.WriteAllLines(playlistFileName, filesOnThePlaylist);
+                    }
+                }
+
+                if (Albums)
+                {
+                    List<string> distinctAlbums = new List<string>();
+
+                    foreach (Mp3File mp3File in mp3Files)
+                    {
+                        try
+                        {
+                            if (!distinctAlbums.Contains(mp3File.TagHandler.Album))
+                            {
+                                distinctAlbums.Add(mp3File.TagHandler.Album);
+
+                                LogMessage("Loaded album tag information for file: {0}", mp3File.FileName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogMessage("Could not load album tag information for file: {0}", mp3File.FileName);
+                            LogMessage(ex.Message);
+                            ExitCode = 1;
+                        }
+                    }
+
+                    string albumsSubDirectory = Path.Combine(PlaylistDirectory, "Albums");
+
+                    Directory.CreateDirectory(albumsSubDirectory);
+
+                    LogMessage("{0} distinct albums found", distinctAlbums.Count);
+
+                    foreach (string album in distinctAlbums)
+                    {
+                        LogMessage("Processing album: {0}", album);
+
+                        List<Mp3File> songsForAlbum = new List<Mp3File>();
+
+                        foreach (Mp3File file in mp3Files)
+                        {
+                            try
+                            {
+                                if (file.TagHandler.Album.SafeEquals(album))
+                                {
+                                    songsForAlbum.Add(file);
+                                    LogMessage("Loading song {0} for album {1}", file.FileName, album);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                ExitCode = 1;
+                            }
+                        }
+
+                        if (!AlbumSize.IsNullOrWhiteSpace())
+                        {
+                            if (songsForAlbum.Count < MinimumAlbumSize)
+                            {
+                                LogMessage("Skipping album {0}, number of songs less than minimum album size", album);
+                                continue;
+                            }
+                        }
+
+                        string artist = songsForAlbum.Select(dd => dd.TagHandler.Artist).FirstOrDefault();
+
+                        List<string> fileNames =
+                            songsForAlbum.OrderBy(dd => dd.TagHandler.Track).Select(dd => dd.FileName).ToList();
+
+                        List<string> filesOnThePlaylist = new List<string>();
+
+                        if (ForceRelativePaths)
+                        {
+                            //TODO
+                        }
+                        else
+                        {
+                            filesOnThePlaylist.AddRange(fileNames);
+                        }
+
+                        string playlistFileName = Path.Combine(albumsSubDirectory,
+                            string.Format("{0} - {1}.m3u", artist.RemoveInvalidCharacters(),
+                                album.RemoveInvalidCharacters()));
+
+                        LogMessage("Creating playlist: {0}", playlistFileName);
+
+                        File.WriteAllLines(playlistFileName, filesOnThePlaylist);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogMessage("Thread failed to process: {0}", ex.Message);
+            }
+            finally
+            {
+                LogMessage("Thread finished processing");
+
+                ManualResetEvent resetEvent = DoneEvent as ManualResetEvent;
+
+                if (resetEvent != null)
+                {
+                    resetEvent.Set();
+                }
+            }
+        }
+    }
+
+    public class Program
     {
         public static string[] SupportedExtensions
         {
@@ -54,10 +316,18 @@ namespace PlaylistGenerator
             set;
         }
 
-        public static StringBuilder LogFileContents
+        public static List<LogMessage> LogFileContents
         {
             get;
             set;
+        }
+
+        public static int NumberOfThreads
+        {
+            get
+            {
+                return Convert.ToInt32(ConfigurationManager.AppSettings["NumberOfThreads"]);
+            }
         }
 
         static void Main(string[] args)
@@ -121,7 +391,7 @@ namespace PlaylistGenerator
 
             ExitCode = 0;
 
-            LogFileContents = new StringBuilder();
+            LogFileContents = new List<LogMessage>();
 
             string playlistDirectory = Path.GetPathRoot(rootDirectory);
 
@@ -169,177 +439,38 @@ namespace PlaylistGenerator
 
                 LoadAllFiles(rootDirectory, songs);
 
-                List<Mp3File> mp3Files = new List<Mp3File>();
-
-                foreach (string song in songs)
+                if (songs.Count > 0)
                 {
-                    try
-                    {
-                        Mp3File mp3File = new Mp3File(song);
+                    WaitHandle[] doneEvents = new WaitHandle[NumberOfThreads];
 
-                        mp3Files.Add(mp3File);
-                    }
-                    catch (Exception ex)
-                    {
-                        LogMessage("Could not load tag information for file: {0}", song);
-                        LogMessage(ex.Message);
-                        ExitCode = 1;
-                    }
-                }
+                    List<IEnumerable<string>> chunks = songs.SplitIntoChunks(NumberOfThreads).ToList();
 
-                if (artists)
-                {
-                    List<string> distinctArtists = new List<string>();
-
-                    foreach (Mp3File mp3File in mp3Files)
+                    for (int i = 0; i < NumberOfThreads; i ++)
                     {
-                        try
+                        doneEvents[i] = new ManualResetEvent(false);
+
+                        PlaylistThread thread = new PlaylistThread
                         {
-                            if (!distinctArtists.Contains(mp3File.TagHandler.Artist))
-                            {
-                                distinctArtists.Add(mp3File.TagHandler.Artist);
+                            AlbumSize = albumSize,
+                            Albums = albums,
+                            Artists = artists,
+                            CreateLogFile = CreateLogFile,
+                            DoneEvent = doneEvents[i],
+                            ExitCode = ExitCode,
+                            ForceRelativePaths = ForceRelativePaths,
+                            LogFileContents = LogFileContents,
+                            MinimumAlbumSize = minimumAlbumSize,
+                            PlaylistDirectory = playlistDirectory,
+                            Verbose = Verbose,
+                            FilesToProcess = chunks[i].ToList()
+                        };
 
-                                LogMessage("Loaded artist tag information for file: {0}", mp3File.FileName);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            LogMessage("Could not load artist tag information for file: {0}", mp3File.FileName);
-                            LogMessage(ex.Message);
-                            ExitCode = 1;
-                        }
+                        ThreadPool.QueueUserWorkItem(thread.ThreadPoolCallback, i);
                     }
 
-                    string artistSubDirectory = Path.Combine(playlistDirectory, "Artists");
+                    WaitHandle.WaitAll(doneEvents);
 
-                    Directory.CreateDirectory(artistSubDirectory);
-
-                    LogMessage("{0} distinct artists found", distinctArtists.Count);
-
-                    foreach (string artist in distinctArtists)
-                    {
-                        LogMessage("Processing artist: {0}", artist);
-
-                        List<Mp3File> songsForArtist = new List<Mp3File>();
-
-                        foreach (Mp3File file in mp3Files)
-                        {
-                            try
-                            {
-                                if (file.TagHandler.Artist.SafeEquals(artist))
-                                {
-                                    songsForArtist.Add(file);
-                                    LogMessage("Loading song {0} for artist {1}", file.FileName, artist);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                ExitCode = 1;
-                            }
-                        }
-
-                        List<string> fileNames = songsForArtist.OrderBy(dd => dd.TagHandler.Song).Select(dd => dd.FileName).ToList();
-
-                        List<string> filesOnThePlaylist = new List<string>();
-
-                        if (ForceRelativePaths)
-                        {
-                            //TODO
-                        }
-                        else
-                        {
-                            filesOnThePlaylist.AddRange(fileNames);
-                        }
-
-                        string playlistFileName = Path.Combine(artistSubDirectory, string.Format("{0}.m3u", artist.RemoveInvalidCharacters()));
-
-                        LogMessage("Creating playlist: {0}", playlistFileName);
-
-                        File.WriteAllLines(playlistFileName, filesOnThePlaylist);
-                    }
-                }
-
-                if (albums)
-                {
-                    List<string> distinctAlbums = new List<string>();
-
-                    foreach (Mp3File mp3File in mp3Files)
-                    {
-                        try
-                        {
-                            if (!distinctAlbums.Contains(mp3File.TagHandler.Album))
-                            {
-                                distinctAlbums.Add(mp3File.TagHandler.Album);
-
-                                LogMessage("Loaded album tag information for file: {0}", mp3File.FileName);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            LogMessage("Could not load album tag information for file: {0}", mp3File.FileName);
-                            LogMessage(ex.Message);
-                            ExitCode = 1;
-                        }
-                    }
-
-                    string albumsSubDirectory = Path.Combine(playlistDirectory, "Albums");
-
-                    Directory.CreateDirectory(albumsSubDirectory);
-
-                    LogMessage("{0} distinct albums found", distinctAlbums.Count);
-
-                    foreach (string album in distinctAlbums)
-                    {
-                        LogMessage("Processing album: {0}", album);
-
-                        List<Mp3File> songsForAlbum = new List<Mp3File>();
-
-                        foreach (Mp3File file in mp3Files)
-                        {
-                            try
-                            {
-                                if (file.TagHandler.Album.SafeEquals(album))
-                                {
-                                    songsForAlbum.Add(file);
-                                    LogMessage("Loading song {0} for album {1}", file.FileName, album);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                ExitCode = 1;
-                            }
-                        }
-
-                        if (!albumSize.IsNullOrWhiteSpace())
-                        {
-                            if (songsForAlbum.Count < minimumAlbumSize)
-                            {
-                                LogMessage("Skipping album {0}, number of songs less than minimum album size", album);
-                                continue;
-                            }
-                        }
-
-                        string artist = songsForAlbum.Select(dd => dd.TagHandler.Artist).FirstOrDefault();
-
-                        List<string> fileNames = songsForAlbum.OrderBy(dd => dd.TagHandler.Track).Select(dd => dd.FileName).ToList();
-
-                        List<string> filesOnThePlaylist = new List<string>();
-
-                        if (ForceRelativePaths)
-                        {
-                            //TODO
-                        }
-                        else
-                        {
-                            filesOnThePlaylist.AddRange(fileNames);
-                        }
-
-                        string playlistFileName = Path.Combine(albumsSubDirectory, string.Format("{0} - {1}.m3u", artist.RemoveInvalidCharacters(), album.RemoveInvalidCharacters()));
-
-                        LogMessage("Creating playlist: {0}", playlistFileName);
-
-                        File.WriteAllLines(playlistFileName, filesOnThePlaylist);
-                    }
+                    LogMessage("All threads done processing");
                 }
             }
             catch (Exception ex)
@@ -351,7 +482,11 @@ namespace PlaylistGenerator
 
             if (CreateLogFile)
             {
-                File.WriteAllText(logfilePath, LogFileContents.ToString());
+                List<string> logContents = new List<string>();
+
+                logContents.AddRange(LogFileContents.OrderBy(dd => dd.TimeStamp).Select(dd => dd.ToString()));
+
+                File.WriteAllLines(logfilePath, logContents);
             }
 
             if (ExitCode > 0)
@@ -452,16 +587,7 @@ namespace PlaylistGenerator
             }
         }
 
-        static void ShowHelp(OptionSet p)
-        {
-            Console.WriteLine("Usage: PlaylistGenerator [OPTIONS]+");
-            Console.WriteLine("Create playlists from a source directory.");
-            Console.WriteLine();
-            Console.WriteLine("Options:");
-            p.WriteOptionDescriptions(Console.Out);
-        }
-
-        static void LogMessage(string format, params object[] args)
+        public static void LogMessage(string format, params object[] args)
         {
             if (Verbose)
             {
@@ -470,8 +596,19 @@ namespace PlaylistGenerator
 
             if (CreateLogFile)
             {
-                LogFileContents.AppendLine(string.Format(format, args));
+                string message = string.Format(format, args);
+
+                LogFileContents.Add(new LogMessage { Message = message, TimeStamp = DateTime.Now });
             }
+        }
+
+        static void ShowHelp(OptionSet p)
+        {
+            Console.WriteLine("Usage: PlaylistGenerator [OPTIONS]+");
+            Console.WriteLine("Create playlists from a source directory.");
+            Console.WriteLine();
+            Console.WriteLine("Options:");
+            p.WriteOptionDescriptions(Console.Out);
         }
     }
 }
