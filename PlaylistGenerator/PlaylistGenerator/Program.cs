@@ -111,10 +111,12 @@ namespace PlaylistGenerator
 
                 if (string.IsNullOrWhiteSpace(playlistDirectory))
                 {
-                    throw new InvalidOperationException("Invalid location for playlist directory");
+                    playlistDirectory = rootDirectory;
                 }
-
-                playlistDirectory = Path.Combine(playlistDirectory, "Playlists");
+                else
+                {
+                    playlistDirectory = Path.Combine(playlistDirectory, "Playlists");
+                }
 
                 if (Directory.Exists(playlistDirectory))
                 {
