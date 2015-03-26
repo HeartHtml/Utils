@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Mp3Lib;
 using NDesk.Options;
 using UtilsLib.ExtensionMethods;
@@ -21,14 +22,42 @@ namespace PlaylistGenerator
             }
         }
 
+        public static bool Verbose
+        {
+            get
+            {
+                bool verbose = Convert.ToBoolean(ConfigurationManager.AppSettings["Verbose"]);
+
+                return verbose;
+            }
+        }
+
+        public static bool CreateLogFile
+        {
+            get
+            {
+                bool logFile = Convert.ToBoolean(ConfigurationManager.AppSettings["CreateLogFile"]);
+
+                return logFile;
+            }
+        }
+
         public static int ExitCode
         {
-            get; set;
+            get;
+            set;
         }
 
         public static bool ForceRelativePaths
         {
-            get; set;
+            get;
+            set;
+        }
+
+        public static StringBuilder LogFileContents
+        {
+            get;
+            set;
         }
 
         static void Main(string[] args)
@@ -92,33 +121,42 @@ namespace PlaylistGenerator
 
             ExitCode = 0;
 
+            LogFileContents = new StringBuilder();
+
+            string playlistDirectory = Path.GetPathRoot(rootDirectory);
+
+            if (string.IsNullOrWhiteSpace(playlistDirectory))
+            {
+                playlistDirectory = rootDirectory;
+            }
+            else
+            {
+                playlistDirectory = Path.Combine(playlistDirectory, "Playlists");
+            }
+
+            string logfilePath = Path.Combine(playlistDirectory, string.Format("log_{0}.txt", DateTime.Now.ToString("MMddyyyyHHmmssffff")));
+
             try
             {
                 if (!Directory.Exists(rootDirectory))
                 {
                     Console.WriteLine("Root directory does not exist");
 
+                    if (CreateLogFile)
+                    {
+                        File.WriteAllText(logfilePath, string.Format("Root directory does not exist: {0}", rootDirectory));
+                    }
+
                     ExitCode = 1;
 
                     return;
-                }
-
-                string playlistDirectory = Path.GetPathRoot(rootDirectory);
-
-                if (string.IsNullOrWhiteSpace(playlistDirectory))
-                {
-                    playlistDirectory = rootDirectory;
-                }
-                else
-                {
-                    playlistDirectory = Path.Combine(playlistDirectory, "Playlists");
                 }
 
                 if (Directory.Exists(playlistDirectory))
                 {
                     if (cleanDirectoryFirst)
                     {
-                        CleanDirectoryAndSubfolders(playlistDirectory, verbose: true, isTopmostRoot: true);
+                        CleanDirectoryAndSubfolders(playlistDirectory, verbose: Verbose, isTopmostRoot: true);
                     }
                 }
 
@@ -131,24 +169,74 @@ namespace PlaylistGenerator
 
                 LoadAllFiles(rootDirectory, songs);
 
-                List<Mp3File> mp3Files = songs.Select(dd => new Mp3File(dd)).ToList();
+                List<Mp3File> mp3Files = new List<Mp3File>();
+
+                foreach (string song in songs)
+                {
+                    try
+                    {
+                        Mp3File mp3File = new Mp3File(song);
+
+                        mp3Files.Add(mp3File);
+                    }
+                    catch (Exception ex)
+                    {
+                        LogMessage("Could not load tag information for file: {0}", song);
+                        LogMessage(ex.Message);
+                        ExitCode = 1;
+                    }
+                }
 
                 if (artists)
                 {
-                    List<string> distinctArtists = mp3Files.Select(dd => dd.TagHandler.Artist).Distinct().ToList();
+                    List<string> distinctArtists = new List<string>();
+
+                    foreach (Mp3File mp3File in mp3Files)
+                    {
+                        try
+                        {
+                            if (!distinctArtists.Contains(mp3File.TagHandler.Artist))
+                            {
+                                distinctArtists.Add(mp3File.TagHandler.Artist);
+
+                                LogMessage("Loaded artist tag information for file: {0}", mp3File.FileName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogMessage("Could not load artist tag information for file: {0}", mp3File.FileName);
+                            LogMessage(ex.Message);
+                            ExitCode = 1;
+                        }
+                    }
 
                     string artistSubDirectory = Path.Combine(playlistDirectory, "Artists");
 
                     Directory.CreateDirectory(artistSubDirectory);
 
-                    Console.WriteLine("{0} distinct artists found", distinctArtists.Count);
+                    LogMessage("{0} distinct artists found", distinctArtists.Count);
 
                     foreach (string artist in distinctArtists)
                     {
-                        Console.WriteLine("Processing artist: {0}", artist);
+                        LogMessage("Processing artist: {0}", artist);
 
-                        List<Mp3File> songsForArtist =
-                            mp3Files.Where(dd => dd.TagHandler.Artist.SafeEquals(artist)).ToList();
+                        List<Mp3File> songsForArtist = new List<Mp3File>();
+
+                        foreach (Mp3File file in mp3Files)
+                        {
+                            try
+                            {
+                                if (file.TagHandler.Artist.SafeEquals(artist))
+                                {
+                                    songsForArtist.Add(file);
+                                    LogMessage("Loading song {0} for artist {1}", file.FileName, artist);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                ExitCode = 1;
+                            }
+                        }
 
                         List<string> fileNames = songsForArtist.OrderBy(dd => dd.TagHandler.Song).Select(dd => dd.FileName).ToList();
 
@@ -165,7 +253,7 @@ namespace PlaylistGenerator
 
                         string playlistFileName = Path.Combine(artistSubDirectory, string.Format("{0}.m3u", artist.RemoveInvalidCharacters()));
 
-                        Console.WriteLine("Creating playlist: {0}", playlistFileName);
+                        LogMessage("Creating playlist: {0}", playlistFileName);
 
                         File.WriteAllLines(playlistFileName, filesOnThePlaylist);
                     }
@@ -173,26 +261,60 @@ namespace PlaylistGenerator
 
                 if (albums)
                 {
-                    List<string> distinctAlbums = mp3Files.Select(dd => dd.TagHandler.Album).Distinct().ToList();
+                    List<string> distinctAlbums = new List<string>();
+
+                    foreach (Mp3File mp3File in mp3Files)
+                    {
+                        try
+                        {
+                            if (!distinctAlbums.Contains(mp3File.TagHandler.Album))
+                            {
+                                distinctAlbums.Add(mp3File.TagHandler.Album);
+
+                                LogMessage("Loaded album tag information for file: {0}", mp3File.FileName);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogMessage("Could not load album tag information for file: {0}", mp3File.FileName);
+                            LogMessage(ex.Message);
+                            ExitCode = 1;
+                        }
+                    }
 
                     string albumsSubDirectory = Path.Combine(playlistDirectory, "Albums");
 
                     Directory.CreateDirectory(albumsSubDirectory);
 
-                    Console.WriteLine("{0} distinct albums found", distinctAlbums.Count);
+                    LogMessage("{0} distinct albums found", distinctAlbums.Count);
 
                     foreach (string album in distinctAlbums)
                     {
-                        Console.WriteLine("Processing album: {0}", album);
+                        LogMessage("Processing album: {0}", album);
 
-                        List<Mp3File> songsForAlbum =
-                            mp3Files.Where(dd => dd.TagHandler.Album.SafeEquals(album)).ToList();
+                        List<Mp3File> songsForAlbum = new List<Mp3File>();
+
+                        foreach (Mp3File file in mp3Files)
+                        {
+                            try
+                            {
+                                if (file.TagHandler.Album.SafeEquals(album))
+                                {
+                                    songsForAlbum.Add(file);
+                                    LogMessage("Loading song {0} for album {1}", file.FileName, album);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                ExitCode = 1;
+                            }
+                        }
 
                         if (!albumSize.IsNullOrWhiteSpace())
                         {
                             if (songsForAlbum.Count < minimumAlbumSize)
                             {
-                                Console.WriteLine("Skipping album {0}, number of songs less than minimum album size", album);
+                                LogMessage("Skipping album {0}, number of songs less than minimum album size", album);
                                 continue;
                             }
                         }
@@ -214,20 +336,30 @@ namespace PlaylistGenerator
 
                         string playlistFileName = Path.Combine(albumsSubDirectory, string.Format("{0} - {1}.m3u", artist.RemoveInvalidCharacters(), album.RemoveInvalidCharacters()));
 
-                        Console.WriteLine("Creating playlist: {0}", playlistFileName);
+                        LogMessage("Creating playlist: {0}", playlistFileName);
 
                         File.WriteAllLines(playlistFileName, filesOnThePlaylist);
                     }
                 }
-
-                Console.WriteLine("FIN");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Stack Trace: {0}{1}{1}Message: {2}",ex.StackTrace, Environment.NewLine, ex.Message);
+                LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine, ex.Message);
 
                 ExitCode = 1;
             }
+
+            if (CreateLogFile)
+            {
+                File.WriteAllText(logfilePath, LogFileContents.ToString());
+            }
+
+            if (ExitCode > 0)
+            {
+                Console.WriteLine("Some errors were encountered. Please review the logs for more information");
+            }
+
+            Console.WriteLine("FIN");
 
             Environment.ExitCode = ExitCode;
         }
@@ -244,10 +376,7 @@ namespace PlaylistGenerator
 
                     if (SupportedExtensions.Contains(info.Extension))
                     {
-                        if (verbose)
-                        {
-                            Console.WriteLine("Adding file: {0}", file);
-                        }
+                        LogMessage("Adding file: {0}", file);
 
                         string fileToAdd = file;
 
@@ -255,15 +384,13 @@ namespace PlaylistGenerator
                     }
                     else
                     {
-                        if (verbose)
-                        {
-                            Console.WriteLine("Skipping file, unsupported extension: {0}", file);
-                        }
+                        LogMessage("Skipping file, unsupported extension: {0}", file);
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine, ex.Message);
+                    LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine,
+                            ex.Message);
 
                     ExitCode = 1;
                 }
@@ -285,16 +412,14 @@ namespace PlaylistGenerator
             {
                 try
                 {
-                    if (verbose)
-                    {
-                        Console.WriteLine("Deleting file: {0}", file);
-                    }
+                    LogMessage("Deleting file: {0}", file);
 
                     File.Delete(file);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine, ex.Message);
+                    LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine,
+                            ex.Message);
 
                     ExitCode = 1;
                 }
@@ -312,17 +437,15 @@ namespace PlaylistGenerator
             {
                 try
                 {
-                    if (verbose)
-                    {
-                        Console.WriteLine("Deleting directory: {0}", root);
-                    }
+                    LogMessage("Deleting directory: {0}", root);
 
                     Directory.Delete(root);
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine, ex.Message);
+                    LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine,
+                            ex.Message);
 
                     ExitCode = 1;
                 }
@@ -336,6 +459,19 @@ namespace PlaylistGenerator
             Console.WriteLine();
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
+        }
+
+        static void LogMessage(string format, params object[] args)
+        {
+            if (Verbose)
+            {
+                Console.WriteLine(format, args);
+            }
+
+            if (CreateLogFile)
+            {
+                LogFileContents.AppendLine(string.Format(format, args));
+            }
         }
     }
 }
