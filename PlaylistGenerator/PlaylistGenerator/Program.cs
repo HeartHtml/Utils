@@ -179,7 +179,7 @@ namespace PlaylistGenerator
                                     LogMessage("Loading song {0} for artist {1}", file.FileName, artist);
                                 }
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 ExitCode = 1;
                             }
@@ -188,21 +188,10 @@ namespace PlaylistGenerator
                         List<PlaylistFile> fileNames =
                             songsForArtist.OrderBy(dd => dd.TagHandler.Song).Select(dd => new PlaylistFile { Index = dd.TagHandler.Track, Path = dd.FileName }).ToList();
 
-                        List<PlaylistFile> filesOnThePlaylist = new List<PlaylistFile>();
-
-                        if (ForceRelativePaths)
-                        {
-                            //TODO
-                        }
-                        else
-                        {
-                            filesOnThePlaylist.AddRange(fileNames);
-                        }
-
                         string playlistFileName = Path.Combine(artistSubDirectory,
                             string.Format("{0}.m3u", artist.RemoveInvalidCharacters()));
 
-                        Playlists.Add(new Playlist(playlistFileName, artist, filesOnThePlaylist, PlaylistType.Artist));
+                        Playlists.Add(new Playlist(playlistFileName, artist, fileNames, PlaylistType.Artist));
                     }
                 }
 
@@ -251,7 +240,7 @@ namespace PlaylistGenerator
                                     LogMessage("Loading song {0} for album {1}", file.FileName, album);
                                 }
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 ExitCode = 1;
                             }
@@ -262,22 +251,11 @@ namespace PlaylistGenerator
                         List<PlaylistFile> fileNames =
                             songsForAlbum.OrderBy(dd => dd.TagHandler.Track).Select(dd => new PlaylistFile { Index = dd.TagHandler.Track, Path = dd.FileName }).ToList();
 
-                        List<PlaylistFile> filesOnThePlaylist = new List<PlaylistFile>();
-
-                        if (ForceRelativePaths)
-                        {
-                            //TODO
-                        }
-                        else
-                        {
-                            filesOnThePlaylist.AddRange(fileNames);
-                        }
-
                         string playlistFileName = Path.Combine(albumsSubDirectory,
                             string.Format("{0} - {1}.m3u", artist.RemoveInvalidCharacters(),
                                 album.RemoveInvalidCharacters()));
 
-                        Playlists.Add(new Playlist(playlistFileName, album, filesOnThePlaylist, PlaylistType.Album));
+                        Playlists.Add(new Playlist(playlistFileName, album, fileNames, PlaylistType.Album));
                     }
                 }
 
