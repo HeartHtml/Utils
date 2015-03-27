@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,42 @@ using UtilsLib.ExtensionMethods;
 
 namespace PlaylistGenerator
 {
+    public enum PlaylistType
+    {
+        None = 0,
+        Artist = 1,
+        Album = 2
+    }
+
+    public class PlaylistFile
+    {
+        public string Path { get; set; }
+
+        public string Index { get; set; }
+    }
+
+    public class Playlist
+    {
+        public string PlaylistName { get; set; }
+
+        public string PlaylistPath { get; set; }
+
+        public PlaylistType PlaylistType { get; set; }
+
+        public List<PlaylistFile> PlaylistFiles { get; set; }
+
+        public Playlist(string path, string name, IEnumerable<PlaylistFile> playlistFiles, PlaylistType type)
+        {
+            PlaylistPath = path;
+
+            PlaylistFiles = playlistFiles.ToList();
+
+            PlaylistType = type;
+
+            PlaylistName = name;
+        }
+    }
+
     public class LogMessage
     {
         public DateTime TimeStamp { get; set; }
@@ -26,6 +63,8 @@ namespace PlaylistGenerator
     public class PlaylistThread
     {
         public List<string> FilesToProcess { get; set; }
+
+        public List<Playlist> Playlists { get; set; }
 
         public string PlaylistDirectory { get; set; }
 
@@ -54,6 +93,8 @@ namespace PlaylistGenerator
             LogFileContents = new List<LogMessage>();
 
             FilesToProcess = new List<string>();
+
+            Playlists = new List<Playlist>();
         }
 
         public void LogMessage(string format, params object[] args)
@@ -144,10 +185,10 @@ namespace PlaylistGenerator
                             }
                         }
 
-                        List<string> fileNames =
-                            songsForArtist.OrderBy(dd => dd.TagHandler.Song).Select(dd => dd.FileName).ToList();
+                        List<PlaylistFile> fileNames =
+                            songsForArtist.OrderBy(dd => dd.TagHandler.Song).Select(dd => new PlaylistFile { Index = dd.TagHandler.Track, Path = dd.FileName }).ToList();
 
-                        List<string> filesOnThePlaylist = new List<string>();
+                        List<PlaylistFile> filesOnThePlaylist = new List<PlaylistFile>();
 
                         if (ForceRelativePaths)
                         {
@@ -161,9 +202,7 @@ namespace PlaylistGenerator
                         string playlistFileName = Path.Combine(artistSubDirectory,
                             string.Format("{0}.m3u", artist.RemoveInvalidCharacters()));
 
-                        LogMessage("Creating playlist: {0}", playlistFileName);
-
-                        File.WriteAllLines(playlistFileName, filesOnThePlaylist);
+                        Playlists.Add(new Playlist(playlistFileName, artist, filesOnThePlaylist, PlaylistType.Artist));
                     }
                 }
 
@@ -218,21 +257,12 @@ namespace PlaylistGenerator
                             }
                         }
 
-                        if (!AlbumSize.IsNullOrWhiteSpace())
-                        {
-                            if (songsForAlbum.Count < MinimumAlbumSize)
-                            {
-                                LogMessage("Skipping album {0}, number of songs less than minimum album size", album);
-                                continue;
-                            }
-                        }
-
                         string artist = songsForAlbum.Select(dd => dd.TagHandler.Artist).FirstOrDefault();
 
-                        List<string> fileNames =
-                            songsForAlbum.OrderBy(dd => dd.TagHandler.Track).Select(dd => dd.FileName).ToList();
+                        List<PlaylistFile> fileNames =
+                            songsForAlbum.OrderBy(dd => dd.TagHandler.Track).Select(dd => new PlaylistFile { Index = dd.TagHandler.Track, Path = dd.FileName }).ToList();
 
-                        List<string> filesOnThePlaylist = new List<string>();
+                        List<PlaylistFile> filesOnThePlaylist = new List<PlaylistFile>();
 
                         if (ForceRelativePaths)
                         {
@@ -247,9 +277,7 @@ namespace PlaylistGenerator
                             string.Format("{0} - {1}.m3u", artist.RemoveInvalidCharacters(),
                                 album.RemoveInvalidCharacters()));
 
-                        LogMessage("Creating playlist: {0}", playlistFileName);
-
-                        File.WriteAllLines(playlistFileName, filesOnThePlaylist);
+                        Playlists.Add(new Playlist(playlistFileName, album, filesOnThePlaylist, PlaylistType.Album));
                     }
                 }
 
@@ -322,6 +350,8 @@ namespace PlaylistGenerator
             set;
         }
 
+        public static List<Playlist> Playlists { get; set; }
+
         public static int NumberOfThreads
         {
             get
@@ -393,6 +423,8 @@ namespace PlaylistGenerator
 
             LogFileContents = new List<LogMessage>();
 
+            Playlists = new List<Playlist>();
+
             string playlistDirectory = Path.GetPathRoot(rootDirectory);
 
             if (string.IsNullOrWhiteSpace(playlistDirectory))
@@ -445,7 +477,7 @@ namespace PlaylistGenerator
 
                     List<IEnumerable<string>> chunks = songs.SplitIntoChunks(NumberOfThreads).ToList();
 
-                    for (int i = 0; i < NumberOfThreads; i ++)
+                    for (int i = 0; i < NumberOfThreads; i++)
                     {
                         doneEvents[i] = new ManualResetEvent(false);
 
@@ -462,7 +494,8 @@ namespace PlaylistGenerator
                             MinimumAlbumSize = minimumAlbumSize,
                             PlaylistDirectory = playlistDirectory,
                             Verbose = Verbose,
-                            FilesToProcess = chunks[i].ToList()
+                            FilesToProcess = chunks[i].ToList(),
+                            Playlists = Playlists
                         };
 
                         ThreadPool.QueueUserWorkItem(thread.ThreadPoolCallback, i);
@@ -470,7 +503,63 @@ namespace PlaylistGenerator
 
                     WaitHandle.WaitAll(doneEvents);
 
+                    songs.Clear();
+
+                    chunks.Clear();
+
                     LogMessage("All threads done processing");
+
+                    LogMessage("Merging thread work");
+
+                    List<Playlist> finalPlaylistFiles = new List<Playlist>();
+
+                    List<string> distinctPlaylistPaths = Playlists.Select(dd => dd.PlaylistPath).Distinct().ToList();
+
+                    foreach (string playlistPath in distinctPlaylistPaths)
+                    {
+                        string path = playlistPath;
+
+                        List<PlaylistFile> songsForPlaylist =
+                            Playlists.Where(dd => dd.PlaylistPath.SafeEquals(path)).SelectMany(dd => dd.PlaylistFiles).ToList();
+
+                        Playlist first = Playlists.FirstOrDefault(dd => dd.PlaylistPath.SafeEquals(path));
+
+                        if (first != null)
+                        {
+                            finalPlaylistFiles.Add(new Playlist(playlistPath, first.PlaylistName, songsForPlaylist, first.PlaylistType));
+                        }
+                    }
+
+                    distinctPlaylistPaths.Clear();
+
+                    LogMessage("Creating playlist files");
+
+                    foreach (Playlist playlist in finalPlaylistFiles)
+                    {
+                        if (playlist.PlaylistType == PlaylistType.Album)
+                        {
+                            if (!albumSize.IsNullOrWhiteSpace())
+                            {
+                                if (playlist.PlaylistFiles.Count < minimumAlbumSize)
+                                {
+                                    LogMessage("Skipping album {0}, number of songs less than minimum album size", playlist.PlaylistName);
+                                    continue;
+                                }
+                            }
+                        }
+
+                        LogMessage("Creating playlist: {0}", playlist.PlaylistPath);
+
+                        if (playlist.PlaylistType == PlaylistType.Album)
+                        {
+                            File.WriteAllLines(playlist.PlaylistPath, playlist.PlaylistFiles.OrderBy(dd => dd.Index).Select(dd => dd.Path));
+                        }
+                        else
+                        {
+                            File.WriteAllLines(playlist.PlaylistPath, playlist.PlaylistFiles.OrderBy(dd => dd.Path).Select(dd => dd.Path));
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
