@@ -134,6 +134,8 @@ namespace PlaylistGenerator
                     }
                 }
 
+                FilesToProcess.Clear();
+
                 if (Artists)
                 {
                     List<string> distinctArtists = new List<string>();
@@ -259,6 +261,7 @@ namespace PlaylistGenerator
                     }
                 }
 
+                mp3Files.Clear();
             }
             catch (Exception ex)
             {
