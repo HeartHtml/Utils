@@ -12,7 +12,7 @@
       <Value Profile="(Default)">.mp4|.avi|.mkv</Value>
     </Setting>
     <Setting Name="MovieSearchUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://yts.to/api/v2/list_movies.json?query_term={0}</Value>
+      <Value Profile="(Default)">https://yts.to/api/v2/list_movies.json?query_term={0}&amp;limit=50&amp;page={1}</Value>
     </Setting>
     <Setting Name="SubtitleSearchUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.yifysubtitles.com/movie-imdb/{0}</Value>
@@ -30,7 +30,7 @@
       <Value Profile="(Default)">.srt</Value>
     </Setting>
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

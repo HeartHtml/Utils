@@ -52,7 +52,7 @@ namespace PlexHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://yts.to/api/v2/list_movies.json?query_term={0}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://yts.to/api/v2/list_movies.json?query_term={0}&limit=50&page={1}")]
         public string MovieSearchUrl {
             get {
                 return ((string)(this["MovieSearchUrl"]));
@@ -106,7 +106,7 @@ namespace PlexHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Debug {
             get {
                 return ((bool)(this["Debug"]));

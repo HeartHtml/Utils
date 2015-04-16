@@ -17,16 +17,45 @@ namespace PlexHelper.Yts.Entities
             }
         }
 
-        public async Task<YtsApiMovieResponse> MovieListQueryAsync(string movieNameQuery)
+        public async Task<YtsApiMovieResponse> MovieListQueryAsync(string movieNameQuery, bool exhaustiveSearch = false)
         {
-            using (var client = new HttpClient())
+            YtsApiMovieResponse listResponse = new YtsApiMovieResponse();
+
+            bool continueSearch;
+
+            int page = 0;
+
+            do
             {
-                var responseString = await client.GetStringAsync(string.Format(MovieSearchUrl, movieNameQuery));
+                using (var client = new HttpClient())
+                {
+                    page++;
 
-                YtsApiMovieResponse listResponse = new YtsApiMovieResponse(responseString);
+                    var responseString = await client.GetStringAsync(string.Format(MovieSearchUrl, movieNameQuery, page));
 
-                return listResponse;
-            }
+                    YtsApiMovieResponse innerResponse = new YtsApiMovieResponse(responseString);
+
+                    listResponse.MovieListResponse.Limit = innerResponse.MovieListResponse.Limit;
+
+                    listResponse.MovieListResponse.MovieCount = innerResponse.MovieListResponse.MovieCount;
+
+                    listResponse.MovieListResponse.PageNumber = innerResponse.MovieListResponse.PageNumber;
+
+                    if (innerResponse.MovieListResponse.Movies.Count == 0)
+                    {
+                        break;
+                    }
+
+                    listResponse.MovieListResponse.Movies.AddRange(innerResponse.MovieListResponse.Movies);
+
+                    YtsMovie movieFound =
+                        listResponse.MovieListResponse.Movies.FirstOrDefault(dd => movieNameQuery.Contains(dd.Title));
+
+                    continueSearch = movieFound == null;
+                }
+            } while (exhaustiveSearch && continueSearch);
+
+            return listResponse;
         }
     }
 }

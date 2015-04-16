@@ -186,6 +186,54 @@ namespace PlexHelper
             Console.WriteLine("FIN");
         }
 
+        public static void CleanDirectoryAndSubfolders(string root, bool verbose = true, bool isTopmostRoot = false)
+        {
+            string[] files = Directory.GetFiles(root);
+
+            foreach (string file in files)
+            {
+                try
+                {
+                    LogMessage("Deleting file: {0}", file);
+
+                    File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine,
+                            ex.Message);
+
+                    Environment.ExitCode = 1;
+                }
+            }
+
+            List<string> subDirectories = Directory.GetDirectories(root).ToList();
+
+            foreach (string subDirectory in subDirectories)
+            {
+                CleanDirectoryAndSubfolders(subDirectory);
+            }
+
+            //At this point the directory should be clean of any files, delete it if it's not the root
+            if (!isTopmostRoot)
+            {
+                try
+                {
+                    LogMessage("Deleting directory: {0}", root);
+
+                    Directory.Delete(root);
+
+                }
+                catch (Exception ex)
+                {
+                    LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine,
+                            ex.Message);
+
+                    Environment.ExitCode = 1;
+                }
+            }
+        }
+
         static void ProcessMediaFile(PlexMediaOutputFile file, bool moveFiles, bool overwriteExistingSubtitles)
         {
             try
@@ -231,9 +279,11 @@ namespace PlexHelper
 
                     string temporaryPath = Path.Combine(directory, Guid.NewGuid().ToString());
 
+                    LogMessage("Creating temporary directory to extract contents: {0}", temporaryPath);
+
                     Directory.CreateDirectory(temporaryPath);
 
-                    LogMessage("Creating temporary archive to extract contents: {0}", temporaryPath);
+                    LogMessage("Extracting contents of archive");
 
                     ZipFile.ExtractToDirectory(metaDataFile.NewPath, temporaryPath);
 
@@ -246,7 +296,7 @@ namespace PlexHelper
                         if (SupportedSubtitleExtensions.Contains(extractedFiles.Extension))
                         {
                             string finalSubtitlePath = Path.Combine(directory,
-                                string.Format("{0}{1}", metaDataFile.NewName, extractedFiles));
+                                string.Format("{0}{1}", metaDataFile.NewName, extractedFiles.Extension));
 
                             LogMessage("Saving final subtitle file: {0}", finalSubtitlePath);
 
@@ -258,9 +308,11 @@ namespace PlexHelper
                         }
                     }
 
-                    LogMessage("Deleting temporary archive: {0}", temporaryPath);
+                    CleanDirectoryAndSubfolders(temporaryPath);
 
-                    Directory.Delete(temporaryPath);
+                    LogMessage("Deleting archive: {0}", metaDataFile.NewPath);
+
+                    File.Delete(metaDataFile.NewPath);
                 }
             }
             catch (Exception ex)
@@ -278,7 +330,16 @@ namespace PlexHelper
             {
                 LogMessage("Processing file: {0}", file.OriginalName);
 
-                string searchName = file.OriginalDirectory.Substring(0, file.OriginalDirectory.IndexOf(StopCharacter, StringComparison.Ordinal));
+                string searchName;
+
+                if (file.OriginalDirectory.IndexOf(StopCharacter, StringComparison.Ordinal) > 0)
+                {
+                    searchName = file.OriginalDirectory.Substring(0, file.OriginalDirectory.IndexOf(StopCharacter, StringComparison.Ordinal));
+                }
+                else
+                {
+                    searchName = file.OriginalDirectory;
+                }
 
                 string[] pieces = searchName.Split(Path.DirectorySeparatorChar);
 
@@ -290,9 +351,10 @@ namespace PlexHelper
 
                 LogMessage("Querying movie database...", searchName);
 
-                YtsApiMovieResponse response = request.MovieListQueryAsync(searchName).Result;
+                YtsApiMovieResponse response = request.MovieListQueryAsync(searchName, exhaustiveSearch: true).Result;
 
-                YtsMovie mostRelevantMovie = response.MovieListResponse.Movies.FirstOrDefault();
+                YtsMovie mostRelevantMovie =
+                    response.MovieListResponse.Movies.FirstOrDefault(dd => searchName.Contains(dd.Title));
 
                 if (mostRelevantMovie != null)
                 {
@@ -387,7 +449,8 @@ namespace PlexHelper
                             Extension = info.Extension,
                             OriginalDirectory = info.DirectoryName,
                             OriginalPath = info.FullName,
-                            Original = true
+                            Original = true,
+                            OriginalName = info.Name
                         };
 
                         outputFile.MetaDataFiles.Add(metaDataFile);
