@@ -19,6 +19,11 @@ namespace PlaylistGenerator
         Album = 2
     }
 
+    public class ExitStatus
+    {
+        public int ExitCode { get; set; }
+    }
+
     public class PlaylistFile
     {
         public string Path { get; set; }
@@ -60,8 +65,100 @@ namespace PlaylistGenerator
         }
     }
 
+    public class PlaylistWriterThread
+    {
+        public ExitStatus ExitStatus { get; set; }
+
+        public List<Playlist> Playlists { get; set; }
+
+        public WaitHandle DoneEvent { get; set; }
+
+        public bool Verbose { get; set; }
+
+        public bool CreateLogFile { get; set; }
+
+        public List<LogMessage> LogFileContents { get; set; }
+
+        public string AlbumSize { get; set; }
+
+        public int MinimumAlbumSize { get; set; }
+
+        public PlaylistWriterThread()
+        {
+            ExitStatus = new ExitStatus();
+
+            Playlists = new List<Playlist>();
+        }
+
+        public void ThreadPoolCallback(Object threadContext)
+        {
+            try
+            {
+                foreach (Playlist playlist in Playlists)
+                {
+                    if (playlist.PlaylistType == PlaylistType.Album)
+                    {
+                        if (!AlbumSize.IsNullOrWhiteSpace())
+                        {
+                            if (playlist.PlaylistFiles.Count < MinimumAlbumSize)
+                            {
+                                LogMessage("Skipping album {0}, number of songs less than minimum album size", playlist.PlaylistName);
+                                continue;
+                            }
+                        }
+                    }
+
+                    LogMessage("Creating playlist: {0}", playlist.PlaylistPath);
+
+                    if (playlist.PlaylistType == PlaylistType.Album)
+                    {
+                        File.WriteAllLines(playlist.PlaylistPath, playlist.PlaylistFiles.OrderBy(dd => dd.Index).Select(dd => dd.Path));
+                    }
+                    else
+                    {
+                        File.WriteAllLines(playlist.PlaylistPath, playlist.PlaylistFiles.OrderBy(dd => dd.Path).Select(dd => dd.Path));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogMessage("Writer thread encountered error writing playlist files: {0}", ex.Message);
+
+                ExitStatus.ExitCode = 1;
+            }
+            finally
+            {
+                LogMessage("Writer thread finished processing");
+
+                ManualResetEvent resetEvent = DoneEvent as ManualResetEvent;
+
+                if (resetEvent != null)
+                {
+                    resetEvent.Set();
+                }
+            }
+        }
+
+        public void LogMessage(string format, params object[] args)
+        {
+            if (Verbose)
+            {
+                Console.WriteLine(format, args);
+            }
+
+            if (CreateLogFile)
+            {
+                string message = string.Format(format, args);
+
+                LogFileContents.Add(new LogMessage { Message = message, TimeStamp = DateTime.Now });
+            }
+        }
+    }
+
     public class PlaylistThread
     {
+        public ExitStatus ExitStatus { get; set; }
+
         public List<string> FilesToProcess { get; set; }
 
         public List<Playlist> Playlists { get; set; }
@@ -81,10 +178,6 @@ namespace PlaylistGenerator
         public bool Verbose { get; set; }
 
         public bool CreateLogFile { get; set; }
-
-        public string AlbumSize { get; set; }
-
-        public int MinimumAlbumSize { get; set; }
 
         public List<LogMessage> LogFileContents { get; set; }
 
@@ -130,7 +223,7 @@ namespace PlaylistGenerator
                     {
                         LogMessage("Could not load tag information for file: {0}", song);
                         LogMessage(ex.Message);
-                        ExitCode = 1;
+                        ExitStatus.ExitCode = 1;
                     }
                 }
 
@@ -155,7 +248,7 @@ namespace PlaylistGenerator
                         {
                             LogMessage("Could not load artist tag information for file: {0}", mp3File.FileName);
                             LogMessage(ex.Message);
-                            ExitCode = 1;
+                            ExitStatus.ExitCode = 1;
                         }
                     }
 
@@ -183,7 +276,7 @@ namespace PlaylistGenerator
                             }
                             catch (Exception)
                             {
-                                ExitCode = 1;
+                                ExitStatus.ExitCode = 1;
                             }
                         }
 
@@ -216,7 +309,7 @@ namespace PlaylistGenerator
                         {
                             LogMessage("Could not load album tag information for file: {0}", mp3File.FileName);
                             LogMessage(ex.Message);
-                            ExitCode = 1;
+                            ExitStatus.ExitCode = 1;
                         }
                     }
 
@@ -244,7 +337,7 @@ namespace PlaylistGenerator
                             }
                             catch (Exception)
                             {
-                                ExitCode = 1;
+                                ExitStatus.ExitCode = 1;
                             }
                         }
 
@@ -266,6 +359,7 @@ namespace PlaylistGenerator
             catch (Exception ex)
             {
                 LogMessage("Thread failed to process: {0}", ex.Message);
+                ExitStatus.ExitCode = 1;
             }
             finally
             {
@@ -332,6 +426,8 @@ namespace PlaylistGenerator
         }
 
         public static List<Playlist> Playlists { get; set; }
+
+        public static ExitStatus ExitStatus { get; set; }
 
         public static int NumberOfThreads
         {
@@ -406,6 +502,8 @@ namespace PlaylistGenerator
 
             Playlists = new List<Playlist>();
 
+            ExitStatus = new ExitStatus();
+
             string playlistDirectory = Path.GetPathRoot(rootDirectory);
 
             if (string.IsNullOrWhiteSpace(playlistDirectory))
@@ -464,7 +562,6 @@ namespace PlaylistGenerator
 
                         PlaylistThread thread = new PlaylistThread
                         {
-                            AlbumSize = albumSize,
                             Albums = albums,
                             Artists = artists,
                             CreateLogFile = CreateLogFile,
@@ -472,11 +569,11 @@ namespace PlaylistGenerator
                             ExitCode = ExitCode,
                             ForceRelativePaths = ForceRelativePaths,
                             LogFileContents = LogFileContents,
-                            MinimumAlbumSize = minimumAlbumSize,
                             PlaylistDirectory = playlistDirectory,
                             Verbose = Verbose,
                             FilesToProcess = chunks[i].ToList(),
-                            Playlists = Playlists
+                            Playlists = Playlists,
+                            ExitStatus = ExitStatus
                         };
 
                         ThreadPool.QueueUserWorkItem(thread.ThreadPoolCallback, i);
@@ -513,41 +610,37 @@ namespace PlaylistGenerator
 
                     distinctPlaylistPaths.Clear();
 
-                    LogMessage("Creating playlist files");
+                    doneEvents = new WaitHandle[NumberOfThreads];
 
-                    foreach (Playlist playlist in finalPlaylistFiles)
+                    List<IEnumerable<Playlist>> playlistChunks = finalPlaylistFiles.SplitIntoChunks(NumberOfThreads).ToList();
+
+                    for (int i = 0; i < NumberOfThreads; i ++)
                     {
-                        if (playlist.PlaylistType == PlaylistType.Album)
-                        {
-                            if (!albumSize.IsNullOrWhiteSpace())
-                            {
-                                if (playlist.PlaylistFiles.Count < minimumAlbumSize)
-                                {
-                                    LogMessage("Skipping album {0}, number of songs less than minimum album size", playlist.PlaylistName);
-                                    continue;
-                                }
-                            }
-                        }
+                        doneEvents[i] = new ManualResetEvent(false);
 
-                        LogMessage("Creating playlist: {0}", playlist.PlaylistPath);
+                        PlaylistWriterThread thread = new PlaylistWriterThread
+                        {
+                            AlbumSize = albumSize,
+                            ExitStatus = ExitStatus,
+                            Playlists = playlistChunks[i].ToList(),
+                            LogFileContents = LogFileContents,
+                            CreateLogFile = CreateLogFile,
+                            Verbose = Verbose,
+                            MinimumAlbumSize = minimumAlbumSize,
+                            DoneEvent = doneEvents[i]
+                        };
 
-                        if (playlist.PlaylistType == PlaylistType.Album)
-                        {
-                            File.WriteAllLines(playlist.PlaylistPath, playlist.PlaylistFiles.OrderBy(dd => dd.Index).Select(dd => dd.Path));
-                        }
-                        else
-                        {
-                            File.WriteAllLines(playlist.PlaylistPath, playlist.PlaylistFiles.OrderBy(dd => dd.Path).Select(dd => dd.Path));
-                        }
+                        ThreadPool.QueueUserWorkItem(thread.ThreadPoolCallback, i);
                     }
 
+                    WaitHandle.WaitAll(doneEvents);
                 }
             }
             catch (Exception ex)
             {
                 LogMessage("Stack Trace: {0}{1}{1}Message: {2}", ex.StackTrace, Environment.NewLine, ex.Message);
 
-                ExitCode = 1;
+                ExitStatus.ExitCode = 1;
             }
 
             if (CreateLogFile)
@@ -558,6 +651,8 @@ namespace PlaylistGenerator
 
                 File.WriteAllLines(logfilePath, logContents);
             }
+
+            ExitCode = ExitStatus.ExitCode;
 
             if (ExitCode > 0)
             {
