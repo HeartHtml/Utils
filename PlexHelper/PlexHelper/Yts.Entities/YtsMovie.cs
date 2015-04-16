@@ -28,6 +28,8 @@ namespace PlexHelper.Yts.Entities
         [JsonProperty("year")]
         public int Year { get; set; }
 
+        public int FuzzyDistance { get; set; }
+
         public string ToFormattedName()
         {
             return string.Format("{0} ({1})", Title, Year);

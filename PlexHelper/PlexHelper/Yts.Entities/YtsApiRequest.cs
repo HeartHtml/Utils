@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using UtilsLib.ExtensionMethods;
 
 namespace PlexHelper.Yts.Entities
 {
@@ -20,8 +21,6 @@ namespace PlexHelper.Yts.Entities
         public async Task<YtsApiMovieResponse> MovieListQueryAsync(string movieNameQuery, bool exhaustiveSearch = false)
         {
             YtsApiMovieResponse listResponse = new YtsApiMovieResponse();
-
-            bool continueSearch;
 
             int page = 0;
 
@@ -47,13 +46,13 @@ namespace PlexHelper.Yts.Entities
                     }
 
                     listResponse.MovieListResponse.Movies.AddRange(innerResponse.MovieListResponse.Movies);
-
-                    YtsMovie movieFound =
-                        listResponse.MovieListResponse.Movies.FirstOrDefault(dd => movieNameQuery.Contains(dd.Title));
-
-                    continueSearch = movieFound == null;
                 }
-            } while (exhaustiveSearch && continueSearch);
+            } while (exhaustiveSearch);
+
+            foreach (YtsMovie movie in listResponse.MovieListResponse.Movies)
+            {
+                movie.FuzzyDistance = StringExtensions.ComputeLevenshteinDistance(movieNameQuery, movie.Title);
+            }
 
             return listResponse;
         }

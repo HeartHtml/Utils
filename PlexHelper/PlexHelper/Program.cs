@@ -354,7 +354,7 @@ namespace PlexHelper
                 YtsApiMovieResponse response = request.MovieListQueryAsync(searchName, exhaustiveSearch: true).Result;
 
                 YtsMovie mostRelevantMovie =
-                    response.MovieListResponse.Movies.FirstOrDefault(dd => searchName.Contains(dd.Title));
+                    response.MovieListResponse.Movies.OrderBy(dd => dd.FuzzyDistance).FirstOrDefault();
 
                 if (mostRelevantMovie != null)
                 {
@@ -375,22 +375,30 @@ namespace PlexHelper
                         SubtitleDataFileCollection dataFileCollection =
                             downloader.DownloadSubtitlesAsync(mostRelevantMovie.ImdbCode).Result;
 
-                        foreach (SubtitleDataFile subtitleDataFile in dataFileCollection.DataFiles)
+                        if (dataFileCollection != null)
                         {
-                            LogMessage("Subtitle file downloaded: {0}", subtitleDataFile.FileName);
-
-                            PlexMediaOutputMetaDataFile metaDataFile = new PlexMediaOutputMetaDataFile
+                            foreach (SubtitleDataFile subtitleDataFile in dataFileCollection.DataFiles)
                             {
-                                Data = subtitleDataFile.Data,
-                                Extension = subtitleDataFile.Extension,
-                                NewName =
-                                    string.Format("{0}{1}", mostRelevantMovie.ToFormattedName(),
-                                        SubtitleLanguageCodeHelper.ConvertToLanguageCode(subtitleDataFile.Language)),
-                            };
+                                LogMessage("Subtitle file downloaded: {0}", subtitleDataFile.FileName);
 
-                            metaDataFile.NewPath = Path.Combine(destination, string.Format("{0}{1}", metaDataFile.NewName, metaDataFile.Extension));
+                                PlexMediaOutputMetaDataFile metaDataFile = new PlexMediaOutputMetaDataFile
+                                {
+                                    Data = subtitleDataFile.Data,
+                                    Extension = subtitleDataFile.Extension,
+                                    NewName =
+                                        string.Format("{0}{1}", mostRelevantMovie.ToFormattedName(),
+                                            SubtitleLanguageCodeHelper.ConvertToLanguageCode(subtitleDataFile.Language)),
+                                };
 
-                            file.MetaDataFiles.Add(metaDataFile);
+                                metaDataFile.NewPath = Path.Combine(destination,
+                                    string.Format("{0}{1}", metaDataFile.NewName, metaDataFile.Extension));
+
+                                file.MetaDataFiles.Add(metaDataFile);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No subtitles found");
                         }
                     }
                 }
