@@ -14,6 +14,8 @@ namespace PlexHelper.YifySubtitles.Entities
 
         public string FileName { get; set; }
 
+        public string Language { get; set; }
+
         public override string ToString()
         {
             return string.Format("File Name: {0}, Extension: {1}", FileName, Extension);

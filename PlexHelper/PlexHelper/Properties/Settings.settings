@@ -8,7 +8,7 @@
     <Setting Name="Verbose" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="SupportedExtensions" Type="System.String" Scope="Application">
+    <Setting Name="SupportedMediaExtensions" Type="System.String" Scope="Application">
       <Value Profile="(Default)">.mp4|.avi|.mkv</Value>
     </Setting>
     <Setting Name="MovieSearchUrl" Type="System.String" Scope="Application">
@@ -17,14 +17,20 @@
     <Setting Name="SubtitleSearchUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.yifysubtitles.com/movie-imdb/{0}</Value>
     </Setting>
-    <Setting Name="StopCharacters" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">]</Value>
+    <Setting Name="StopCharacter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">[</Value>
     </Setting>
     <Setting Name="SubtitleDownloadFormatLink" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.yifysubtitles.com/subtitle/{0}.zip</Value>
     </Setting>
     <Setting Name="SubtitleLanguages" Type="System.String" Scope="Application">
       <Value Profile="(Default)">English|Spanish|French</Value>
+    </Setting>
+    <Setting Name="SupportedSubtitleExtensions" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.srt</Value>
+    </Setting>
+    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

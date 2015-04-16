@@ -44,9 +44,9 @@ namespace PlexHelper.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(".mp4|.avi|.mkv")]
-        public string SupportedExtensions {
+        public string SupportedMediaExtensions {
             get {
-                return ((string)(this["SupportedExtensions"]));
+                return ((string)(this["SupportedMediaExtensions"]));
             }
         }
         
@@ -70,10 +70,10 @@ namespace PlexHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("]")]
-        public string StopCharacters {
+        [global::System.Configuration.DefaultSettingValueAttribute("[")]
+        public string StopCharacter {
             get {
-                return ((string)(this["StopCharacters"]));
+                return ((string)(this["StopCharacter"]));
             }
         }
         
@@ -92,6 +92,24 @@ namespace PlexHelper.Properties {
         public string SubtitleLanguages {
             get {
                 return ((string)(this["SubtitleLanguages"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".srt")]
+        public string SupportedSubtitleExtensions {
+            get {
+                return ((string)(this["SupportedSubtitleExtensions"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Debug {
+            get {
+                return ((bool)(this["Debug"]));
             }
         }
     }

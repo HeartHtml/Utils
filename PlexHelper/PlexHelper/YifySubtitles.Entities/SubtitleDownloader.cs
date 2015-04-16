@@ -185,7 +185,8 @@ namespace PlexHelper.YifySubtitles.Entities
                         {
                             Data = data,
                             Extension = ".zip",
-                            FileName = subtitle.FileName
+                            FileName = subtitle.FileName,
+                            Language = subtitle.Language
                         };
 
                         dataFileCollection.DataFiles.Add(dataFile);

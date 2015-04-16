@@ -21,7 +21,7 @@ namespace PlexHelper.Yts.Entities
         {
             using (var client = new HttpClient())
             {
-                var responseString = await client.GetStringAsync(MovieSearchUrl);
+                var responseString = await client.GetStringAsync(string.Format(MovieSearchUrl, movieNameQuery));
 
                 YtsApiMovieResponse listResponse = new YtsApiMovieResponse(responseString);
 
