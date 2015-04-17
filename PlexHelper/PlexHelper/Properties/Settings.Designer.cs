@@ -106,10 +106,28 @@ namespace PlexHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool Debug {
             get {
                 return ((bool)(this["Debug"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".|720p|1080p|BluRay|x264|YIFY|BrRip|+|HI|mp4|avi|mkv")]
+        public string StringsToReplace {
+            get {
+                return ((string)(this["StringsToReplace"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Title (Year)")]
+        public string DownloadedMovieNameFormat {
+            get {
+                return ((string)(this["DownloadedMovieNameFormat"]));
             }
         }
     }

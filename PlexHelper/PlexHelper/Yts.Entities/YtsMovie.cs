@@ -30,11 +30,6 @@ namespace PlexHelper.Yts.Entities
 
         public int FuzzyDistance { get; set; }
 
-        public string ToFormattedName()
-        {
-            return string.Format("{0} ({1})", Title, Year);
-        }
-
         public override string ToString()
         {
             return string.Format("Id: {0}, ImdbCode: {1}, Title: {2}", Id, ImdbCode, Title);

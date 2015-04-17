@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FormatterHelperTest.cs" />
     <Compile Include="YifySubtitlesTest.cs" />
     <Compile Include="YtsApiTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

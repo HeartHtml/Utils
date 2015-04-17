@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormatterHelper.cs" />
     <Compile Include="PlexMediaOutputFile.cs" />
     <Compile Include="PlexMediaOutputMetaDataFile.cs" />
     <Compile Include="Program.cs" />

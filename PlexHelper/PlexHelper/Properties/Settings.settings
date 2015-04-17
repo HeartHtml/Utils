@@ -30,7 +30,13 @@
       <Value Profile="(Default)">.srt</Value>
     </Setting>
     <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StringsToReplace" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.|720p|1080p|BluRay|x264|YIFY|BrRip|+|HI|mp4|avi|mkv</Value>
+    </Setting>
+    <Setting Name="DownloadedMovieNameFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Title (Year)</Value>
     </Setting>
   </Settings>
 </SettingsFile>

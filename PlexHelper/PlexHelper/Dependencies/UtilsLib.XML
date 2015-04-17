@@ -1,0 +1,1313 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UtilsLib</name>
+    </assembly>
+    <members>
+        <member name="T:UtilsLib.ExtensionMethods.AttributeExtensions">
+            <summary>
+            Extension methods for class attributes
+            </summary>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.BooleanExtensions">
+            <summary>
+            Extension Methods for Booleans
+            </summary>
+        </member>
+        <member name="F:UtilsLib.ExtensionMethods.BooleanExtensions.YesString">
+            <summary>
+            The internal string representation of yes.
+            </summary>
+        </member>
+        <member name="F:UtilsLib.ExtensionMethods.BooleanExtensions.NoString">
+            <summary>
+            The internal string representation of no.
+            </summary>
+        </member>
+        <member name="F:UtilsLib.ExtensionMethods.BooleanExtensions.YesStringShort">
+            <summary>
+            The internal string representation of yes shortened.
+            </summary>
+        </member>
+        <member name="F:UtilsLib.ExtensionMethods.BooleanExtensions.NoStringShort">
+            <summary>
+            The internal string representation of no shortened.
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.BooleanExtensions.ToFormattedString(System.Boolean,System.String,System.String)">
+            <summary>
+            Returns a friendly string representation of the boolean value
+            </summary>
+            <param name="value"></param>
+            <param name="trueString">Custom value if desired</param>
+            <param name="falseString">Custom value if desired</param>
+            <returns>A string</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.BooleanExtensions.TryParseBooleanConstants(System.String,System.Boolean@)">
+            <summary>
+            Attempts to parse a boolean value using english constants
+            </summary>
+            <param name="valueToParse"></param>
+            <param name="parsedValue"></param>
+            <returns>True if parsed, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.BooleanExtensions.TryParse(System.String,System.Boolean@)">
+            <summary>
+            Attempts to parse a boolean string using boolean strings
+            </summary>
+            <param name="valueToParse"></param>
+            <param name="parsedValue"></param>
+            <returns>True if parsed, false otherwise</returns>
+        </member>
+        <member name="P:UtilsLib.ExtensionMethods.BooleanExtensions.BooleanConstants">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UtilsLib.ExtensionMethods.BooleanExtensions.TrueConstants">
+            <summary>
+            True boolean english constants
+            </summary>
+        </member>
+        <member name="P:UtilsLib.ExtensionMethods.BooleanExtensions.FalseConstants">
+            <summary>
+            False boolean english constants
+            </summary>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.DataExtensions">
+            <summary>
+            Extension Methods for DataSets, DataTables, and DataRows
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetRowsFromDataSet(System.Data.DataSet)">
+            <summary>
+            Returns all rows in a DataSet without the risk of a null exception.
+            </summary>
+            <param name="ds">DataSet to get all rows from.</param>
+            <returns>Array of DataRows.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetFirstRowFromDataSet(System.Data.DataSet)">
+            <summary>
+            Returns the first row without the risk of a null exception.
+            </summary>
+            <param name="ds">DataSet to get first row from.</param>
+            <returns>DataRow if available, otherwise null.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.HasAtLeastOneRow(System.Data.DataSet)">
+            <summary>
+            Determines whether the DataSet has at least one row
+            </summary>
+            <param name="ds">DataSet to determine whether has at least one row</param>
+            <returns>True, if DataSet has at least one row</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.IsNullOrEmpty(System.Data.DataSet)">
+            <summary>
+            
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetValueFromFirstRow``1(System.Data.DataSet,System.String,System.Boolean)">
+            <param name="set"></param>
+            <param name="fieldName"></param>
+            <param name="dontThrowException">If true, won't throw exception if table doesn't contain column</param>
+            <returns>Value of table column</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetKeyValueFromDataSet(System.Data.DataSet,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ds"></param>
+            <param name="a"></param>
+            <param name="defaultVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.MatchAttributeFromDataSet(System.Data.DataSet,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ds"></param>
+            <param name="col"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetAttributeFromDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ds"></param>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.HasAtLeastOneRow(System.Data.DataTable)">
+            <summary>
+            Determines whether the DataTable has at least one row
+            </summary>
+            <param name="dt">DataTable to determine whether has at least one row</param>
+            <returns>True, if DataTable has at least one row</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetValue``1(System.Data.DataRow,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the value of DataRow field, if it is DBNull, return the default value of that
+            </summary>
+            <param name="row">DataRow from database</param>
+            <param name="fieldName">The column name where the data is located</param>
+            <param name="useStringValueForEnum">If true, will use the enum string value to parse the enum</param>
+            <param name="useBooleanEnglishConstants">If true, will use boolean english constants for conversion, i.e "True", "False", "Y", "N", "Yes", "No" etc...</param>
+            <param name="dontThrowException">If true, won't throw exception if table doesn't contain column</param>
+            <returns>Value of table column</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DataExtensions.GetBooleanFromInt(System.Data.DataRow,System.String)">
+            <summary>
+            Gets the boolean value from the integer
+            </summary>
+            <param name="row" />
+            <param name="fieldName" />
+            <returns />
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.DateTimeExtensions">
+            <summary>
+            DateTime extension methods
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.IsValidWithSqlDateStandards(System.DateTime)">
+            <summary>
+            Checks if a DateTime is valid enforcing Sql Date range standards
+            </summary>
+            <param name="date">The date to validate</param>
+            <returns>True if valid, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.IsDefault(System.DateTime)">
+            <summary>
+            Checks if a DateTime is equal to the default date time value
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.WeekOfYear(System.DateTime)">
+            <summary>
+            Returns the week of year for the current DateTime object
+            </summary>
+            <param name="date" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.MonthName(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.BeginningOfMonth(System.DateTime)">
+            <summary>
+            Gets the DateTime instance represented by the beginning of the month of the current DateTime
+            </summary>
+            <param name="date" />
+            <returns>A DateTime</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.EndOfMonth(System.DateTime)">
+            <summary>
+            Gets the DateTime instance represented by the end of the month of the current DateTime
+            </summary>
+            <param name="date" />
+            <returns>A DateTime</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.BeginningOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Returns the first day of the week that the specified date is in. 
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.BeginningOfWeek(System.DateTime)">
+            <summary>
+            Returns the first day of the week that the specified date is in. 
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.EndOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Returns the last day of the week that the specified date is in. 
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.EndOfWeek(System.DateTime)">
+            <summary>
+            Returns the first day of the week that the specified date is in. 
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.GetLastDayOfMonth(System.DateTime)">
+            <summary>
+            Returns an integer value representing the last day of the month of the current DateTime
+            </summary>
+            <param name="date" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.GetSundayOfWeek(System.DateTime)">
+            <summary>
+            Gets the First day of the week (Sunday)
+            </summary>
+            <param name="date" />
+            <returns>get sunday of the week</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.GetSaturdayOfWeek(System.DateTime)">
+            <summary>
+            Gets the Last day of the week (Saturday)
+            </summary>
+            <param name="date" />
+            <returns>gets saturday of the week</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.GetDayOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets to corresponding day of the week
+            </summary>
+            <param name="date" />
+            <param name="dayOfWeek" />
+            <returns>Returns the specified day of the week</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.Yesterday(System.DateTime,System.Boolean)">
+            <summary>
+            Returns the day before the current date
+            </summary>
+            <param name="date" />
+            <param name="useSuppliedDate" />
+            <returns>A DateTime</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.Tomorrow(System.DateTime,System.Boolean)">
+            <summary>
+            Returns the day after the current date
+            </summary>
+            <param name="date" />
+            <param name="useSuppliedDate" />
+            <returns>A DateTime</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.After(System.DateTime,System.DateTime)">
+            <summary>
+            Checks if a DateTime is after another date
+            </summary>
+            <param name="dateToValidate" />
+            <param name="startDate" />
+            <returns>True if date is after specified date, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.OnAndAfter(System.DateTime,System.DateTime)">
+            <summary>
+            Checks if a DateTime is on or after another date
+            </summary>
+            <param name="dateToValidate" />
+            <param name="startDate" />
+            <returns>True if date is after specified date, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.Before(System.DateTime,System.DateTime)">
+            <summary>
+            Checks if a DateTime is before another date
+            </summary>
+            <param name="dateToValidate" />
+            <param name="startDate" />
+            <returns>True if date is after specified date, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.Between(System.DateTime,System.DateTime,System.Nullable{System.DateTime})">
+            <summary>
+            Checks if a DateTime is within 2 dates
+            </summary>
+            <param name="dateToValidate" />
+            <param name="startDate" />
+            <param name="endDate" />
+            <returns>True if date is within dates, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.DoDatesOverlap(System.DateTime,System.Nullable{System.DateTime},System.DateTime,System.Nullable{System.DateTime})">
+            <summary>
+            Check if the 4 dates overlap. This is used for the contract computation EffectiveDate
+            </summary>
+            <param name="startFirstDate">Start of First Date</param>
+            <param name="endFirstDate">End of First Date</param>
+            <param name="startSecondDate">Start of Second Date</param>
+            <param name="endSecondDate">End of Second Date</param>
+            <returns>true if the dates overlap</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.DaysAfter(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Returns true, if second date supplied is at least specific number of days after the first date
+            </summary>
+            <param name="date" />
+            <param name="dateToCompare" />
+            <param name="numberOfDays" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.DaysOnAndAfter(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Returns true, if second date supplied is at least specific number of days after the first date
+            </summary>
+            <param name="date" />
+            <param name="dateToCompare" />
+            <param name="numberOfDays" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.DaysBefore(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Returns true, if second date supplied is at most specific number of days before the first date
+            </summary>
+            <param name="date" />
+            <param name="dateToCompare" />
+            <param name="numberOfDays" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.Within(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Returns true, if date and dateToCompare are within numberOfDays
+            </summary>
+            <param name="date" />
+            <param name="dateToCompare" />
+            <param name="numberOfDays" />
+            <returns>True, if date and dateToCompare are within numberOfDays</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.FormatLocalDateTime(System.DateTime)">
+            <summary>
+            Formats Date for display
+            </summary>
+            <param name="date" />
+            <returns>Formatted String yyyy-MM-dd hh:mm:ss tt</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.FormatLocalLastLoginDateTime(System.DateTime,System.DateTime)">
+            <summary>
+            Formats the Last Login for Display
+            </summary>
+            <param name="createDate">Date user was created</param>
+            <param name="lastLoginDate">Date user last logged in</param>
+            <returns>Formatted String For User's Last Login</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DateTimeExtensions.FirstDateOfWeek(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="year"></param>
+            <param name="weekOfYear"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.DecimalExtensions">
+            <summary>
+            Extension Methods for DecimalMethods
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.ToDecimalFromPercent(System.Decimal)">
+            <summary>
+            Convert percentage to Decimal
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.ToPercent(System.Decimal)">
+            <summary>
+            Convert Decimal to percentage
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.ToCurrency(System.Decimal)">
+            <summary>
+            Converts Decimal to Currency
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.ToFixedDecimalPlace(System.Decimal,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="numberOfDecimalPlaces"></param>
+            <returns>A string</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.AbsoluteValue(System.Decimal)">
+            <summary>
+            Returns the absolute value of decimal
+            </summary>
+            <param name="value" />
+            <returns>The absolute value of the decimal</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.NegativeValue(System.Decimal)">
+            <summary>
+            Returns the negative value of decimal
+            </summary>
+            <param name="value" />
+            <returns>The negative value of the decimal</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.Between(System.Decimal,System.Decimal,System.Decimal,System.Boolean)">
+            <summary>
+            Returns whether or not decimal is between upper and lower bounds
+            </summary>
+            <param name="value" />
+            <param name="lowerBound">The lower bound to compare</param>
+            <param name="upperBound">The upper bound to compare</param>
+            <param name="includeBounds">[OPTIONAL] Whether or not to include the bounds</param>
+            <returns>Returns true, if value is between the bounds</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.IsNegative(System.Decimal)">
+            <summary>
+            Returns whether or not decimal is negative
+            </summary>
+            <param name="value" />
+            <returns>Returns true, if value is negative</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.IsPositive(System.Decimal)">
+            <summary>
+            Returns whether or not decimal is positive
+            </summary>
+            <param name="value" />
+            <returns>Returns true, if value is positive</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.DecimalExtensions.Round(System.Decimal)">
+            <summary>
+            Rounds up to two decimal values with MidpointAway From zero.
+            </summary>
+            <param name="value" />
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.EnumerationsHelper.ConvertFromInteger``1(System.Int32)">
+            <summary>
+            Helper method that safely converts an integer into an Enum
+            </summary>
+            <param name="enumValue"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.EnumerationsHelper.ConvertFromString``1(System.String)">
+            <summary>
+            Helper method that safely converts a string into an Enum
+            </summary>
+            <param name="enumValue"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.EnumerationsHelper.GetEnumerationValues``1(System.Boolean,System.Boolean)">
+            <summary>
+            Gets Enumeration Values
+            </summary>
+            <typeparam name="T" />
+            <param name="removeDefaults">If true, will remove all Enums with values less than or equal to 0</param>
+            <param name="sortByName">If true, will sort by name rather than by value</param>
+            <returns>List of Enumeration Values</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.EnumerationsHelper.GetEnumerationValuesAsDelimitedString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Gets the specified values for an enumeration as a delimited string with a comma as the delimiter
+            </summary>
+            <param name="enumerationValues">If specified, will limit the enumeration values to those.</param>
+            <param name="delimiter">If specified, will use as delimiter. Defaults to comma.</param>
+            <returns>A string</returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.EnumerationExtensions">
+            <summary>
+            Encapsulates all logic for Enumeration extension methods
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.EnumerationExtensions.ToFormattedString(System.Enum)">
+            <summary>
+            Returns the enumeration value as a different formatted string
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.GuidExtensions">
+            <summary>
+            Extension Methods for Guid
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.GuidExtensions.IsNullOrDefault(System.Guid)">
+            <summary>
+            Checks if a guid is empty, new but improperly initialized
+            </summary>
+            <param name="value" />
+            <returns>True if empty or initialized, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.GuidExtensions.GetNullIfDefault(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.GuidExtensions.IsNullOrDefault(System.Nullable{System.Guid})">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.IComparableExtensions">
+            <summary>
+            Extension methods for IComparable
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IComparableExtensions.Minimum``1(``0[])">
+            <summary>
+            Returns minimum value of an array of values
+            </summary>
+            <param name="value" />
+            <typeparam name="T" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IComparableExtensions.Maximum``1(``0[])">
+            <summary>
+            Returns maximum value of an array of values
+            </summary>
+            <param name="value" />
+            <typeparam name="T" />
+            <returns />
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.IEnumerableExtensions">
+            <summary>
+            Extension methods for IEnumerable
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Checks if an IEnumerable collection is intialized or contains items
+            </summary>
+            <param name="list">The array to check</param>
+            <returns>True if the list is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.IsNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.SafeAny``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Checks if an IEnumerable collection has elements safely without the risk of null exception
+            </summary>
+            <typeparam name="T" />
+            <param name="list" />
+            <returns>True if there are any items in this IEnumerable</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.SafeAny``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Checks if an IEnumerable collection has elements safely without the risk of null exception
+            </summary>
+            <typeparam name="T" />
+            <param name="list" />
+            <param name="predicate" />
+            <returns>True if there are any items in this IEnumerable which match the predicate</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.In``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns a list containing the elements that exist in both lists
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="otherList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.NotIn``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns a list containing the elements not in the source list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="otherList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.SafeCount``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets the number of elements in a list, safely
+            </summary>
+            <typeparam name="T" />
+            <param name="list" />
+            <returns>The number of elements in the list</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.ToEncodedString(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            Converts an IEnumerable collection of bytes to an encoded string using the default system encoding
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.ToSeparatedString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Boolean)">
+            <summary>
+            Returns a string separated by the separator character
+            </summary>
+            <param name="list" />
+            <param name="separator" />
+            <param name="propertyToUse"></param>
+            <param name="useStringValueForEnum"></param>
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.Contains(System.Collections.Generic.IEnumerable{System.String},System.String,System.StringComparison)">
+            <summary>
+            Overload for Contains which can take a StrongComparison parameter
+            </summary>
+            <param name="value" />
+            <param name="valueToCheck" />
+            <param name="comparison" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.ToSafeList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Safely converts an IEnumerable collection of objects to a list
+            </summary>
+            <param name="list"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.SplitIntoChunks``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Splits an IEnumerable into equally sized IEnumerable lists
+            </summary>
+            <typeparam name="T" />
+            <param name="list" />
+            <param name="numberOfChunks" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.Coalesce``1(System.Collections.Generic.IEnumerable{System.Nullable{``0}})">
+            <summary>
+            Coalesces List (Removes all Nulls)
+            </summary>
+            <typeparam name="T" />
+            <param name="source" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.Mode``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets the Mode from Enumerable list of primitive values
+            Mode: the value that occurs most often
+            </summary>
+            <typeparam name="T" />
+            <param name="list" />
+            <returns>The Mode of list</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.Mode(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets the Mode from Enumerable list of strings
+            Mode: the string that occurs most often
+            </summary>
+            <param name="list" />
+            <returns>The Mode of list</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.Median``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets the Median from Enumerable list of primitive values
+            Median: middle value in the list
+            NOTE: If list is even, the element that will be returned will be element at index ((Count - 1) / 2)
+            </summary>
+            <typeparam name="T" />
+            <param name="list" />
+            <returns>The Median of list</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.Median(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets the Median from Enumerable list of strings
+            Median: middle string in the list
+            NOTE: If list is even, the string that will be returned will be string at index ((Count - 1) / 2)
+            </summary>
+            <param name="list" />
+            <returns>The Median of list</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IEnumerableExtensions.ToDataTable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts Enumerable collection into DataTable
+            </summary>
+            <typeparam name="T" />
+            <param name="collection" />
+            <returns>DataTable</returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.IntegerExtensions">
+            <summary>
+            Extension Methods for Integers
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.NumberToWords(System.Int32)">
+            <summary>
+            Converts Numeric to Text
+            </summary>
+            <param name="number" />
+            <returns>Text result of the given number</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.AbsoluteValue(System.Int32)">
+            <summary>
+            Returns the absolute value of int
+            </summary>
+            <param name="value" />
+            <returns>The absolute value of the int</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.NegativeValue(System.Int32)">
+            <summary>
+            Returns the negative value of int
+            </summary>
+            <param name="value" />
+            <returns>The negative value of the int</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.Between(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Returns whether or not int is between upper and lower bounds
+            </summary>
+            <param name="value" />
+            <param name="lowerBound">The lower bound to compare</param>
+            <param name="upperBound">The upper bound to compare</param>
+            <param name="includeBounds">[OPTIONAL] Whether or not to include the bounds</param>
+            <returns>Returns true, if value is between the bounds</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.IsNegative(System.Int32,System.Boolean)">
+            <summary>
+            Returns whether or not int is negative
+            </summary>
+            <param name="value" />
+            <param name="includeZero"/>
+            <returns>Returns true, if value is negative</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.IsPositive(System.Int32,System.Boolean)">
+            <summary>
+            Returns whether or not int is positive
+            </summary>
+            <param name="value" />
+            <param name="includeZero"/>
+            <returns>Returns true, if value is positive</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IntegerExtensions.AddLeadingZero(System.Int32)">
+            <summary>
+            Adds a leading zero to number.
+            </summary>
+            <param name="value">Number to add leading zero to.</param>
+            <returns>String containing a number with a zero if less than 10.</returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.IOExtensions">
+            <summary>
+            Extension Methods for IO Classes
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.IOExtensions.PathCombine(System.String[])">
+            <summary>
+            Simulates the .NET 4.0 Path.Combine,
+            which allows for params of string
+            </summary>
+            <param name="paths">Paths to combine</param>
+            <returns>Combined Path</returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.ObjectExtensions">
+            <summary>
+            Extension Methods for object class
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.ObjectExtensions.IsDefault``1(``0)">
+            <summary>
+            Determines if this object is equal to its internal default value
+            </summary>
+            <param name="value"></param>
+            <returns>True if default, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.ObjectExtensions.ToSafeString``1(``0)">
+            <summary>
+            Safely converts this object to a string representation or null
+            </summary>
+            <param name="value"></param>
+            <typeparam name="T"></typeparam>
+            <returns>A string</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.ObjectExtensions.ToBinary``1(``0)">
+            <summary>
+            Returns Byte[] representation of T
+            </summary>
+            <param name="value"></param>
+            <returns>Byte[]</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.ObjectExtensions.ToObjectFromBinary(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            Gets an Object from Serialized Byte Stream
+            </summary>
+            <param name="value">The byte enumerable to Deserialize</param>
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.ObjectExtensions.Clone``1(``0)">
+            <summary>
+            Perform a deep Copy of the object.
+            </summary>
+            <typeparam name="T">The type of object being copied.</typeparam>
+            <param name="source">The object instance to copy.</param>
+            <returns>The copied object.</returns>
+        </member>
+        <member name="T:UtilsLib.ExtensionMethods.StringExtensions">
+            <summary>
+            Extension Methods for String
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.EnvironmentNewLine(System.Boolean)">
+            <summary>
+            Environment new line that works with HTML
+            </summary>
+            <param name="isHtml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.GeneratePropertyChangedString(System.String,System.String,System.String)">
+            <summary>
+            Generic method to generate property changed notes
+            </summary>
+            <param name="propertyName"></param>
+            <param name="oldPropertyValue"></param>
+            <param name="newPropertyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ComputeLevenshteinDistance(System.String,System.String)">
+            <summary>
+            Compute the distance between two strings.
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ToWildcard(System.String,System.Char)">
+            <summary>
+            Replaces all occurrences of white space in this string to the specified wildcard character
+            </summary>
+            <param name="value"></param>
+            <param name="wildcard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            Get substring of specified number of characters on the left.
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            Get substring of specified number of characters on the right.
+            </summary>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveLastInstanceOfComma(System.String)">
+            <summary>
+            Removes last instance of comma
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveLastInstanceOfSemicolon(System.String)">
+            <summary>
+            Removes last instance of semicolon
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveLastInstanceOfWord(System.String,System.String)">
+            <summary>
+            Removes last instance of character
+            </summary>
+            <param name="value" />
+            <param name="wordToRemove" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveLastInstanceOfWord(System.String,System.Char[])">
+            <summary>
+            Removes last instance of delimiter
+            </summary>
+            <param name="value" />
+            <param name="delimiter" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveNumerics(System.String)">
+            <summary>
+            Removes all numeric characters from a string
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveAlphas(System.String)">
+            <summary>
+            Removes all alphabetical characters from a string
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ConvertToAddressFriendly(System.String,System.String,System.String)">
+            <summary>
+            Converts a sequence of city, state zip, into the mailing friendly format similar to Miami, FL 33166
+            </summary>
+            <param name="city" />
+            <param name="stateCode" />
+            <param name="zip" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.TrimSafely(System.String,System.Char[])">
+            <summary>
+            Trims a string without the risk of null exception
+            </summary>
+            <param name="value">String to trim</param>
+            <param name="delims">Delimiters to trim</param>
+            <returns>Safely trimmed string</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.TrimMax(System.String,System.Int32)">
+            <summary>
+            Trims a string if it is longer than the given length.
+            </summary>
+            <param name="value">String to trim.</param>
+            <param name="length">Max length string should be.</param>
+            <returns>String containing less or equal to the given length.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            Checks if a string is null or empty
+            </summary>
+            <param name="value" />
+            <returns>True if null or empty, false otherwise</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Checks if a string is null or white space
+            </summary>
+            <param name="value" />
+            <returns>True if null or white space, or empty</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveChars(System.String,System.Char[])">
+            <summary>
+            Removes all chars from string
+            </summary>
+            <param name="value" />
+            <param name="delims" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveStrings(System.String,System.String[])">
+            <summary>
+            Removes all strings from string
+            </summary>
+            <param name="value" />
+            <param name="delims" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.SplitPhoneNumber(System.String)">
+            <summary>
+            Returns the phone number split into 3 individual chunks, i.e xxx at pos 0, xxx at pos 1, xxxx at pos 2,
+            the rest is discarded
+            </summary>
+            <param name="phoneNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.FormatPhoneNumber(System.String,System.Boolean)">
+            <summary>
+            Tries to format the phone to the US standard, if unable then it returns the original value
+            </summary>
+            <param name="phoneNum" />
+            <param name="includeAreaCodeParenthesis"></param>
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.FormatAddress(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Formats Address
+            </summary>
+            <param name="addressLine1" />
+            <param name="addressLine2" />
+            <param name="city" />
+            <param name="state" />
+            <param name="zipCode" />
+            <param name="displayOnOneLine"></param>
+            <param name="useHtml"></param>
+            <returns>Formatted Address</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Overload for Contains which can take a StrongComparison parameter
+            </summary>
+            <param name="value" />
+            <param name="valueToCheck" />
+            <param name="comparison" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ContainsAny(System.String,System.Collections.Generic.IEnumerable{System.String},System.StringComparison)">
+            <summary>
+            Returns true if value contains any value in valueToCheck
+            </summary>
+            <param name="value" />
+            <param name="valuesToCheck" />
+            <param name="comparison" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.Append(System.String,System.String)">
+            <summary>
+            Appends a string onto another
+            </summary>
+            <param name="value" />
+            <param name="stringToAppend" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.AppendFormat(System.String,System.Object[])">
+            <summary>
+            Appends object params onto a string, using string.Format()
+            The string this method is extending must have the param instances ({0}, {1}, etc)
+            </summary>
+            <param name="value" />
+            <param name="objectToAppend" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveExtraSpaces(System.String)">
+            <summary>
+            Removes any extra spaces from a string (Double-space, triple-space, etc.)
+            </summary>
+            <param name="value" />
+            <returns>A string without extra spaces</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ToTitleCase(System.String)">
+            <summary>
+            Converts first letter of every word in the string to uppercase
+            </summary>
+            <param name="value" />
+            <returns>Converts first letter of every word in the string to uppercase</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.Reverse(System.String)">
+            <summary>
+            Reverses a string
+            </summary>
+            <param name="value" />
+            <returns>The reversed string</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.DoubleQuotify(System.String)">
+            <summary>
+            Surrounds text with double quotes
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.SurroundWith(System.String,System.String)">
+            <summary>
+            Surrounds text with string passed in
+            </summary>
+            <param name="value" />
+            <param name="ends" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ToUpperSafely(System.String)">
+            <summary>
+            Converts string to uppercase safely
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ToLowerSafely(System.String)">
+            <summary>
+            Converts string to lowercase safely
+            </summary>
+            <param name="value" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.SafeSubstring(System.String,System.Int32,System.Int32)">
+            <summary>
+            Safely gets Substring of word
+            </summary>
+            <param name="value" />
+            <param name="length">Length of substring</param>
+            <param name="startIndex">[OPTIONAL] Start index</param>
+            <returns>Substring of original string</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveInvalidFileNameChars(System.String)">
+            <summary>
+            Removes all characters not allowed in file names
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveInvalidCharacters(System.String)">
+            <summary>
+            Removes all characters not considered desirable in a string
+            </summary>
+            <param name="value" />
+            <returns>The supplied string, minus invalid characters</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.SafeEquals(System.String,System.String,System.StringComparison)">
+            <summary>
+            Safely Determines whether one string equals another 
+            (If both are null/empty, then they're equal)
+            </summary>
+            <param name="value" />
+            <param name="valueToCompare" />
+            <param name="comparison" />
+            <returns>True, if strings are equal</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.GetLetterList(System.String,System.String)">
+            <summary>
+            Returns a list of all chars (UPPERCASE) between indicated strings as chars
+            </summary>
+            <param name="startLetterString" />
+            <param name="endLetterString" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.NormalizeFileName(System.String)">
+            <summary>
+            Normalizes string as Filename
+            </summary>
+            <param name="fileName" />
+            <returns>Normalized Filename</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.FirstCharLower(System.String)">
+            <summary>
+            Returns string with first char lowercase
+            </summary>
+            <param name="value" />
+            <returns>String with first char lowercase</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.FirstCharUpper(System.String)">
+            <summary>
+            Returns string with first char uppercase
+            </summary>
+            <param name="value" />
+            <returns>String with first char uppercase</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.FixLengthString(System.String,System.Int32)">
+            <summary>
+            Pads a string making it always the provided length. Trims if string is too long.
+            </summary>
+            <param name="value">String to pad/trim.</param>
+            <param name="length">Length the string should be.</param>
+            <returns>String containing pads, if it is longer than requested length it will be trimmed.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.FixLengthNumber(System.String,System.Int32)">
+            <summary>
+            Pads a number with 0 making it always the provided length. Trims if number is too long.
+            </summary>
+            <param name="value">Number (as a string) to pad/trim.</param>
+            <param name="length">Length the string should be.</param>
+            <returns>String containing pads, if it is longer than requested length it will be trimmed.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.GetValueOrDefault(System.String,System.String)">
+            <summary>
+            If value is not set, return valueToUse. Otherwise, return value.
+            </summary>
+            <param name="value" />
+            <param name="valueToUse" />
+            <returns>ValueToUse, if Value is NULL or WhiteSpace. Otherwise, Value.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.SafeReplace(System.String,System.String,System.String)">
+            <summary>
+            Safely replaces valueToReplace with valueToReplaceWith in value
+            </summary>
+            <param name="value" />
+            <param name="valueToReplace" />
+            <param name="valueToReplaceWith" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.HasValue(System.String)">
+            <summary>
+            Determines whether a string is not null or whitespace.
+            </summary>
+            <param name="value" />
+            <returns>True, if this string is not empty/whitespace. Otherwise, false.</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.GetLast(System.String,System.Int32)">
+            <summary>
+            Gets the last specified number of characters from this string
+            </summary>
+            <param name="s"></param>
+            <param name="numberOfDigitsToGet"></param>
+            <returns>A String</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.Split(System.String,System.String,System.Boolean,System.StringSplitOptions)">
+            <summary>
+            Splits a string by a specified character
+            </summary>
+            <param name="s"></param>
+            <param name="delimiter"></param>
+            <param name="trimElements"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ToByteArray(System.String)">
+            <summary>
+            Returns this string encoded as an array of bytes using the default system encoding
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.AppendHtmlLine(System.Text.StringBuilder,System.String)">
+            <summary>
+            Appends the specified text as a new line using an HTML break tag.
+            </summary>
+            <param name="builder" />
+            <param name="text" />
+            <returns>A StringBuilder with the text appended as an html line</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.AppendFormatLine(System.Text.StringBuilder,System.String,System.Boolean,System.Object[])">
+            <summary>
+            Appends a copy of the specified text as a composite format, then appends the default environment line break character.
+            </summary>
+            <param name="builder"></param>
+            <param name="text"></param>
+            <param name="isHtml"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.AppendLine(System.Text.StringBuilder,System.String,System.Boolean)">
+            <summary>
+            Appends text with a line break at the end
+            </summary>
+            <param name="builder" />
+            <param name="isHtml" />
+            <param name="text" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsNullOrWhiteSpace(System.Text.StringBuilder)">
+            <summary>
+            Checks if the string contained in this StringBuilder is null or white space
+            </summary>
+            <param name="builder" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.RemoveExtraSpaces(System.Text.StringBuilder)">
+            <summary>
+            Removes extra spaces from StringBuilder
+            </summary>
+            <param name="builder" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ToDataSet(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xml"></param>
+            <param name="outerElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.GetLetterList(System.Char,System.Char)">
+            <summary>
+            Returns a list of all chars (UPPERCASE) between indicated chars
+            </summary>
+            <param name="startLetter" />
+            <param name="endLetter" />
+            <returns />
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsEmail(System.String)">
+            <summary>
+            Validate Email Address
+            </summary>
+            <param name="input" />
+            <returns>True, if input is valid email</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsNumeric(System.String)">
+            <summary>
+            Validate Numeric
+            </summary>
+            <param name="input" />
+            <returns>True, if input is numeric</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsAlpha(System.String)">
+            <summary>
+            Validate Alpha
+            </summary>
+            <param name="input"></param>
+            <returns>True if input is alpha</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.IsValidSSN(System.String,System.Boolean)">
+            <summary>
+            Validate SSN
+            </summary>
+            <param name="input" />
+            <param name="allowDashes"></param>
+            <returns>True, if input is valid SSN</returns>
+        </member>
+        <member name="M:UtilsLib.ExtensionMethods.StringExtensions.ValidateInput(System.String,System.String)">
+            <summary>
+            Helper Method to validate input against regular expression
+            </summary>
+            <param name="input">String to validate</param>
+            <param name="regex">Regular expression to validate against</param>
+            <returns>True, if input is valid against regular expression</returns>
+        </member>
+        <member name="P:UtilsLib.ExtensionMethods.StringExtensions.NewLineStringLiteral">
+            <summary>
+            New line character: \n
+            </summary>
+        </member>
+        <member name="P:UtilsLib.ExtensionMethods.StringExtensions.BreakTag">
+            <summary>
+            New line in HTML environment
+            </summary>
+        </member>
+    </members>
+</doc>

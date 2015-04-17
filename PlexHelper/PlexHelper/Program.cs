@@ -103,11 +103,14 @@ namespace PlexHelper
 
             bool moveFiles = false;
 
+            bool downloadMovieInformation = false;
+
             OptionSet p = new OptionSet
             {
                 {"source=", "The directory containing the source files.", v => sourcePath = v},
                 {"destination=", "The directory to save the output files.", v => destinationPath = v},
-                {"dlsub", "Optional flag indicating to download subtitles for each source file.", v => downloadSubtitles = v != null},
+                {"dlsub", "Optional flag indicating to download subtitles for each source file. dldetails is required if dlsub is set", v => downloadSubtitles = v != null},
+                {"dldetails", "Optional flag indicating to download movie information from each file and rename the movie according to the downloaded information.", v => downloadMovieInformation = v != null},
                 {"cleansub", "Optional flag indicating to clean existing subtitles for each source file.", v => overwriteExistingSubtitles = v != null},
                 {"movefiles", "Optional flag indicating to move the files instead of copying them. Copy is on by default.", v => moveFiles = v != null},
                 {"h|help", "Show this message and exit", v => showHelp = v != null },
@@ -133,6 +136,12 @@ namespace PlexHelper
                 return;
             }
 
+            if (downloadSubtitles && !downloadMovieInformation)
+            {
+                ShowHelp(p);
+                return;
+            }
+
             if (Properties.Settings.Default.Debug)
             {
                 Thread.Sleep(30000);
@@ -147,9 +156,15 @@ namespace PlexHelper
                 return;
             }
 
-            if (!Directory.Exists(destinationPath))
+            string root = Directory.GetDirectoryRoot(destinationPath);
+
+            //This means we are at the root
+            if (root.IsNullOrWhiteSpace())
             {
-                Directory.CreateDirectory(destinationPath);
+                if (!Directory.Exists(destinationPath))
+                {
+                    Directory.CreateDirectory(destinationPath);
+                }
             }
 
             LogMessage("Gathering media files");
@@ -160,7 +175,7 @@ namespace PlexHelper
 
             foreach (PlexMediaOutputFile mediaOutputFile in MediaOutputFiles)
             {
-                LoadMediaFile(mediaOutputFile, destinationPath, downloadSubtitles);
+                LoadMediaFile(mediaOutputFile, destinationPath, downloadSubtitles, downloadMovieInformation);
 
                 if (mediaOutputFile.IsValid)
                 {
@@ -254,65 +269,82 @@ namespace PlexHelper
                 if (overwriteExistingSubtitles)
                 {
                     //Delete existing subtitles
-                    foreach (PlexMediaOutputMetaDataFile metaDataFile in file.MetaDataFiles.Where(dd => dd.Original))
+                    foreach (PlexMediaOutputMetaDataFile metaDataFile in file.MetaDataFiles.Where(dd => dd.IsOriginal))
                     {
                         LogMessage("Deleting original subtitle file: {0}", metaDataFile.OriginalPath);
 
                         File.Delete(metaDataFile.OriginalPath);
                     }
+
+                    file.MetaDataFiles.RemoveAll(dd => dd.IsOriginal);
                 }
 
-                foreach (PlexMediaOutputMetaDataFile metaDataFile in file.MetaDataFiles.Where(dd => !dd.Original))
+                foreach (PlexMediaOutputMetaDataFile metaDataFile in file.MetaDataFiles)
                 {
                     LogMessage("Saving downloaded subtitle archive: {0}", metaDataFile.NewPath);
 
-                    File.WriteAllBytes(metaDataFile.NewPath, metaDataFile.Data);
-
-                    FileInfo zipFileInfo = new FileInfo(metaDataFile.NewPath);
-
-                    string directory = zipFileInfo.DirectoryName;
-
-                    if (string.IsNullOrWhiteSpace(directory))
+                    if (metaDataFile.Data.IsNullOrEmpty())
                     {
-                        directory = Directory.GetDirectoryRoot(metaDataFile.NewPath);
-                    }
-
-                    string temporaryPath = Path.Combine(directory, Guid.NewGuid().ToString());
-
-                    LogMessage("Creating temporary directory to extract contents: {0}", temporaryPath);
-
-                    Directory.CreateDirectory(temporaryPath);
-
-                    LogMessage("Extracting contents of archive");
-
-                    ZipFile.ExtractToDirectory(metaDataFile.NewPath, temporaryPath);
-
-                    string[] filesExtracted = Directory.GetFiles(temporaryPath);
-
-                    foreach (string s in filesExtracted)
-                    {
-                        FileInfo extractedFiles = new FileInfo(s);
-
-                        if (SupportedSubtitleExtensions.Contains(extractedFiles.Extension))
+                        if (moveFiles)
                         {
-                            string finalSubtitlePath = Path.Combine(directory,
-                                string.Format("{0}{1}", metaDataFile.NewName, extractedFiles.Extension));
-
-                            LogMessage("Saving final subtitle file: {0}", finalSubtitlePath);
-
-                            File.Move(s, finalSubtitlePath);
+                            File.Move(metaDataFile.OriginalPath, metaDataFile.NewPath);
                         }
                         else
                         {
-                            File.Delete(s);
+                            File.Copy(metaDataFile.OriginalPath, metaDataFile.NewPath);
                         }
                     }
+                    else
+                    {
+                        File.WriteAllBytes(metaDataFile.NewPath, metaDataFile.Data);
 
-                    CleanDirectoryAndSubfolders(temporaryPath);
+                        FileInfo zipFileInfo = new FileInfo(metaDataFile.NewPath);
 
-                    LogMessage("Deleting archive: {0}", metaDataFile.NewPath);
+                        string directory = zipFileInfo.DirectoryName;
 
-                    File.Delete(metaDataFile.NewPath);
+                        if (string.IsNullOrWhiteSpace(directory))
+                        {
+                            directory = Directory.GetDirectoryRoot(metaDataFile.NewPath);
+                        }
+
+                        string temporaryPath = Path.Combine(directory, Guid.NewGuid().ToString());
+
+                        LogMessage("Creating temporary directory to extract contents: {0}", temporaryPath);
+
+                        Directory.CreateDirectory(temporaryPath);
+
+                        LogMessage("Extracting contents of archive");
+
+                        ZipFile.ExtractToDirectory(metaDataFile.NewPath, temporaryPath);
+
+                        string[] filesExtracted = Directory.GetFiles(temporaryPath);
+
+                        foreach (string s in filesExtracted)
+                        {
+                            FileInfo extractedFiles = new FileInfo(s);
+
+                            if (SupportedSubtitleExtensions.Contains(extractedFiles.Extension))
+                            {
+                                string finalSubtitlePath = Path.Combine(directory,
+                                    string.Format("{0}{1}", metaDataFile.NewName.RemoveInvalidFileNameChars(),
+                                        extractedFiles.Extension));
+
+                                LogMessage("Saving final subtitle file: {0}", finalSubtitlePath);
+
+                                File.Move(s, finalSubtitlePath);
+                            }
+                            else
+                            {
+                                File.Delete(s);
+                            }
+                        }
+
+                        CleanDirectoryAndSubfolders(temporaryPath);
+
+                        LogMessage("Deleting archive: {0}", metaDataFile.NewPath);
+
+                        File.Delete(metaDataFile.NewPath);
+                    }
                 }
             }
             catch (Exception ex)
@@ -324,49 +356,57 @@ namespace PlexHelper
             }
         }
 
-        static void LoadMediaFile(PlexMediaOutputFile file, string destination, bool downloadSubtitles)
+        static void LoadMediaFile(PlexMediaOutputFile file, string destination, bool downloadSubtitles, bool downloadMovieInformation)
         {
             try
             {
                 LogMessage("Processing file: {0}", file.OriginalName);
 
-                string searchName;
+                YtsApiRequest request = new YtsApiRequest();
 
-                if (file.OriginalDirectory.IndexOf(StopCharacter, StringComparison.Ordinal) > 0)
+                string movieName = FormatterHelper.GetFormattedMovieName(file.OriginalName);
+
+                YtsMovie mostRelevantMovie = null;
+
+                if (downloadMovieInformation)
                 {
-                    searchName = file.OriginalDirectory.Substring(0, file.OriginalDirectory.IndexOf(StopCharacter, StringComparison.Ordinal));
+                    LogMessage("Querying movie database using temporary name: {0}", movieName);
+
+                    YtsApiMovieResponse response = request.MovieListQueryAsync(movieName, exhaustiveSearch: true).Result;
+
+                    mostRelevantMovie =
+                        response.MovieListResponse.Movies.OrderBy(dd => dd.FuzzyDistance).FirstOrDefault();
+
+                    if (mostRelevantMovie != null)
+                    {
+                        LogMessage("Most relevant search result is: {0}", movieName);
+
+                        movieName = FormatterHelper.GetFormattedMovieName(mostRelevantMovie);
+
+                        file.IsValid = true;
+                    }
+                    else
+                    {
+                        LogMessage("Movie not found in database");
+
+                        file.IsValid = false;
+                    }
                 }
                 else
                 {
-                    searchName = file.OriginalDirectory;
+                    LogMessage("Using formatted name inferred from disk: {0}", movieName);
+
+                    file.IsValid = true;
                 }
 
-                string[] pieces = searchName.Split(Path.DirectorySeparatorChar);
-
-                searchName = pieces[pieces.Length - 1];
-
-                LogMessage("Will use search name: {0}", searchName);
-
-                YtsApiRequest request = new YtsApiRequest();
-
-                LogMessage("Querying movie database...", searchName);
-
-                YtsApiMovieResponse response = request.MovieListQueryAsync(searchName, exhaustiveSearch: true).Result;
-
-                YtsMovie mostRelevantMovie =
-                    response.MovieListResponse.Movies.OrderBy(dd => dd.FuzzyDistance).FirstOrDefault();
-
-                if (mostRelevantMovie != null)
+                if (file.IsValid)
                 {
-                    file.IsValid = true;
+                    file.NewName = movieName;
 
-                    LogMessage("Most relevant search result is: {0}", mostRelevantMovie.ToFormattedName());
+                    file.NewPath = Path.Combine(destination,
+                        string.Format("{0}{1}", file.NewName.RemoveInvalidFileNameChars(), file.Extension));
 
-                    file.NewName = mostRelevantMovie.ToFormattedName();
-
-                    file.NewPath = Path.Combine(destination, string.Format("{0}{1}", file.NewName, file.Extension));
-
-                    if (downloadSubtitles)
+                    if (downloadSubtitles && downloadMovieInformation && mostRelevantMovie != null)
                     {
                         LogMessage("Downloading subtitles...");
 
@@ -386,8 +426,8 @@ namespace PlexHelper
                                     Data = subtitleDataFile.Data,
                                     Extension = subtitleDataFile.Extension,
                                     NewName =
-                                        string.Format("{0}{1}", mostRelevantMovie.ToFormattedName(),
-                                            SubtitleLanguageCodeHelper.ConvertToLanguageCode(subtitleDataFile.Language)),
+                                        string.Format("{0}{1}", movieName,
+                                            SubtitleLanguageCodeHelper.ConvertToLanguageCode(subtitleDataFile.Language)).RemoveInvalidFileNameChars(),
                                 };
 
                                 metaDataFile.NewPath = Path.Combine(destination,
@@ -400,6 +440,31 @@ namespace PlexHelper
                         {
                             Console.WriteLine("No subtitles found");
                         }
+                    }
+
+                    foreach (PlexMediaOutputMetaDataFile dataFile in file.MetaDataFiles.Where(dd => dd.IsOriginal))
+                    {
+                        PlexMediaOutputMetaDataFile file1 = dataFile;
+
+                        string languageCode =
+                            SubtitleLanguageCodeHelper.LanguageCodes.FirstOrDefault(dd => file1.OriginalPath.Contains(dd));
+
+                        if (languageCode.IsNullOrWhiteSpace())
+                        {
+                            languageCode = ".en";
+
+                            file1.NewName = string.Format("{0}{1}", movieName, languageCode);
+                        }
+                        else
+                        {
+                            //If it doesn't have a language code, assume it's english
+                            file1.NewName = string.Format("{0}{1}", movieName, ".en");
+                        }
+
+                        file1.NewName = file1.NewName.RemoveInvalidFileNameChars();
+
+                        file1.NewPath = Path.Combine(destination,
+                                   string.Format("{0}{1}", file1.NewName, file1.Extension));
                     }
                 }
             }
@@ -457,7 +522,7 @@ namespace PlexHelper
                             Extension = info.Extension,
                             OriginalDirectory = info.DirectoryName,
                             OriginalPath = info.FullName,
-                            Original = true,
+                            IsOriginal = true,
                             OriginalName = info.Name
                         };
 

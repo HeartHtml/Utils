@@ -769,6 +769,16 @@ namespace UtilsLib.ExtensionMethods
 				       : value.Length > length ? value.Substring(startIndex, length) : value;
 		}
 
+        /// <summary>
+        /// Removes all characters not allowed in file names
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+	    public static string RemoveInvalidFileNameChars(this string value)
+	    {
+            return value.IsNullOrWhiteSpace() ? value : value.RemoveChars(Path.GetInvalidFileNameChars());
+	    }
+
 		/// <summary>
 		/// Removes all characters not considered desirable in a string
 		/// </summary>

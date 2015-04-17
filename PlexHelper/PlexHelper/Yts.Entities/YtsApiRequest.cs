@@ -46,6 +46,13 @@ namespace PlexHelper.Yts.Entities
                     }
 
                     listResponse.MovieListResponse.Movies.AddRange(innerResponse.MovieListResponse.Movies);
+
+                    //We found the movie, no need to search anymore
+                    if (listResponse.MovieListResponse.Movies.SafeAny(
+                            dd => FormatterHelper.GetFormattedMovieName(dd).SafeEquals(movieNameQuery)))
+                    {
+                        break;
+                    }
                 }
             } while (exhaustiveSearch);
 

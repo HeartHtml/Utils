@@ -9,6 +9,14 @@ namespace PlexHelper.YifySubtitles.Entities
 {
     public class SubtitleLanguageCodeHelper
     {
+        public static string[] LanguageCodes
+        {
+            get
+            {
+                return new[] {".en", ".spa", ".fr"};
+            }
+        }
+
         public static string ConvertToLanguageCode(string fullyQualifiedLanguage)
         {
             switch (fullyQualifiedLanguage)

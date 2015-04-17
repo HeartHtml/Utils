@@ -20,7 +20,7 @@ namespace PlexHelper
 
         public string OriginalName { get; set; }
 
-        public bool Original { get; set; }
+        public bool IsOriginal { get; set; }
 
         public byte[] Data { get; set; }
     }
