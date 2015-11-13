@@ -36,6 +36,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Third-Party-Libs\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="NDesk.Options, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Third-Party-Libs\NDesk.Options.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -62,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Third-Party-Libs\itextsharp.dll" />
+    <Content Include="Third-Party-Libs\NDesk.Options.dll" />
     <Content Include="Third-Party-Libs\UtilsLib.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
