@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,15 @@ namespace KbsSigner
 
             string metaPath = string.Empty;
 
+            bool open = false;
+
             bool showHelp = false;
 
             OptionSet p = new OptionSet
             {
                 {"kbs=", "The path of the kbs formatted file.", v => kbsPath = v},
-                {"meta=", "The path of the kbs meta data file.", v => metaPath = v},
+                {"meta=", "(Optional) The path of the kbs meta data file.", v => metaPath = v},
+                {"open", "(Optional) Flag indicating whether to open the PDF file after creation.", v => open = !string.IsNullOrWhiteSpace(v)},
                 {"h|help", "Show this message and exit", v => showHelp = v != null },
             };
 
@@ -68,6 +72,11 @@ namespace KbsSigner
                 worker.GenerateKbsSignedPdf();
 
                 Console.WriteLine("Success! PDF file generated at {0}", job.DestinationFilePath);
+
+                if (open)
+                {
+                    Process.Start(job.DestinationFilePath);
+                }
 
             }
             catch (Exception ex)
