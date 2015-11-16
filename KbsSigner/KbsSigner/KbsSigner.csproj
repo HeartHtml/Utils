@@ -54,6 +54,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KbsJob.cs" />
+    <Compile Include="KbsJobMetaData.cs" />
+    <Compile Include="KbsJobMetaDataField.cs" />
+    <Compile Include="KbsPoint.cs" />
     <Compile Include="KbsSignerWorker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

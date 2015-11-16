@@ -15,11 +15,14 @@ namespace KbsSigner
         {
             string kbsPath = string.Empty;
 
+            string metaPath = string.Empty;
+
             bool showHelp = false;
 
             OptionSet p = new OptionSet
             {
                 {"kbs=", "The path of the kbs formatted file.", v => kbsPath = v},
+                {"meta=", "The path of the kbs meta data file.", v => metaPath = v},
                 {"h|help", "Show this message and exit", v => showHelp = v != null },
             };
 
@@ -47,22 +50,24 @@ namespace KbsSigner
 
             try
             {
-                KbsSignerWorker worker = new KbsSignerWorker(kbsPath);
-
-                FileInfo info = new FileInfo(kbsPath);
-
-                string directory = Environment.SystemDirectory;
-
-                if (info.DirectoryName != null)
+                if (metaPath.IsNullOrWhiteSpace())
                 {
-                    directory = info.DirectoryName;
+                    Console.WriteLine("Meta data file not supplied. Will not generate pdf with meta data.");
                 }
 
-                string newPath = Path.Combine(directory, string.Format("{0}.pdf", info.Name.Split(".")[0]));
+                KbsJob job = new KbsJob(kbsPath, metaPath);
 
-                worker.GenerateKbsSignedPdf(newPath);
+                if (!job.MetaData.ParseErrorMessage.IsNullOrWhiteSpace())
+                {
+                    Console.WriteLine("Errors encountered parsing meta data file:");
+                    Console.WriteLine(job.MetaData.ParseErrorMessage);
+                }
 
-                Console.WriteLine("Success! PDF file generated at {0}", newPath);
+                KbsSignerWorker worker = new KbsSignerWorker(job);
+                
+                worker.GenerateKbsSignedPdf();
+
+                Console.WriteLine("Success! PDF file generated at {0}", job.DestinationFilePath);
 
             }
             catch (Exception ex)

@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Odbc;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.util;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using UtilsLib.ExtensionMethods;
 
 namespace KbsSigner
 {
-    public struct KbsPoint
-    {
-        public float X;
-
-        public float Y;
-    }
 
     public class KbsSignerWorker
     {
@@ -31,11 +21,11 @@ namespace KbsSigner
             }
         }
 
-        public string KbsFilePath { get; set; }
+        public KbsJob KbsJob { get; set; }
 
-        public KbsSignerWorker(string kbsFilePath)
+        public KbsSignerWorker(KbsJob job)
         {
-            KbsFilePath = kbsFilePath;
+            KbsJob = job;
         }
 
         public KbsSignerWorker()
@@ -96,7 +86,7 @@ namespace KbsSigner
 
             decimal startingX = 50m;
 
-            decimal startingY = 387m;
+            const decimal startingY = 387m;
 
             const decimal baseXAmount = 91m;
 
@@ -169,19 +159,50 @@ namespace KbsSigner
             content.AddTemplate(page, 0, 0);
         }
 
-        public void GenerateKbsSignedPdf(string destinationPath)
+        private void AppendMetaDataFields(PdfContentByte cb)
         {
-            if (KbsFilePath.IsNullOrWhiteSpace())
+            foreach (KbsJobMetaDataField field in KbsJob.MetaData.Fields)
             {
-                throw new NoNullAllowedException("Kbs file path is required");
+                if (field.FieldPosition != null)
+                {
+                    BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+
+                    cb.SetColorFill(BaseColor.BLACK);
+
+                    cb.SetFontAndSize(bf, 10);
+
+                    cb.BeginText();
+
+                    cb.ShowTextAligned(0, field.FieldValue, field.FieldPosition.X, field.FieldPosition.Y, 0);
+
+                    cb.EndText();
+                }
+            }
+        }
+
+        public void GenerateKbsSignedPdf()
+        {
+            if (KbsJob == null)
+            {
+                throw new NoNullAllowedException("Kbs job is required");
             }
 
-            if (!File.Exists(KbsFilePath))
+            if (KbsJob.KbsFilePath.IsNullOrWhiteSpace())
             {
-                throw new FileNotFoundException("Kbs file path is not a valid path", KbsFilePath);
+                throw new NoNullAllowedException("KbsFilePath is required");
             }
 
-            List<string> kbsFileContents = File.ReadAllLines(KbsFilePath).ToList();
+            if (KbsJob.DestinationFilePath.IsNullOrWhiteSpace())
+            {
+                throw new NoNullAllowedException("Destination file path is required");
+            }
+
+            if (!File.Exists(KbsJob.KbsFilePath))
+            {
+                throw new FileNotFoundException("Kbs file path is not a valid path", KbsJob.KbsFilePath);
+            }
+
+            List<string> kbsFileContents = File.ReadAllLines(KbsJob.KbsFilePath).ToList();
 
             int lineCounter = 0;
 
@@ -191,7 +212,7 @@ namespace KbsSigner
 
             using (Document document = new Document(documentSize))
             {
-                FileStream fs = new FileStream(destinationPath, FileMode.Create, FileAccess.Write);
+                FileStream fs = new FileStream(KbsJob.DestinationFilePath, FileMode.Create, FileAccess.Write);
 
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
@@ -230,6 +251,8 @@ namespace KbsSigner
                         {
                             lineCounter = 0;
 
+                            AppendMetaDataFields(cb);
+
                             AppendPdfContent(cb, writer, currentPage);
 
                             currentPage ++;
@@ -238,6 +261,8 @@ namespace KbsSigner
                         }
                     }
                 }
+
+                AppendMetaDataFields(cb);
 
                 AppendPdfContent(cb, writer, currentPage);
 

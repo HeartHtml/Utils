@@ -11,9 +11,11 @@ namespace KbsSigner.Test
         {
             const string pathToKbs = @"C:\Users\horhe\Downloads\Enviado a Georgie\wt-4521-A-L104.kbs";
 
-            KbsSignerWorker worker = new KbsSignerWorker(pathToKbs);
+            KbsJob job = new KbsJob(pathToKbs, @"C:\Users\horhe\Downloads\Enviado a Georgie\CoverListTrusses.jobmeta", @"C:\Users\horhe\Downloads\Enviado a Georgie\wt-4521-A-L104.pdf");
 
-            worker.GenerateKbsSignedPdf(@"C:\Users\horhe\Downloads\Enviado a Georgie\wt-4521-A-L104.pdf");
+            KbsSignerWorker worker = new KbsSignerWorker(job);  
+
+            worker.GenerateKbsSignedPdf();
         }
     }
 }
