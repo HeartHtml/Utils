@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UtilsLib.ExtensionMethods;
 
 namespace BillOfLadingParser
 {
@@ -26,7 +27,11 @@ namespace BillOfLadingParser
                 builder.AppendLine(billOfLadingMetaFileLine.ToString());
             }
 
-            return builder.ToString();
+            string output = builder.ToString();
+
+            output = output.RemoveLastInstanceOfWord("\n");
+
+            return output;
         }
     }
 }

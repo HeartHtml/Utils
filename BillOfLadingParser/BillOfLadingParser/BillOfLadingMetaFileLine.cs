@@ -22,7 +22,7 @@ namespace BillOfLadingParser
         {
             StringBuilder builder = new StringBuilder();
 
-            builder.AppendFormat("{0}: ", TrussId);
+            builder.AppendFormat("ID:{0} ", TrussId);
 
             foreach (string atPiece in AtList)
             {
@@ -31,7 +31,7 @@ namespace BillOfLadingParser
 
             string export = builder.ToString();
 
-            export.RemoveLastInstanceOfWord(" ");
+            export = export.RemoveLastInstanceOfWord(" ");
 
             return export;
         }
