@@ -104,6 +104,12 @@ namespace BillOfLadingParser
                         }
                     }
                 }
+
+                if (line != null &&
+                    !line.TrussId.IsNullOrWhiteSpace())
+                {
+                    response.MetaFileLines.Add(line); 
+                }
             }
 
             return response;
