@@ -1,0 +1,3 @@
+﻿1. Change the arguments in the .bat file to your applicable paths
+2. Change the Debug flag in PlexHelper app.config to False.
+3. Run

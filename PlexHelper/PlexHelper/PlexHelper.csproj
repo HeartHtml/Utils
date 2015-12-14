@@ -87,6 +87,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Samples\ProcessMovies.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dependencies\HtmlAgilityPack.dll" />
@@ -95,6 +96,7 @@
     <Content Include="Dependencies\ICSharpCode.SharpZipLib.dll" />
     <Content Include="Dependencies\NDesk.Options.dll" />
     <Content Include="Dependencies\UtilsLib.dll" />
+    <Content Include="Samples\Comments.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
