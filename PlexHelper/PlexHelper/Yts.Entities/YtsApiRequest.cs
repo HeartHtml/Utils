@@ -18,7 +18,7 @@ namespace PlexHelper.Yts.Entities
             }
         }
 
-        public async Task<YtsApiMovieResponse> MovieListQueryAsync(string movieNameQuery, bool exhaustiveSearch = false)
+        public async Task<YtsApiMovieResponse> MovieListQueryAsync(string movieNameQuery, int year, bool exhaustiveSearch = false)
         {
             YtsApiMovieResponse listResponse = new YtsApiMovieResponse();
 
@@ -47,9 +47,10 @@ namespace PlexHelper.Yts.Entities
 
                     listResponse.MovieListResponse.Movies.AddRange(innerResponse.MovieListResponse.Movies);
 
+                    string formattedMovieQuery = FormatterHelper.FormatMovie(movieNameQuery, year);
+
                     //We found the movie, no need to search anymore
-                    if (listResponse.MovieListResponse.Movies.SafeAny(
-                            dd => FormatterHelper.GetFormattedMovieName(dd).SafeEquals(movieNameQuery)))
+                    if (listResponse.MovieListResponse.Movies.SafeAny(dd => FormatterHelper.FormatMovie(dd.Title, dd.Year).SafeEquals(formattedMovieQuery)))
                     {
                         break;
                     }
@@ -58,7 +59,11 @@ namespace PlexHelper.Yts.Entities
 
             foreach (YtsMovie movie in listResponse.MovieListResponse.Movies)
             {
-                movie.FuzzyDistance = StringExtensions.ComputeLevenshteinDistance(movieNameQuery, movie.Title);
+                string compareMovieQuery = FormatterHelper.FormatMovie(movieNameQuery, year);
+
+                string foundMovieTitle = FormatterHelper.FormatMovie(movie.Title, movie.Year);
+
+                movie.FuzzyDistance = StringExtensions.ComputeLevenshteinDistance(compareMovieQuery, foundMovieTitle);
             }
 
             return listResponse;

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using PlexHelper.Yts.Entities;
 using UtilsLib.ExtensionMethods;
 
 namespace PlexHelper
@@ -51,26 +44,29 @@ namespace PlexHelper
             }
         }
 
-        /// <summary>
-        /// Formats the name of a YtsMovie entity using more concrete rules
-        /// </summary>
-        /// <param name="movie"></param>
-        /// <returns>A string representing the formatted name of the movie depending on the rules</returns>
-        public static string GetFormattedMovieName(YtsMovie movie)
+        public static int GetMovieYear(string originalFileName)
         {
-            PropertyInfo[] collection = movie.GetType().GetProperties();
+            string cleanedFile = originalFileName;
 
-            string movieName = DownloadedMovieNameFormat;
-
-            foreach (PropertyInfo propertyInfo in collection)
+            foreach (string candidate in StringsToReplace)
             {
-                if (DownloadedMovieNameFormat.Contains(propertyInfo.Name))
-                {
-                    movieName = movieName.Replace(propertyInfo.Name, propertyInfo.GetValue(movie, null).ToString());
-                }
+                cleanedFile = cleanedFile.Replace(candidate, " ");
             }
 
-            return movieName;
+            cleanedFile = cleanedFile.TrimSafely();
+
+            string[] pieces = cleanedFile.Split(" ");
+
+            int potentialYear;
+
+            int.TryParse(pieces[pieces.Length - 1], out potentialYear);
+
+            return potentialYear;
+        }
+
+        public static string FormatMovie(string movieTitle, int year)
+        {
+            return string.Format("{0} ({1})", movieTitle, year);
         }
 
         /// <summary>
@@ -99,7 +95,7 @@ namespace PlexHelper
                 {
                     cleanedFile = cleanedFile.Replace(potentialYear.ToString(CultureInfo.InvariantCulture), string.Empty).TrimSafely();
 
-                    cleanedFile = string.Format("{0} ({1})", cleanedFile, potentialYear);
+                    cleanedFile = string.Format("{0}", cleanedFile);
                 }
             }
 

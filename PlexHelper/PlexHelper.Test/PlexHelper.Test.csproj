@@ -52,8 +52,8 @@
   <ItemGroup>
     <Compile Include="FormatterHelperTest.cs" />
     <Compile Include="YifySubtitlesTest.cs" />
-    <Compile Include="YtsApiTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YtsApiTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PlexHelper\PlexHelper.csproj">

@@ -12,7 +12,7 @@ namespace PlexHelper.Test
         {
             YtsMovie movie = new YtsMovie { Title = "Titanic", Year = 1997 };
 
-            string movieName = FormatterHelper.GetFormattedMovieName(movie);
+            string movieName = FormatterHelper.FormatMovie(movie.Title, movie.Year);
 
             Assert.AreEqual("Titanic (1997)", movieName);
         }

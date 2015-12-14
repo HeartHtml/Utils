@@ -366,22 +366,24 @@ namespace PlexHelper
 
                 string movieName = FormatterHelper.GetFormattedMovieName(file.OriginalName);
 
+                int movieYear = FormatterHelper.GetMovieYear(file.OriginalName);
+
                 YtsMovie mostRelevantMovie = null;
 
                 if (downloadMovieInformation)
                 {
                     LogMessage("Querying movie database using temporary name: {0}", movieName);
 
-                    YtsApiMovieResponse response = request.MovieListQueryAsync(movieName, exhaustiveSearch: true).Result;
+                    YtsApiMovieResponse response = request.MovieListQueryAsync(movieName, movieYear, exhaustiveSearch: true).Result;
 
                     mostRelevantMovie =
                         response.MovieListResponse.Movies.OrderBy(dd => dd.FuzzyDistance).FirstOrDefault();
 
                     if (mostRelevantMovie != null)
                     {
-                        LogMessage("Most relevant search result is: {0}", movieName);
+                        movieName = FormatterHelper.FormatMovie(mostRelevantMovie.Title, mostRelevantMovie.Year);
 
-                        movieName = FormatterHelper.GetFormattedMovieName(mostRelevantMovie);
+                        LogMessage("Most relevant search result is: {0}", movieName);
 
                         file.IsValid = true;
                     }
