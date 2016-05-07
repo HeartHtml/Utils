@@ -1096,40 +1096,40 @@ img.wp-smiley,
     padding:20px 0px 20px 0px;
 }
 article.post .read-more,.dates,.pagination span.current,.big-title h3:after,.big-title--single h3:after,.tm_quick_quote .vc_custom_heading h2:before,.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title .vc_tta-controls-icon,.tm_services .wpb_single_image,.vc_custom_heading.style4:after,.vc_custom_heading.style3:after,.vc_custom_heading.style2:after,.vc_custom_heading.style1:after,.widget-title:after {
-    background-color:#C69453;
+    background-color:#98c11e;
 }
 .sidebar ul li:before,.wpb_widgetised_column ul li:before,.sidebar .recent-posts__item:before,.wpb_widgetised_column .recent-posts__item:before,.facts li:before,.error404 .col-md-6>div h2,.list li:before {
-    color:#C69453;
+    color:#98c11e;
 }
 .search-box input[type="search"],.header02 .header-info i {
-    border-color:#C69453;
+    border-color:#98c11e;
 }
 .header02 .header-info i:after {
-    border-top-color:#C69453;
+    border-top-color:#98c11e;
 }
 .tp-caption span {
-    color:#C69453!important;
+    color:#98c11e!important;
 }
 .tp-caption button {
-    background-color:#C69453!important;
+    background-color:#98c11e!important;
 }
 .tm-skin .esg-filterbutton:before,.tm-skin-2 .esg-filterbutton:before {
-    border-top-color:#C69453!important;
+    border-top-color:#98c11e!important;
 }
 article.post .read-more:hover,.tm-works-02:before,.tm_testimonials_02:before,.tm_counting:before,.tm_services:before,.site-footer:before {
-    background-color:#594431;
+    background-color:#333333;
 }
 .thememove_testimonials .author span:first-child {
-    color:#594431;
+    color:#ffffff;
 }
 a,a:visited {
-    color:#594431;
+    color:#ffffff;
 }
 a:hover {
-    color:#C69453;
+    color:#98c11e;
 }
 .tm_bread_crumb a {
-    color:#C69453;
+    color:#98c11e;
 }
 .tm_bread_crumb,.tm_bread_crumb a:hover {
     color:#ffffff;
@@ -1184,14 +1184,14 @@ body.boxed {
     color:#333333;
 }
 #site-navigation .menu>ul>li>a:hover,#site-navigation .menu>li>a:hover {
-    color:#C69453;
+    color:#98c11e;
 }
 .header03 #site-navigation .menu>ul>li.current-menu-item a,.header03 #site-navigation .menu>li.current-menu-item a,.header03 #site-navigation .menu>ul>li:hover a,.header03 #site-navigation .menu>li:hover a {
-    border-color:#C69453;
+    border-color:#98c11e;
 }
 #site-navigation .sub-menu,#site-navigation .children {
     font-family:Montserrat;
-    background-color:#C69453;
+    background-color:#98c11e;
 }
 #site-navigation .sub-menu li a,#site-navigation .children li a {
     font-weight:400;
@@ -1211,7 +1211,7 @@ body.boxed {
     background-color:rgba(255,255,255,0.2);
 }
 #site-navigation .sub-menu li {
-    background-color:#C69453;
+    background-color:#98c11e;
 }
 #site-navigation .sub-menu li:hover {
     background-color:#594431;
@@ -1221,14 +1221,14 @@ body.boxed {
     font-size:13!important;
     font-weight:700!important;
     color:#ffffff!important;
-    background-color:#C69453!important;
+    background-color:#98c11e!important;
 }
 .vc_btn3-color-grey:hover,.vc_btn3-color-grey:focus {
     color:#ffffff!important;
     background-color:#594431!important;
 }
 button,input[type="button"],input[type="reset"],input[type="submit"] {
-    background-color:#C69453;
+    background-color:#98c11e;
 }
 button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover {
     background-color:#594431;
@@ -1238,7 +1238,7 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
     font-size:14px;
     font-weight:400;
     color:#ffffff;
-    background-color:#C69453;
+    background-color:#333333;
 }
 .site-top a {
     font-family:Montserrat;
@@ -1264,17 +1264,16 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
     font-family:Lato;
     font-size:14px;
     font-weight:400;
-    color:#CAB5A2;
+    color:#ffffff;
     padding:70px 0px 40px 0px;
     margin:0px 0px 0px 0px;
     border-width:0px 0px 0px 0px;
     border-style:solid;
     border-color:#000000;
-    background-color:#594431;
-    background-image:url("../images/footer_bg.jpg");
+    background-color:#333333;
 }
 .site-footer a {
-    color:#CAB5A2;
+    color:#ffffff;
 }
 .site-footer a:hover {
     color:#ffffff;
@@ -1284,7 +1283,7 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
 }
 .copyright {
     color:#ffffff;
-    background-color:#C69453;
+    background-color:#98c11e;
 }
 .copyright a {
     color:#ffffff;
@@ -1320,7 +1319,7 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
     background-image:url("data/images/page_bg.jpg");
 }
 .big-title--single:after {
-    background-color:rgba(89,68,49,0.9);
+    background-color:#ffffff;
 }
 @media ( min-width:75rem ) {
     #site-navigation .menu>ul>li.menu-item,#site-navigation .menu>li.menu-item {
@@ -1329,7 +1328,7 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
 }
 @media ( max-width:61.9375rem ) {
     .site-header {
-        background-color: #C69453;
+        background-color: #333333;
     }
 }
 

@@ -202,11 +202,13 @@
     <Content Include="Content\images\c3.png" />
     <Content Include="Content\images\c4.png" />
     <Content Include="Content\images\footer_bg.jpg" />
+    <Content Include="Content\images\banner-image1.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo_white%402x.png" />
     <Content Include="Content\images\logo_white.png" />
     <Content Include="Content\images\page_bg.jpg" />
     <Content Include="Content\images\section-divider.png" />
+    <Content Include="Content\images\stock-photo-plasterer.jpg" />
     <Content Include="Content\js\contact-form.js" />
     <Content Include="Content\js\esgrid.js" />
     <Content Include="Content\js\essential-grid\public\assets\css\lightbox.css" />
