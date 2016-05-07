@@ -1,21 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefreshRecentlyAddedService", "RefreshRecentlyAddedService\RefreshRecentlyAddedService.csproj", "{6434371F-E814-4392-AEAF-BFF3C0486BF5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RefreshRecentlyAddedSetup", "RefreshRecentlyAddedSetup\RefreshRecentlyAddedSetup.vdproj", "{5202DF46-4D10-46FA-829C-0E093B8C22A3}"
-EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 3
-		SccProjectUniqueName0 = RefreshRecentlyAddedService\\RefreshRecentlyAddedService.csproj
-		SccLocalPath0 = .
-		SccProjectFilePathRelativizedFromConnection0 = RefreshRecentlyAddedService\\
-		SccProjectUniqueName1 = RefreshRecentlyAddedSetup\\RefreshRecentlyAddedSetup.vdproj
-		SccLocalPath1 = .
-		SccProjectFilePathRelativizedFromConnection1 = RefreshRecentlyAddedSetup\\
-		SccLocalPath2 = .
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
@@ -25,8 +15,6 @@ Global
 		{6434371F-E814-4392-AEAF-BFF3C0486BF5}.Debug|x86.Build.0 = Debug|x86
 		{6434371F-E814-4392-AEAF-BFF3C0486BF5}.Release|x86.ActiveCfg = Release|x86
 		{6434371F-E814-4392-AEAF-BFF3C0486BF5}.Release|x86.Build.0 = Release|x86
-		{5202DF46-4D10-46FA-829C-0E093B8C22A3}.Debug|x86.ActiveCfg = Debug
-		{5202DF46-4D10-46FA-829C-0E093B8C22A3}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

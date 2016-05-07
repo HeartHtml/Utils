@@ -27,6 +27,22 @@ namespace RefreshRecentlyAddedService
             }
         }
 
+        public bool RunRecentlyAddedRoutine
+        {
+            get
+            {
+                return Properties.Settings.Default.RunRecentlyAddedRoutine;
+            }
+        }
+
+        public bool RunRandomPlaylistRoutine
+        {
+            get
+            {
+                return Properties.Settings.Default.RunRandomPlaylistRoutine;
+            }
+        }
+
         public int RandomPlaylistRefreshTimeIntervalInDays { get; set; }
 
         public int RefreshTimeIntervalInDays { get; set; }
@@ -91,12 +107,21 @@ namespace RefreshRecentlyAddedService
                 {
                     Thread.Sleep(DebugWaitTime);
                 }
-                CreateRandomFilesInLocationFunction(ScanLocation,
-                                                    RandomPlaylistLocation,
-                                                    RandomPlaylistRefreshTimeIntervalInDays);
-                RefreshLocationFunction(ScanLocation,
-                                        RecentlyAddedLocation,
-                                        RefreshTimeIntervalInDays); 
+
+                if (RunRandomPlaylistRoutine)
+                {
+                    CreateRandomFilesInLocationFunction(ScanLocation,
+                        RandomPlaylistLocation,
+                        RandomPlaylistRefreshTimeIntervalInDays);
+                }
+
+                if (RunRecentlyAddedRoutine)
+                {
+                    RefreshLocationFunction(ScanLocation,
+                        RecentlyAddedLocation,
+                        RefreshTimeIntervalInDays);
+                }
+
                 Thread.Sleep(RefreshRateInSeconds);
             }
         }

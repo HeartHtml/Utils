@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - South Florida Stucco & Exteriors</title>
+
+    <!--CSS-->
+    <link rel='stylesheet' href='~/Content/js/essential-grid/public/assets/css/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/css/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/css/main.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/css/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/js/js_composer/assets/css/js_composer.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/css/kirki-styles.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/css/essential-grid.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='~/Content/js/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min.css' type='text/css' media='screen' />
+    <link rel='stylesheet' href='~/Content/js/essential-grid/public/assets/css/lightbox.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:regular,italic,700,%7CMontserrat:regular,700,400,700,700,400,700,400,400,300,400,700,700&amp;subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,khmer,latin,latin-ext,vietnamese' type='text/css' media='all' />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" property="stylesheet" type="text/css" media="all" />
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet" property="stylesheet" type="text/css" media="all" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" property="stylesheet" type="text/css" media="all" />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&amp;subset=latin&amp;ver=4.3.1' type='text/css' media='all' />
+
+    <!--Scripts-->
+    <script type='text/javascript' src='~/Content/js/jquery.js'></script>
+    <script type='text/javascript' src='~/Content/js/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/snap.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/owl.carousel.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/jquery.counterup.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/waypoints.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/main.js'></script>
+    <script type='text/javascript' src='~/Content/js/contact-form.js'></script>
+    <script type='text/javascript' src='~/Content/js/js_composer/assets/js/js_composer_front.js'></script>
+    <script type='text/javascript' src='~/Content/js/js_composer/assets/lib/bower/skrollr/dist/skrollr.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/js_composer/assets/lib/waypoints/waypoints.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/js_composer/assets/lib/vc_accordion/vc-accordion.js'></script>
+    <script type='text/javascript' src='~/Content/js/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.js'></script>
+    <script type='text/javascript' src='~/Content/js/jquery.themepunch.tools.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/jquery.themepunch.revolution.min.js'></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/extensions/revolution.extension.video.min.js"></script>
+    <script type='text/javascript' src='~/Content/js/esgrid.js'></script>
+    <script type='text/javascript' src='~/Content/js/essential-grid/public/assets/js/jquery.themepunch.essential.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/essential-grid/public/assets/js/lightbox.js'></script>
+    <script type='text/javascript' src='~/Content/js/essential-grid/public/assets/js/jquery.themepunch.tools.min.js'></script>
+
+    <script type="text/javascript">
+        /******************************************
+                    -	PREPARE PLACEHOLDER FOR SLIDER	-
+        ******************************************/
+
+        var setREVStartSize = function () {
+            try {
+                var e = new Object,
+                    i = jQuery(window).width(),
+                    t = 9999,
+                    r = 0,
+                    n = 0,
+                    l = 0,
+                    f = 0,
+                    s = 0,
+                    h = 0;
+                e.c = jQuery('#rev_slider_1_1');
+                e.responsiveLevels = [1240, 1240, 1240, 480];
+                e.gridwidth = [1920, 1024, 778, 480];
+                e.gridheight = [680, 768, 960, 720];
+
+                e.sliderLayout = "auto";
+                if (e.responsiveLevels && (jQuery.each(e.responsiveLevels, function (e, f) {
+                        f > i && (t = r = f, l = e), i > f && f > r && (r = f, n = e)
+                }), t > r && (l = n)), f = e.gridheight[l] || e.gridheight[0] || e.gridheight, s = e.gridwidth[l] || e.gridwidth[0] || e.gridwidth, h = i / s, h = h > 1 ? 1 : h, f = Math.round(h * f), "fullscreen" == e.sliderLayout) {
+                    var u = (e.c.width(), jQuery(window).height());
+                    if (void 0 != e.fullScreenOffsetContainer) {
+                        var c = e.fullScreenOffsetContainer.split(",");
+                        jQuery.each(c, function (e, i) {
+                            u = jQuery(i).length > 0 ? u - jQuery(i).outerHeight(!0) : u
+                        }), e.fullScreenOffset.split("%").length > 1 && void 0 != e.fullScreenOffset && e.fullScreenOffset.length > 0 ? u -= jQuery(window).height() * parseInt(e.fullScreenOffset, 0) / 100 : void 0 != e.fullScreenOffset && e.fullScreenOffset.length > 0 && (u -= parseInt(e.fullScreenOffset, 0))
+                    }
+                    f = u
+                } else void 0 != e.minHeight && f < e.minHeight && (f = e.minHeight);
+                e.c.closest(".rev_slider_wrapper").css({
+                    height: f
+                })
+            } catch (d) {
+                console.log("Failure at Presize of Slider:" + d);
+            }
+        };
+
+
+        setREVStartSize();
+
+        var tpj = jQuery;
+        tpj.noConflict();
+        var revapi1;
+        tpj(document).ready(function () {
+            if (tpj("#rev_slider_1_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_1_1");
+            } else {
+                revapi1 = tpj("#rev_slider_1_1").show().revolution({
+                    sliderType: "standard",
+                    jsFileLocation: "http://woodworker.thememove.com/wp-content/plugins/revslider/public/assets/js/",
+                    sliderLayout: "auto",
+                    dottedOverlay: "none",
+                    delay: 6000,
+                    navigation: {
+                        keyboardNavigation: "off",
+                        keyboard_direction: "horizontal",
+                        mouseScrollNavigation: "off",
+                        onHoverStop: "on",
+                        touch: {
+                            touchenabled: "on",
+                            swipe_threshold: 75,
+                            swipe_min_touches: 1,
+                            swipe_direction: "horizontal",
+                            drag_block_vertical: false
+                        },
+                        arrows: {
+                            style: "hebe",
+                            enable: true,
+                            hide_onmobile: true,
+                            hide_under: 768,
+                            hide_onleave: false,
+                            tmp: '<div class="tp-title-wrap">	<span class="tp-arr-titleholder">{{title}}</span>    <span class="tp-arr-imgholder"></span> </div>',
+                            left: {
+                                h_align: "left",
+                                v_align: "center",
+                                h_offset: 20,
+                                v_offset: 0
+                            },
+                            right: {
+                                h_align: "right",
+                                v_align: "center",
+                                h_offset: 20,
+                                v_offset: 0
+                            }
+                        }
+                    },
+                    responsiveLevels: [1240, 1240, 1240, 480],
+                    gridwidth: [1920, 1024, 778, 480],
+                    gridheight: [680, 768, 960, 720],
+                    lazyType: "none",
+                    parallax: {
+                        type: "mouse",
+                        origo: "enterpoint",
+                        speed: 400,
+                        levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+                        disable_onmobile: "on"
+                    },
+                    shadow: 0,
+                    spinner: "spinner2",
+                    stopLoop: "off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle: "off",
+                    autoHeight: "off",
+                    hideThumbsOnMobile: "off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    startWithSlide: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        nextSlideOnWindowFocus: "off",
+                        disableFocusListener: "off",
+                    }
+                });
+            }
+        }); /*ready*/
+    </script>
+
+</head>
+<body class="home page page-id-4 page-template-default header01 full-width core_122 wpb-js-composer js-comp-ver-4.7.4 vc_responsive">
+
+    <div class="snap-drawers">
+        <div class="snap-drawer snap-drawer-left">
+            <div class="mobile-menu">
+                <ul id="mobile-menu" class="menu">
+                    <li class="menu-item current-menu-item page_item page-item-4 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-69">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children menu-item-81">
+                        <a href="services.html">Services</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children menu-item-70">
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li class="menu-item menu-item-72"><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="snap-drawer snap-drawer-right"></div>
+    </div>
+
+    <div id="page" class="hfeed site">
+        <header class="site-header">
+            <div class="site-top hidden-xs hidden-sm">
+                <div class="container">
+                    <div class="row middle">
+                        <div class="col-md-12 col-lg-7">
+                            <aside id="text-2" class="widget widget_text">
+                                <div class="textwidget">
+                                    <ul class="extra-info">
+                                        <li><i class="fa fa-phone"> </i> (102) 6666 8888</li>
+                                        <li><i class="fa fa-clock-o"></i> Mon - Sat: 9:00 - 18:00</li>
+                                        <li><i class="fa fa-envelope-o"></i> info@thememove.com</li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-5 hidden-md end-lg">
+                            <div class="social-menu">
+                                <ul id="social-menu-top" class="menu">
+                                    <li class="menu-item menu-item-97"><a href="http://facebook.com/">facebook</a></li>
+                                    <li class="menu-item menu-item-98"><a href="http://twitter.com/">twitter</a></li>
+                                    <li class="menu-item menu-item-171"><a href="http://linkedin.com/">linkedin</a></li>
+                                    <li class="menu-item menu-item-172"><a href="http://dribbble.com/">dribbble</a></li>
+                                    <li class="menu-item menu-item-173"><a href="http://youtube.com/">youtube</a></li>
+                                    <li class="menu-item menu-item-174"><a href="#">feed</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row middle-xs middle-sm">
+                    <div class="col-md-2 col-xs-10">
+                        <div class="site-branding">
+                            <a href="index.html" rel="home">
+                                <img src="~/Content/images/logo.png" alt="Wood Worker" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 hidden-md hidden-lg end">
+                        <i id="open-left" class="fa fa-navicon"></i>
+                    </div>
+                    <div class="col-md-10 hidden-xs hidden-sm end">
+                        <nav id="site-navigation" class="main-navigation">
+                            <div class="container">
+                                <div class="row middle">
+                                    <div class="primary-menu">
+                                        <ul id="primary-menu" class="menu">
+                                            <li class="menu-item current-menu-item page_item page-item-4 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-69">
+                                                <a href="index.html">Home</a>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children menu-item-81">
+                                                <a href="services.html">Services</a>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children menu-item-70">
+                                                <a href="about-us.html">About</a>
+                                            </li>
+                                            <li class="menu-item menu-item-72"><a href="contact-us.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <!-- #site-navigation -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="site-content">
+            @RenderBody()
+        </div>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <aside id="text-3" class="widget widget_text">
+                            <h3 class="widget-title"><span>ABOUT US</span></h3>
+                            <div class="textwidget">
+                                <p>
+                                    <img src="images/logo_white.png" srcset="images/logo_white@2x.png" alt="Wood Worker">
+                                    <br /> We manufacture, locally, only custom woodworking that cannot be acquired from large manufacturers who specialize in a specific product.
+                                </p>
+                            </div>
+                        </aside>
+                        <div class="social">
+                            <div class="social-menu">
+                                <ul id="social-menu" class="menu">
+                                    <li class="menu-item menu-item-97"><a href="http://facebook.com/">facebook</a></li>
+                                    <li class="menu-item menu-item-98"><a href="http://twitter.com/">twitter</a></li>
+                                    <li class="menu-item menu-item-171"><a href="http://linkedin.com/">linkedin</a></li>
+                                    <li class="menu-item menu-item-172"><a href="http://dribbble.com/">dribbble</a></li>
+                                    <li class="menu-item menu-item-173"><a href="http://youtube.com/">youtube</a></li>
+                                    <li class="menu-item menu-item-174"><a href="#">feed</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <aside id="better-menu-widget-2" class="widget better-menu-widget">
+                            <h3 class="widget-title"><span>Information</span></h3>
+                            <div class="menu-information-container">
+                                <ul id="menu-information" class="menu">
+                                    <li class="menu-item current-menu-item page_item page-item-4 current_page_item menu-item-276"><a href="index.html">Home</a></li>
+                                    <li class="menu-item menu-item-99"><a href="#">Services</a></li>
+                                    <li class="menu-item menu-item-100"><a href="#">Blog</a></li>
+                                    <li class="menu-item menu-item-101"><a href="#">Contact Us</a></li>
+                                    <li class="menu-item menu-item-102"><a href="#">About Us</a></li>
+                                    <li class="menu-item menu-item-273"><a href="#">Portfolio</a></li>
+                                    <li class="menu-item menu-item-274"><a href="#">OFFICE FUNITURE</a></li>
+                                    <li class="menu-item menu-item-275"><a href="#">EXTERIOR DESIGN</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-md-4">
+                        <aside id="text-4" class="widget widget_text">
+                            <h3 class="widget-title"><span>WOODWORKER OFFICE</span></h3>
+                            <div class="textwidget">
+                                <div class="office">
+                                    <p>
+                                        <i class="fa fa-map-marker"></i> 14 Tottenham Road, London, England.
+                                    </p>
+                                    <p><i class="fa fa-phone"></i> (102) 6666 8888 </p>
+                                    <p><i class="fa fa-envelope"></i> info@thememove.com </p>
+                                    <p><i class="fa fa-fax"></i> (102) 8888 9999 </p>
+                                    <p><i class="fa fa-clock-o"></i> Mon - Sat: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- .site-footer -->
+        <div class="copyright">
+            <div class="container center">
+                Made with <i class="fa fa-heart"></i> by <a target="_blank" href="http://astritbublaku.com">max-themes</a>.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

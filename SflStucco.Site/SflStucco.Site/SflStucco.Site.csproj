@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{190F10A0-EA22-4B68-9DE3-957F1EFB4B12}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SflStucco.Site</RootNamespace>
+    <AssemblyName>SflStucco.Site</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\coloredbg.png" />
+    <Content Include="Content\assets\gridtile.png" />
+    <Content Include="Content\assets\gridtile_3x3.png" />
+    <Content Include="Content\assets\gridtile_3x3_white.png" />
+    <Content Include="Content\assets\gridtile_white.png" />
+    <Content Include="Content\assets\loader.gif" />
+    <Content Include="Content\css\essential-grid.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\fonts\dashicons.svg" />
+    <Content Include="Content\css\fonts\et-line.svg" />
+    <Content Include="Content\css\fonts\fontawesome\fontawesome-webfont93e3.svg" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-5.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="Content\css\fonts\line-icons\Pe-icon-7-strokebb1d.svg" />
+    <Content Include="Content\css\fonts\linecons.svg" />
+    <Content Include="Content\css\fonts\star.svg" />
+    <Content Include="Content\css\kirki-styles.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\nivoslider.css" />
+    <Content Include="Content\css\settings.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont93e3.svg" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfonte0a5.svg" />
+    <Content Include="Content\fonts\revicons\revicons90c6.svg" />
+    <Content Include="Content\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="Content\images\blank.gif" />
+    <Content Include="Content\images\breadcrumbs-bg.jpg" />
+    <Content Include="Content\images\c1.png" />
+    <Content Include="Content\images\c2.png" />
+    <Content Include="Content\images\c3.png" />
+    <Content Include="Content\images\c4.png" />
+    <Content Include="Content\images\footer_bg.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo_white%402x.png" />
+    <Content Include="Content\images\logo_white.png" />
+    <Content Include="Content\images\page_bg.jpg" />
+    <Content Include="Content\images\section-divider.png" />
+    <Content Include="Content\js\contact-form.js" />
+    <Content Include="Content\js\esgrid.js" />
+    <Content Include="Content\js\essential-grid\public\assets\css\lightbox.css" />
+    <Content Include="Content\js\essential-grid\public\assets\css\settings.css" />
+    <Content Include="Content\js\essential-grid\public\assets\font\egfontdde9.svg" />
+    <Content Include="Content\js\essential-grid\public\assets\images\ajax-loader.gif" />
+    <Content Include="Content\js\essential-grid\public\assets\images\blank.gif" />
+    <Content Include="Content\js\essential-grid\public\assets\images\esgbox_buttons.png" />
+    <Content Include="Content\js\essential-grid\public\assets\images\esgbox_loading%402x.gif" />
+    <Content Include="Content\js\essential-grid\public\assets\images\esgbox_loading.gif" />
+    <Content Include="Content\js\essential-grid\public\assets\images\esgbox_overlay.png" />
+    <Content Include="Content\js\essential-grid\public\assets\images\esgbox_sprite%402x.png" />
+    <Content Include="Content\js\essential-grid\public\assets\images\esgbox_sprite.png" />
+    <Content Include="Content\js\essential-grid\public\assets\images\loader.gif" />
+    <Content Include="Content\js\essential-grid\public\assets\js\jquery.themepunch.essential.min.js" />
+    <Content Include="Content\js\essential-grid\public\assets\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\js\essential-grid\public\assets\js\lightbox.js" />
+    <Content Include="Content\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="Content\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.actions.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.carousel.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.kenburn.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.layeranimation.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.migration.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.navigation.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.parallax.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.slideanims.js" />
+    <Content Include="Content\js\extensions\source\revolution.extension.video.js" />
+    <Content Include="Content\js\gmap3.min.js" />
+    <Content Include="Content\js\jquery-migrate.min.js" />
+    <Content Include="Content\js\jquery.counterup.min.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\js\jquery\jquery-migrate.min.js" />
+    <Content Include="Content\js\jquery\jquery.js" />
+    <Content Include="Content\js\jquery\ui\button.min.js" />
+    <Content Include="Content\js\jquery\ui\core.min.js" />
+    <Content Include="Content\js\jquery\ui\dialog.min.js" />
+    <Content Include="Content\js\jquery\ui\draggable.min.js" />
+    <Content Include="Content\js\jquery\ui\mouse.min.js" />
+    <Content Include="Content\js\jquery\ui\position.min.js" />
+    <Content Include="Content\js\jquery\ui\resizable.min.js" />
+    <Content Include="Content\js\jquery\ui\tabs.min.js" />
+    <Content Include="Content\js\jquery\ui\widget.min.js" />
+    <Content Include="Content\js\js_composer\assets\css\js_composer.css" />
+    <Content Include="Content\js\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="Content\js\js_composer\assets\images\flickr.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\camera.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\chart.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\clock.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\control.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\fire.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\heart.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\mail.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="Content\js\js_composer\assets\images\icons\video.png" />
+    <Content Include="Content\js\js_composer\assets\images\toggle_close.png" />
+    <Content Include="Content\js\js_composer\assets\images\toggle_open.png" />
+    <Content Include="Content\js\js_composer\assets\js\js_composer_front.js" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\font-awesome\fonts\fontawesome-webfont78ce.svg" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\nivoslider\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\nivoslider\nivo-slider.css" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\nivoslider\themes\default\arrows.png" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\nivoslider\themes\default\bullets.png" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\nivoslider\themes\default\default.css" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\nivoslider\themes\default\loading.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\skrollr\dist\skrollr.min.js" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\css\prettyPhoto.css" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\js\js_composer\assets\lib\prettyphoto\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\js\js_composer\assets\lib\vc-tta-autoplay\vc-tta-autoplay.js" />
+    <Content Include="Content\js\js_composer\assets\lib\vc_accordion\vc-accordion.js" />
+    <Content Include="Content\js\js_composer\assets\lib\vc_carousel\css\vc_carousel.css" />
+    <Content Include="Content\js\js_composer\assets\lib\vc_carousel\js\transition.js" />
+    <Content Include="Content\js\js_composer\assets\lib\vc_carousel\js\vc_carousel.js" />
+    <Content Include="Content\js\js_composer\assets\lib\waypoints\waypoints.min.js" />
+    <Content Include="Content\js\js_composer\assets\vc\alert.png" />
+    <Content Include="Content\js\js_composer\assets\vc\blur.svg" />
+    <Content Include="Content\js\js_composer\assets\vc\exclamation.png" />
+    <Content Include="Content\js\js_composer\assets\vc\info.png" />
+    <Content Include="Content\js\js_composer\assets\vc\tick.png" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\plugins\contact-form-7\includes\css\styles.css" />
+    <Content Include="Content\js\plugins\contact-form-7\includes\js\jquery.form.min.js" />
+    <Content Include="Content\js\plugins\contact-form-7\includes\js\scripts.js" />
+    <Content Include="Content\js\plugins\js_composer\assets\css\js_composer.min.css" />
+    <Content Include="Content\js\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1.svg" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\flickr.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\camera.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\chart.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\clock.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\control.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\fire.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\heart.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\mail.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\icons\video.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\toggle_close.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\images\toggle_open.png" />
+    <Content Include="Content\js\plugins\js_composer\assets\js\js_composer_front.js" />
+    <Content Include="Content\js\plugins\js_composer\assets\lib\bower\jquery-ui-tabs-rotate\jquery-ui-tabs-rotate.js" />
+    <Content Include="Content\js\plugins\js_composer\assets\lib\vc-tta-autoplay\vc-tta-autoplay.js" />
+    <Content Include="Content\js\plugins\js_composer\assets\lib\vc_accordion\vc-accordion.js" />
+    <Content Include="Content\js\plugins\LayerSlider\static\css\blank.gif" />
+    <Content Include="Content\js\plugins\LayerSlider\static\css\layerslider.css" />
+    <Content Include="Content\js\plugins\LayerSlider\static\js\greensock.js" />
+    <Content Include="Content\js\plugins\LayerSlider\static\js\layerslider.kreaturamedia.jquery.js" />
+    <Content Include="Content\js\plugins\LayerSlider\static\js\layerslider.transitions.js" />
+    <Content Include="Content\js\plugins\revslider\public\assets\assets\coloredbg.png" />
+    <Content Include="Content\js\plugins\revslider\public\assets\assets\gridtile.png" />
+    <Content Include="Content\js\plugins\revslider\public\assets\assets\gridtile_3x3.png" />
+    <Content Include="Content\js\plugins\revslider\public\assets\assets\gridtile_3x3_white.png" />
+    <Content Include="Content\js\plugins\revslider\public\assets\assets\gridtile_white.png" />
+    <Content Include="Content\js\plugins\revslider\public\assets\assets\loader.gif" />
+    <Content Include="Content\js\plugins\revslider\public\assets\css\settings.css" />
+    <Content Include="Content\js\plugins\revslider\public\assets\fonts\revicons\revicons.svg" />
+    <Content Include="Content\js\plugins\revslider\public\assets\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\js\plugins\revslider\public\assets\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\js\plugins\wysija-newsletters\css\validationEngine.jquery.css" />
+    <Content Include="Content\js\plugins\wysija-newsletters\js\front-subscribers.js" />
+    <Content Include="Content\js\plugins\wysija-newsletters\js\validate\jquery.validationEngine.js" />
+    <Content Include="Content\js\plugins\wysija-newsletters\js\validate\languages\jquery.validationEngine-en.js" />
+    <Content Include="Content\js\snap.min.js" />
+    <Content Include="Content\js\vendor\animate-css\animate.min.css" />
+    <Content Include="Content\js\vendor\et-line-font\fonts\et-line.svg" />
+    <Content Include="Content\js\vendor\et-line-font\style.css" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\blank.gif" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\fancybox_loading%402x.gif" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\fancybox_loading.gif" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\fancybox_overlay.png" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\fancybox_sprite%402x.png" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\fancybox_sprite.png" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\jquery.fancybox.css" />
+    <Content Include="Content\js\vendor\fancybox-2.1.5\jquery.fancybox.pack.js" />
+    <Content Include="Content\js\vendor\font-awesome-4.3.0\css\font-awesome.min.css" />
+    <Content Include="Content\js\vendor\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\js\vendor\linecons\linecons.css" />
+    <Content Include="Content\js\vendor\linecons\linecons.svg" />
+    <Content Include="Content\js\vendor\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Content\js\vendor\owl-carousel\grabbing.png" />
+    <Content Include="Content\js\vendor\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\js\vendor\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Content\js\vendor\owl-carousel\owl.theme.css" />
+    <Content Include="Content\js\waypoints.min.js" />
+    <Content Include="Content\upload\c1.png" />
+    <Content Include="Content\upload\c2.png" />
+    <Content Include="Content\upload\c3.png" />
+    <Content Include="Content\upload\c4.png" />
+    <Content Include="Content\upload\c5.png" />
+    <Content Include="Content\upload\c6.png" />
+    <Content Include="Content\upload\contact_bg.jpg" />
+    <Content Include="Content\upload\contact_bg3f91.jpg" />
+    <Content Include="Content\upload\h1.png" />
+    <Content Include="Content\upload\h2.png" />
+    <Content Include="Content\upload\h3.png" />
+    <Content Include="Content\upload\h4.png" />
+    <Content Include="Content\upload\image_1440x900_01-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_01-847x480.jpg" />
+    <Content Include="Content\upload\image_1440x900_02-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_02-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_02-847x480.jpg" />
+    <Content Include="Content\upload\image_1440x900_02.jpg" />
+    <Content Include="Content\upload\image_1440x900_03-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_03-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_03.jpg" />
+    <Content Include="Content\upload\image_1440x900_04-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_04-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_04-847x480.jpg" />
+    <Content Include="Content\upload\image_1440x900_04.jpg" />
+    <Content Include="Content\upload\image_1440x900_05-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_05-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_05.jpg" />
+    <Content Include="Content\upload\image_1440x900_06-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_06-120x90.jpg" />
+    <Content Include="Content\upload\image_1440x900_06-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_06-370x250.jpg" />
+    <Content Include="Content\upload\image_1440x900_06-848x450.jpg" />
+    <Content Include="Content\upload\image_1440x900_06.jpg" />
+    <Content Include="Content\upload\image_1440x900_07-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_07-120x90.jpg" />
+    <Content Include="Content\upload\image_1440x900_07-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_07-370x250.jpg" />
+    <Content Include="Content\upload\image_1440x900_07-848x450.jpg" />
+    <Content Include="Content\upload\image_1440x900_07.jpg" />
+    <Content Include="Content\upload\image_1440x900_08-1024x640.jpg" />
+    <Content Include="Content\upload\image_1440x900_08-120x90.jpg" />
+    <Content Include="Content\upload\image_1440x900_08-300x300.jpg" />
+    <Content Include="Content\upload\image_1440x900_08-370x250.jpg" />
+    <Content Include="Content\upload\image_1440x900_08-848x450.jpg" />
+    <Content Include="Content\upload\image_1440x900_08.jpg" />
+    <Content Include="Content\upload\img01.jpg" />
+    <Content Include="Content\upload\img02.jpg" />
+    <Content Include="Content\upload\img03.png" />
+    <Content Include="Content\upload\img04-1024x640.jpg" />
+    <Content Include="Content\upload\img04-370x250.jpg" />
+    <Content Include="Content\upload\img04-848x450.jpg" />
+    <Content Include="Content\upload\img04.jpg" />
+    <Content Include="Content\upload\img05-1024x640.jpg" />
+    <Content Include="Content\upload\img05-370x250.jpg" />
+    <Content Include="Content\upload\img05-848x450.jpg" />
+    <Content Include="Content\upload\img05.jpg" />
+    <Content Include="Content\upload\img06-1024x640.jpg" />
+    <Content Include="Content\upload\img06-370x250.jpg" />
+    <Content Include="Content\upload\img06-848x450.jpg" />
+    <Content Include="Content\upload\img06.jpg" />
+    <Content Include="Content\upload\img07.png" />
+    <Content Include="Content\upload\img08.png" />
+    <Content Include="Content\upload\img09.png" />
+    <Content Include="Content\upload\img10.png" />
+    <Content Include="Content\upload\logo_white.png" />
+    <Content Include="Content\upload\man01.png" />
+    <Content Include="Content\upload\map-marker.png" />
+    <Content Include="Content\upload\mega_img.png" />
+    <Content Include="Content\upload\parallax_bg_01.jpg" />
+    <Content Include="Content\upload\parallax_bg_02.jpg" />
+    <Content Include="Content\upload\parallax_bg_03.jpg" />
+    <Content Include="Content\upload\parallax_bg_04.jpg" />
+    <Content Include="Content\upload\parallax_bg_05.jpg" />
+    <Content Include="Content\upload\parallax_bg_06.jpg" />
+    <Content Include="Content\upload\parallax_bg_063dd2.jpg" />
+    <Content Include="Content\upload\people01.jpg" />
+    <Content Include="Content\upload\s11_bg-100x50.jpg" />
+    <Content Include="Content\upload\s11_bg.jpg" />
+    <Content Include="Content\upload\s11_ob01.png" />
+    <Content Include="Content\upload\s11_ob02.png" />
+    <Content Include="Content\upload\s11_ob03.png" />
+    <Content Include="Content\upload\s12_bg-100x50.jpg" />
+    <Content Include="Content\upload\s12_bg.jpg" />
+    <Content Include="Content\upload\s12_ob01.png" />
+    <Content Include="Content\upload\s13_bg-100x50.jpg" />
+    <Content Include="Content\upload\s13_bg.jpg" />
+    <Content Include="Content\upload\s13_ob01.png" />
+    <Content Include="Content\upload\s21_bg-100x50.jpg" />
+    <Content Include="Content\upload\s21_bg.jpg" />
+    <Content Include="Content\upload\s22_bg-100x50.jpg" />
+    <Content Include="Content\upload\s22_bg.jpg" />
+    <Content Include="Content\upload\s23_bg-100x50.jpg" />
+    <Content Include="Content\upload\s23_bg.jpg" />
+    <Content Include="Content\upload\s31_bg-100x50.jpg" />
+    <Content Include="Content\upload\s31_bg.jpg" />
+    <Content Include="Content\upload\s32_bg-100x50.jpg" />
+    <Content Include="Content\upload\s32_bg.jpg" />
+    <Content Include="Content\upload\s33_bg-100x50.jpg" />
+    <Content Include="Content\upload\s33_bg.jpg" />
+    <Content Include="Content\upload\team01-90x90.jpg" />
+    <Content Include="Content\upload\team011.jpg" />
+    <Content Include="Content\upload\team02-90x90.jpg" />
+    <Content Include="Content\upload\team021.jpg" />
+    <Content Include="Content\upload\team03.jpg" />
+    <Content Include="Content\upload\team04.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\css\fonts\revicons\" />
+    <Folder Include="Content\css\fonts\vc_grid\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Content\css\fonts\dashicons.eot" />
+    <Content Include="Content\css\fonts\dashicons.ttf" />
+    <Content Include="Content\css\fonts\et-line.eot" />
+    <Content Include="Content\css\fonts\et-line.ttf" />
+    <Content Include="Content\css\fonts\et-line.woff" />
+    <Content Include="Content\css\fonts\et-line.woff2" />
+    <Content Include="Content\css\fonts\linecons.eot" />
+    <Content Include="Content\css\fonts\linecons.ttf" />
+    <Content Include="Content\css\fonts\linecons.woff" />
+    <Content Include="Content\css\fonts\linecons.woff2" />
+    <Content Include="Content\css\fonts\star.eot" />
+    <Content Include="Content\css\fonts\star.ttf" />
+    <Content Include="Content\css\fonts\star.woff" />
+    <Content Include="Content\css\fonts\fontawesome\fontawesome-webfont93e3.eot" />
+    <Content Include="Content\css\fonts\fontawesome\fontawesome-webfont93e3.ttf" />
+    <Content Include="Content\css\fonts\fontawesome\fontawesome-webfont93e3.woff" />
+    <Content Include="Content\css\fonts\fontawesome\fontawesome-webfont93e3.woff2" />
+    <Content Include="Content\css\fonts\fontawesome\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\css\fonts\line-icons\Pe-icon-7-strokebb1d.eot" />
+    <Content Include="Content\css\fonts\line-icons\Pe-icon-7-strokebb1d.ttf" />
+    <Content Include="Content\css\fonts\line-icons\Pe-icon-7-strokebb1d.woff" />
+    <Content Include="Content\css\fonts\line-icons\Pe-icon-7-stroked41d.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="Content\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="Content\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont93e3.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont93e3.ttf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont93e3.woff" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont93e3.woff2" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfonte0a5.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfonte0a5.ttf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfonte0a5.woff" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfonte0a5.woff2" />
+    <Content Include="Content\fonts\revicons\revicons90c6.eot" />
+    <Content Include="Content\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="Content\fonts\revicons\revicons90c6.woff" />
+    <Content Include="Content\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="Content\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="Content\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="Content\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="Content\js\essential-grid\public\assets\font\egfontdde9.eot" />
+    <Content Include="Content\js\essential-grid\public\assets\font\egfontdde9.ttf" />
+    <Content Include="Content\js\essential-grid\public\assets\font\egfontdde9.woff" />
+    <Content Include="Content\js\extensions\index.php" />
+    <Content Include="Content\js\extensions\source\index.php" />
+    <Content Include="Content\js\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="Content\js\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="Content\js\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="Content\js\js_composer\assets\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\font-awesome\fonts\fontawesome-webfont78ce.eot" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\font-awesome\fonts\fontawesome-webfont78ce.ttf" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\font-awesome\fonts\fontawesome-webfont78ce.woff" />
+    <Content Include="Content\js\js_composer\assets\lib\bower\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\js\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1.eot" />
+    <Content Include="Content\js\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1.ttf" />
+    <Content Include="Content\js\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1.woff" />
+    <Content Include="Content\js\plugins\revslider\public\assets\fonts\revicons\revicons.eot" />
+    <Content Include="Content\js\plugins\revslider\public\assets\fonts\revicons\revicons.ttf" />
+    <Content Include="Content\js\plugins\revslider\public\assets\fonts\revicons\revicons.woff" />
+    <Content Include="Content\js\vendor\et-line-font\fonts\et-line.eot" />
+    <Content Include="Content\js\vendor\et-line-font\fonts\et-line.ttf" />
+    <Content Include="Content\js\vendor\et-line-font\fonts\et-line.woff" />
+    <Content Include="Content\js\vendor\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\js\vendor\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\js\vendor\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\js\vendor\linecons\linecons.eot" />
+    <Content Include="Content\js\vendor\linecons\linecons.ttf" />
+    <Content Include="Content\js\vendor\linecons\linecons.woff" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55154</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/slfstucco</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
