@@ -160,6 +160,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -195,6 +196,7 @@
     <Content Include="Content\fonts\fontawesome\fontawesome-webfonte0a5.svg" />
     <Content Include="Content\fonts\revicons\revicons90c6.svg" />
     <Content Include="Content\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="Content\images\banner-image1.png" />
     <Content Include="Content\images\blank.gif" />
     <Content Include="Content\images\breadcrumbs-bg.jpg" />
     <Content Include="Content\images\c1.png" />
@@ -202,13 +204,15 @@
     <Content Include="Content\images\c3.png" />
     <Content Include="Content\images\c4.png" />
     <Content Include="Content\images\footer_bg.jpg" />
-    <Content Include="Content\images\banner-image1.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo_white%402x.png" />
     <Content Include="Content\images\logo_white.png" />
     <Content Include="Content\images\page_bg.jpg" />
     <Content Include="Content\images\section-divider.png" />
     <Content Include="Content\images\stock-photo-plasterer.jpg" />
+    <Content Include="Content\images\stucco-icon-1.png" />
+    <Content Include="Content\images\templogo.png" />
+    <Content Include="Content\images\templogowhite.png" />
     <Content Include="Content\js\contact-form.js" />
     <Content Include="Content\js\esgrid.js" />
     <Content Include="Content\js\essential-grid\public\assets\css\lightbox.css" />
@@ -646,10 +650,20 @@
     <Content Include="Content\js\vendor\linecons\linecons.ttf" />
     <Content Include="Content\js\vendor\linecons\linecons.woff" />
     <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\sflstucco.com - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Offline|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -665,7 +679,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55154</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/slfstucco</IISUrl>
+          <IISUrl>http://localhost/sflstucco</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

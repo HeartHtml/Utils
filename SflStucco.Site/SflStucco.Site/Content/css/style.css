@@ -1095,6 +1095,9 @@ img.wp-smiley,
 .site-branding {
     padding:20px 0px 20px 0px;
 }
+.site-branding-mobile {
+    display: none;
+    }
 article.post .read-more,.dates,.pagination span.current,.big-title h3:after,.big-title--single h3:after,.tm_quick_quote .vc_custom_heading h2:before,.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title .vc_tta-controls-icon,.tm_services .wpb_single_image,.vc_custom_heading.style4:after,.vc_custom_heading.style3:after,.vc_custom_heading.style2:after,.vc_custom_heading.style1:after,.widget-title:after {
     background-color:#98c11e;
 }
@@ -1247,7 +1250,7 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
     color:#ffffff;
 }
 .site-top a:hover {
-    color:#594431;
+    color:#98c11e;
 }
 .site-header {
     font-family:Montserrat;
@@ -1329,6 +1332,18 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
 @media ( max-width:61.9375rem ) {
     .site-header {
         background-color: #333333;
+    }
+
+    .site-branding-mobile {
+        display: inline !important;
+    }
+
+    .site-branding {
+        display: none !important;
+    }
+
+    .logo-mobile {
+        max-width: 50%;
     }
 }
 
