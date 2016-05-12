@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,14 +204,19 @@
     <Content Include="Content\images\c2.png" />
     <Content Include="Content\images\c3.png" />
     <Content Include="Content\images\c4.png" />
+    <Content Include="Content\images\commercial-building.png" />
     <Content Include="Content\images\footer_bg.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo_white%402x.png" />
     <Content Include="Content\images\logo_white.png" />
+    <Content Include="Content\images\man01.png" />
     <Content Include="Content\images\page_bg.jpg" />
+    <Content Include="Content\images\restucco-man.png" />
     <Content Include="Content\images\section-divider.png" />
+    <Content Include="Content\images\smiling-worker.png" />
     <Content Include="Content\images\stock-photo-plasterer.jpg" />
     <Content Include="Content\images\stucco-icon-1.png" />
+    <Content Include="Content\images\stucco-repair.png" />
     <Content Include="Content\images\templogo.png" />
     <Content Include="Content\images\templogowhite.png" />
     <Content Include="Content\js\contact-form.js" />
@@ -651,6 +657,7 @@
     <Content Include="Content\js\vendor\linecons\linecons.woff" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\sflstucco.com - Web Deploy.pubxml" />
+    <Content Include="Views\Services\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1303,12 +1303,9 @@ button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]
 }
 .big-title {
     padding:100px 0px 100px 0px;
-    background-color:#ffffff;
-    background-image:url("data/images/page_bg.jpg");
+    background-color:#333333;
 }
-.big-title:after {
-    background-color:rgba(89,68,49,0.9);
-}
+
 .big-title--single .entry-title {
     font-family:Montserrat;
     font-weight:700;

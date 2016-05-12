@@ -390,7 +390,6 @@
     padding-right:70px !important;
     padding-bottom:50px !important;
     padding-left:70px !important;
-    background-image:url(../upload/contact_bg3f91.jpg) !important;
     background-position:center !important;
     background-repeat:no-repeat !important;
     background-size:cover !important;
@@ -528,7 +527,6 @@
 	padding-right:70px !important;
 	padding-bottom:50px !important;
 	padding-left:70px !important;
-	background-image:url(../upload/contact_bg.jpg) !important;
 	background-position:center !important;
 	background-repeat:no-repeat !important;
 	background-size:cover !important;
@@ -1368,7 +1366,7 @@
 	padding-right:70px !important;
 	padding-bottom:50px !important;
 	padding-left:70px !important;
-	background-image:url(../upload/contact_bg3f91.jpg) !important;
+    background-color: #333333 !important;
 	background-position:center !important;
 	background-repeat:no-repeat !important;
 	background-size:cover !important;
