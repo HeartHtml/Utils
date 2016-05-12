@@ -156,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,6 +207,7 @@
     <Content Include="Content\images\c4.png" />
     <Content Include="Content\images\commercial-building.png" />
     <Content Include="Content\images\footer_bg.jpg" />
+    <Content Include="Content\images\happy-contractor.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo_white%402x.png" />
     <Content Include="Content\images\logo_white.png" />
@@ -658,6 +660,8 @@
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\sflstucco.com - Web Deploy.pubxml" />
     <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\Partials\_CompanyInfoFooter.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

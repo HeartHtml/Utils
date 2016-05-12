@@ -1228,13 +1228,13 @@ body.boxed {
 }
 .vc_btn3-color-grey:hover,.vc_btn3-color-grey:focus {
     color:#ffffff!important;
-    background-color:#594431!important;
+    background-color:#333333!important;
 }
 button,input[type="button"],input[type="reset"],input[type="submit"] {
     background-color:#98c11e;
 }
 button,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover {
-    background-color:#594431;
+    background-color:#8E8E8E;
 }
 .site-top {
     font-family:Lato;
