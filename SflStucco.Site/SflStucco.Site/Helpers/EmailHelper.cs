@@ -67,6 +67,7 @@ namespace SflStucco.Site.Helpers
         /// <param name="subject">The subject line of the email</param>
         /// <param name="body">The body content of the email</param>
         /// <param name="sender"></param>
+        /// <param name="isBodyHtml"></param>
         /// <param name="toAddress">A collection of recipient address for the email</param>
         /// <param name="userName"></param>
         /// <param name="password"></param>
@@ -80,8 +81,8 @@ namespace SflStucco.Site.Helpers
             , string userName = ""
             , string password = ""
             , string sender = ""
-            , params string[] toAddress
-            )
+            ,bool isBodyHtml = false 
+            ,params string[] toAddress)
         {
             smtpServer = string.IsNullOrEmpty(smtpServer) ? DefaultSMTPServer : smtpServer;
             smtpPort = smtpPort == 0 ? DefaultSMTPPort : smtpPort;
@@ -141,9 +142,7 @@ namespace SflStucco.Site.Helpers
 
             var client = new SmtpClient(smtpServer, port)
             {
-                UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(smtpUsername, smtpPassword),
-                DeliveryMethod = SmtpDeliveryMethod.Network,
                 EnableSsl = true
             };
 

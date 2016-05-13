@@ -9,18 +9,19 @@ namespace SflStucco.Site.Models
 {
     public class ContactUsModel : ModelBase
     {
-        [Required(ErrorMessage = "Name is required")]
+        [Required]
         public string Name { get; set; }
 
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Email address is required")]
+        [Required]
         [RegularExpression(EmailRegex, ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
 
         public string Subject { get; set; }
 
-        [Required(ErrorMessage = "Message is required")]
+        [Required]
+        [DataType(DataType.MultilineText)]
         public string Message { get; set; }
 
         public bool IsEmailSent { get; set; }

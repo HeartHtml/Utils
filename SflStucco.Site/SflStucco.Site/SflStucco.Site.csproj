@@ -166,6 +166,7 @@
     </Compile>
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Models\ContactUsModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,7 +228,6 @@
     <Content Include="Content\images\stucco-repair.png" />
     <Content Include="Content\images\templogo.png" />
     <Content Include="Content\images\templogowhite.png" />
-    <Content Include="Content\js\contact-form.js" />
     <Content Include="Content\js\esgrid.js" />
     <Content Include="Content\js\essential-grid\public\assets\css\lightbox.css" />
     <Content Include="Content\js\essential-grid\public\assets\css\settings.css" />
@@ -268,6 +268,9 @@
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery.themepunch.revolution.min.js" />
     <Content Include="Content\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\js\jquery.validate.min.js" />
+    <Content Include="Content\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\js\jquery\jquery-migrate.min.js" />
     <Content Include="Content\js\jquery\jquery.js" />
     <Content Include="Content\js\jquery\ui\button.min.js" />

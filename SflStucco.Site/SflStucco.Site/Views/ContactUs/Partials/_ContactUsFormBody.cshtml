@@ -6,24 +6,42 @@
     </div>
     <div role="form" class="wpcf7" id="wpcf7-f222-p65-o1" lang="en-US" dir="ltr">
         <div class="screen-reader-response"></div>
-        <form action="http://woodworker.thememove.com/contact-us/#wpcf7-f222-p65-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-            <div class="row">
-                <div class="col-md-3">
-                    <div><span class="wpcf7-form-control-wrap your-name"><input name="name" id="name" type="text" value="" size="40" class=" mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your name here" /></span></div>
-                    <div><span class="wpcf7-form-control-wrap your-address"><input type="text" name="your-address" value="" size="40" class=" mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your address" /></span></div>
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <span class="wpcf7-form-control-wrap your-name">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id="name", @type="text", @size="40", @aria_required="true", @aria_invalid="false", @placeholder="Your name" })
+                    </span>
                 </div>
-                <div class="col-md-3">
-                    <div><span class="wpcf7-form-control-wrap your-email"> <input type="text" name="mail" id="mail" value="" size="40" class=" mb10 wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your email" /></span></div>
-                    <div><span class="wpcf7-form-control-wrap subject"><input name="subject" id="subject" value="" size="40" class="mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Subject" /></span></div>
-                </div>
-                <div class="col-md-6">
-                    <div><span class="wpcf7-form-control-wrap your-message"><textarea name="comment" id="comment" cols="40" rows="10" class=" mb10 wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Your message"></textarea></span></div>
-                    <div>
-                        <input type="submit" value="Send" id="submit_contact">
-                        <div id="msg" class="message"></div>
-                    </div>
+                <div>
+                    <span class="wpcf7-form-control-wrap your-address">
+                        @Html.TextBoxFor(model => model.Address, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your address" })
+                    </span>
                 </div>
             </div>
-        </form>
+            <div class="col-md-3">
+                <div>
+                    <span class="wpcf7-form-control-wrap your-email">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required",@id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your email" })
+                    </span>
+                </div>
+                <div>
+                    <span class="wpcf7-form-control-wrap subject">
+                        @Html.TextBoxFor(model => model.Subject, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your subject" })
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <span class="wpcf7-form-control-wrap your-message">
+                        @Html.TextAreaFor(model => model.Message, new { @class = "mb10 wpcf7-form-control wpcf7-textarea", @name="comment", @id="comment", @cols="40", @rows="10", @aria_invalid="false", @placeholder="Your message" })
+                    </span>
+                </div>
+                <div>
+                    <input type="submit" value="Send" id="submit_contact">
+                    <div id="msg" class="message"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
