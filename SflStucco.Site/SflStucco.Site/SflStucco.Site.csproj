@@ -157,12 +157,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="Models\ContactUsModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -212,6 +217,7 @@
     <Content Include="Content\images\logo_white%402x.png" />
     <Content Include="Content\images\logo_white.png" />
     <Content Include="Content\images\man01.png" />
+    <Content Include="Content\images\map_marker_pin.png" />
     <Content Include="Content\images\page_bg.jpg" />
     <Content Include="Content\images\restucco-man.png" />
     <Content Include="Content\images\section-divider.png" />
@@ -577,7 +583,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\fonts\revicons\" />
     <Folder Include="Content\css\fonts\vc_grid\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -662,6 +668,8 @@
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Services\Partials\_CompanyInfoFooter.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\ContactUs\Partials\_ContactUsFormBody.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

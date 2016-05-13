@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SflStucco.Site.Controllers
 {
-    public class ServicesController : Controller
+    public class ServicesController : ApplicationController
     {
         // GET: Services
         public ActionResult Index()
