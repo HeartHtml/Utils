@@ -140,11 +140,26 @@ namespace SflStucco.Site.Helpers
                 }
             }
 
-            var client = new SmtpClient(smtpServer, port)
+            SmtpClient client = new SmtpClient();
+
+            string environment = ConfigurationManager.AppSettings["Environment"];
+
+            if (environment.Equals("DEV"))
             {
-                Credentials = new NetworkCredential(smtpUsername, smtpPassword),
-                EnableSsl = true
-            };
+                client = new SmtpClient(smtpServer, port)
+                {
+                    Credentials = new NetworkCredential(smtpUsername, smtpPassword),
+                    EnableSsl = true
+                };
+            }
+            else
+            {
+                client.Host = smtpServer;   //-- Donot change.
+                client.Port = port;
+                client.EnableSsl = false;//--- Donot change
+                client.UseDefaultCredentials = true;
+                client.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+            }
 
             client.Send(msg);
         }
