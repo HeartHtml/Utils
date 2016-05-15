@@ -3829,7 +3829,7 @@ ul.wpb_thumbnails-fluid > li,
   transition: opacity 0.5s ease;
 }
 .vc_row[data-vc-full-width].vc_hidden {
-  opacity: 0;
+  /*opacity: 0;*/
 }
 /**
  * Parallax
