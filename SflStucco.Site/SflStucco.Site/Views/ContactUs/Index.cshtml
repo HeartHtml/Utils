@@ -9,7 +9,17 @@
 <script type='text/javascript' src='~/Content/js/gmap3.min.js'></script>
 
 <script type="text/javascript">
+
+    function EmailSuccessSent() {
+        
+        jQuery(".dv-contact-form").hide();
+
+        jQuery(".dv-email-sent").slideDown();
+    }
+
     jQuery(document).ready(function ($) {
+
+        jQuery(".dv-email-sent").hide();
 
         var gmMapDiv = $("#map-canvas");
 
@@ -40,7 +50,7 @@
                             scaleControl: false,
                             scrollwheel: gmZoomEnable == 'enable' ? true : false,
                             streetViewControl: false,
-                            draggable: true,
+                            draggable: false,
                         }
                     }
                 }).width(gmWidth).height(gmHeight);
@@ -85,7 +95,7 @@
                             </div>
                             <div class="vc_row-full-width"></div>
                             <div class="vc_row wpb_row vc_row-fluid vc_custom_1438942231820">
-                                @using (Ajax.BeginForm("SendEmail", "ContactUs", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "dv-form-container" }))
+                                @using (Ajax.BeginForm("SendEmail", "ContactUs", new AjaxOptions { OnBegin = "EmailSuccessSent" }))
                                 {
                                     <div class="wpb_column vc_column_container vc_col-sm-12" id="dv-form-container">
                                         @{Html.RenderPartial("~/Views/ContactUs/Partials/_ContactUsFormBody.cshtml", Model);}

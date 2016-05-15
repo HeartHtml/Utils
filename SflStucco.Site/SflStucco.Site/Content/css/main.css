@@ -338,6 +338,11 @@ p {
     margin-right: -0.9375rem;
 }
 
+.vcenter {
+  display: flex;
+  align-items: center;
+}
+
     .row.reverse {
         -webkit-flex-direction: row-reverse;
         -ms-flex-direction: row-reverse;

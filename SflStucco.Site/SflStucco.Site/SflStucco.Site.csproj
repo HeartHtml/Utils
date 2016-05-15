@@ -211,6 +211,7 @@
     <Content Include="Content\images\c2.png" />
     <Content Include="Content\images\c3.png" />
     <Content Include="Content\images\c4.png" />
+    <Content Include="Content\images\checkmark-256.png" />
     <Content Include="Content\images\commercial-building.png" />
     <Content Include="Content\images\footer_bg.jpg" />
     <Content Include="Content\images\happy-contractor.png" />

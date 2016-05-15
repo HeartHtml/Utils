@@ -6,11 +6,11 @@
     </div>
     <div role="form" class="wpcf7" id="wpcf7-f222-p65-o1" lang="en-US" dir="ltr">
         <div class="screen-reader-response"></div>
-        <div class="row">
+        <div class="row dv-contact-form">
             <div class="col-md-3">
                 <div>
                     <span class="wpcf7-form-control-wrap your-name">
-                        @Html.TextBoxFor(model => model.Name, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id="name", @type="text", @size="40", @aria_required="true", @aria_invalid="false", @placeholder="Your name" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your name" })
                     </span>
                 </div>
                 <div>
@@ -22,7 +22,7 @@
             <div class="col-md-3">
                 <div>
                     <span class="wpcf7-form-control-wrap your-email">
-                        @Html.TextBoxFor(model => model.Email, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required",@id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your email" })
+                        @Html.TextBoxFor(model => model.Email, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your email" })
                     </span>
                 </div>
                 <div>
@@ -34,13 +34,20 @@
             <div class="col-md-6">
                 <div>
                     <span class="wpcf7-form-control-wrap your-message">
-                        @Html.TextAreaFor(model => model.Message, new { @class = "mb10 wpcf7-form-control wpcf7-textarea", @name="comment", @id="comment", @cols="40", @rows="10", @aria_invalid="false", @placeholder="Your message" })
+                        @Html.TextAreaFor(model => model.Message, new { @class = "mb10 wpcf7-form-control wpcf7-textarea", @name = "comment", @id = "comment", @cols = "40", @rows = "10", @aria_invalid = "false", @placeholder = "Your message" })
                     </span>
                 </div>
                 <div>
                     <input type="submit" value="Send" id="submit_contact">
-                    <div id="msg" class="message"></div>
                 </div>
+            </div>
+        </div>
+        <div class="row col-md-offset-2 dv-email-sent ">
+            <div class="col-xs-6">
+                <img src="~/Content/images/checkmark-256.png" />
+            </div>
+            <div class="col-xs-6 vcenter">
+                <h3>Message sent!</h3>
             </div>
         </div>
     </div>

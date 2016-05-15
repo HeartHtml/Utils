@@ -15,7 +15,9 @@ namespace SflStucco.Site.Controllers
         // GET: ContactUs
         public ActionResult Index()
         {
-            return View();
+            ContactUsModel model = new ContactUsModel();
+
+            return View(model);
         }
 
         public ActionResult SendEmail(ContactUsModel model)
@@ -47,7 +49,7 @@ namespace SflStucco.Site.Controllers
                     builder.AppendHtmlLine(string.Format("Subject: {0}", model.Subject));
                 }
 
-                builder.AppendHtmlLine(string.Format("Email: {0}", model.Email));
+                builder.AppendHtmlLine(string.Format("Email: {0}", model.Email)); 
 
                 builder.AppendHtmlLine(string.Empty);
 
@@ -56,14 +58,14 @@ namespace SflStucco.Site.Controllers
                 string body = builder.ToString();
 
                 EmailHelper.SendEmail("Web Contact Request", 
-                                       body, 
-                                       EmailHelper.DefaultSender, 
+                                       body,
+                                       model.Email, 
                                        true,
                                        SMTP_DESTINATION_EMAIL);
 
                 model.IsEmailSent = true;
 
-                return PartialView("~/Views/ContactUs/Partials/_ContactUsFormBody.cshtml", model);
+                return Json(model);
             }
             catch (Exception ex)
             {

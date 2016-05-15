@@ -1,6 +1,23 @@
-﻿@{
+﻿@model SflStucco.Site.Models.ContactUsModel
+
+@{
     ViewBag.Title = "Home";
 }
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+
+        jQuery(".dv-email-sent").hide();
+
+    });
+
+    function EmailSuccessSent() {
+        jQuery(".dv-contact-form").hide();
+
+        jQuery(".dv-email-sent").slideDown();
+    }
+</script>
 
 <div class="container">
     <div class="row">
@@ -16,94 +33,94 @@
                                             <img src="~/Content/images/banner-image1.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                                             <!-- START REVOLUTION SLIDER 5.0.4.1 auto mode -->
                                             @*<div id="rev_slider_1_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.4.1">
-                <ul>
-                    <!-- SLIDE  -->
-                    <li data-index="rs-1" data-transition="parallaxtoright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="upload/s11_bg-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                        <!-- MAIN IMAGE -->
-                        <img src="~/Content/images/banner-image1.jpg" alt="" width="1920" height="680" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                        <!-- LAYERS -->
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-1" data-x="['left','left','left','center']" data-hoffset="['377','377','377','0']" data-y="['top','top','top','top']" data-voffset="['271','271','271','34']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:360;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 5; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            <img src="upload/s11_ob01.png" alt="" width="150" height="150" data-ww="['150px','150px','150px','150px']" data-hh="['150px','150px','150px','150px']" data-no-retina>
-                        </div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-2" data-x="['left','left','left','center']" data-hoffset="['563','563','563','0']" data-y="['top','top','top','top']" data-voffset="['277','277','277','277']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:900;e:Power3.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="880" data-responsive_offset="on" style="z-index: 6; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            <img src="upload/s11_ob02.png" alt="" width="150" height="136" data-ww="['150px','150px','150px','150px']" data-hh="['136px','136px','136px','136px']" data-no-retina>
-                        </div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-3" data-x="['left','left','left','center']" data-hoffset="['769','769','769','12']" data-y="['top','top','top','top']" data-voffset="['270','270','270','509']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1430" data-responsive_offset="on" style="z-index: 7; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            <img src="upload/s11_ob03.png" alt="" width="150" height="146" data-ww="['150px','150px','150px','150px']" data-hh="['146px','146px','146px','146px']" data-no-retina>
-                        </div>
-                        <!-- LAYER NR. 4 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-4" data-x="['left','left','left','left']" data-hoffset="['982','982','982','982']" data-y="['top','top','top','top']" data-voffset="['285','285','285','285']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="x:right;skX:-85px;s:1000;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1920" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            DESIGN <span>FUNITURE</span>
-                        </div>
-                        <!-- LAYER NR. 5 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-5" data-x="['left','left','left','left']" data-hoffset="['982','982','982','982']" data-y="['top','top','top','top']" data-voffset="['349','349','349','349']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:1000;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="2780" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            MAKE <span>DOORS</span>
-                        </div>
-                    </li>
-                    <!-- SLIDE  -->
-                    <li data-index="rs-2" data-transition="parallaxtoright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="upload/s12_bg-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                        <!-- MAIN IMAGE -->
-                        <img src="upload/s12_bg.jpg" alt="" width="1920" height="680" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                        <!-- LAYERS -->
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-2" data-x="['left','left','left','left']" data-hoffset="['306','306','306','-591']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','10']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="y:bottom;rX:-20deg;rY:-20deg;rZ:0deg;s:1500;e:Power3.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="710" data-responsive_offset="on" data-end="5900" style="z-index: 5; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            <img src="upload/s12_ob01.png" alt="" width="570" height="592" data-ww="['570px','570px','570px','570px']" data-hh="['592px','592px','592px','592px']" data-no-retina>
-                        </div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-1" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','middle']" data-voffset="['175','175','175','-176']" data-fontsize="['80','80','80','60']" data-lineheight="['80','80','80','40']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="rX:0deg;rY:360deg;s:1430;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-start="930" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.1" data-end="5620" style="z-index: 6; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            The best
-                        </div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-3" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','middle']" data-voffset="['255','255','255','-62']" data-fontsize="['80','80','80','60']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1330;e:Power3.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1490" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-end="5600" style="z-index: 7; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            <span>Wood Factory</span>
-                        </div>
-                        <!-- LAYER NR. 4 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-4" data-x="['left','left','left','center']" data-hoffset="['955','955','955','8']" data-y="['top','top','top','middle']" data-voffset="['338','338','338','32']" data-fontsize="['80','80','80','60']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:200px;skX:-85px;opacity:0;s:910;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="2140" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 8; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            of all time.
-                        </div>
-                        <!-- LAYER NR. 5 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-5" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','top']" data-voffset="['438','438','438','452']" data-width="['521','521','521','412']" data-height="['73','73','73','none']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="2570" data-splitin="words" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.1" data-end="5640" style="z-index: 9; min-width: 521px; min-height: 73px; white-space: normal; max-width: 521px; max-height: 73px; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(214, 214, 214, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            Curabitur et vehicula sapien, sed mattis nibh. Proin vehicula convallis ullamcorper. Duis gravida lacinia eros.
-                        </div>
-                        <!-- LAYER NR. 6 -->
-                        <div class="tp-caption TM-Button   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-6" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','middle']" data-voffset="['512','512','512','218']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:1500;e:Power3.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:[-100%];y:0;" data-start="4130" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-end="5630" style="z-index: 10; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 13px; line-height: 18px; font-weight: 700; color: rgba(0, 0, 0, 1.00);font-family:Arial;border-radius:0 0 0 0;">
-                            <div class="vc_btn3-color-grey">
-                                <button>LEARN MORE</button>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- SLIDE  -->
-                    <li data-index="rs-3" data-transition="parallaxtoright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="upload/s13_bg-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                        <!-- MAIN IMAGE -->
-                        <img src="upload/s13_bg.jpg" alt="" width="1920" height="680" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
-                        <!-- LAYERS -->
-                        <!-- LAYER NR. 1 -->
-                        <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['166','166','166','166']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 5; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            <img src="upload/s13_ob01.png" alt="" width="130" height="130" data-ww="['130px','130px','130px','130px']" data-hh="['130px','130px','130px','130px']" data-no-retina>
-                        </div>
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-2" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['336','336','336','336']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1140" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 6; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            Designing - Creating - Teaching
-                        </div>
-                        <!-- LAYER NR. 3 -->
-                        <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-3" data-x="['center','center','center','center']" data-hoffset="['5','5','5','5']" data-y="['top','top','top','top']" data-voffset="['400','400','400','400']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="3100" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
-                            the art of woodworking
-                        </div>
-                        <!-- LAYER NR. 4 -->
-                        <div class="tp-caption TM-Button   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-4" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['173','173','173','100']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-start="3280" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 13px; line-height: 18px; font-weight: 700; color: rgba(0, 0, 0, 1.00);font-family:Arial;border-radius:0 0 0 0;">
-                            <div class="vc_btn3-color-grey">
-                                <button>LEARN MORE</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div class="tp-static-layers">
-                </div>
-                <div class="tp-bannertimer" style="height: 5px; background-color: rgba(198, 148, 83, 0.80);"></div>
-            </div>*@
+                                                    <ul>
+                                                        <!-- SLIDE  -->
+                                                        <li data-index="rs-1" data-transition="parallaxtoright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="upload/s11_bg-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                                                            <!-- MAIN IMAGE -->
+                                                            <img src="~/Content/images/banner-image1.jpg" alt="" width="1920" height="680" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                                                            <!-- LAYERS -->
+                                                            <!-- LAYER NR. 1 -->
+                                                            <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-1" data-x="['left','left','left','center']" data-hoffset="['377','377','377','0']" data-y="['top','top','top','top']" data-voffset="['271','271','271','34']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:360;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 5; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                <img src="upload/s11_ob01.png" alt="" width="150" height="150" data-ww="['150px','150px','150px','150px']" data-hh="['150px','150px','150px','150px']" data-no-retina>
+                                                            </div>
+                                                            <!-- LAYER NR. 2 -->
+                                                            <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-2" data-x="['left','left','left','center']" data-hoffset="['563','563','563','0']" data-y="['top','top','top','top']" data-voffset="['277','277','277','277']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:900;e:Power3.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="880" data-responsive_offset="on" style="z-index: 6; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                <img src="upload/s11_ob02.png" alt="" width="150" height="136" data-ww="['150px','150px','150px','150px']" data-hh="['136px','136px','136px','136px']" data-no-retina>
+                                                            </div>
+                                                            <!-- LAYER NR. 3 -->
+                                                            <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-3" data-x="['left','left','left','center']" data-hoffset="['769','769','769','12']" data-y="['top','top','top','top']" data-voffset="['270','270','270','509']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1430" data-responsive_offset="on" style="z-index: 7; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                <img src="upload/s11_ob03.png" alt="" width="150" height="146" data-ww="['150px','150px','150px','150px']" data-hh="['146px','146px','146px','146px']" data-no-retina>
+                                                            </div>
+                                                            <!-- LAYER NR. 4 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-4" data-x="['left','left','left','left']" data-hoffset="['982','982','982','982']" data-y="['top','top','top','top']" data-voffset="['285','285','285','285']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="x:right;skX:-85px;s:1000;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1920" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                DESIGN <span>FUNITURE</span>
+                                                            </div>
+                                                            <!-- LAYER NR. 5 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-5" data-x="['left','left','left','left']" data-hoffset="['982','982','982','982']" data-y="['top','top','top','top']" data-voffset="['349','349','349','349']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:1000;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="2780" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                MAKE <span>DOORS</span>
+                                                            </div>
+                                                        </li>
+                                                        <!-- SLIDE  -->
+                                                        <li data-index="rs-2" data-transition="parallaxtoright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="upload/s12_bg-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                                                            <!-- MAIN IMAGE -->
+                                                            <img src="upload/s12_bg.jpg" alt="" width="1920" height="680" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                                                            <!-- LAYERS -->
+                                                            <!-- LAYER NR. 1 -->
+                                                            <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-2" data-x="['left','left','left','left']" data-hoffset="['306','306','306','-591']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','10']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="y:bottom;rX:-20deg;rY:-20deg;rZ:0deg;s:1500;e:Power3.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="710" data-responsive_offset="on" data-end="5900" style="z-index: 5; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                <img src="upload/s12_ob01.png" alt="" width="570" height="592" data-ww="['570px','570px','570px','570px']" data-hh="['592px','592px','592px','592px']" data-no-retina>
+                                                            </div>
+                                                            <!-- LAYER NR. 2 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-1" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','middle']" data-voffset="['175','175','175','-176']" data-fontsize="['80','80','80','60']" data-lineheight="['80','80','80','40']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="rX:0deg;rY:360deg;s:1430;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-start="930" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.1" data-end="5620" style="z-index: 6; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                The best
+                                                            </div>
+                                                            <!-- LAYER NR. 3 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-3" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','middle']" data-voffset="['255','255','255','-62']" data-fontsize="['80','80','80','60']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1330;e:Power3.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1490" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-end="5600" style="z-index: 7; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                <span>Wood Factory</span>
+                                                            </div>
+                                                            <!-- LAYER NR. 4 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-4" data-x="['left','left','left','center']" data-hoffset="['955','955','955','8']" data-y="['top','top','top','middle']" data-voffset="['338','338','338','32']" data-fontsize="['80','80','80','60']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:200px;skX:-85px;opacity:0;s:910;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="2140" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 8; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                of all time.
+                                                            </div>
+                                                            <!-- LAYER NR. 5 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-5" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','top']" data-voffset="['438','438','438','452']" data-width="['521','521','521','412']" data-height="['73','73','73','none']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="2570" data-splitin="words" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.1" data-end="5640" style="z-index: 9; min-width: 521px; min-height: 73px; white-space: normal; max-width: 521px; max-height: 73px; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(214, 214, 214, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                Curabitur et vehicula sapien, sed mattis nibh. Proin vehicula convallis ullamcorper. Duis gravida lacinia eros.
+                                                            </div>
+                                                            <!-- LAYER NR. 6 -->
+                                                            <div class="tp-caption TM-Button   tp-resizeme rs-parallaxlevel-0" id="slide-2-layer-6" data-x="['left','left','left','center']" data-hoffset="['955','955','955','0']" data-y="['top','top','top','middle']" data-voffset="['512','512','512','218']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:1500;e:Power3.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:[-100%];y:0;" data-start="4130" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-end="5630" style="z-index: 10; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 13px; line-height: 18px; font-weight: 700; color: rgba(0, 0, 0, 1.00);font-family:Arial;border-radius:0 0 0 0;">
+                                                                <div class="vc_btn3-color-grey">
+                                                                    <button>LEARN MORE</button>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <!-- SLIDE  -->
+                                                        <li data-index="rs-3" data-transition="parallaxtoright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="upload/s13_bg-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                                                            <!-- MAIN IMAGE -->
+                                                            <img src="upload/s13_bg.jpg" alt="" width="1920" height="680" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="9" class="rev-slidebg" data-no-retina>
+                                                            <!-- LAYERS -->
+                                                            <!-- LAYER NR. 1 -->
+                                                            <div class="tp-caption   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['166','166','166','166']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 5; line-height: 22px;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                <img src="upload/s13_ob01.png" alt="" width="130" height="130" data-ww="['130px','130px','130px','130px']" data-hh="['130px','130px','130px','130px']" data-no-retina>
+                                                            </div>
+                                                            <!-- LAYER NR. 2 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-2" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['336','336','336','336']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power4.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1140" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="z-index: 6; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                Designing - Creating - Teaching
+                                                            </div>
+                                                            <!-- LAYER NR. 3 -->
+                                                            <div class="tp-caption TM-Text-01   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-3" data-x="['center','center','center','center']" data-hoffset="['5','5','5','5']" data-y="['top','top','top','top']" data-voffset="['400','400','400','400']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','on','off']" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:2;sY:2;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="3100" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 60px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Arial;padding:0 0 0 0;border-radius:0 0 0 0;">
+                                                                the art of woodworking
+                                                            </div>
+                                                            <!-- LAYER NR. 4 -->
+                                                            <div class="tp-caption TM-Button   tp-resizeme rs-parallaxlevel-0" id="slide-3-layer-4" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['173','173','173','100']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-start="3280" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; min-width: auto; min-height: auto; white-space: nowrap; max-width: auto; max-height: auto; font-size: 13px; line-height: 18px; font-weight: 700; color: rgba(0, 0, 0, 1.00);font-family:Arial;border-radius:0 0 0 0;">
+                                                                <div class="vc_btn3-color-grey">
+                                                                    <button>LEARN MORE</button>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tp-static-layers">
+                                                    </div>
+                                                    <div class="tp-bannertimer" style="height: 5px; background-color: rgba(198, 148, 83, 0.80);"></div>
+                                                </div>*@
                                         </div>
                                         <!-- END REVOLUTION SLIDER -->
                                     </div>
@@ -173,161 +190,169 @@
                                     <div class="vc_custom_heading vc_custom_1438929246138">
                                         <h2 id="h2_d7c5_1">GET A QUICK QUOTE</h2>
                                     </div>
-                                    <div role="form" class="wpcf7" id="wpcf7-f162-p4-o1" lang="en-US" dir="ltr">
-                                        <div class="screen-reader-response"></div>
-                                        <form id="contact-form">
+                                    @using (Ajax.BeginForm("SendEmail", "ContactUs", new AjaxOptions { OnBegin = "EmailSuccessSent" }))
+                                    {
+                                        <div role="form" class="wpcf7 dv-contact-form" id="wpcf7-f162-p4-o1" lang="en-US" dir="ltr">
+                                            <div class="screen-reader-response"></div>
                                             <div>
                                                 <span class="wpcf7-form-control-wrap your-name">
-                                                    <input type="text" name="name" id="name" value="" size="40" class="wpcf7-form-control mb10 wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your name here" />
+                                                    @Html.TextBoxFor(model => model.Name, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your name" })
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="wpcf7-form-control-wrap your-email">
-                                                    <input type="text" name="mail" id="mail" value="" size="40" class="wpcf7-form-control mb10 wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your email" />
+                                                    @Html.TextBoxFor(model => model.Email, new { @class = "mb10 wpcf7-form-control wpcf7-text wpcf7-validates-as-required", @id = "name", @type = "text", @size = "40", @aria_required = "true", @aria_invalid = "false", @placeholder = "Your email" })
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="wpcf7-form-control-wrap your-message">
-                                                    <textarea name="comment" id="comment" cols="40" rows="10" class="wpcf7-form-control mb10 wpcf7-textarea" aria-invalid="false" placeholder="Your message"></textarea>
+                                                    @Html.TextAreaFor(model => model.Message, new { @class = "mb10 wpcf7-form-control wpcf7-textarea", @name = "comment", @id = "comment", @cols = "40", @rows = "10", @aria_invalid = "false", @placeholder = "Your message" })
                                                 </span>
                                             </div>
                                             <div>
                                                 <input type="submit" id="submit_contact" class="main-button" value="Send">
-                                                <div id="msg" class="message"></div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="row dv-email-sent ">
+                                            <div class="col-xs-6">
+                                                <img src="~/Content/images/checkmark-256.png" />
+                                            </div>
+                                            <div class="col-xs-6 vcenter">
+                                                <h3 style="color:white">Message sent!</h3>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
                         <div class="vc_row-full-width"></div>
                         @*<div class="vc_row wpb_row vc_row-fluid vc_custom_1438764586984">
-                            <div class="wpb_column vc_column_container vc_col-sm-12">
-                                <div class="wpb_wrapper">
-                                    <!-- GRID WRAPPER FOR CONTAINER SIZING - HERE YOU CAN SET THE CONTAINER SIZE AND CONTAINER SKIN -->
-                                    <article class="myportfolio-container tm-skin-03" id="esg-grid-2-1-wrap">
-                                        <!-- THE GRID ITSELF WITH FILTERS, PAGINATION, SORTING ETC... -->
-                                        <div id="esg-grid-2-1" class="esg-grid" style="background-color: transparent;padding: 0px 0px 0px 0px ; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;">
-                                            <!-- ############################ -->
-                                            <!-- THE GRID ITSELF WITH ENTRIES -->
-                                            <!-- ############################ -->
-                                            <ul>
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-103" data-date="1438764226">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c1.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-110" data-date="1438764256">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c2.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-111" data-date="1438764280">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c3.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-112" data-date="1438764321">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c4.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-113" data-date="1438764347">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c5.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-114" data-date="1438764375">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c6.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-447" data-date="1439954318">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c1.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                                <!-- PORTFOLIO ITEM 45 -->
-                                                <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-448" data-date="1439954379">
-                                                    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
-                                                    <div class="esg-media-cover-wrapper">
-                                                        <!-- THE MEDIA OF THE ENTRY -->
-                                                        <div class="esg-entry-media"><img src="upload/c2.png" alt=""></div>
-                                                        <!-- THE CONTENT OF THE ENTRY -->
-                                                        <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
-                                                    </div>
-                                                    <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
-                                                </li>
-                                                <!-- END OF PORTFOLIO ITEM -->
-                                            </ul>
-                                            <!-- ############################ -->
-                                            <!--      END OF THE GRID         -->
-                                            <!-- ############################ -->
-                                            <article class="esg-filters esg-singlefilters esg-navbutton-solo-left" style="margin-left: 0px; ">
-                                                <div class="esg-navigationbutton esg-left  esg-fgc-2" style="margin-left: 0px !important; margin-right: 0px !important; display: none;"><i class="eg-icon-left-open"></i></div>
-                                            </article>
-                                            <div class="esg-clear-no-height"></div>
-                                            <article class="esg-filters esg-singlefilters esg-navbutton-solo-right" style="margin-right: 0px; ">
-                                                <div class="esg-navigationbutton esg-right  esg-fgc-2" style="margin-left: 0px !important; margin-right: 0px !important; display: none;"><i class="eg-icon-right-open"></i></div>
-                                            </article>
-                                            <div class="esg-clear-no-height"></div>
-                                        </div>
-                                        <!-- END OF THE GRID -->
-                                    </article>
-                                    <!-- END OF THE GRID WRAPPER -->
-                                    <div class="clear"></div>
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="wpb_wrapper">
+                                        <!-- GRID WRAPPER FOR CONTAINER SIZING - HERE YOU CAN SET THE CONTAINER SIZE AND CONTAINER SKIN -->
+                                        <article class="myportfolio-container tm-skin-03" id="esg-grid-2-1-wrap">
+                                            <!-- THE GRID ITSELF WITH FILTERS, PAGINATION, SORTING ETC... -->
+                                            <div id="esg-grid-2-1" class="esg-grid" style="background-color: transparent;padding: 0px 0px 0px 0px ; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;">
+                                                <!-- ############################ -->
+                                                <!-- THE GRID ITSELF WITH ENTRIES -->
+                                                <!-- ############################ -->
+                                                <ul>
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-103" data-date="1438764226">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c1.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-110" data-date="1438764256">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c2.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-111" data-date="1438764280">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c3.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-112" data-date="1438764321">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c4.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-113" data-date="1438764347">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c5.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-114" data-date="1438764375">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c6.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-447" data-date="1439954318">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c1.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                    <!-- PORTFOLIO ITEM 45 -->
+                                                    <li class="filterall filter-clients eg-tm-clients-01-wrapper eg-post-id-448" data-date="1439954379">
+                                                        <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->
+                                                        <div class="esg-media-cover-wrapper">
+                                                            <!-- THE MEDIA OF THE ENTRY -->
+                                                            <div class="esg-entry-media"><img src="upload/c2.png" alt=""></div>
+                                                            <!-- THE CONTENT OF THE ENTRY -->
+                                                            <div class="esg-overlay esg-fade eg-tm-clients-01-container" data-delay="0"></div>
+                                                        </div>
+                                                        <!-- END OF THE CONTAINER FOR THE MEDIA AND COVER/HOVER EFFECTS -->
+                                                    </li>
+                                                    <!-- END OF PORTFOLIO ITEM -->
+                                                </ul>
+                                                <!-- ############################ -->
+                                                <!--      END OF THE GRID         -->
+                                                <!-- ############################ -->
+                                                <article class="esg-filters esg-singlefilters esg-navbutton-solo-left" style="margin-left: 0px; ">
+                                                    <div class="esg-navigationbutton esg-left  esg-fgc-2" style="margin-left: 0px !important; margin-right: 0px !important; display: none;"><i class="eg-icon-left-open"></i></div>
+                                                </article>
+                                                <div class="esg-clear-no-height"></div>
+                                                <article class="esg-filters esg-singlefilters esg-navbutton-solo-right" style="margin-right: 0px; ">
+                                                    <div class="esg-navigationbutton esg-right  esg-fgc-2" style="margin-left: 0px !important; margin-right: 0px !important; display: none;"><i class="eg-icon-right-open"></i></div>
+                                                </article>
+                                                <div class="esg-clear-no-height"></div>
+                                            </div>
+                                            <!-- END OF THE GRID -->
+                                        </article>
+                                        <!-- END OF THE GRID WRAPPER -->
+                                        <div class="clear"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>*@
+                            </div>*@
                     </div>
                     <!-- .entry-content -->
                 </article>
