@@ -223,6 +223,10 @@
     <Content Include="Content\images\page_bg.jpg" />
     <Content Include="Content\images\restucco-man.png" />
     <Content Include="Content\images\section-divider.png" />
+    <Content Include="Content\images\SF Stucco and Exteriors.png" />
+    <Content Include="Content\images\SF Stucco and Exteriors2.png" />
+    <Content Include="Content\images\SF Stucco and Exteriors3.png" />
+    <Content Include="Content\images\SF Stucco and Exteriors4.png" />
     <Content Include="Content\images\smiling-worker.png" />
     <Content Include="Content\images\stock-photo-plasterer.jpg" />
     <Content Include="Content\images\stucco-icon-1.png" />
@@ -571,7 +575,9 @@
     <Content Include="Content\upload\team04.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
