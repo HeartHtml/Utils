@@ -573,8 +573,8 @@
     <Content Include="Content\upload\team021.jpg" />
     <Content Include="Content\upload\team03.jpg" />
     <Content Include="Content\upload\team04.jpg" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="favicon.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
