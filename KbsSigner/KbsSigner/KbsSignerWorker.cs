@@ -21,6 +21,14 @@ namespace KbsSigner
             }
         }
 
+        private int InitialKbsCounter
+        {
+            get
+            {
+                return 110;
+            }
+        }
+
         public KbsJob KbsJob { get; set; }
 
         public KbsSignerWorker(KbsJob job)
@@ -31,6 +39,11 @@ namespace KbsSigner
         public KbsSignerWorker()
         {
             
+        }
+
+        private int GetMaxKbsByPage(int currentPage)
+        {
+            return currentPage == 0 ? InitialKbsCounter : MaxKbsCounter;
         }
 
         private Rectangle DetermineDocumentSize()
@@ -93,6 +106,13 @@ namespace KbsSigner
             const decimal baseYAmount = 13.68m;
 
             int destinationColumn = Convert.ToInt32(Math.Floor(Convert.ToDecimal(index)/20m));
+
+            if (pageIndex == 0 && index > 94)
+            {
+                destinationColumn = 5;
+
+                index = index + 5;
+            }
 
             int pad = GetPadAmount(destinationColumn);
 
@@ -247,7 +267,7 @@ namespace KbsSigner
 
                         lineCounter++;
 
-                        if (lineCounter == MaxKbsCounter)
+                        if (lineCounter == GetMaxKbsByPage(currentPage))
                         {
                             lineCounter = 0;
 
