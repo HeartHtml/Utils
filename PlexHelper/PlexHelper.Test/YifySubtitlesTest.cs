@@ -12,7 +12,7 @@ namespace PlexHelper.Test
         {
             SubtitleDownloader downloader = new SubtitleDownloader();
 
-            SubtitleDataFileCollection array = downloader.DownloadSubtitlesAsync("tt1198156").Result;
+            SubtitleDataFileCollection array = downloader.DownloadSubtitlesAsync("tt1245492").Result;
 
             Assert.IsNotNull(array);
         }

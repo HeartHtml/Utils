@@ -49,28 +49,28 @@ namespace PlexHelper.YifySubtitles.Entities
                 doc.LoadHtml(responseString);
 
                 //Retrieve all unordered lists in document
-                List<HtmlNode> unorderedLists = doc.DocumentNode.SelectNodes("//ul").ToList();
+                List<HtmlNode> allTables = doc.DocumentNode.SelectNodes("//table").ToList();
 
                 List<Subtitle> subtitlesFound = new List<Subtitle>();
 
-                foreach (HtmlNode unorderedListNodes in unorderedLists)
+                foreach (HtmlNode tableNode in allTables)
                 {
-                    if (unorderedListNodes.HasAttributes)
+                    if (tableNode.HasAttributes)
                     {
-                        HtmlAttribute attribute = unorderedListNodes.Attributes["class"];
+                        HtmlAttribute attribute = tableNode.Attributes["class"];
 
                         //Subs are found, they are always in the unordered list with this class with an li for each subtitle
-                        if (attribute.Value.SafeEquals("other-subs"))
+                        if (attribute.Value.Contains("other-subs"))
                         {
-                            HtmlNodeCollection liNodes = unorderedListNodes.ChildNodes;
+                            HtmlNodeCollection tableRowNodes = tableNode.SelectNodes("//tbody/tr");
 
-                            foreach (HtmlNode liNode in liNodes)
+                            foreach (HtmlNode tableRow in tableRowNodes)
                             {
                                 Subtitle subtitle = new Subtitle();
 
-                                if (liNode.HasAttributes)
+                                if (tableRow.HasAttributes)
                                 {
-                                    HtmlAttribute dataIdAttribute = liNode.Attributes["data-id"];
+                                    HtmlAttribute dataIdAttribute = tableRow.Attributes["data-id"];
 
                                     if (dataIdAttribute != null)
                                     {
@@ -80,57 +80,67 @@ namespace PlexHelper.YifySubtitles.Entities
 
                                 //Loop through each li
 
-                                HtmlNodeCollection liChildNodes = liNode.ChildNodes;
+                                HtmlNodeCollection columnsOfTableRow = tableRow.SelectNodes("td");
 
-                                foreach (HtmlNode childNode in liChildNodes)
+                                foreach (HtmlNode columnNode in columnsOfTableRow)
                                 {
-                                    if (childNode.HasAttributes)
+                                    if (columnNode.HasAttributes)
                                     {
-                                        HtmlAttribute childNodeAttribute = childNode.Attributes["class"];
+                                        HtmlAttribute childNodeAttribute = columnNode.Attributes["class"];
 
                                         //Find download link
-                                        if (childNodeAttribute.Value.SafeEquals("subtitle-download"))
+                                        if (childNodeAttribute.Value.SafeEquals("download-cell"))
                                         {
-                                            HtmlAttribute hrefAttribute = childNode.Attributes["href"];
+                                            HtmlNodeCollection anchorTagNodes = columnNode.SelectNodes("a");
 
-                                            if (hrefAttribute != null)
+                                            foreach (HtmlNode anchorTagNode in anchorTagNodes)
                                             {
-                                                string fileName = hrefAttribute.Value.Replace("/subtitles/",
-                                                    string.Empty);
-
-                                                subtitle.FileName = fileName;
-
-                                                subtitle.DownloadUrl = string.Format(SubtitleDownloadFormatLink,
-                                                    fileName);
-                                            }
-                                        }
-
-                                        //Find rating
-                                        if (childNodeAttribute.Value.SafeEquals("rating"))
-                                        {
-                                            foreach (HtmlNode ratingNode in childNode.ChildNodes)
-                                            {
-                                                if (ratingNode.HasAttributes)
+                                                if (anchorTagNode.HasAttributes)
                                                 {
-                                                    HtmlAttribute ratingNodeAttribute = ratingNode.Attributes["class"];
+                                                    HtmlAttribute downloadLinkAttribute = anchorTagNode.Attributes["href"];
 
-                                                    if (ratingNodeAttribute != null &&
-                                                        ratingNodeAttribute.Value.SafeEquals("reply-rating"))
+                                                    if (downloadLinkAttribute != null)
                                                     {
-                                                        subtitle.Rating = Convert.ToInt32(ratingNode.InnerText);
+                                                        string relativeDownloadPath = downloadLinkAttribute.Value;
+
+                                                        relativeDownloadPath = relativeDownloadPath.Replace(
+                                                            "subtitles", "subtitle");
+
+                                                        relativeDownloadPath = string.Format(
+                                                            SubtitleDownloadFormatLink, relativeDownloadPath);
+
+                                                        subtitle.DownloadUrl = relativeDownloadPath;
                                                     }
                                                 }
                                             }
                                         }
 
-                                        //Find language
-                                        if (childNodeAttribute.Value.SafeEquals("subtitle-page"))
+                                        //Find rating
+                                        if (childNodeAttribute.Value.SafeEquals("rating-cell"))
                                         {
-                                            foreach (HtmlNode subtitlePageNode in childNode.ChildNodes)
+                                            HtmlNodeCollection spanNodes = columnNode.SelectNodes("span");
+
+                                            foreach (HtmlNode spanNode in spanNodes)
                                             {
-                                                if (SubtitleLanguages.Contains(subtitlePageNode.InnerText))
+                                                subtitle.Rating = Convert.ToInt32(spanNode.InnerText);
+                                            }
+                                        }
+
+                                        //Find language
+                                        if (childNodeAttribute.Value.SafeEquals("flag-cell"))
+                                        {
+                                            HtmlNodeCollection spanNodes = columnNode.SelectNodes("span");
+
+                                            foreach (HtmlNode spanNode in spanNodes)
+                                            {
+                                                if (spanNode.HasAttributes)
                                                 {
-                                                    subtitle.Language = subtitlePageNode.InnerText;
+                                                    HtmlAttribute subLangAttribute = spanNode.Attributes["class"];
+
+                                                    if (subLangAttribute.Value.SafeEquals("sub-lang"))
+                                                    {
+                                                        subtitle.Language = spanNode.InnerText;
+                                                    }
                                                 }
                                             }
                                         }
