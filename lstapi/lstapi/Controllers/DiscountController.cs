@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Mvc;
+using Lemonstand.Api;
+using Lemonstand.Domain.Entities;
+using UtilsLib.ExtensionMethods;
+
+namespace lstapi.Controllers
+{
+    public class DiscountController : ApiController
+    {
+        private readonly DiscountManager _discountManager = new DiscountManager();
+
+        [System.Web.Http.HttpPost]
+        public ActionResult IncrementNewbieDiscount([FromUri] string secret)
+        {
+            try
+            {
+                string apiSecret = ConfigurationManager.AppSettings["ApiSecret"];
+
+                if (apiSecret.SafeEquals(secret))
+                {
+                    int newbieDiscountId = Convert.ToInt32(ConfigurationManager.AppSettings["NewbieDiscountId"]);
+
+                    Discount discount = _discountManager.GetDiscount(newbieDiscountId);
+
+                    if (discount == null)
+                    {
+                        throw new NoNullAllowedException("Discount was null");
+                    }
+
+                    int couponIncrement = Convert.ToInt32(ConfigurationManager.AppSettings["CouponIncrement"]);
+
+                    discount.MaxUsesPerCoupon += couponIncrement;
+
+                    _discountManager.UpdateDiscount(discount);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                }
+
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+    }
+}
