@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lstapi", "lstapi\lstapi.csproj", "{D1787664-75B4-424E-ACCE-69F43112C864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemonstand.Domain", "Lemonstand.Domain\Lemonstand.Domain.csproj", "{DA59D7C2-8FCB-49EB-BAEF-E0A1D1DBE2BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemonstand.Api", "Lemonstand.Api\Lemonstand.Api.csproj", "{A07565EC-45CC-4776-951C-B0DFCAD818D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemonstand.Api.Test", "Lemonstand.Api.Test\Lemonstand.Api.Test.csproj", "{05F9B927-35FA-4C68-80F2-18F784207069}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1787664-75B4-424E-ACCE-69F43112C864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1787664-75B4-424E-ACCE-69F43112C864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1787664-75B4-424E-ACCE-69F43112C864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1787664-75B4-424E-ACCE-69F43112C864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA59D7C2-8FCB-49EB-BAEF-E0A1D1DBE2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA59D7C2-8FCB-49EB-BAEF-E0A1D1DBE2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA59D7C2-8FCB-49EB-BAEF-E0A1D1DBE2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA59D7C2-8FCB-49EB-BAEF-E0A1D1DBE2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A07565EC-45CC-4776-951C-B0DFCAD818D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A07565EC-45CC-4776-951C-B0DFCAD818D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A07565EC-45CC-4776-951C-B0DFCAD818D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A07565EC-45CC-4776-951C-B0DFCAD818D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05F9B927-35FA-4C68-80F2-18F784207069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F9B927-35FA-4C68-80F2-18F784207069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F9B927-35FA-4C68-80F2-18F784207069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F9B927-35FA-4C68-80F2-18F784207069}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

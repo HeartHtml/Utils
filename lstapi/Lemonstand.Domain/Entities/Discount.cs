@@ -18,7 +18,7 @@ namespace Lemonstand.Domain.Entities
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("subtotal_discount")]
+        [JsonIgnore]
         public string SubtotalDiscount { get; set; }
 
         [JsonProperty("description")]
