@@ -14,6 +14,7 @@ namespace lst.Controllers
     {
         private readonly DiscountManager _discountManager = new DiscountManager();
 
+        [System.Web.Http.HttpGet]
         [System.Web.Http.HttpPost]
         public ActionResult IncrementNewbieDiscount([FromUri] string secret)
         {
@@ -37,6 +38,8 @@ namespace lst.Controllers
                     discount.MaxUsesPerCoupon += couponIncrement;
 
                     _discountManager.UpdateDiscount(discount);
+
+                    return new HttpStatusCodeResult(HttpStatusCode.OK);
                 }
                 else
                 {

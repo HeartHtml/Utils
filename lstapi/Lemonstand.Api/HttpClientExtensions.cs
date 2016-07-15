@@ -10,7 +10,7 @@ namespace Lemonstand.Api
 {
     public static class HttpClientExtensions
     {
-        public static async Task<HttpResponseMessage> PatchAsync(this HttpClient client, Uri requestUri, HttpContent iContent)
+        public static HttpResponseMessage PatchSync(this HttpClient client, Uri requestUri, HttpContent iContent)
         {
             var method = new HttpMethod("PATCH");
             var request = new HttpRequestMessage(method, requestUri)
@@ -21,7 +21,7 @@ namespace Lemonstand.Api
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
-                response = await client.SendAsync(request);
+                response = client.SendAsync(request).Result;
             }
             catch (TaskCanceledException e)
             {

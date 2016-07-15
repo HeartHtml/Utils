@@ -56,7 +56,7 @@ namespace Lemonstand.Api
 
                 Uri patchUri = new Uri(url);
 
-                var data = client.PatchAsync(patchUri, content).Result;
+                var data = client.PatchSync(patchUri, content);
 
                 if (!data.IsSuccessStatusCode)
                 {
