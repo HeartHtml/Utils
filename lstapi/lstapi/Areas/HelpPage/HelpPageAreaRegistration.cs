@@ -1,7 +1,8 @@
 using System.Web.Http;
 using System.Web.Mvc;
+using lst.Areas.HelpPage.App_Start;
 
-namespace lstapi.Areas.HelpPage
+namespace lst.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

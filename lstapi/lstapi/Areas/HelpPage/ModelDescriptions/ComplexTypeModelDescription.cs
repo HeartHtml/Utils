@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace lstapi.Areas.HelpPage.ModelDescriptions
+namespace lst.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

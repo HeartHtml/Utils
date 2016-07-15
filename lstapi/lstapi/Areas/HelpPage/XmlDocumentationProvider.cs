@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using lstapi.Areas.HelpPage.ModelDescriptions;
+using lst.Areas.HelpPage.ModelDescriptions;
 
-namespace lstapi.Areas.HelpPage
+namespace lst.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

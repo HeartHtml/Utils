@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace lstapi.Areas.HelpPage
+namespace lst.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace lstapi.Areas.HelpPage.ModelDescriptions
+namespace lst.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace lstapi.Areas.HelpPage.ModelDescriptions
+namespace lst.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

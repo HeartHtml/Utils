@@ -11,10 +11,11 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using lstapi.Areas.HelpPage.ModelDescriptions;
-using lstapi.Areas.HelpPage.Models;
+using lst.Areas.HelpPage.ModelDescriptions;
+using lst.Areas.HelpPage.Models;
+using lst.Areas.HelpPage.SampleGeneration;
 
-namespace lstapi.Areas.HelpPage
+namespace lst.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

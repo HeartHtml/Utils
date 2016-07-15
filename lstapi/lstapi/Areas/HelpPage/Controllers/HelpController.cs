@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using lstapi.Areas.HelpPage.ModelDescriptions;
-using lstapi.Areas.HelpPage.Models;
+using lst.Areas.HelpPage.ModelDescriptions;
+using lst.Areas.HelpPage.Models;
 
-namespace lstapi.Areas.HelpPage.Controllers
+namespace lst.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

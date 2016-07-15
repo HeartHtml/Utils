@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lstapi", "lstapi\lstapi.csproj", "{D1787664-75B4-424E-ACCE-69F43112C864}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lst", "lstapi\lst.csproj", "{D1787664-75B4-424E-ACCE-69F43112C864}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemonstand.Domain", "Lemonstand.Domain\Lemonstand.Domain.csproj", "{DA59D7C2-8FCB-49EB-BAEF-E0A1D1DBE2BC}"
 EndProject

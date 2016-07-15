@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using Lemonstand.Api;
 using Lemonstand.Domain.Entities;
 using UtilsLib.ExtensionMethods;
 
-namespace lstapi.Controllers
+namespace lst.Controllers
 {
     public class DiscountController : ApiController
     {

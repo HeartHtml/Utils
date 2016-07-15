@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace lstapi.Areas.HelpPage.ModelDescriptions
+namespace lst.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {
