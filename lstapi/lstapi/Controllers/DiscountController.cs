@@ -41,12 +41,8 @@ namespace lst.Controllers
 
                     return new HttpStatusCodeResult(HttpStatusCode.OK);
                 }
-                else
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-                }
 
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             catch (Exception ex)
             {
