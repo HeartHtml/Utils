@@ -133,16 +133,16 @@ namespace DoingTheDirty
 
                 string anal = "N";
 
-                if (randomNumber >= AnalThreshold)
-                {
-                    decision = "Y";
-                    anal = "Y";
-                }
-
                 if (randomNumber >= SexThreshold)
                 {
                     decision = "Y";
                     anal = "N";
+                }
+
+                if (randomNumber >= AnalThreshold)
+                {
+                    decision = "Y";
+                    anal = "Y";
                 }
 
                 string doTheDirtyMessage = string.Format("Number: {0} | Sex: {1} | Anal: {2}",
