@@ -76,6 +76,14 @@ namespace DoingTheDirty
             }
         }
 
+        private string ApiKey
+        {
+            get
+            {
+                return "317d7210-8e9a-4bdd-8e69-49d69311501c";
+            }
+        }
+
         public void Send()
         {
             try
@@ -95,7 +103,7 @@ namespace DoingTheDirty
                     JsonRpc = "2.0",
                     Params = new RandomNumberRequestParams
                     {
-                        ApiKey = "00000000-0000-0000-0000-000000000000",
+                        ApiKey = ApiKey,
                         Base = 10,
                         Max = 1000,
                         Min = -1000,
