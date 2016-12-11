@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -79,14 +76,6 @@ namespace DoingTheDirty
             }
         }
 
-        private int AnalThreshold
-        {
-            get
-            {
-                return Convert.ToInt32(ConfigurationManager.AppSettings["AnalThreshold"]);
-            }
-        }
-
         public void Send()
         {
             try
@@ -131,22 +120,13 @@ namespace DoingTheDirty
 
                 string decision = "N";
 
-                string anal = "N";
-
                 if (randomNumber >= SexThreshold)
                 {
                     decision = "Y";
-                    anal = "N";
                 }
 
-                if (randomNumber >= AnalThreshold)
-                {
-                    decision = "Y";
-                    anal = "Y";
-                }
-
-                string doTheDirtyMessage = string.Format("Number: {0} | Sex: {1} | Anal: {2}",
-                    randomNumber, decision, anal);
+                string doTheDirtyMessage = string.Format("Number: {0} | Sex: {1}",
+                    randomNumber, decision);
 
                 SmtpClient client = new SmtpClient(SmtpServer, SmtpPort)
                 {
