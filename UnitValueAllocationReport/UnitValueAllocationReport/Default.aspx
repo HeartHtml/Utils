@@ -4,7 +4,7 @@
 
     <div class="jumbotron">
         <h1>NWS Reporting Dashboard</h1>
-        <p class="lead">This tool facilitates the creation of crucial accounting reports in the New World Symphony Organization.</p>
+        <p class="lead">This tool facilitates the creation of accounting reports in the New World Symphony Organization.</p>
         <p><a href="<%= ResolveClientUrl("~/Account/Login.aspx") %>" class="btn btn-primary btn-lg">Log In</a></p>
     </div>
 
