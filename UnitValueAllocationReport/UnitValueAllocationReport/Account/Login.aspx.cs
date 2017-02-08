@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Web;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
@@ -20,6 +21,10 @@ namespace UnitValueAllocationReport.Account
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
+
+            bool newUserCreationAllowed = Convert.ToBoolean(ConfigurationManager.AppSettings["NewUserCreationAllowed"]);
+
+            RegisterHyperLink.Visible = newUserCreationAllowed;
         }
 
         protected void LogIn(object sender, EventArgs e)

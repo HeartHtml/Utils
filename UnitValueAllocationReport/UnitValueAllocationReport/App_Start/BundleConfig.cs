@@ -34,6 +34,11 @@ namespace UnitValueAllocationReport
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/DatePickerScripts").Include(
+                            "~/Scripts/datepicker/js/bootstrap-datepicker.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/DatePickerStyles").Include("~/Content/datepicker/css/bootstrap-datepicker.css"));
+
             ScriptManager.ScriptResourceMapping.AddDefinition(
                 "respond",
                 new ScriptResourceDefinition

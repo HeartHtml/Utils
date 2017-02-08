@@ -164,6 +164,92 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Reports\UnitValueAllocationProcess.aspx" />
+    <Content Include="Scripts\datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Scripts\datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
@@ -172,6 +258,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="Reports\Web.config" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker.css.map" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Reports\2015.6.30 NWS UnitValueAllocation.xls" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Reports\UnitValueAllocationReport.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -356,6 +447,13 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\UnitValueAllocationProcess.aspx.cs">
+      <DependentUpon>UnitValueAllocationProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\UnitValueAllocationProcess.aspx.designer.cs">
+      <DependentUpon>UnitValueAllocationProcess.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\UnitValueAllocationReport.aspx.cs">
       <DependentUpon>UnitValueAllocationReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -388,6 +486,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UtilsLib\UtilsLib\UtilsLib.csproj">
+      <Project>{ad5c76e5-7787-4752-b3a5-c9d570cf4457}</Project>
+      <Name>UtilsLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

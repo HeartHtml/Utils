@@ -29,5 +29,149 @@ namespace UnitValueAllocationReport.Reports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReportDate;
+        
+        /// <summary>
+        /// lblPreviousUnitValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPreviousUnitValue;
+        
+        /// <summary>
+        /// txtPreviousUnitValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPreviousUnitValue;
+        
+        /// <summary>
+        /// lblAllocatedExpenseCashFlowFoundation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllocatedExpenseCashFlowFoundation;
+        
+        /// <summary>
+        /// txtAllocatedExpenseCashFlowFoundation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAllocatedExpenseCashFlowFoundation;
+        
+        /// <summary>
+        /// lblAllocatedExpenseCashFlowUnrestricted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllocatedExpenseCashFlowUnrestricted;
+        
+        /// <summary>
+        /// txtAllocatedExpenseCashFlowUnrestricted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAllocatedExpenseCashFlowUnrestricted;
+        
+        /// <summary>
+        /// lblAllocatedExpenseCashFlowInitiative control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllocatedExpenseCashFlowInitiative;
+        
+        /// <summary>
+        /// txtAllocatedExpenseCashFlowInitiative control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAllocatedExpenseCashFlowInitiative;
+        
+        /// <summary>
+        /// lblAllocatedExpenseCashFlowNewCampusCampaign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllocatedExpenseCashFlowNewCampusCampaign;
+        
+        /// <summary>
+        /// txtAllocatedExpenseCashFlowNewCampusCampaign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAllocatedExpenseCashFlowNewCampusCampaign;
+        
+        /// <summary>
+        /// lblAllocatedExpenseCashFlowCulturalEndowment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllocatedExpenseCashFlowCulturalEndowment;
+        
+        /// <summary>
+        /// txtAllocatedExpenseCashFlowCulturalEndowment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAllocatedExpenseCashFlowCulturalEndowment;
+        
+        /// <summary>
+        /// lblNonAllocatedCashFlowUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNonAllocatedCashFlowUpload;
+        
+        /// <summary>
+        /// fuplCashFlow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuplCashFlow;
+        
+        /// <summary>
+        /// btnGenerateReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerateReport;
+        
+        /// <summary>
+        /// btnStartOver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStartOver;
     }
 }

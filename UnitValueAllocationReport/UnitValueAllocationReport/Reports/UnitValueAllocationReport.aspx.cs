@@ -13,5 +13,19 @@ namespace UnitValueAllocationReport.Reports
         {
 
         }
+
+        protected void txtReportDate_OnTextChanged(object sender, EventArgs e)
+        {
+        }
+
+        protected void btnStartOver_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/UnitValueAllocationReport.aspx");
+        }
+
+        protected void btnGenerateReport_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/UnitValueAllocationProcess.aspx");
+        }
     }
 }
