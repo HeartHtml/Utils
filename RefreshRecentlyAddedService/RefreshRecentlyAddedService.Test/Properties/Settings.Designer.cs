@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RefreshRecentlyAddedService.Properties {
+namespace RefreshRecentlyAddedService.Test.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -88,7 +88,7 @@ namespace RefreshRecentlyAddedService.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("N:\\Applications\\Bins\\Training\\RecentlyAdded")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\ortegafs01\\n\\Applications\\Bins\\Training\\RecentlyAdded")]
         public string RecentlyAddedLocation {
             get {
                 return ((string)(this["RecentlyAddedLocation"]));
@@ -97,7 +97,7 @@ namespace RefreshRecentlyAddedService.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("N:\\Applications\\Bins\\Training\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\ortegafs01\\n\\Applications\\Bins\\Training")]
         public string ScanLocations {
             get {
                 return ((string)(this["ScanLocations"]));
@@ -106,7 +106,7 @@ namespace RefreshRecentlyAddedService.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("N:\\Applications\\Bins\\Training\\RandomPlaylist")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\ortegafs01\\n\\Applications\\Bins\\Training\\RandomPlaylist")]
         public string RandomPlaylistLocation {
             get {
                 return ((string)(this["RandomPlaylistLocation"]));
@@ -142,7 +142,7 @@ namespace RefreshRecentlyAddedService.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ILOVELUKEANDLEAH")]
+        [global::System.Configuration.DefaultSettingValueAttribute("317d7210-8e9a-4bdd-8e69-49d69311501c")]
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));

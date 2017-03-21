@@ -1,46 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.IO;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RefreshRecentlyAddedService;
 
-namespace RefreshRecentlyAddedService
+namespace RefreshRecentlyAdded.Lib
 {
-    public class RefreshRecentlyAdded
+    public class RefreshRecentlyAddedRunner
     {
+
+        public string ValidMovieExtensions { get; set; }
 
         public bool Debug
         {
-            get
-            {
-                return Properties.Settings.Default.Debug;
-            }
+            get;
+            set;
         }
 
         public int DebugWaitTime
         {
-            get
-            {
-                return Properties.Settings.Default.DebugWaitTime;
-            }
+            get;
+            set;
         }
 
         public bool RunRecentlyAddedRoutine
         {
-            get
-            {
-                return Properties.Settings.Default.RunRecentlyAddedRoutine;
-            }
+            get;
+            set;
         }
 
         public bool RunRandomPlaylistRoutine
         {
-            get
-            {
-                return Properties.Settings.Default.RunRandomPlaylistRoutine;
-            }
+            get;
+            set;
+        }
+
+        public string RandomOrgEndpoint
+        {
+            get;
+            set;
+        }
+
+        public string ApiKey
+        {
+            get;
+            set;
         }
 
         public int RandomPlaylistRefreshTimeIntervalInDays { get; set; }
@@ -59,26 +69,40 @@ namespace RefreshRecentlyAddedService
 
         private Thread RefreshThread;
 
-        public RefreshRecentlyAdded()
+        public RefreshRecentlyAddedRunner()
         {
-            
+
         }
 
-        public RefreshRecentlyAdded(int RefreshTimeIntervalInDays,
-                                    int RefreshRateInSeconds,
-                                    int RandomPlaylistRefreshTimeIntervalInDays,
-                                    int NumberOfRandomFiles,
-                                    string RecentlyAddedLocation,
-                                    string ScanLocation,
-                                    string RandomPlaylistLocation)
+        public RefreshRecentlyAddedRunner(int refreshTimeIntervalInDays,
+                                            int refreshRateInSeconds,
+                                            int randomPlaylistRefreshTimeIntervalInDays,
+                                            int numberOfRandomFiles,
+                                            string recentlyAddedLocation,
+                                            string scanLocation,
+                                            string randomPlaylistLocation,
+                                            string validMovieExtensions,
+                                            bool debug,
+                                            int debugWaitTime,
+                                            bool runRecentlyAddedRoutine,
+                                            bool runRandomPlaylistRoutine,
+                                            string randomOrgEndpoint,
+                                            string apiKey)
         {
-            this.RandomPlaylistRefreshTimeIntervalInDays = RandomPlaylistRefreshTimeIntervalInDays;
-            this.RefreshTimeIntervalInDays = RefreshTimeIntervalInDays;
-            this.RefreshRateInSeconds = RefreshRateInSeconds;
-            this.RecentlyAddedLocation = RecentlyAddedLocation;
-            this.ScanLocation = ScanLocation;
-            this.RandomPlaylistLocation = RandomPlaylistLocation;
-            this.NumberOfRandomFiles = NumberOfRandomFiles;
+            RandomPlaylistRefreshTimeIntervalInDays = randomPlaylistRefreshTimeIntervalInDays;
+            RefreshTimeIntervalInDays = refreshTimeIntervalInDays;
+            RefreshRateInSeconds = refreshRateInSeconds;
+            RecentlyAddedLocation = recentlyAddedLocation;
+            ScanLocation = scanLocation;
+            RandomPlaylistLocation = randomPlaylistLocation;
+            NumberOfRandomFiles = numberOfRandomFiles;
+            ValidMovieExtensions = validMovieExtensions;
+            Debug = debug;
+            DebugWaitTime = debugWaitTime;
+            RunRecentlyAddedRoutine = runRecentlyAddedRoutine;
+            RunRandomPlaylistRoutine = runRandomPlaylistRoutine;
+            RandomOrgEndpoint = randomOrgEndpoint;
+            ApiKey = apiKey;
             RefreshThread = new Thread(RefreshFiles);
         }
 
@@ -94,46 +118,33 @@ namespace RefreshRecentlyAddedService
             }
         }
 
-        public void StartRefreshing()
-        {
-            RefreshThread.Start();
-        }
-
         public void RefreshFiles()
         {
-            while (true)
+            if (Debug)
             {
-                if (Debug)
-                {
-                    Thread.Sleep(DebugWaitTime);
-                }
+                Thread.Sleep(DebugWaitTime);
+            }
 
-                if (RunRandomPlaylistRoutine)
-                {
-                    CreateRandomFilesInLocationFunction(ScanLocation,
-                        RandomPlaylistLocation,
-                        RandomPlaylistRefreshTimeIntervalInDays);
-                }
+            if (RunRandomPlaylistRoutine)
+            {
+                CreateRandomFilesInLocationFunction(ScanLocation,
+                    RandomPlaylistLocation,
+                    RandomPlaylistRefreshTimeIntervalInDays);
+            }
 
-                if (RunRecentlyAddedRoutine)
-                {
-                    RefreshLocationFunction(ScanLocation,
-                        RecentlyAddedLocation,
-                        RefreshTimeIntervalInDays);
-                }
-
-                Thread.Sleep(RefreshRateInSeconds);
+            if (RunRecentlyAddedRoutine)
+            {
+                RefreshLocationFunction(ScanLocation,
+                    RecentlyAddedLocation,
+                    RefreshTimeIntervalInDays);
             }
         }
 
         private bool FileIsVideoFile(string Extension)
         {
-            bool Result = false;
-            if (GetValidMovieFileExtensions().Contains(Extension))
-            {
-                Result = true;
-            }
-            return Result;
+            bool result = GetValidMovieFileExtensions().Contains(Extension);
+
+            return result;
         }
 
         private void LogExceptionInEventViewer(Exception e)
@@ -159,8 +170,8 @@ namespace RefreshRecentlyAddedService
         private List<string> GetValidMovieFileExtensions()
         {
             List<string> validMovieFileExtensions = new List<string>();
-            string extensionsFromConfig = Properties.Settings.Default.ValidMovieExtensions;
-            string[] extensionsSplit = extensionsFromConfig.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
+            string extensionsFromConfig = ValidMovieExtensions;
+            string[] extensionsSplit = extensionsFromConfig.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string s in extensionsSplit)
             {
                 validMovieFileExtensions.Add(s);
@@ -246,39 +257,83 @@ namespace RefreshRecentlyAddedService
             }
         }
 
-        public void CreateRandomFilesInLocationFunction(string LocationOfSourceFiles,
-                                                        string LocationToCopyTo,
-                                                        int RefreshTimeInterval)
+        protected IEnumerable<FileInfo> GetRandomFiles(int numberOfRandomFiles, IEnumerable<FileInfo> allFiles)
+        {
+            List<FileInfo> files = allFiles.ToList();
+
+            var httpClient = new HttpClient();
+
+            var requestMessage = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(RandomOrgEndpoint),
+                Method = new HttpMethod("POST"),
+            };
+
+            RandomNumberRequest request = new RandomNumberRequest
+            {
+                Id = 12546,
+                Method = "generateIntegers",
+                JsonRpc = "2.0",
+                Params = new RandomNumberRequestParams
+                {
+                    ApiKey = ApiKey,
+                    Base = 10,
+                    Max = files.Count,
+                    Min = 0,
+                    N = numberOfRandomFiles,
+                    Replacement = true
+                }
+            };
+
+            string requestContent = JsonConvert.SerializeObject(request);
+
+            requestMessage.Content = new StringContent(requestContent);
+
+            HttpResponseMessage responseMessage = Task.Run(() => httpClient.SendAsync(requestMessage)).Result;
+
+            HttpContent content = responseMessage.Content;
+
+            string randomOrgContent = Task.Run(() => content.ReadAsStringAsync()).Result;
+
+            dynamic randomOrgResponse = JObject.Parse(randomOrgContent);
+
+            JArray indexes = randomOrgResponse.result.random.data;
+
+            return indexes.Select(t => files[t.Value<int>()]).ToList();
+        }
+
+        public void CreateRandomFilesInLocationFunction(string locationOfSourceFiles,
+                                                        string locationToCopyTo,
+                                                        int refreshTimeInterval)
         {
             try
             {
-                CleanUpLocationFunction(LocationToCopyTo,
-                                        RefreshTimeInterval);
+                CleanUpLocationFunction(locationToCopyTo,
+                                        refreshTimeInterval);
 
-                if (!Directory.Exists(LocationToCopyTo))
+                if (!Directory.Exists(locationToCopyTo))
                 {
-                    Directory.CreateDirectory(LocationToCopyTo);
+                    Directory.CreateDirectory(locationToCopyTo);
                 }
 
-                List<String> FilesInScanLocationList = Directory.GetFiles(LocationOfSourceFiles, "*.*", SearchOption.AllDirectories).ToList();
+                List<FileInfo> filesInScanLocationList = Directory.GetFiles(locationOfSourceFiles, "*.*", SearchOption.AllDirectories).Select(dd => new FileInfo(dd)).ToList();
 
-                FilesInScanLocationList.RemoveAll(ss => ss.Contains(RandomPlaylistLocation));
-                FilesInScanLocationList.RemoveAll(ss => ss.Contains(RecentlyAddedLocation));
+                filesInScanLocationList.RemoveAll(ss => ss.DirectoryName.Contains(RandomPlaylistLocation));
 
-                Random r = new Random();
-                while(Directory.GetFiles(LocationToCopyTo, "*.*", SearchOption.AllDirectories).Length < NumberOfRandomFiles)
+                filesInScanLocationList.RemoveAll(ss => ss.DirectoryName.Contains(RecentlyAddedLocation));
+
+                filesInScanLocationList.RemoveAll(ss => !FileIsVideoFile(ss.Extension));
+
+                List<FileInfo> randomFiles = GetRandomFiles(NumberOfRandomFiles, filesInScanLocationList).ToList();
+
+                foreach (FileInfo randomFile in randomFiles)
                 {
-                    string RandomFileName = FilesInScanLocationList[r.Next(FilesInScanLocationList.Count)];
-                    FileInfo InfoAboutFile = new FileInfo(RandomFileName);
-                    if (GetFileNames(Directory.GetFiles(LocationToCopyTo, "*.*", SearchOption.AllDirectories)).Contains(InfoAboutFile.Name))
+                    if (GetFileNames(Directory.GetFiles(locationToCopyTo, "*.*", SearchOption.AllDirectories)).Contains(randomFile.Name))
                     {
                         continue;
                     }
-                    if (!InfoAboutFile.Name.ToLower().Contains(".DS_Store".ToLower()) &&
-                        FileIsVideoFile(InfoAboutFile.Extension))
-                    {
-                        File.Copy(InfoAboutFile.FullName, Path.Combine(LocationToCopyTo, InfoAboutFile.Name));
-                    }
+
+                    File.Copy(randomFile.FullName, Path.Combine(locationToCopyTo, randomFile.Name));
                 }
             }
             catch (Exception e)

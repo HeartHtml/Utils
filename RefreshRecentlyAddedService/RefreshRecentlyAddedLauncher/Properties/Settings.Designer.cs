@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RefreshRecentlyAddedService.Properties {
+namespace RefreshRecentlyAddedLauncher.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -142,7 +142,7 @@ namespace RefreshRecentlyAddedService.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ILOVELUKEANDLEAH")]
+        [global::System.Configuration.DefaultSettingValueAttribute("317d7210-8e9a-4bdd-8e69-49d69311501c")]
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));
