@@ -234,11 +234,12 @@ namespace RefreshRecentlyAdded.Lib
                 filesInScanLocationList.RemoveAll(ss => ss.Contains(RandomPlaylistLocation));
                 filesInScanLocationList.RemoveAll(ss => ss.Contains(RecentlyAddedLocation));
 
+                List<FileInfo> fileInfos = filesInScanLocationList.Select(dd => new FileInfo(dd)).OrderByDescending(dd => dd.CreationTime).ToList();
+
                 int count = 1;
 
-                foreach (string currentFile in filesInScanLocationList)
+                foreach (FileInfo infoAboutFile in fileInfos)
                 {
-                    FileInfo infoAboutFile = new FileInfo(currentFile);
                     if (!infoAboutFile.Name.ToLower().Contains(".DS_Store".ToLower()) &&
                         FileIsVideoFile(infoAboutFile.Extension))
                     {
@@ -250,7 +251,7 @@ namespace RefreshRecentlyAdded.Lib
                         if (infoAboutFile.CreationTime >= DateTime.Today.AddDays(refreshTimeInterval * -1) &&
                             infoAboutFile.CreationTime <= DateTime.Today.AddDays(1).AddMilliseconds(-1))
                         {
-                            string originalPath = currentFile;
+                            string originalPath = infoAboutFile.FullName;
 
                             string newPath = Path.Combine(locationToCopyTo, string.Format("{0}-{1}", count, infoAboutFile.Name));
 
@@ -288,7 +289,7 @@ namespace RefreshRecentlyAdded.Lib
                 {
                     ApiKey = ApiKey,
                     Base = 10,
-                    Max = files.Count,
+                    Max = files.Count - 1,
                     Min = 0,
                     N = numberOfRandomFiles,
                     Replacement = true
@@ -339,18 +340,6 @@ namespace RefreshRecentlyAdded.Lib
 
                 foreach (FileInfo randomFile in randomFiles)
                 {
-                    int fileCount = Directory.GetFiles(locationToCopyTo, "*.*", SearchOption.AllDirectories).Count(dd => FileIsVideoFile(new FileInfo(dd).Extension));
-
-                    if (fileCount >= NumberOfRandomFiles)
-                    {
-                        break;
-                    }
-
-                    if (GetFileNames(Directory.GetFiles(locationToCopyTo, "*.*", SearchOption.AllDirectories)).Contains(randomFile.Name))
-                    {
-                        continue;
-                    }
-
                     string originalPath = randomFile.FullName;
 
                     string newPath = Path.Combine(locationToCopyTo, string.Format("{0}-{1}", count, randomFile.Name));
