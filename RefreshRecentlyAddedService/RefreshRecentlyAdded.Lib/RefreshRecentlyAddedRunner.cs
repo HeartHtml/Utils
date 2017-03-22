@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -68,6 +69,15 @@ namespace RefreshRecentlyAdded.Lib
         public string RandomPlaylistLocation { get; set; }
 
         private Thread RefreshThread;
+
+        [DllImport("kernel32.dll")]
+        static extern bool CreateSymbolicLink(string lpSymlinkFileName, string lpTargetFileName, SymbolicLink dwFlags);
+
+        enum SymbolicLink
+        {
+            File = 0,
+            Directory = 1
+        }
 
         public RefreshRecentlyAddedRunner()
         {
@@ -179,28 +189,20 @@ namespace RefreshRecentlyAdded.Lib
             return validMovieFileExtensions;
         }
 
-        public void CleanUpLocationFunction(string LocationToCleanUp,
-                                            int RefreshTimeInterval)
+        public void CleanUpLocationFunction(string locationToCleanUp)
         {
             try
             {
-                if (!Directory.Exists(LocationToCleanUp))
+                if (!Directory.Exists(locationToCleanUp))
                 {
-                    Directory.CreateDirectory(LocationToCleanUp);
+                    Directory.CreateDirectory(locationToCleanUp);
                 }
 
-                string[] FilesInRecentlyAdded = Directory.GetFiles(LocationToCleanUp, "*.*", SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(locationToCleanUp, "*.*", SearchOption.AllDirectories);
 
-                foreach (string CurrentFile in FilesInRecentlyAdded)
+                foreach (string currentFile in files)
                 {
-                    FileInfo InfoAboutFile = new FileInfo(CurrentFile);
-                    if (!InfoAboutFile.Name.ToLower().Contains(".DS_Store".ToLower()))
-                    {
-                        if (DateTime.Today > InfoAboutFile.CreationTime.AddDays(RefreshTimeInterval).Date)
-                        {
-                            File.Delete(InfoAboutFile.FullName);
-                        }
-                    }
+                    File.Delete(currentFile);
                 }
             }
             catch (Exception e)
@@ -209,44 +211,52 @@ namespace RefreshRecentlyAdded.Lib
             }
         }
 
-        public void RefreshLocationFunction(string LocationOfSourceFiles,
-                                                 string LocationToCopyTo,
-                                                 int RefreshTimeInterval)
+        public void RefreshLocationFunction(string locationOfSourceFiles,
+                                                 string locationToCopyTo,
+                                                 int refreshTimeInterval)
         {
             try
             {
 
-                CleanUpLocationFunction(LocationToCopyTo,
-                                        RefreshTimeIntervalInDays);
+                CleanUpLocationFunction(locationToCopyTo);
 
-                if (!Directory.Exists(LocationToCopyTo))
+                if (!Directory.Exists(locationToCopyTo))
                 {
-                    Directory.CreateDirectory(LocationToCopyTo);
+                    Directory.CreateDirectory(locationToCopyTo);
                 }
 
-                string[] FilesInScanLocation = Directory.GetFiles(LocationOfSourceFiles, "*.*", SearchOption.AllDirectories);
-                string[] FilesInDestination = Directory.GetFiles(LocationToCopyTo, "*.*", SearchOption.AllDirectories);
+                string[] filesInScanLocation = Directory.GetFiles(locationOfSourceFiles, "*.*", SearchOption.AllDirectories);
+                string[] filesInDestination = Directory.GetFiles(locationToCopyTo, "*.*", SearchOption.AllDirectories);
 
-                List<String> FilesInScanLocationList = FilesInScanLocation.ToList();
-                List<String> FilesInDestinationList = GetFileNames(FilesInDestination);
+                List<String> filesInScanLocationList = filesInScanLocation.ToList();
+                List<String> filesInDestinationList = GetFileNames(filesInDestination);
 
-                FilesInScanLocationList.RemoveAll(ss => ss.Contains(RandomPlaylistLocation));
-                FilesInScanLocationList.RemoveAll(ss => ss.Contains(RecentlyAddedLocation));
+                filesInScanLocationList.RemoveAll(ss => ss.Contains(RandomPlaylistLocation));
+                filesInScanLocationList.RemoveAll(ss => ss.Contains(RecentlyAddedLocation));
 
-                foreach (string CurrentFile in FilesInScanLocationList)
+                int count = 1;
+
+                foreach (string currentFile in filesInScanLocationList)
                 {
-                    FileInfo InfoAboutFile = new FileInfo(CurrentFile);
-                    if (!InfoAboutFile.Name.ToLower().Contains(".DS_Store".ToLower()) &&
-                        FileIsVideoFile(InfoAboutFile.Extension))
+                    FileInfo infoAboutFile = new FileInfo(currentFile);
+                    if (!infoAboutFile.Name.ToLower().Contains(".DS_Store".ToLower()) &&
+                        FileIsVideoFile(infoAboutFile.Extension))
                     {
-                        if (FilesInDestinationList.Contains(InfoAboutFile.Name))
+                        if (filesInDestinationList.Contains(infoAboutFile.Name))
                         {
                             continue;
                         }
-                        if (InfoAboutFile.CreationTime >= DateTime.Today.AddDays(RefreshTimeInterval * -1) &&
-                            InfoAboutFile.CreationTime <= DateTime.Today.AddDays(1).AddMilliseconds(-1))
+
+                        if (infoAboutFile.CreationTime >= DateTime.Today.AddDays(refreshTimeInterval * -1) &&
+                            infoAboutFile.CreationTime <= DateTime.Today.AddDays(1).AddMilliseconds(-1))
                         {
-                            File.Copy(InfoAboutFile.FullName, Path.Combine(LocationToCopyTo, InfoAboutFile.Name));
+                            string originalPath = currentFile;
+
+                            string newPath = Path.Combine(locationToCopyTo, string.Format("{0}-{1}", count, infoAboutFile.Name));
+
+                            CreateSymbolicLink(newPath, originalPath, SymbolicLink.File);
+
+                            count++;
                         }
                     }
                 }
@@ -308,8 +318,7 @@ namespace RefreshRecentlyAdded.Lib
         {
             try
             {
-                CleanUpLocationFunction(locationToCopyTo,
-                                        refreshTimeInterval);
+                CleanUpLocationFunction(locationToCopyTo);
 
                 if (!Directory.Exists(locationToCopyTo))
                 {
@@ -324,16 +333,31 @@ namespace RefreshRecentlyAdded.Lib
 
                 filesInScanLocationList.RemoveAll(ss => !FileIsVideoFile(ss.Extension));
 
-                List<FileInfo> randomFiles = GetRandomFiles(NumberOfRandomFiles, filesInScanLocationList).ToList();
+                List<FileInfo> randomFiles = GetRandomFiles(NumberOfRandomFiles, filesInScanLocationList).OrderByDescending(dd => dd.CreationTime).ToList();
+
+                int count = 1;
 
                 foreach (FileInfo randomFile in randomFiles)
                 {
+                    int fileCount = Directory.GetFiles(locationToCopyTo, "*.*", SearchOption.AllDirectories).Count(dd => FileIsVideoFile(new FileInfo(dd).Extension));
+
+                    if (fileCount >= NumberOfRandomFiles)
+                    {
+                        break;
+                    }
+
                     if (GetFileNames(Directory.GetFiles(locationToCopyTo, "*.*", SearchOption.AllDirectories)).Contains(randomFile.Name))
                     {
                         continue;
                     }
 
-                    File.Copy(randomFile.FullName, Path.Combine(locationToCopyTo, randomFile.Name));
+                    string originalPath = randomFile.FullName;
+
+                    string newPath = Path.Combine(locationToCopyTo, string.Format("{0}-{1}", count, randomFile.Name));
+
+                    CreateSymbolicLink(newPath, originalPath, SymbolicLink.File);
+
+                    count++;
                 }
             }
             catch (Exception e)

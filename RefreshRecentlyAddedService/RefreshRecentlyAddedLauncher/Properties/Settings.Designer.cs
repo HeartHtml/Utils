@@ -25,15 +25,6 @@ namespace RefreshRecentlyAddedLauncher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int RefreshTimeIntervalInDays {
-            get {
-                return ((int)(this["RefreshTimeIntervalInDays"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("60000")]
         public int RefreshRateInSeconds {
             get {
@@ -146,6 +137,15 @@ namespace RefreshRecentlyAddedLauncher.Properties {
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int RefreshTimeIntervalInDays {
+            get {
+                return ((int)(this["RefreshTimeIntervalInDays"]));
             }
         }
     }
