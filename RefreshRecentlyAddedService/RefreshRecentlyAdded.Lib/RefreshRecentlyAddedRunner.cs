@@ -326,7 +326,7 @@ namespace RefreshRecentlyAdded.Lib
                     Directory.CreateDirectory(locationToCopyTo);
                 }
 
-                List<FileInfo> filesInScanLocationList = Directory.GetFiles(locationOfSourceFiles, "*.*", SearchOption.AllDirectories).Select(dd => new FileInfo(dd)).ToList();
+                List<FileInfo> filesInScanLocationList = Directory.GetFiles(locationOfSourceFiles, "*.*", SearchOption.AllDirectories).Select(dd => new FileInfo(dd)).OrderBy(dd => dd.Name).ToList();
 
                 filesInScanLocationList.RemoveAll(ss => ss.DirectoryName.Contains(RandomPlaylistLocation));
 
