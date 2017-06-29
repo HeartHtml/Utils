@@ -334,7 +334,7 @@ namespace RefreshRecentlyAdded.Lib
 
                 filesInScanLocationList.RemoveAll(ss => !FileIsVideoFile(ss.Extension));
 
-                List<FileInfo> randomFiles = GetRandomFiles(NumberOfRandomFiles, filesInScanLocationList).OrderByDescending(dd => dd.CreationTime).ToList();
+                List<FileInfo> randomFiles = GetRandomFiles(NumberOfRandomFiles, filesInScanLocationList).ToList();
 
                 int count = 1;
 
