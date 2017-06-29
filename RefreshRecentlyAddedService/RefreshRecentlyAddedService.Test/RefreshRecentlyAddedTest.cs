@@ -27,6 +27,12 @@ namespace RefreshRecentlyAddedService.Test
             string randomOrgEndpoint = Properties.Settings.Default.RandomOrgEndpoint;
             string apiKey = Properties.Settings.Default.ApiKey;
 
+            int minimumPlayCount = Properties.Settings.Default.MinimumPlayCount;
+
+            int randomPlayCountUntilDelete = Properties.Settings.Default.RandomFilePlayCountThresholdUntilDelete;
+
+            string dbPath = Properties.Settings.Default.DatabaseFilePath;
+
             RefreshRecentlyAddedRunner refresher = new RefreshRecentlyAddedRunner(
                     refreshTimeIntervalInDays,
                     refreshRateInSeconds,
@@ -41,7 +47,10 @@ namespace RefreshRecentlyAddedService.Test
                     runRecentlyAddedRoutine,
                     runRandomPlaylistRoutine,
                     randomOrgEndpoint,
-                    apiKey
+                    apiKey,
+                    minimumPlayCount,
+                    randomPlayCountUntilDelete,
+                    dbPath
                     );
 
             refresher.RefreshFiles();

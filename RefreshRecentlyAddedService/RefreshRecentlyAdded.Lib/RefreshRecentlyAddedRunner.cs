@@ -9,12 +9,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RefreshRecentlyAddedDataStore;
+using RefreshRecentlyAddedLogger;
 using RefreshRecentlyAddedService;
 
 namespace RefreshRecentlyAdded.Lib
 {
     public class RefreshRecentlyAddedRunner
     {
+
+        private readonly Logger _logger = new Logger();
 
         public string ValidMovieExtensions { get; set; }
 
@@ -68,6 +72,8 @@ namespace RefreshRecentlyAdded.Lib
 
         public string RandomPlaylistLocation { get; set; }
 
+        public RefreshRecentlyAddedDataStoreProvider DataStoreProvider { get; set; }
+
         private Thread RefreshThread;
 
         [DllImport("kernel32.dll")]
@@ -97,7 +103,10 @@ namespace RefreshRecentlyAdded.Lib
                                             bool runRecentlyAddedRoutine,
                                             bool runRandomPlaylistRoutine,
                                             string randomOrgEndpoint,
-                                            string apiKey)
+                                            string apiKey,
+                                            int minimumPlayCount,
+                                            int randomPlayCountUntilDelete,
+                                            string databaseLocation)
         {
             RandomPlaylistRefreshTimeIntervalInDays = randomPlaylistRefreshTimeIntervalInDays;
             RefreshTimeIntervalInDays = refreshTimeIntervalInDays;
@@ -113,6 +122,8 @@ namespace RefreshRecentlyAdded.Lib
             RunRandomPlaylistRoutine = runRandomPlaylistRoutine;
             RandomOrgEndpoint = randomOrgEndpoint;
             ApiKey = apiKey;
+            DataStoreProvider = new RefreshRecentlyAddedDataStoreProvider(databaseLocation, randomPlayCountUntilDelete, minimumPlayCount);
+
             RefreshThread = new Thread(RefreshFiles);
         }
 
@@ -140,6 +151,8 @@ namespace RefreshRecentlyAdded.Lib
                 CreateRandomFilesInLocationFunction(ScanLocation,
                     RandomPlaylistLocation,
                     RandomPlaylistRefreshTimeIntervalInDays);
+
+                DataStoreProvider.PersistDatabase();
             }
 
             if (RunRecentlyAddedRoutine)
@@ -155,15 +168,6 @@ namespace RefreshRecentlyAdded.Lib
             bool result = GetValidMovieFileExtensions().Contains(Extension);
 
             return result;
-        }
-
-        private void LogExceptionInEventViewer(Exception e)
-        {
-            if (!EventLog.SourceExists("RefreshRecentlyAdded"))
-            {
-                EventLog.CreateEventSource("RefreshRecentlyAdded", "FatalError");
-            }
-            EventLog.WriteEntry("RefreshRecentlyAdded", e.Message, EventLogEntryType.Error);
         }
 
         private List<string> GetFileNames(string[] Files)
@@ -207,7 +211,7 @@ namespace RefreshRecentlyAdded.Lib
             }
             catch (Exception e)
             {
-                LogExceptionInEventViewer(e);
+                _logger.LogException(e);
             }
         }
 
@@ -264,53 +268,60 @@ namespace RefreshRecentlyAdded.Lib
             }
             catch (Exception e)
             {
-                LogExceptionInEventViewer(e);
+                _logger.LogException(e);
             }
         }
 
         protected IEnumerable<FileInfo> GetRandomFiles(int numberOfRandomFiles, IEnumerable<FileInfo> allFiles)
         {
+            List<FileInfo> fileInfosToReturn = new List<FileInfo>();
+
             List<FileInfo> files = allFiles.ToList();
 
-            var httpClient = new HttpClient();
+            bool readyToReturn = false;
 
-            var requestMessage = new HttpRequestMessage()
-            {
-                RequestUri = new Uri(RandomOrgEndpoint),
-                Method = new HttpMethod("POST"),
-            };
+            int iterationMax = 1000;
 
-            RandomNumberRequest request = new RandomNumberRequest
+            int iterationCount = 0;
+
+            while (!readyToReturn && iterationCount < iterationMax)
             {
-                Id = 12546,
-                Method = "generateIntegers",
-                JsonRpc = "2.0",
-                Params = new RandomNumberRequestParams
+                Random generator = new Random();
+
+                List<int> indexes = new List<int>();
+
+                for (int i = 0; i < numberOfRandomFiles; i++)
                 {
-                    ApiKey = ApiKey,
-                    Base = 10,
-                    Max = files.Count - 1,
-                    Min = 0,
-                    N = numberOfRandomFiles,
-                    Replacement = true
+                    int randomIndex = generator.Next(0, files.Count);
+
+                    indexes.Add(randomIndex);
                 }
-            };
 
-            string requestContent = JsonConvert.SerializeObject(request);
+                List<FileInfo> fileInfos = indexes.Select(t => files[t]).ToList();
 
-            requestMessage.Content = new StringContent(requestContent);
+                foreach (FileInfo info in fileInfos)
+                {
+                    if (DataStoreProvider.IsFileAllowed(info.FullName))
+                    {
+                        fileInfosToReturn.Add(info);
+                    }
 
-            HttpResponseMessage responseMessage = Task.Run(() => httpClient.SendAsync(requestMessage)).Result;
+                    DataStoreProvider.IncreasePlayCount(info.FullName);
 
-            HttpContent content = responseMessage.Content;
+                    readyToReturn = fileInfosToReturn.Count == numberOfRandomFiles;
 
-            string randomOrgContent = Task.Run(() => content.ReadAsStringAsync()).Result;
+                    if (readyToReturn)
+                    {
+                        break;
+                    }
+                }
 
-            dynamic randomOrgResponse = JObject.Parse(randomOrgContent);
+                iterationCount++;
 
-            JArray indexes = randomOrgResponse.result.random.data;
+                Thread.Sleep(50);
+            }
 
-            return indexes.Select(t => files[t.Value<int>()]).ToList();
+            return fileInfosToReturn;
         }
 
         public void CreateRandomFilesInLocationFunction(string locationOfSourceFiles,
@@ -351,7 +362,7 @@ namespace RefreshRecentlyAdded.Lib
             }
             catch (Exception e)
             {
-                LogExceptionInEventViewer(e);
+                _logger.LogException(e);
             }
 
         }
