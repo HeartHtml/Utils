@@ -6,21 +6,23 @@ using System.Text;
 using System.Threading.Tasks;
 using UtilsLib.ExtensionMethods;
 
-namespace KbsSigner
+namespace TrussSigner
 {
-    public class KbsJob
+    public class TrussJob
     {
-        public string KbsFilePath { get; set; }
+        public string TrussJobFilePath { get; set; }
 
         public string DestinationFilePath { get; set; }
 
-        public KbsJobMetaData MetaData { get; set; }
+        public TrussJobMetaData MetaData { get; set; }
 
         public List<string> JobContents { get; set; } 
 
-        public KbsJob(string filePath, string metaDataFilePath)
+        public bool RemoveHeaderLine { get; set; }
+
+        public TrussJob(string filePath, string metaDataFilePath, bool removeHeaderLine = true)
         {
-            KbsFilePath = filePath;
+            TrussJobFilePath = filePath;
 
             FileInfo info = new FileInfo(filePath);
 
@@ -35,16 +37,20 @@ namespace KbsSigner
 
             DestinationFilePath = newPath;
 
+            RemoveHeaderLine = removeHeaderLine;
+
             ParseMetaData(metaDataFilePath);
 
             ParseLines();
         }
 
-        public KbsJob(string filePath, string metaDataFilePath, string destinationFilePath)
+        public TrussJob(string filePath, string metaDataFilePath, string destinationFilePath, bool removeHeaderLine = true)
         {
-            KbsFilePath = filePath;
+            TrussJobFilePath = filePath;
 
             DestinationFilePath = destinationFilePath;
+
+            RemoveHeaderLine = removeHeaderLine;
 
             ParseMetaData(metaDataFilePath);
 
@@ -55,17 +61,23 @@ namespace KbsSigner
         {
             try
             {
-                MetaData = new KbsJobMetaData(metaFilePath);
+                MetaData = new TrussJobMetaData(metaFilePath);
             }
             catch (Exception ex)
             {
-                MetaData = new KbsJobMetaData {ParseErrorMessage = ex.Message};
+                MetaData = new TrussJobMetaData {ParseErrorMessage = ex.Message};
             }
         }
 
         private void ParseLines()
         {
-            JobContents = File.ReadAllLines(KbsFilePath).ToList();
+            JobContents = File.ReadAllLines(TrussJobFilePath).ToList();
+
+            //Special case to deal with .pcl truss files
+            if (RemoveHeaderLine && TrussJobFilePath.Contains(".pcl"))
+            {
+                JobContents.RemoveAt(0);
+            }
         }
     }
 }

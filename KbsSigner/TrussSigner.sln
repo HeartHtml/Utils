@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KbsSigner", "KbsSigner\KbsSigner.csproj", "{528A63FB-54CF-4C8E-8429-B7BCB086C739}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrussSigner", "KbsSigner\TrussSigner.csproj", "{528A63FB-54CF-4C8E-8429-B7BCB086C739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KbsSigner.Test", "KbsSigner.Test\KbsSigner.Test.csproj", "{3EB03F2E-404B-4FF7-92CE-BAD05243B427}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrussSigner.Test", "KbsSigner.Test\TrussSigner.Test.csproj", "{3EB03F2E-404B-4FF7-92CE-BAD05243B427}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

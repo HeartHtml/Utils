@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 using iTextSharp.text;
 using UtilsLib.ExtensionMethods;
 
-namespace KbsSigner
+namespace TrussSigner
 {
 
-    public class KbsJobMetaData
+    public class TrussJobMetaData
     {
         public string MetaDataFilePath { get; set; }
 
-        public List<KbsJobMetaDataField> Fields { get; set; }
+        public List<TrussJobMetaDataField> Fields { get; set; }
 
         public string ParseErrorMessage { get; set; }
 
-        public KbsJobMetaData(string metaDataFilePath)
+        public TrussJobMetaData(string metaDataFilePath)
         {
             MetaDataFilePath = metaDataFilePath;
 
-            Fields = new List<KbsJobMetaDataField>();
+            Fields = new List<TrussJobMetaDataField>();
 
             if (!MetaDataFilePath.IsNullOrWhiteSpace())
             {
@@ -35,20 +35,20 @@ namespace KbsSigner
             }
         }
 
-        public KbsJobMetaData()
+        public TrussJobMetaData()
         {
 
         }
 
-        private KbsPoint DetermineFieldPosition(EnumJobMetaField fieldType)
+        private TrussPoint DetermineFieldPosition(EnumJobMetaField fieldType)
         {
-            KbsPoint point = null;
+            TrussPoint point = null;
 
             switch (fieldType)
             {
                 case EnumJobMetaField.ProjectNameAndAddress:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 160, 
                         Y = (float)675.5
@@ -58,7 +58,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.Lot:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 52, 
                         Y = 657
@@ -68,7 +68,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.Block:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 140,
                         Y = 657
@@ -78,7 +78,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.County:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 236,
                         Y = 657
@@ -88,7 +88,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.ContractorBuilder:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 126,
                         Y = 606
@@ -98,7 +98,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.Model:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 65,
                         Y = 591
@@ -108,7 +108,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.Elevation:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 254,
                         Y = 591
@@ -118,7 +118,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.Options:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 426,
                         Y = 591
@@ -128,7 +128,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.OccupancySingleFamily:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 495,
                         Y = 677
@@ -138,7 +138,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.OccupancyMultiFamily:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 495,
                         Y = 659
@@ -148,7 +148,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.OccupancyCommercial:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 495,
                         Y = 641
@@ -158,7 +158,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.DesignCriteria:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 147,
                         Y = 530
@@ -168,7 +168,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.RfTopChordLiveLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 538
@@ -178,7 +178,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.RfTopChordDeadLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 524 
@@ -188,7 +188,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.RfBottomChordLiveLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 510
@@ -198,7 +198,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.RfBottomChordDeadLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 497
@@ -208,7 +208,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.RfDurationFactor:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 484
@@ -218,7 +218,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.MeanHeight:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 470
@@ -228,7 +228,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.Exposure:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 339,
                         Y = 456
@@ -238,7 +238,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.FlrTopChordLiveLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 540,
                         Y = 538
@@ -248,7 +248,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.FlrTopChordDeadLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 540,
                         Y = 524
@@ -258,7 +258,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.FlrBottomChordLiveLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 540,
                         Y = 510
@@ -268,7 +268,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.FlrBottomChordDeadLoad:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 540,
                         Y = 497
@@ -278,7 +278,7 @@ namespace KbsSigner
                 }
                 case EnumJobMetaField.FlrDurationFactor:
                 {
-                    point = new KbsPoint
+                    point = new TrussPoint
                     {
                         X = 540,
                         Y = 483
@@ -299,7 +299,7 @@ namespace KbsSigner
 
             foreach (string line in metaLinesList)
             {
-                KbsJobMetaDataField field = new KbsJobMetaDataField();
+                TrussJobMetaDataField field = new TrussJobMetaDataField();
 
                 string[] splitValues = line.Split("=", trimElements: true, options: StringSplitOptions.None);
 

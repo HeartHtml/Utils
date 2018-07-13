@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KbsSigner
+namespace TrussSigner
 {
     public enum EnumJobMetaField
     {
@@ -59,17 +59,17 @@ namespace KbsSigner
         FlrDurationFactor
     }
 
-    public class KbsJobMetaDataField
+    public class TrussJobMetaDataField
     {
         public EnumJobMetaField FieldType { get; set; }
 
         public string FieldValue { get; set; }
 
-        public KbsPoint FieldPosition { get; set; }
+        public TrussPoint FieldPosition { get; set; }
 
-        public static KbsJobMetaDataField Create(EnumJobMetaField fieldType, string fieldValue)
+        public static TrussJobMetaDataField Create(EnumJobMetaField fieldType, string fieldValue)
         {
-            KbsJobMetaDataField field = new KbsJobMetaDataField
+            TrussJobMetaDataField field = new TrussJobMetaDataField
             {
                 FieldValue = fieldValue, 
                 FieldType = fieldType

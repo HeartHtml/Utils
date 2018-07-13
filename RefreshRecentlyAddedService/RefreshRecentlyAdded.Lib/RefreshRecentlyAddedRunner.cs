@@ -292,7 +292,7 @@ namespace RefreshRecentlyAdded.Lib
                     Max = files.Count - 1,
                     Min = 0,
                     N = numberOfRandomFiles,
-                    Replacement = true
+                    Replacement = false
                 }
             };
 

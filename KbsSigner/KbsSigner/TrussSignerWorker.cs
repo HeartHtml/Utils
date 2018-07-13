@@ -8,12 +8,12 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using UtilsLib.ExtensionMethods;
 
-namespace KbsSigner
+namespace TrussSigner
 {
 
-    public class KbsSignerWorker
+    public class TrussSignerWorker
     {
-        private int MaxKbsCounter
+        private int MaxTrussCounter
         {
             get
             {
@@ -21,7 +21,7 @@ namespace KbsSigner
             }
         }
 
-        private int InitialKbsCounter
+        private int InitialTrussCounter
         {
             get
             {
@@ -29,21 +29,21 @@ namespace KbsSigner
             }
         }
 
-        public KbsJob KbsJob { get; set; }
+        public TrussJob TrussJob { get; set; }
 
-        public KbsSignerWorker(KbsJob job)
+        public TrussSignerWorker(TrussJob job)
         {
-            KbsJob = job;
+            TrussJob = job;
         }
 
-        public KbsSignerWorker()
+        public TrussSignerWorker()
         {
             
         }
 
-        private int GetMaxKbsByPage(int currentPage)
+        private int GetMaxTrussByPage(int currentPage)
         {
-            return currentPage == 0 ? InitialKbsCounter : MaxKbsCounter;
+            return currentPage == 0 ? InitialTrussCounter : MaxTrussCounter;
         }
 
         private Rectangle DetermineDocumentSize()
@@ -93,9 +93,9 @@ namespace KbsSigner
             }
         }
 
-        private KbsPoint DetermineLineLocation(int index, int pageIndex)
+        private TrussPoint DetermineLineLocation(int index, int pageIndex)
         {
-            KbsPoint point = new KbsPoint();
+            TrussPoint point = new TrussPoint();
 
             decimal startingX = 50m;
 
@@ -149,7 +149,7 @@ namespace KbsSigner
         {
             Assembly currentAssembly = Assembly.GetExecutingAssembly();
 
-            string resourceTemplateName = string.Format("KbsSigner.PDF_Templates.Cover-{0}.pdf", pageNumber + 1);
+            string resourceTemplateName = string.Format("TrussSigner.PDF_Templates.Cover-{0}.pdf", pageNumber + 1);
 
             byte[] pdfContent;
 
@@ -181,7 +181,7 @@ namespace KbsSigner
 
         private void AppendMetaDataFields(PdfContentByte cb)
         {
-            foreach (KbsJobMetaDataField field in KbsJob.MetaData.Fields)
+            foreach (TrussJobMetaDataField field in TrussJob.MetaData.Fields)
             {
                 if (field.FieldPosition != null)
                 {
@@ -200,29 +200,29 @@ namespace KbsSigner
             }
         }
 
-        public void GenerateKbsSignedPdf()
+        public void GenerateTrussSignedPdf()
         {
-            if (KbsJob == null)
+            if (TrussJob == null)
             {
-                throw new NoNullAllowedException("Kbs job is required");
+                throw new NoNullAllowedException("Truss job is required");
             }
 
-            if (KbsJob.KbsFilePath.IsNullOrWhiteSpace())
+            if (TrussJob.TrussJobFilePath.IsNullOrWhiteSpace())
             {
-                throw new NoNullAllowedException("KbsFilePath is required");
+                throw new NoNullAllowedException("TrussJobFilePath is required");
             }
 
-            if (KbsJob.DestinationFilePath.IsNullOrWhiteSpace())
+            if (TrussJob.DestinationFilePath.IsNullOrWhiteSpace())
             {
                 throw new NoNullAllowedException("Destination file path is required");
             }
 
-            if (!File.Exists(KbsJob.KbsFilePath))
+            if (!File.Exists(TrussJob.TrussJobFilePath))
             {
-                throw new FileNotFoundException("Kbs file path is not a valid path", KbsJob.KbsFilePath);
+                throw new FileNotFoundException("Truss file path is not a valid path", TrussJob.TrussJobFilePath);
             }
 
-            List<string> kbsFileContents = File.ReadAllLines(KbsJob.KbsFilePath).ToList();
+            List<string> trussFileContents = TrussJob.JobContents;
 
             int lineCounter = 0;
 
@@ -232,7 +232,7 @@ namespace KbsSigner
 
             using (Document document = new Document(documentSize))
             {
-                FileStream fs = new FileStream(KbsJob.DestinationFilePath, FileMode.Create, FileAccess.Write);
+                FileStream fs = new FileStream(TrussJob.DestinationFilePath, FileMode.Create, FileAccess.Write);
 
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
@@ -240,15 +240,15 @@ namespace KbsSigner
 
                 PdfContentByte cb = writer.DirectContent;
 
-                foreach (string kbsLine in kbsFileContents)
+                foreach (string trussLine in trussFileContents)
                 {
-                    string[] splitKbsLine = kbsLine.Split("\\");
+                    string[] splittrussLine = trussLine.Split("\\");
 
-                    if (splitKbsLine.SafeAny())
+                    if (splittrussLine.SafeAny())
                     {
-                        string[] splitKbsName = splitKbsLine[splitKbsLine.Length - 1].Split(".");
+                        string[] splittrussName = splittrussLine[splittrussLine.Length - 1].Split(".");
 
-                        string kbsName = splitKbsName[0];
+                        string trussName = splittrussName[0];
 
                         BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
 
@@ -258,16 +258,16 @@ namespace KbsSigner
 
                         cb.BeginText();
 
-                        KbsPoint point = DetermineLineLocation(lineCounter, currentPage);
+                        TrussPoint point = DetermineLineLocation(lineCounter, currentPage);
 
                         // put the alignment and coordinates here
-                        cb.ShowTextAligned(0, kbsName, point.X, point.Y, 0);
+                        cb.ShowTextAligned(0, trussName, point.X, point.Y, 0);
 
                         cb.EndText();
 
                         lineCounter++;
 
-                        if (lineCounter == GetMaxKbsByPage(currentPage))
+                        if (lineCounter == GetMaxTrussByPage(currentPage))
                         {
                             lineCounter = 0;
 

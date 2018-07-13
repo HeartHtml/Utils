@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KbsSigner
+namespace TrussSigner
 {
-    public class KbsPoint
+    public class TrussPoint
     {
         public float X;
 

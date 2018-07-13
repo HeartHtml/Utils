@@ -7,8 +7,8 @@
     <ProjectGuid>{528A63FB-54CF-4C8E-8429-B7BCB086C739}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KbsSigner</RootNamespace>
-    <AssemblyName>KbsSigner</AssemblyName>
+    <RootNamespace>TrussSigner</RootNamespace>
+    <AssemblyName>TrussSigner</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,11 +54,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KbsJob.cs" />
-    <Compile Include="KbsJobMetaData.cs" />
-    <Compile Include="KbsJobMetaDataField.cs" />
-    <Compile Include="KbsPoint.cs" />
-    <Compile Include="KbsSignerWorker.cs" />
+    <Compile Include="TrussJob.cs" />
+    <Compile Include="TrussJobMetaData.cs" />
+    <Compile Include="TrussJobMetaDataField.cs" />
+    <Compile Include="TrussPoint.cs" />
+    <Compile Include="TrussSignerWorker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
