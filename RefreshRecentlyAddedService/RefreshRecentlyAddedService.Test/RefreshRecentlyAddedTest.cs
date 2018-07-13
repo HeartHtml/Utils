@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RefreshRecentlyAdded.Lib;
 
@@ -10,39 +11,14 @@ namespace RefreshRecentlyAddedService.Test
         [TestMethod]
         public void TestRandomFileGenerator()
         {
-            string[] recentlyAddedLocations = Properties.Settings.Default.RecentlyAddedLocation.Split('|');
-            string[] scanLocations = Properties.Settings.Default.ScanLocations.Split('|');
-            string[] randomPlayListLocations = Properties.Settings.Default.RandomPlaylistLocation.Split('|');
+            RefreshRecentlyAddedArgsBuilder builder = new RefreshRecentlyAddedArgsBuilder();
 
-            int refreshTimeIntervalInDays = Properties.Settings.Default.RefreshTimeIntervalInDays;
-            int refreshRateInSeconds = Properties.Settings.Default.RefreshRateInSeconds;
-            int randomPlayListRefreshTime = Properties.Settings.Default.RandomPlaylistRefreshTimeIntervalInDays;
-            int numberOfRandomFiles = Properties.Settings.Default.NumberOfRandomFiles;
+            Configuration config =
+                ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-            string validMovieExtensions = Properties.Settings.Default.ValidMovieExtensions;
-            bool debug = Properties.Settings.Default.Debug;
-            int debugWaitTime = Properties.Settings.Default.DebugWaitTime;
-            bool runRecentlyAddedRoutine = Properties.Settings.Default.RunRecentlyAddedRoutine;
-            bool runRandomPlaylistRoutine = Properties.Settings.Default.RunRandomPlaylistRoutine;
-            string randomOrgEndpoint = Properties.Settings.Default.RandomOrgEndpoint;
-            string apiKey = Properties.Settings.Default.ApiKey;
+            RefreshRecentlyAddedArgs refreshArgs = builder.Build(config.AppSettings.Settings);
 
-            RefreshRecentlyAddedRunner refresher = new RefreshRecentlyAddedRunner(
-                    refreshTimeIntervalInDays,
-                    refreshRateInSeconds,
-                    randomPlayListRefreshTime,
-                    numberOfRandomFiles,
-                    recentlyAddedLocations[0],
-                    scanLocations[0],
-                    randomPlayListLocations[0],
-                    validMovieExtensions,
-                    debug,
-                    debugWaitTime,
-                    runRecentlyAddedRoutine,
-                    runRandomPlaylistRoutine,
-                    randomOrgEndpoint,
-                    apiKey
-                    );
+            RefreshRecentlyAddedRunner refresher = new RefreshRecentlyAddedRunner(refreshArgs);
 
             refresher.RefreshFiles();
         }
