@@ -41,8 +41,8 @@ namespace RefreshRecentlyAddedService.Test
                     runRecentlyAddedRoutine,
                     runRandomPlaylistRoutine,
                     randomOrgEndpoint,
-                    apiKey
-                    );
+                    apiKey,
+                    true);
 
             refresher.RefreshFiles();
         }

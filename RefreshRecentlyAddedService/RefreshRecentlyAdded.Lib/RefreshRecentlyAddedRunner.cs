@@ -68,6 +68,8 @@ namespace RefreshRecentlyAdded.Lib
 
         public string RandomPlaylistLocation { get; set; }
 
+        public bool UseInternalRandomizationAlgorithm { get; set; }
+
         private Thread RefreshThread;
 
         [DllImport("kernel32.dll")]
@@ -97,7 +99,8 @@ namespace RefreshRecentlyAdded.Lib
                                             bool runRecentlyAddedRoutine,
                                             bool runRandomPlaylistRoutine,
                                             string randomOrgEndpoint,
-                                            string apiKey)
+                                            string apiKey,
+                                            bool useInternalRandomizationAlgorithm)
         {
             RandomPlaylistRefreshTimeIntervalInDays = randomPlaylistRefreshTimeIntervalInDays;
             RefreshTimeIntervalInDays = refreshTimeIntervalInDays;
@@ -113,6 +116,7 @@ namespace RefreshRecentlyAdded.Lib
             RunRandomPlaylistRoutine = runRandomPlaylistRoutine;
             RandomOrgEndpoint = randomOrgEndpoint;
             ApiKey = apiKey;
+            UseInternalRandomizationAlgorithm = useInternalRandomizationAlgorithm;
             RefreshThread = new Thread(RefreshFiles);
         }
 
@@ -272,6 +276,26 @@ namespace RefreshRecentlyAdded.Lib
         {
             List<FileInfo> files = allFiles.ToList();
 
+            if (UseInternalRandomizationAlgorithm)
+            {
+                int min = 0;
+
+                int max = files.Count - 1;
+
+                List<int> randomIndexes = new List<int>();
+
+                Random r = new Random();
+
+                for (int i = 0; i < numberOfRandomFiles; i++)
+                {
+                    int randomIndex = r.Next(min, max);
+
+                    randomIndexes.Add(randomIndex);
+                }
+
+                return randomIndexes.Select(dd => files[dd]).ToList();
+            }
+
             var httpClient = new HttpClient();
 
             var requestMessage = new HttpRequestMessage()
@@ -282,6 +306,7 @@ namespace RefreshRecentlyAdded.Lib
 
             RandomNumberRequest request = new RandomNumberRequest
             {
+
                 Id = 12546,
                 Method = "generateIntegers",
                 JsonRpc = "2.0",

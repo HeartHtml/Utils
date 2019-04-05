@@ -1,0 +1,3346 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop>
+    <objectbank xmlns:d2l_2p0="http://desire2learn.com/xsd/d2lcp_v2p0" ident="QLIB_8440">
+    <section d2l_2p0:id="1" ident="SECT_1987713" title="Post_Test Exam">
+        <presentation_material>
+            <flow_mat>
+                <flow_mat>
+                    <material>
+                        <mattext texttype="text/html"/>
+                    </material>
+                </flow_mat>
+            </flow_mat>
+        </presentation_material>
+        <sectionproc_extension>
+            <d2l_2p0:display_section_name>yes</d2l_2p0:display_section_name>
+            <d2l_2p0:display_section_line>no</d2l_2p0:display_section_line>
+            <d2l_2p0:type_display_section>0</d2l_2p0:type_display_section>
+        </sectionproc_extension>
+        <item d2l_2p0:id="2" ident="OBJ_1987714" label="QUES_249382_249416" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>5873a954-ea91-42c3-a61f-0dac5d505860</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-1</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The professions of pharmacy and medicine began to split during the</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249382_249416_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249382_249416_A994304">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Medieval era.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249382_249416_A994305">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Renaissance.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249382_249416_A994306">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Revolutionary War.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249382_249416_A994307">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">War of 1812.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249382_249416_LID">QUES_249382_249416_A994304</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249382_249416_IF994304"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249382_249416_LID">QUES_249382_249416_A994305</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249382_249416_IF994305"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249382_249416_LID">QUES_249382_249416_A994306</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249382_249416_IF994306"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249382_249416_LID">QUES_249382_249416_A994307</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249382_249416_IF994307"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249382_249416_IF994304">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249382_249416_IF994305">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249382_249416_IF994306">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249382_249416_IF994307">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="3" ident="OBJ_1987715" label="QUES_249383_249417" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>41a4fb4e-6818-4a00-a775-42018d05cfe1</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-2</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">&lt;p&gt; The term &lt;em&gt;pharmacist &lt;/em&gt;was first used by&lt;/p&gt; </mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249383_249417_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249383_249417_A994308">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Edward Parrish.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249383_249417_A994309">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Louis Pasteur.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249383_249417_A994310">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">John Dalton.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249383_249417_A994311">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Johannes Kepler.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249383_249417_LID">QUES_249383_249417_A994308</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249383_249417_IF994308"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249383_249417_LID">QUES_249383_249417_A994309</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249383_249417_IF994309"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249383_249417_LID">QUES_249383_249417_A994310</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249383_249417_IF994310"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249383_249417_LID">QUES_249383_249417_A994311</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249383_249417_IF994311"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249383_249417_IF994308">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249383_249417_IF994309">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249383_249417_IF994310">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249383_249417_IF994311">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="4" ident="OBJ_1987716" label="QUES_249384_249418" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>64ff4008-26a7-4934-9022-4870ba299e0c</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-3</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The Medicare Prescription Drug Improvement and Modernization Act requires that patients covered by the act must _______ when they purchase medications.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249384_249418_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249384_249418_A994312">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">present a photo ID</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249384_249418_A994313">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">receive counseling</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249384_249418_A994314">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">verify drug allergies</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249384_249418_A994315">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">use only paper prescriptions</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249384_249418_LID">QUES_249384_249418_A994312</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249384_249418_IF994312"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249384_249418_LID">QUES_249384_249418_A994313</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249384_249418_IF994313"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249384_249418_LID">QUES_249384_249418_A994314</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249384_249418_IF994314"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249384_249418_LID">QUES_249384_249418_A994315</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249384_249418_IF994315"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249384_249418_IF994312">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249384_249418_IF994313">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249384_249418_IF994314">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249384_249418_IF994315">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="5" ident="OBJ_1987717" label="QUES_249385_249419" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>75d3cfaf-1c21-402e-8265-50554e6c9fb4</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-4</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">An enlarged liver is referred to as</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249385_249419_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249385_249419_A994316">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">rhinorrhea.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249385_249419_A994317">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">peristalsis.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249385_249419_A994318">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">hepatomegaly.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249385_249419_A994319">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">hepatitis.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249385_249419_LID">QUES_249385_249419_A994316</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249385_249419_IF994316"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249385_249419_LID">QUES_249385_249419_A994317</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249385_249419_IF994317"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249385_249419_LID">QUES_249385_249419_A994318</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249385_249419_IF994318"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249385_249419_LID">QUES_249385_249419_A994319</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249385_249419_IF994319"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249385_249419_IF994316">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249385_249419_IF994317">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249385_249419_IF994318">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249385_249419_IF994319">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="6" ident="OBJ_1987718" label="QUES_249386_249420" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>e92212ef-a50a-4b3f-b10f-d8818e336c18</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-5</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The abbreviation for "take twice daily" is</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249386_249420_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249386_249420_A994320">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">qd.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249386_249420_A994321">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">bid.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249386_249420_A994322">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">TID.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249386_249420_A994323">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">QID.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249386_249420_LID">QUES_249386_249420_A994320</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249386_249420_IF994320"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249386_249420_LID">QUES_249386_249420_A994321</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249386_249420_IF994321"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249386_249420_LID">QUES_249386_249420_A994322</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249386_249420_IF994322"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249386_249420_LID">QUES_249386_249420_A994323</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249386_249420_IF994323"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249386_249420_IF994320">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249386_249420_IF994321">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249386_249420_IF994322">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249386_249420_IF994323">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="7" ident="OBJ_1987719" label="QUES_249387_249421" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>199fb699-17a2-41a9-a0f3-aba9fc600f3d</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-6</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">A pharmacy technician can provide services</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249387_249421_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249387_249421_A994324">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">only when authorized by a supervising pharmacist.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249387_249421_A994325">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">only when supervised by a pharmacy assistant.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249387_249421_A994326">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">when the supervising pharmacist is unable to come to work.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249387_249421_A994327">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">without supervision whenever the services are needed.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249387_249421_LID">QUES_249387_249421_A994324</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249387_249421_IF994324"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249387_249421_LID">QUES_249387_249421_A994325</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249387_249421_IF994325"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249387_249421_LID">QUES_249387_249421_A994326</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249387_249421_IF994326"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249387_249421_LID">QUES_249387_249421_A994327</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249387_249421_IF994327"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249387_249421_IF994324">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249387_249421_IF994325">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249387_249421_IF994326">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249387_249421_IF994327">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="8" ident="OBJ_1987720" label="QUES_249388_249422" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>f9a39086-8ab4-4d7f-a251-81681c7c8cc5</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-7</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">Tylenol® with Codeine (acetaminophen/codeine) is classified as a _______ on the controlled substance schedule.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249388_249422_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249388_249422_A994328">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">C-II</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249388_249422_A994329">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">C-III</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249388_249422_A994330">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">C-IV</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249388_249422_A994331">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">C-V</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249388_249422_LID">QUES_249388_249422_A994328</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249388_249422_IF994328"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249388_249422_LID">QUES_249388_249422_A994329</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249388_249422_IF994329"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249388_249422_LID">QUES_249388_249422_A994330</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249388_249422_IF994330"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249388_249422_LID">QUES_249388_249422_A994331</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249388_249422_IF994331"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249388_249422_IF994328">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249388_249422_IF994329">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249388_249422_IF994330">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249388_249422_IF994331">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="9" ident="OBJ_1987721" label="QUES_249389_249423" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>8855d528-3d00-4e0d-b043-82a07978959c</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-8</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The brand name for diclofenac is</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249389_249423_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249389_249423_A994332">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Cataflam®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249389_249423_A994333">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Chantex®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249389_249423_A994334">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Duragesic®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249389_249423_A994335">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Diazepam®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249389_249423_LID">QUES_249389_249423_A994332</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249389_249423_IF994332"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249389_249423_LID">QUES_249389_249423_A994333</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249389_249423_IF994333"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249389_249423_LID">QUES_249389_249423_A994334</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249389_249423_IF994334"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249389_249423_LID">QUES_249389_249423_A994335</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249389_249423_IF994335"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249389_249423_IF994332">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249389_249423_IF994333">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249389_249423_IF994334">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249389_249423_IF994335">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="10" ident="OBJ_1987722" label="QUES_249390_249424" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>21e16f96-ca3f-4f61-8657-9bc83f8e5b63</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-9</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">_______ is the brand name for a diuretic.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249390_249424_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249390_249424_A994336">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Atomoxetine®</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249390_249424_A994337">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Spironolactone®</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249390_249424_A994338">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Zebeta®</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249390_249424_A994339">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Aldactone®</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249390_249424_LID">QUES_249390_249424_A994336</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249390_249424_IF994336"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249390_249424_LID">QUES_249390_249424_A994337</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249390_249424_IF994337"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249390_249424_LID">QUES_249390_249424_A994338</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249390_249424_IF994338"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249390_249424_LID">QUES_249390_249424_A994339</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249390_249424_IF994339"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249390_249424_IF994336">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249390_249424_IF994337">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249390_249424_IF994338">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249390_249424_IF994339">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="11" ident="OBJ_1987723" label="QUES_249391_249425" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>aefd881a-15e2-444a-89a2-dc19b465026c</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-10</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The brand name for famotidine is</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249391_249425_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249391_249425_A994340">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Zantac®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249391_249425_A994341">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Pepcid®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249391_249425_A994342">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Prevacid®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249391_249425_A994343">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Axid®.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249391_249425_LID">QUES_249391_249425_A994340</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249391_249425_IF994340"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249391_249425_LID">QUES_249391_249425_A994341</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249391_249425_IF994341"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249391_249425_LID">QUES_249391_249425_A994342</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249391_249425_IF994342"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249391_249425_LID">QUES_249391_249425_A994343</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249391_249425_IF994343"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249391_249425_IF994340">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249391_249425_IF994341">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249391_249425_IF994342">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249391_249425_IF994343">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="12" ident="OBJ_1987724" label="QUES_249392_249426" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>418d0f93-01e5-48f7-80a5-de660469569c</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-11</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The most popular oral drug dosage form is</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249392_249426_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249392_249426_A994344">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">capsules.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249392_249426_A994345">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">tablets.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249392_249426_A994346">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">aerosols.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249392_249426_A994347">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">liquids.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249392_249426_LID">QUES_249392_249426_A994344</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249392_249426_IF994344"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249392_249426_LID">QUES_249392_249426_A994345</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249392_249426_IF994345"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249392_249426_LID">QUES_249392_249426_A994346</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249392_249426_IF994346"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249392_249426_LID">QUES_249392_249426_A994347</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249392_249426_IF994347"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249392_249426_IF994344">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249392_249426_IF994345">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249392_249426_IF994346">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249392_249426_IF994347">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="13" ident="OBJ_1987725" label="QUES_249393_249427" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>cc57f899-fa51-4a44-b50a-bbaeef59e9c9</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-12</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">A homogenous, adhesive, semisolid preparation with high viscosity is a/an</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249393_249427_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249393_249427_A994348">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">cream.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249393_249427_A994349">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">gel.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249393_249427_A994350">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">ointment.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249393_249427_A994351">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">lotion.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249393_249427_LID">QUES_249393_249427_A994348</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249393_249427_IF994348"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249393_249427_LID">QUES_249393_249427_A994349</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249393_249427_IF994349"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249393_249427_LID">QUES_249393_249427_A994350</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249393_249427_IF994350"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249393_249427_LID">QUES_249393_249427_A994351</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249393_249427_IF994351"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249393_249427_IF994348">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249393_249427_IF994349">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249393_249427_IF994350">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249393_249427_IF994351">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="14" ident="OBJ_1987726" label="QUES_249394_249428" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>c6fa8d2e-f7cf-4575-8c62-2bd903e99fca</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-13</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">The USAN stem for cholesterol-lowering agents is</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249394_249428_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249394_249428_A994352">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">&lt;p&gt;&lt;em&gt;–olol.&lt;/em&gt;&lt;/p&gt; </mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249394_249428_A994353">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">&lt;p&gt;&lt;em&gt;–afil.&lt;/em&gt;&lt;/p&gt; </mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249394_249428_A994354">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">&lt;p&gt;&lt;em&gt;–statin.&lt;/em&gt;&lt;/p&gt; </mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249394_249428_A994355">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">&lt;p&gt;&lt;em&gt;–vir.&lt;/em&gt;&lt;/p&gt; </mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249394_249428_LID">QUES_249394_249428_A994352</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249394_249428_IF994352"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249394_249428_LID">QUES_249394_249428_A994353</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249394_249428_IF994353"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249394_249428_LID">QUES_249394_249428_A994354</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249394_249428_IF994354"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249394_249428_LID">QUES_249394_249428_A994355</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249394_249428_IF994355"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249394_249428_IF994352">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249394_249428_IF994353">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249394_249428_IF994354">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249394_249428_IF994355">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="15" ident="OBJ_1987727" label="QUES_249395_249429" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>27174274-896c-4074-9dae-5f21ac14abbf</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-14</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">How many 2-tablespoon doses are in 4 bottles of medication containing 16 ounces each?</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249395_249429_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249395_249429_A994356">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">48 doses</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249395_249429_A994357">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">50 doses</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249395_249429_A994358">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">56 doses</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249395_249429_A994359">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">64 doses</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249395_249429_LID">QUES_249395_249429_A994356</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249395_249429_IF994356"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249395_249429_LID">QUES_249395_249429_A994357</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249395_249429_IF994357"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249395_249429_LID">QUES_249395_249429_A994358</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249395_249429_IF994358"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249395_249429_LID">QUES_249395_249429_A994359</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249395_249429_IF994359"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249395_249429_IF994356">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249395_249429_IF994357">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249395_249429_IF994358">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249395_249429_IF994359">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="16" ident="OBJ_1987728" label="QUES_249396_249430" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>f15b4ea0-d7b3-4070-9eb5-2e272b30a362</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-15</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">A pharmacy technician has been given 100 milliliters of a 25% solution and been asked to dilute the solution to 500 milliliters with sterile water. She has also been asked to label the solution. What percentage should appear on the label?</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249396_249430_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249396_249430_A994360">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">20%</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249396_249430_A994361">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">12.5%</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249396_249430_A994362">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">5%</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249396_249430_A994363">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">2.5%</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249396_249430_LID">QUES_249396_249430_A994360</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249396_249430_IF994360"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249396_249430_LID">QUES_249396_249430_A994361</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249396_249430_IF994361"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249396_249430_LID">QUES_249396_249430_A994362</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249396_249430_IF994362"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249396_249430_LID">QUES_249396_249430_A994363</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249396_249430_IF994363"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249396_249430_IF994360">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249396_249430_IF994361">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249396_249430_IF994362">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249396_249430_IF994363">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="17" ident="OBJ_1987729" label="QUES_249397_249431" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>3793e8fd-e3d7-4a40-9463-06febfbc89fd</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-16</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">A physician orders a patient to receive 1.25 milligrams of conjugated estrogen per day. You have conjugated estrogens in 0.625-milligram tablets. How many 0.625-milligram tablets must be given daily?</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249397_249431_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249397_249431_A994364">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">1 tablet</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249397_249431_A994365">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">2 tablets</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249397_249431_A994366">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">3 tablets</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249397_249431_A994367">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">4 tablets</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249397_249431_LID">QUES_249397_249431_A994364</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249397_249431_IF994364"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249397_249431_LID">QUES_249397_249431_A994365</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249397_249431_IF994365"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249397_249431_LID">QUES_249397_249431_A994366</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249397_249431_IF994366"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249397_249431_LID">QUES_249397_249431_A994367</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249397_249431_IF994367"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249397_249431_IF994364">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249397_249431_IF994365">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249397_249431_IF994366">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249397_249431_IF994367">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="18" ident="OBJ_1987730" label="QUES_249398_249432" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>cd458a6a-3a2e-4814-afe0-a8659f3b5ed7</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-17</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">ß-lactams work by interfering with enzymes that bacteria use to</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249398_249432_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249398_249432_A994368">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">build their cell walls.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249398_249432_A994369">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">provide energy for the cell.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249398_249432_A994370">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">provide a mechanism of movement.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249398_249432_A994371">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">synthesize proteins.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249398_249432_LID">QUES_249398_249432_A994368</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249398_249432_IF994368"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249398_249432_LID">QUES_249398_249432_A994369</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249398_249432_IF994369"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249398_249432_LID">QUES_249398_249432_A994370</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249398_249432_IF994370"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249398_249432_LID">QUES_249398_249432_A994371</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249398_249432_IF994371"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249398_249432_IF994368">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249398_249432_IF994369">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249398_249432_IF994370">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249398_249432_IF994371">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="19" ident="OBJ_1987731" label="QUES_249399_249433" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>79b83aeb-f0b6-448f-a686-3083d75de5a4</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-18</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">Mood disorder drugs work by increasing the concentration of _______ neurotransmitters.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249399_249433_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249399_249433_A994372">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">lithium</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249399_249433_A994373">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">heterocyclic</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249399_249433_A994374">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">norepinephrine</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249399_249433_A994375">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">cholinesterase</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249399_249433_LID">QUES_249399_249433_A994372</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249399_249433_IF994372"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249399_249433_LID">QUES_249399_249433_A994373</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249399_249433_IF994373"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249399_249433_LID">QUES_249399_249433_A994374</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249399_249433_IF994374"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249399_249433_LID">QUES_249399_249433_A994375</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249399_249433_IF994375"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249399_249433_IF994372">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249399_249433_IF994373">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249399_249433_IF994374">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249399_249433_IF994375">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="20" ident="OBJ_1987732" label="QUES_249400_249434" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>10c441bf-3b02-449d-b11b-7fb036a2f8fa</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-19</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">_______ is used to treat Parkinson's disease.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249400_249434_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249400_249434_A994376">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Levodopa</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249400_249434_A994377">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Penicillin G</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249400_249434_A994378">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Desvenlafaxine</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249400_249434_A994379">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Imipramine</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249400_249434_LID">QUES_249400_249434_A994376</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249400_249434_IF994376"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249400_249434_LID">QUES_249400_249434_A994377</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249400_249434_IF994377"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249400_249434_LID">QUES_249400_249434_A994378</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249400_249434_IF994378"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249400_249434_LID">QUES_249400_249434_A994379</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249400_249434_IF994379"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249400_249434_IF994376">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249400_249434_IF994377">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249400_249434_IF994378">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249400_249434_IF994379">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="21" ident="OBJ_1987733" label="QUES_249401_249435" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>04d480cd-f6f3-439b-9a31-329f6c1a4914</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-20</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">_______ is/are an example of an absorbent powder.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249401_249435_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249401_249435_A994380">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Calcium carbonate</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249401_249435_A994381">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Kaopectate®</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249401_249435_A994382">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Magnesium and aluminum salts</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249401_249435_A994383">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Esomeprazole</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249401_249435_LID">QUES_249401_249435_A994380</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249401_249435_IF994380"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249401_249435_LID">QUES_249401_249435_A994381</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249401_249435_IF994381"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249401_249435_LID">QUES_249401_249435_A994382</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249401_249435_IF994382"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249401_249435_LID">QUES_249401_249435_A994383</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249401_249435_IF994383"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249401_249435_IF994380">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249401_249435_IF994381">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249401_249435_IF994382">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249401_249435_IF994383">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="22" ident="OBJ_1987734" label="QUES_249402_249436" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>4e0f83d1-3132-4cae-809d-2c758932dc5b</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-21</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">Phenazopyridine (Pyridium®) is used to treat</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249402_249436_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249402_249436_A994384">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">burning pain encountered during urination.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249402_249436_A994385">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">urine overflow in which the bladder doesn't fully empty.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249402_249436_A994386">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">bladder outlet obstruction.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249402_249436_A994387">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">prostate enlargement.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249402_249436_LID">QUES_249402_249436_A994384</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249402_249436_IF994384"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249402_249436_LID">QUES_249402_249436_A994385</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249402_249436_IF994385"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249402_249436_LID">QUES_249402_249436_A994386</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249402_249436_IF994386"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249402_249436_LID">QUES_249402_249436_A994387</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249402_249436_IF994387"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249402_249436_IF994384">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249402_249436_IF994385">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249402_249436_IF994386">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249402_249436_IF994387">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="23" ident="OBJ_1987735" label="QUES_249403_249437" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>c3e0421a-ca74-482d-92ac-159e7e9ba08b</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-22</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">_______ is an ACE inhibitor.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249403_249437_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249403_249437_A994388">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Chlorothiazide</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249403_249437_A994389">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Furosemide</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249403_249437_A994390">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Captopril</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249403_249437_A994391">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Spironolactone</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249403_249437_LID">QUES_249403_249437_A994388</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249403_249437_IF994388"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249403_249437_LID">QUES_249403_249437_A994389</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249403_249437_IF994389"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249403_249437_LID">QUES_249403_249437_A994390</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249403_249437_IF994390"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249403_249437_LID">QUES_249403_249437_A994391</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249403_249437_IF994391"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249403_249437_IF994388">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249403_249437_IF994389">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249403_249437_IF994390">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249403_249437_IF994391">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="24" ident="OBJ_1987736" label="QUES_249404_249438" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>082bcd67-2472-4267-aa4a-01a994260f44</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-23</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">_______ is an antiestrogen that stimulates ovarian function and can be used to treat infertility.</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249404_249438_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249404_249438_A994392">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Estradiol</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249404_249438_A994393">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Testosterone</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249404_249438_A994394">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Clomiphene</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249404_249438_A994395">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">Tamoxifen</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249404_249438_LID">QUES_249404_249438_A994392</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249404_249438_IF994392"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249404_249438_LID">QUES_249404_249438_A994393</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249404_249438_IF994393"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249404_249438_LID">QUES_249404_249438_A994394</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249404_249438_IF994394"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249404_249438_LID">QUES_249404_249438_A994395</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249404_249438_IF994395"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249404_249438_IF994392">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249404_249438_IF994393">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249404_249438_IF994394">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249404_249438_IF994395">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="25" ident="OBJ_1987737" label="QUES_249405_249439" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>60fdc398-3840-4e32-88ee-fb9eb1e8741e</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-24</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">Cytotoxic drugs work to</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249405_249439_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249405_249439_A994396">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">prevent hair loss during chemotherapy.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249405_249439_A994397">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">block or stop cell replication.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249405_249439_A994398">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">treat tumors that are sensitive to hormones.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249405_249439_A994399">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">harness the body's natural defense system to treat cancer.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249405_249439_LID">QUES_249405_249439_A994396</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249405_249439_IF994396"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249405_249439_LID">QUES_249405_249439_A994397</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249405_249439_IF994397"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249405_249439_LID">QUES_249405_249439_A994398</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249405_249439_IF994398"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249405_249439_LID">QUES_249405_249439_A994399</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249405_249439_IF994399"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249405_249439_IF994396">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249405_249439_IF994397">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249405_249439_IF994398">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249405_249439_IF994399">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+        <item d2l_2p0:id="26" ident="OBJ_1987738" label="QUES_249406_249440" d2l_2p0:page="1" title="Multiple Choice">
+            <itemmetadata>
+                <qtimetadata>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_computerscored</fieldlabel>
+                        <fieldentry>yes</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_questiontype</fieldlabel>
+                        <fieldentry>Multiple Choice</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_weighting</fieldlabel>
+                        <fieldentry>4.000000000</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_globalid</fieldlabel>
+                        <fieldentry>b7a66f84-deff-4f15-a8cf-0de425db2bb6</fieldentry>
+                    </qti_metadatafield>
+                    <qti_metadatafield>
+                        <fieldlabel>qmd_displayid</fieldlabel>
+                        <fieldentry>PTV_20_1-25</fieldentry>
+                    </qti_metadatafield>
+                </qtimetadata>
+            </itemmetadata>
+            <itemproc_extension>
+                <d2l_2p0:difficulty>1</d2l_2p0:difficulty>
+                <d2l_2p0:isbonus>no</d2l_2p0:isbonus>
+                <d2l_2p0:ismandatory>no</d2l_2p0:ismandatory>
+            </itemproc_extension>
+            <presentation>
+                <flow>
+                    <material>
+                        <mattext texttype="text/html">Bortezomib is a/an</mattext>
+                    </material>
+                    <response_extension>
+                        <d2l_2p0:display_style>2</d2l_2p0:display_style>
+                        <d2l_2p0:enumeration>6</d2l_2p0:enumeration>
+                        <d2l_2p0:grading_type>0</d2l_2p0:grading_type>
+                    </response_extension>
+                    <response_lid ident="QUES_249406_249440_LID" rcardinality="Single">
+                        <render_choice shuffle="no">
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249406_249440_A994400">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">proteasome inhibitor.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249406_249440_A994401">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">kinase inhibitor.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249406_249440_A994402">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">selective serotonin reuptake inhibitors (SSRIs).</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                            <flow_label class="Block">
+                                <response_label ident="QUES_249406_249440_A994403">
+                                    <flow_mat>
+                                        <material>
+                                            <mattext texttype="text/plain">antibiotic.</mattext>
+                                        </material>
+                                    </flow_mat>
+                                </response_label>
+                            </flow_label>
+                        </render_choice>
+                    </response_lid>
+                </flow>
+            </presentation>
+            <resprocessing>
+                <respcondition title="Response Condition 1">
+                    <conditionvar>
+                        <varequal respident="QUES_249406_249440_LID">QUES_249406_249440_A994400</varequal>
+                    </conditionvar>
+                    <setvar action="Set">100.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249406_249440_IF994400"/>
+                </respcondition>
+                <respcondition title="Response Condition 2">
+                    <conditionvar>
+                        <varequal respident="QUES_249406_249440_LID">QUES_249406_249440_A994401</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249406_249440_IF994401"/>
+                </respcondition>
+                <respcondition title="Response Condition 3">
+                    <conditionvar>
+                        <varequal respident="QUES_249406_249440_LID">QUES_249406_249440_A994402</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249406_249440_IF994402"/>
+                </respcondition>
+                <respcondition title="Response Condition 4">
+                    <conditionvar>
+                        <varequal respident="QUES_249406_249440_LID">QUES_249406_249440_A994403</varequal>
+                    </conditionvar>
+                    <setvar action="Set">0.000000000</setvar>
+                    <displayfeedback feedbacktype="Response" linkrefid="QUES_249406_249440_IF994403"/>
+                </respcondition>
+            </resprocessing>
+            <itemfeedback ident="QUES_249406_249440_IF994400">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249406_249440_IF994401">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249406_249440_IF994402">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+            <itemfeedback ident="QUES_249406_249440_IF994403">
+                <material>
+                    <mattext texttype="text/plain"/>
+                </material>
+            </itemfeedback>
+        </item>
+    </section>
+</objectbank>
+</questestinterop>

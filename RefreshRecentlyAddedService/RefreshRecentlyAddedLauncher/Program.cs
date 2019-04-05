@@ -28,6 +28,8 @@ namespace RefreshRecentlyAddedLauncher
             string randomOrgEndpoint = Properties.Settings.Default.RandomOrgEndpoint;
             string apiKey = Properties.Settings.Default.ApiKey;
 
+            bool useInternalRandomizationAlgorithm = Properties.Settings.Default.UseInternalRandomizationAlgorithm;
+
             RefreshRecentlyAddedRunner refresher = new RefreshRecentlyAddedRunner(
                     refreshTimeIntervalInDays,
                     refreshRateInSeconds,
@@ -42,8 +44,8 @@ namespace RefreshRecentlyAddedLauncher
                     runRecentlyAddedRoutine,
                     runRandomPlaylistRoutine,
                     randomOrgEndpoint,
-                    apiKey
-                    );
+                    apiKey,
+                    useInternalRandomizationAlgorithm);
 
             refresher.RefreshFiles();
         }
