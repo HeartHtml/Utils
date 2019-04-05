@@ -1,48 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RefreshRecentlyAddedService.Test.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="RefreshTimeIntervalInDays" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">5</Value>
-    </Setting>
-    <Setting Name="RefreshRateInSeconds" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">60000</Value>
-    </Setting>
-    <Setting Name="RandomPlaylistRefreshTimeIntervalInDays" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
-    <Setting Name="DebugWaitTime" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">30000</Value>
-    </Setting>
-    <Setting Name="NumberOfRandomFiles" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">100</Value>
-    </Setting>
-    <Setting Name="ValidMovieExtensions" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">.mov|.wmv|.mp4|.avi|.mkv</Value>
-    </Setting>
-    <Setting Name="Debug" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="RecentlyAddedLocation" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\ortegafs01\n\Applications\Bins\Training\RecentlyAdded</Value>
-    </Setting>
-    <Setting Name="ScanLocations" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\ortegafs01\n\Applications\Bins\Training</Value>
-    </Setting>
-    <Setting Name="RandomPlaylistLocation" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\ortegafs01\n\Applications\Bins\Training\RandomPlaylist</Value>
-    </Setting>
-    <Setting Name="RunRandomPlaylistRoutine" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="RunRecentlyAddedRoutine" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="RandomOrgEndpoint" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://api.random.org/json-rpc/1/invoke</Value>
-    </Setting>
-    <Setting Name="ApiKey" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">317d7210-8e9a-4bdd-8e69-49d69311501c</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

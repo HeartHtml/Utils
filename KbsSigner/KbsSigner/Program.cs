@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 using NDesk.Options;
 using UtilsLib.ExtensionMethods;
 
-namespace KbsSigner
+namespace TrussSigner
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            string kbsPath = string.Empty;
+            string trussPath = string.Empty;
 
             string metaPath = string.Empty;
 
@@ -24,8 +24,8 @@ namespace KbsSigner
 
             OptionSet p = new OptionSet
             {
-                {"kbs=", "The path of the kbs formatted file.", v => kbsPath = v},
-                {"meta=", "(Optional) The path of the kbs meta data file.", v => metaPath = v},
+                {"truss=", "The path of the truss formatted file (kbs, pcl file).", v => trussPath = v},
+                {"meta=", "(Optional) The path of the meta data file.", v => metaPath = v},
                 {"open", "(Optional) Flag indicating whether to open the PDF file after creation.", v => open = !string.IsNullOrWhiteSpace(v)},
                 {"h|help", "Show this message and exit", v => showHelp = v != null },
             };
@@ -38,9 +38,9 @@ namespace KbsSigner
             }
             catch (Exception ex)
             {
-                Console.Write("KbsSigner: ");
+                Console.Write("TrussSigner: ");
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Try `KbsSigner --help' for more information.");
+                Console.WriteLine("Try `TrussSigner --help' for more information.");
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace KbsSigner
                     Console.WriteLine("Meta data file not supplied. Will not generate pdf with meta data.");
                 }
 
-                KbsJob job = new KbsJob(kbsPath, metaPath);
+                TrussJob job = new TrussJob(trussPath, metaPath);
 
                 if (!job.MetaData.ParseErrorMessage.IsNullOrWhiteSpace())
                 {
@@ -67,9 +67,9 @@ namespace KbsSigner
                     Console.WriteLine(job.MetaData.ParseErrorMessage);
                 }
 
-                KbsSignerWorker worker = new KbsSignerWorker(job);
+                TrussSignerWorker worker = new TrussSignerWorker(job);
                 
-                worker.GenerateKbsSignedPdf();
+                worker.GenerateTrussSignedPdf();
 
                 Console.WriteLine("Success! PDF file generated at {0}", job.DestinationFilePath);
 
@@ -92,8 +92,8 @@ namespace KbsSigner
 
         static void ShowHelp(OptionSet p)
         {
-            Console.WriteLine("Usage: KbsSigner [OPTIONS]+");
-            Console.WriteLine("Creates a PDF file from a kbs formatted text file.");
+            Console.WriteLine("Usage: TrussSigner [OPTIONS]+");
+            Console.WriteLine("Creates a PDF file from a truss formatted text file.");
             Console.WriteLine();
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
