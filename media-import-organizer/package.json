@@ -1,0 +1,21 @@
+{
+  "name": "media-import-organizer",
+  "version": "1.0.0",
+  "description": "Organizes files into date taken folders and renames them via date taken",
+  "main": "miorg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "moment": "^2.21.0",
+    "mv": "^2.1.1",
+    "rimraf": "^2.6.2",
+    "winston": "^2.4.0"
+  },
+  "bin": {
+    "miorg": "./miorg.js"
+  }
+}
