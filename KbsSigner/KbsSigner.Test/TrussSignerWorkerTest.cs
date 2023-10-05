@@ -9,9 +9,13 @@ namespace TrussSigner.Test
         [TestMethod]
         public void TrussSignerTest()
         {
-            const string pathToKbs = @"C:\TrussSignerTest\SampleTrussJob\All trusses Building 1.pcl";
+            const string pathToKbs = @"C:\Source\Utils\KbsSigner\KbsSigner\bin\Debug\testpcl.PCL";
 
-            TrussJob job = new TrussJob(pathToKbs, @"C:\TrussSignerTest\SampleTrussJob\CoverListTrusses.jobmeta", @"C:\TrussSignerTest\SampleTrussJob\TrussResult.pdf");
+            const string pathToMeta = @"C:\Source\Utils\KbsSigner\KbsSigner\bin\Debug\testmeta.jobmeta";
+
+            const string outputPath = @"C:\Source\Utils\KbsSigner\KbsSigner\bin\Debug\testpcl.pdf";
+
+            TrussJob job = new TrussJob(pathToKbs, pathToMeta, outputPath);
 
             TrussSignerWorker worker = new TrussSignerWorker(job);  
 

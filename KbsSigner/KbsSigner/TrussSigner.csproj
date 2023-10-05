@@ -67,6 +67,7 @@
     <EmbeddedResource Include="PDF-Templates\Cover-1.pdf" />
     <EmbeddedResource Include="PDF-Templates\Cover-2.pdf" />
     <EmbeddedResource Include="PDF-Templates\Cover-3.pdf" />
+    <None Include="PDF-Templates\Cover-4.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Third-Party-Libs\itextsharp.dll" />

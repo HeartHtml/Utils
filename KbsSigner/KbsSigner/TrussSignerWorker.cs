@@ -174,9 +174,11 @@ namespace TrussSigner
 
             PdfReader reader = new PdfReader(pdfContent);
 
+            float pageHeight = reader.GetPageSizeWithRotation(1).Height;
+
             PdfImportedPage page = writer.GetImportedPage(reader, 1);
 
-            content.AddTemplate(page, 0, 0);
+            content.AddTemplate(page, 0, -1f, 1f, 0, 0, pageHeight);
         }
 
         private void AppendMetaDataFields(PdfContentByte cb)
